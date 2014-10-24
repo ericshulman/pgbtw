@@ -1460,8 +1460,7 @@ if(!window || !window.console) {
 // Starting up
 function main()
 {
-// DISABLED FOR PHONEGAP
-//	window.originalHTML=recreateOriginal();
+	window.originalHTML=recreateOriginal();
 
 	var t10,t9,t8,t7,t6,t5,t4,t3,t2,t1,t0 = new Date();
 	startingUp = true;
@@ -6812,7 +6811,7 @@ function recreateOriginal()
 	content=content.replace(/<div id="saveTest">savetest<\/div>/,'<div id="saveTest"></div>');
 	content=content.replace(/script><applet [^\>]*><\/applet>/g,'script>');
 	content=content.replace(/><head>/,'>\n<head>');
-	content=content.replace(/\n\n<\/body><\/html>$/,'</body>\n</html>\n');
+	content=content.replace(/\n\n<\/body><\/html>$/,'</'+'body>\n</'+'html>\n');
 	content=content.replace(/(<(meta) [^\>]*[^\/])>/g,'$1 />');
 	content=content.replace(/<noscript>[^\<]*<\/noscript>/,
 		function(m){return m.replace(/&lt;/g,'<').replace(/&gt;/g,'>');});
