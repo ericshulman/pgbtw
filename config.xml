@@ -25,7 +25,6 @@
     <gap:platform name="winphone" />
 -->
 
-<preference name="phonegap-version" value="default" /> <!-- 3.0.0 through 3.7.0 -->
 <preference name="orientation"      value="default" /> <!-- portrait, landscape -->
 <preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
 <preference name="fullscreen"       value="true"    />
