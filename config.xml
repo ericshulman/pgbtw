@@ -6,24 +6,26 @@
         versionCode   = "10" 
         version       = "0.1.0" >
 
-    <name>TiddlyWiki 5</name>
+<name>
+    TiddlyWiki 5
+</name>
 
-    <description>
-        TiddlyWiki 5 with PhoneGap
-    </description>
+<description>
+    TiddlyWiki 5 with PhoneGap
+</description>
 
-    <author href="http://tiddlywiki.com" email="elsdesign@gmail.com">
-        Eric Shulman
-    </author>
+<author href="http://tiddlywiki.com" email="elsdesign@gmail.com">
+    Eric Shulman
+</author>
 
-    <gap:platform name="android" />
+<gap:platform name="android" />
 <!--
-    <gap:platform name="ios">
-    <gap:platform name="webos" / >
-    <gap:platform name="symbian" />
-    <gap:platform name="blackberry" />
-    <gap:platform name="winphone" />
+<gap:platform name="ios">
 -->
+
+<icon src="icon.png" />
+
+<gap:splash src="splash.png" />
 
 <preference name="orientation"      value="default" /> <!-- portrait, landscape -->
 <preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
@@ -35,7 +37,7 @@
     android:largeScreens="true" 
     android:xlargeScreens="true" />
 
-    <preference name="permissions" value="none"/>
+<preference name="permissions" value="none"/>
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
 <!--
     <feature name="http://api.phonegap.com/1.0/media"/>
