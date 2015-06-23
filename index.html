@@ -156,8 +156,6 @@ Error message and password prompt
 
 <li>ELS/StyleSheet/Shortcuts</li>
 
-<li>GPSTestData</li>
-
 <li>TestGPS</li>
 
 </ul>
@@ -5673,7 +5671,7 @@ Error message and password prompt
 <div modified="20150623204407861" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="$:/ControlPanel TestGPS GPSTestData" title="$:/StoryList">
+<div list="TestGPS" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150623222257410" modified="20150623222306274" title="$:/temp/advancedsearch">
@@ -5965,36 +5963,9 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150623225417544" modified="20150623225417544" title="GPSTestData" type="application/json">
-<pre>{
-    &quot;errorcode&quot;: 1,
-    &quot;errormessage&quot;: &quot;User denied Geolocation&quot;
-}</pre>
-</div>
-<div created="20150623211607895" modified="20150623225254700" tags="" title="TestGPS">
-<pre>\define ShowData(tid)
-[[$tid$]]&lt;br&gt;
-&lt;$set name=&quot;tv-wikilinks&quot; value=&quot;no&quot;&gt;
-
-&lt;&lt;&lt;
-&lt;table class=&quot;borderless&quot;&gt;
-&lt;$list filter=&quot;[title[$tid$]indexes[]]&quot; variable=&quot;i&quot;
-   emptyMessage=&quot;&quot;&quot;
-   &lt;$edit-text tag=&quot;input&quot; size=&quot;50&quot; tiddler=&quot;$tid$&quot;/&gt;
-   &quot;&quot;&quot;&gt;
-   &lt;tr&gt;
-   &lt;td align=&quot;right&quot;&gt;&lt;nobr&gt;&lt;&lt;i&gt;&gt;&lt;/nobr&gt;&amp;nbsp;&lt;/td&gt;
-   &lt;td&gt;&lt;$edit-text tag=&quot;input&quot; size=&quot;50&quot; tiddler=&quot;$tid$&quot; index=&lt;&lt;i&gt;&gt;/&gt;&lt;/td&gt;
-   &lt;/tr&gt;
-&lt;/$list&gt;
-&lt;/table&gt;
-&lt;&lt;&lt;
-&lt;/$set&gt;
-\end
-
-&lt;$gps tiddler=&quot;GPSTestData&quot; age=&quot;1000&quot; timeout=&quot;5000&quot; /&gt;
-
-&lt;&lt;ShowData GPSTestData&gt;&gt;</pre>
+<div created="20150623211607895" modified="20150623232552399" tags="" title="TestGPS">
+<pre>&lt;$gps tiddler=&quot;GPSTestData&quot; age=&quot;1000&quot; timeout=&quot;5000&quot; /&gt;
+{{GPSTestData}}</pre>
 </div>
 
 </div>
