@@ -2,12 +2,12 @@
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap     = "http://phonegap.com/ns/1.0"
         xmlns:android = "http://schemas.android.com/apk/res/android"
-        id            = "com.elsdesign.TW5"
+        id            = "com.elsdesign.CurbSide"
         versionCode   = "10" 
         version       = "0.1.0" >
 
-<name>        TiddlyWiki 5 </name>
-<description> TiddlyWiki 5 with PhoneGap </description>
+<name>        CurbSide Prototype </name>
+<description> CurbSide with TW5 and PhoneGap </description>
 <author href="http://tiddlytools.com" email="elsdesign@gmail.com">
     Eric Shulman
 </author>
