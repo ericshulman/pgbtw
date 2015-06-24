@@ -39,6 +39,7 @@
 <feature name="http://api.phonegap.com/1.0/device" />
 -->
 
+<gap:plugin name="org.apache.cordova.inappbrowser" />
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
 
