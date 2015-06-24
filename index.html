@@ -5648,8 +5648,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150623224550947" modified="20150624033058936" title="$:/DefaultTiddlers">
-<pre>TestGPS TestMap</pre>
+<div created="20150623224550947" modified="20150624040311287" title="$:/DefaultTiddlers">
+<pre>TestGPS</pre>
 </div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
@@ -5675,7 +5675,7 @@ Error message and password prompt
 <div modified="20150623204407861" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="ELS/PhoneGap/GPS/gps.js TestGPS TestMap" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150623222257410" modified="20150624002017522" title="$:/temp/advancedsearch">
@@ -5795,7 +5795,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150529025643756" creator="EricShulman" modified="20150624034101194" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
+<div created="20150529025643756" creator="EricShulman" modified="20150624041035909" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/Widget
 type: application/javascript
@@ -5831,15 +5831,18 @@ GPSWidget.prototype.execute = function() {
 	var GPS = this;
 
 	// Get the parameters from the attributes
-	this.title   = this.getAttribute(&quot;tiddler&quot;,&quot;$:/state/GPSData&quot;);
-	this.age     = this.getAttribute(&quot;age&quot;,3000);
-	this.timeout = this.getAttribute(&quot;timeout&quot;,5000);
+	this.title    = this.getAttribute(&quot;tiddler&quot;,&quot;$:/state/GPSData&quot;);
+	this.age      = this.getAttribute(&quot;age&quot;,3000);
+	this.timeout  = this.getAttribute(&quot;timeout&quot;,5000);
+	this.roundoff = this.getAttribute(&quot;roundoff&quot;,1000);
 
 	// START GPS WATCH REQUEST
 	var success = function(position) {
 		var data = {};
-		for (var i in position.coords)
+		for (var i in position.coords) {
 			data[i] = position.coords[i]||&quot;&quot;;
+			data[i] = math.round(data[i]*GPS.roundoff)/GPS.roundoff;
+		}
 		data['timestamp'] = position.timestamp;
 		$tw.wiki.setTiddlerData(GPS.title,data);
 	};
@@ -5980,13 +5983,13 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150624001534108" modified="20150624033904833" title="TestData" type="application/json">
+<div created="20150624001534108" modified="20150624041104177" title="TestData" type="application/json">
 <pre>{
     &quot;errorcode&quot;: 1,
     &quot;errormessage&quot;: &quot;User denied Geolocation&quot;
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150624033328426" tags="" title="TestGPS">
+<div created="20150623211607895" modified="20150624041103577" tags="" title="TestGPS">
 <pre>\define ShowData(tid)
 [[$tid$]]&lt;br&gt;
 &lt;$set name=&quot;tv-wikilinks&quot; value=&quot;no&quot;&gt;
@@ -6020,7 +6023,7 @@ LAT={{$tid$##latitude}}, LONG={{$tid$##longitude}}&lt;br&gt;
 &lt;/$set&gt;
 \end
 
-&lt;$gps tiddler=&quot;TestData&quot; timeout=&quot;5000&quot; /&gt;
+&lt;$gps tiddler=&quot;TestData&quot;/&gt;
 &lt;&lt;ShowMap  TestData&gt;&gt;
 &lt;&lt;ShowData TestData&gt;&gt;</pre>
 </div>

@@ -26,13 +26,10 @@
 
 <!-- SCREEN RESOLUTION/ORIENTATION -->
 <preference name="orientation"      value="default" /> <!-- portrait, landscape -->
-<preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
 <preference name="fullscreen"       value="true"    />
-<supports-screens android:anyDensity="true" android:resizeable="true" 
-    android:smallScreens="true" 
-    android:normalScreens="true" 
-    android:largeScreens="true" 
-    android:xlargeScreens="true" />
+
+<!-- INSTALLATION LOCATION -->
+<preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
 
 <!-- DEVICE PERMISSIONS -->
 <preference name="permissions" value="none"/>
