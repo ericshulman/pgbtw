@@ -142,6 +142,8 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/search</li>
+
 <li>$:/themes/tiddlywiki/snowwhite</li>
 
 <li>$:/themes/tiddlywiki/vanilla</li>
@@ -155,6 +157,8 @@ Error message and password prompt
 <li>ELS/StyleSheet/Adjustments</li>
 
 <li>ELS/StyleSheet/Shortcuts</li>
+
+<li>GPSTestData</li>
 
 <li>TestGPS</li>
 
@@ -5662,7 +5666,7 @@ Error message and password prompt
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20150623222255552" title="$:/state/tab--1498284803">
+<div modified="20150624002021304" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div modified="20150623204308540" title="$:/state/tab/moresidebar-401116514">
@@ -5671,11 +5675,11 @@ Error message and password prompt
 <div modified="20150623204407861" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="TestGPS" title="$:/StoryList">
+<div list="ELS/PhoneGap/GPS/gps.js TestGPS" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150623222257410" modified="20150623222306274" title="$:/temp/advancedsearch">
-<pre>edit-</pre>
+<div created="20150623222257410" modified="20150624002017522" title="$:/temp/advancedsearch">
+<pre>onunload</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -5690,6 +5694,9 @@ Error message and password prompt
         }
     }
 }</pre>
+</div>
+<div created="20150624001604076" modified="20150624002017522" title="$:/temp/search">
+<pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.8">
 <pre>{
@@ -5788,7 +5795,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150529025643756" creator="EricShulman" modified="20150623225128891" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
+<div created="20150529025643756" creator="EricShulman" modified="20150624002744832" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/Widget
 type: application/javascript
@@ -5799,6 +5806,8 @@ revision: 0.1
 Widget to fetch GPS data into a DataTiddler
 
 When widget is rendered, the GPS device is queried and a callback function is invoked.
+
+https://github.com/apache/cordova-plugin-geolocation/blob/543afdf88a201131eb8f3109f4c135d6a671f513/doc/index.md
 
 \*/
 (function(){
@@ -5819,7 +5828,7 @@ GPSWidget.prototype.render = function(parent,nextSibling) {
 
 /* Compute the internal state of the widget */
 GPSWidget.prototype.execute = function() {
-	var self = this;
+	var GPS = this;
 
 	// Get the parameters from the attributes
 	this.title   = this.getAttribute(&quot;tiddler&quot;,&quot;$:/state/GPSData&quot;);
@@ -5832,13 +5841,13 @@ GPSWidget.prototype.execute = function() {
 		for (var i in position.coords)
 			data[i] = position.coords[i]||&quot;&quot;;
 		data['timestamp'] = position.timestamp;
-		$tw.wiki.setTiddlerData(self.title,data);
+		$tw.wiki.setTiddlerData(GPS.title,data);
 	};
 	var error = function(err) {
 		var data = {};
 		data[&quot;errorcode&quot;]    = err.code;
 		data[&quot;errormessage&quot;] = err.message;
-		$tw.wiki.setTiddlerData(self.title,data);
+		$tw.wiki.setTiddlerData(GPS.title,data);
 	}
 	var options = {
 		maximumAge: this.age,
@@ -5847,6 +5856,13 @@ GPSWidget.prototype.execute = function() {
 	};
 	this.watchID = navigator.geolocation.watchPosition(
 		success, error, options);
+
+	// STOP WATCH ON EXIT
+	window.GPS_obu = window.onbeforeunload;
+	window.onbeforeunload = function(event) {
+		navigator.geolocation.clearWatch(GPS.watchID);
+		return window.GPS_obu(event);
+	};
 };
 
 exports.gps = GPSWidget;
@@ -5962,6 +5978,12 @@ exports.startup = function() {
 }
 
 &lt;/pre&gt;</pre>
+</div>
+<div created="20150624001534108" modified="20150624001534108" title="GPSTestData" type="application/json">
+<pre>{
+    &quot;errorcode&quot;: 1,
+    &quot;errormessage&quot;: &quot;User denied Geolocation&quot;
+}</pre>
 </div>
 <div created="20150623211607895" modified="20150623232552399" tags="" title="TestGPS">
 <pre>&lt;$gps tiddler=&quot;GPSTestData&quot; age=&quot;1000&quot; timeout=&quot;5000&quot; /&gt;
