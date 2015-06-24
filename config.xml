@@ -31,7 +31,7 @@
 <preference name="fullscreen"       value="true"    />
 
 <!-- KEYBOARD SCREEN ADJUST -->
-<preference name="android-windowSoftInputMode" value="stateVisible|adjustResize" />
+<preference name="android-windowSoftInputMode" value="adjustResize" />
 
 <!-- INSTALLATION LOCATION -->
 <preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
