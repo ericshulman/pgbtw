@@ -5675,7 +5675,7 @@ Error message and password prompt
 <div modified="20150623204407861" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="ELS/PhoneGap/GPS/gps.js TestGPS" title="$:/StoryList">
+<div list="TestGPS" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150623222257410" modified="20150624002017522" title="$:/temp/advancedsearch">
@@ -5979,15 +5979,24 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150624001534108" modified="20150624001534108" title="GPSTestData" type="application/json">
+<div created="20150624001534108" modified="20150624005325589" title="GPSTestData" type="application/json">
 <pre>{
     &quot;errorcode&quot;: 1,
     &quot;errormessage&quot;: &quot;User denied Geolocation&quot;
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150623232552399" tags="" title="TestGPS">
-<pre>&lt;$gps tiddler=&quot;GPSTestData&quot; age=&quot;1000&quot; timeout=&quot;5000&quot; /&gt;
-{{GPSTestData}}</pre>
+<div created="20150623211607895" modified="20150624005325026" tags="" title="TestGPS">
+<pre>\define googlemap()
+https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123
+\end
+
+&lt;$gps tiddler=&quot;GPSTestData&quot; age=&quot;1000&quot; timeout=&quot;5000&quot; /&gt;
+{{GPSTestData}}
+&lt;$set name=&quot;latitude&quot;  value={{GPSTestData!!latitude}}&gt;
+&lt;$set name=&quot;longitude&quot; value={{GPSTestData!!longitude}}&gt;
+&lt;iframe src=&lt;&lt;googlemap&gt;&gt; width=&quot;100%&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;</pre>
 </div>
 
 </div>
