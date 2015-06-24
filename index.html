@@ -5675,7 +5675,7 @@ Error message and password prompt
 <div modified="20150623204407861" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="TestGPS" title="$:/StoryList">
+<div list="ELS/PhoneGap/GPS/gps.js TestGPS" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150623222257410" modified="20150624002017522" title="$:/temp/advancedsearch">
@@ -5795,7 +5795,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150529025643756" creator="EricShulman" modified="20150624041420722" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
+<div created="20150529025643756" creator="EricShulman" modified="20150624043646749" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/Widget
 type: application/javascript
@@ -5863,7 +5863,6 @@ GPSWidget.prototype.execute = function() {
 	// STOP WATCH ON EXIT
 	window.GPS_obu = window.onbeforeunload;
 	window.onbeforeunload = function(event) {
-alert('exiting...');
 		navigator.geolocation.clearWatch(window.GPSwatchID);
 		return window.GPS_obu(event);
 	};
@@ -5983,7 +5982,7 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150624001534108" modified="20150624041343379" title="TestData" type="application/json">
+<div created="20150624001534108" modified="20150624041435400" title="TestData" type="application/json">
 <pre>{
     &quot;errorcode&quot;: 1,
     &quot;errormessage&quot;: &quot;User denied Geolocation&quot;
