@@ -5676,7 +5676,7 @@ Error message and password prompt
 <div modified="20150623204407861" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="StartHere $:/ControlPanel ELS/PhoneGap/GPS/gps.js TestGPS" title="$:/StoryList">
+<div list="ELS/PhoneGap/GPS/gps.js StartHere TestGPS" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150623222257410" modified="20150624002017522" title="$:/temp/advancedsearch">
@@ -5796,7 +5796,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150529025643756" creator="EricShulman" modified="20150625213723294" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
+<div created="20150529025643756" creator="EricShulman" modified="20150625221824703" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/Widget
 type: application/javascript
@@ -5856,7 +5856,7 @@ GPSWidget.prototype.execute = function() {
 	var options = {
 		maximumAge: this.age,
 		timeout: this.timeout,
-		enableHighAccuracy: true
+		enableHighAccuracy: false
 	};
 	navigator.geolocation.clearWatch(window.GPSwatchID);
 	window.GPSwatchID = navigator.geolocation.watchPosition(
@@ -5996,7 +5996,7 @@ exports.startup = function() {
 <div created="20150625213746268" modified="20150625213835547" tags="" title="StartHere">
 <pre>[[Run GPS test|TestGPS]]</pre>
 </div>
-<div created="20150624001534108" modified="20150625213650958" title="TestData" type="application/json">
+<div created="20150624001534108" modified="20150625221639444" title="TestData" type="application/json">
 <pre>{
     &quot;errorcode&quot;: 1,
     &quot;errormessage&quot;: &quot;User denied Geolocation&quot;
