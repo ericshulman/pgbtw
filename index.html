@@ -5794,7 +5794,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150529025643756" creator="EricShulman" modified="20150625211007714" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
+<div created="20150529025643756" creator="EricShulman" modified="20150625212159722" modifier="EricShulman" module-type="widget" tags="" title="ELS/PhoneGap/GPS/gps.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/Widget
 type: application/javascript
@@ -5840,7 +5840,7 @@ GPSWidget.prototype.execute = function() {
 		var data = {};
 		for (var i in position.coords) {
 			data[i] = position.coords[i]||&quot;&quot;;
-			data[i] = Math.trunc(data[i]*GPS.digits)/GPS.digits;
+			data[i] = parseInt(data[i]*GPS.digits,10)/GPS.digits;
 		}
 		data['timestamp'] = position.timestamp;
 		$tw.wiki.setTiddlerData(GPS.title,data);
@@ -5991,7 +5991,7 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150624001534108" modified="20150625210116810" title="TestData" type="application/json">
+<div created="20150624001534108" modified="20150625211020642" title="TestData" type="application/json">
 <pre>{
     &quot;errorcode&quot;: 1,
     &quot;errormessage&quot;: &quot;User denied Geolocation&quot;
