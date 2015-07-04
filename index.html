@@ -6090,7 +6090,7 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20150704011948091" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150704013112120" tags="" title="GPSTest">
 <pre>\define ShowMap()
 [ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]] ($(latitude)$,$(longitude)$)&lt;br&gt;
 &lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123&quot; width=&quot;100%&quot; height=&quot;300&quot;&gt;&lt;/iframe&gt;
@@ -6113,7 +6113,7 @@ exports.startup = function() {
    tiddler=&quot;GPSTestData&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
 &lt;hr&gt;
 digits:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&quot;$:/config/GPS/digits&quot; default=&quot;4&quot;/&gt;
+&lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&quot;$:/config/GPS/digits&quot; default=&quot;8&quot;/&gt;
 age (msec):
 &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/age&quot;     default=&quot;10000&quot;/&gt;
 timeout (msec):
@@ -6124,14 +6124,15 @@ timeout (msec):
 &lt;$set name=&quot;longitude&quot; value={{GPSTestData##longitude}}&gt;
 @@float:right; &lt;&lt;ShowLookup&gt;&gt;@@&lt;&lt;ShowMap&gt;&gt;
 @@display:block;clear:both;@@
+&lt;/$set&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20150703005241431" modified="20150704011954403" title="GPSTestData" type="application/json">
+<div created="20150703005241431" modified="20150704012952166" title="GPSTestData" type="application/json">
 <pre>{
     &quot;errorcode&quot;: 1,
     &quot;errormessage&quot;: &quot;User denied Geolocation&quot;,
-    &quot;latitude&quot;: &quot;&quot;,
-    &quot;longitude&quot;: &quot;&quot;
+    &quot;latitude&quot;: &quot;43.6597978&quot;,
+    &quot;longitude&quot;: &quot;-79.3905865&quot;
 }</pre>
 </div>
 
