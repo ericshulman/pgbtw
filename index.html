@@ -6262,7 +6262,7 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20150704183616400" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150704213312555" tags="" title="GPSTest">
 <pre>\define ShowMap()
 [ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
 &lt;embed src=&quot;https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123&quot; width=&quot;100%&quot; height=&quot;300&quot;&gt;
@@ -6270,6 +6270,11 @@ exports.startup = function() {
 
 \define ShowLookup()
 [ext[ReverseGEO Lookup|https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
+\end
+
+\define Notify(msg)
+&lt;$action-setfield $tiddler=&quot;$:/temp/notify&quot; text=&quot;$msg$&quot;/&gt;
+&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
 \end
 
 @@.center.shadowbox 
@@ -6283,6 +6288,7 @@ longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    $age={{$:/config/GPS/age}}
    $timeout={{$:/config/GPS/timeout}}
    $digits={{$:/config/GPS/digits}} /&gt;
+&lt;&lt;Notify &quot;Requesting GPS data...&quot;&gt;&gt;
 &lt;/$button&gt;
 &lt;br&gt;
 digits:
@@ -6302,10 +6308,8 @@ timeout (msec):
 &lt;/$set&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20150703005241431" modified="20150704183609312" title="GPSTestData" type="application/json">
+<div created="20150703005241431" modified="20150704213322963" title="GPSTestData" type="application/json">
 <pre>{
-    &quot;errorcode&quot;: 1,
-    &quot;errormessage&quot;: &quot;User denied Geolocation&quot;,
     &quot;latitude&quot;: &quot;43.6597978&quot;,
     &quot;longitude&quot;: &quot;-79.3905865&quot;
 }</pre>
