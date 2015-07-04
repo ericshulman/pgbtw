@@ -5811,7 +5811,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150703003712020" modified="20150703005008326" module-type="widget" tags="" title="ELS/GPS/action-getGPS.js" type="application/javascript">
+<div created="20150703003712020" modified="20150704005706359" module-type="widget" tags="" title="ELS/GPS/action-getGPS.js" type="application/javascript">
 <pre>/*\
 title: TWBook/Cookies/action-getGPS.js
 type: application/javascript
@@ -5823,31 +5823,11 @@ Action widget to get GPS data
 
 params:
 $tiddler=&quot;nameofDataTiddler&quot;
+$digits=number of decimal places to retain (truncate)
+$age = maximum age (msec) when GPS data must be re-acquired
+$timeout = limit (msec) before invoking GPS error handler
 
 \*/
-
-window.GPS={
-   success: function(position) {
-	var data = {};
-	for (var i in position.coords) {
-		data[i] = position.coords[i]||&quot;&quot;;
-		data[i] = parseInt(data[i]*GPS.digits,10)/GPS.digits;
-	}
-	data['timestamp'] = position.timestamp;
-	$tw.wiki.setTiddlerData(GPS.title,data);
-   },
-   error: function(err) {
-	var data = {};
-	data[&quot;errorcode&quot;]    = err.code;
-	data[&quot;errormessage&quot;] = err.message;
-	$tw.wiki.setTiddlerData(GPS.title,data);
-   },
-   options: {
-	maximumAge: 3000,
-	timeout: 5000,
-	enableHighAccuracy: true
-   }
-};
 
 (function(){
 
@@ -5855,17 +5835,13 @@ window.GPS={
 /*global $tw: false */
 &quot;use strict&quot;;
 var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
-
 var GetGPSWidget = function(parseTreeNode,options) {
 	this.initialise(parseTreeNode,options);
 };
-
 GetGPSWidget.prototype = new Widget();
-
 GetGPSWidget.prototype.render = function(parent,nextSibling) {
 	this.computeAttributes();
 };
-
 GetGPSWidget.prototype.refresh = function(changedTiddlers) {
 	var changedAttributes = this.computeAttributes();
 	if(changedAttributes[&quot;$tiddler&quot;]) {
@@ -5874,16 +5850,40 @@ GetGPSWidget.prototype.refresh = function(changedTiddlers) {
 	}
 	return this.refreshChildren(changedTiddlers);
 };
-
 GetGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
+
 	// Get the parameters from the attributes
-	GPS.title = this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;);
-	GPS.options.maximumAge	= this.getAttribute(&quot;$age&quot;,3000);
-	GPS.options.timeout	= this.getAttribute(&quot;$timeout&quot;,5000);
-	GPS.digits		= Math.pow(10,this.getAttribute(&quot;$digits&quot;,4));
+	window.GPS = {
+		tiddler: this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;),
+		digits:  Math.pow(10,this.getAttribute(&quot;$digits&quot;,4)),
+		maxAge:  this.getAttribute(&quot;$age&quot;,3000),
+		timeout: this.getAttribute(&quot;$timeout&quot;,5000)
+	};
 
 	navigator.geolocation.getCurrentPosition(
-		GPS.success, GPS.error, GPS.options);
+	   function(position) {
+		var data = {};
+		var digits=window.GPS.digits;
+		for (var i in position.coords) {
+			data[i] = position.coords[i]||&quot;&quot;;
+			data[i] = parseInt(data[i]*digits,10)/digits;
+		}
+		data['timestamp'] = position.timestamp;
+		$tw.wiki.setTiddlerData(window.GPS.tiddler,data);
+	   },
+	   function(err) {
+		var data = {};
+		data[&quot;errorcode&quot;]    = err.code;
+		data[&quot;errormessage&quot;] = err.message;
+		$tw.wiki.setTiddlerData(window.GPS.tiddler,data);
+	   }, 
+	   {
+		maximumAge: window.GPS.maxAge,
+		timeout: window.GPS.timeout,
+		enableHighAccuracy: true
+	   }
+	);
+
 	return true; // Action was invoked
 };
 
