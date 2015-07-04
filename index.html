@@ -5689,7 +5689,7 @@ Error message and password prompt
 <div modified="20150623204407861" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="GPSTest" title="$:/StoryList">
+<div list="ELS/PhoneGap/GPS/action-getGPS.js GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150623222257410" modified="20150703010525219" title="$:/temp/advancedsearch">
@@ -5709,7 +5709,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150624001604076" modified="20150703010525220" title="$:/temp/search">
+<div created="20150624001604076" modified="20150704182120755" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.8">
@@ -5809,7 +5809,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150703003712020" modified="20150704172419511" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
+<div created="20150703003712020" modified="20150704182533670" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/action-getGPS.js
 type: application/javascript
@@ -5845,10 +5845,7 @@ GetGPSWidget.prototype.render = function(parent,nextSibling) {
 
 GetGPSWidget.prototype.refresh = function(changedTiddlers) {
 	var changedAttributes = this.computeAttributes();
-	if(   changedAttributes[&quot;$tiddler&quot;]
-	   || changedAttributes[&quot;$digits&quot;]
-	   || changedAttributes[&quot;$age&quot;]
-	   || changedAttributes[&quot;$timeout&quot;]) {
+	if(   changedAttributes[&quot;$tiddler&quot;]) {
 		this.refreshSelf();
 		return true;
 	}
@@ -5894,6 +5891,7 @@ GetGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
 	return true; // Action was invoked
 };
+
 exports[&quot;action-getGPS&quot;] = GetGPSWidget;
 
 })();</pre>
