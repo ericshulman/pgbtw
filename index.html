@@ -118,8 +118,6 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="http://tiddlywiki.com" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
-<li>$:/config/GPS/accuracy</li>
-
 <li>$:/config/GPS/age</li>
 
 <li>$:/config/GPS/digits</li>
@@ -188,9 +186,6 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div modified="20150705095021545" title="$:/config/GPS/accuracy">
-<pre>1</pre>
-</div>
 <div created="20150627192609080" modified="20150627192610329" title="$:/config/GPS/age">
 <pre>10000</pre>
 </div>
@@ -5944,8 +5939,8 @@ Error message and password prompt
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20150705094745840" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div modified="20150704200615030" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div modified="20150705075528966" title="$:/state/tab--626799445">
 <pre>GPSTest/Map</pre>
@@ -5956,8 +5951,8 @@ Error message and password prompt
 <div list="GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150704200605153" modified="20150705094743183" title="$:/temp/advancedsearch">
-<pre>config/gps</pre>
+<div created="20150704200605153" modified="20150704211301291" title="$:/temp/advancedsearch">
+<pre>saverf</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -5973,7 +5968,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150704195751423" modified="20150705094736235" title="$:/temp/search">
+<div created="20150704195751423" modified="20150704211100028" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -6081,7 +6076,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150703003712020" modified="20150705094005057" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
+<div created="20150703003712020" modified="20150704182533670" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/action-getGPS.js
 type: application/javascript
@@ -6095,10 +6090,9 @@ https://github.com/apache/cordova-plugin-geolocation/blob/543afdf88a201131eb8f31
 
 params:
 $tiddler = Name of tiddler to store GPS data ($:/state/GPSData)
-$digits  = maximum number of decimal places to retain (8)
-$age     = maximum age when GPS data must be re-acquired (10000 msec)
-$timeout = time limit before invoking GPS error handler (15000 msec)
-$highaccuracy = true/false (false)
+$digits  = number of decimal places to retain (8)
+$age     = maximum age (msec) when GPS data must be re-acquired (10000)
+$timeout = limit (msec) before invoking GPS error handler (15000)
 
 \*/
 
@@ -6128,33 +6122,39 @@ GetGPSWidget.prototype.refresh = function(changedTiddlers) {
 GetGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
 	// Get the parameters from the attributes
-	var tiddler = this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;);
-	var digits  = Math.pow(10,this.getAttribute(&quot;$digits&quot;,8));
-	var success = function(position) {
+	window.GPS = {
+		tiddler: this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;),
+		digits:  Math.pow(10,this.getAttribute(&quot;$digits&quot;,8)),
+		maxAge:  this.getAttribute(&quot;$age&quot;,10000),
+		timeout: this.getAttribute(&quot;$timeout&quot;,15000)
+	};
+
+	// start a GPS request
+	navigator.geolocation.getCurrentPosition(
+	   function(position) {
 		var data = {};
+		var digits=window.GPS.digits;
 		for (var i in position.coords) {
 			data[i] = position.coords[i]||&quot;&quot;;
 			data[i] = parseInt(data[i]*digits,10)/digits;
 		}
 		data['timestamp'] = position.timestamp;
-		$tw.wiki.setTiddlerData(tiddler,data);
-	};
-	var error  = function(err) {
+		$tw.wiki.setTiddlerData(window.GPS.tiddler,data);
+	   },
+	   function(err) {
 		var data = {};
 		data[&quot;errorcode&quot;]    = err.code;
 		data[&quot;errormessage&quot;] = err.message;
 		data[&quot;latitude&quot;]     = &quot;&quot;;
 		data[&quot;longitude&quot;]    = &quot;&quot;;
-		$tw.wiki.setTiddlerData(tiddler,data);
-	};
-	var options = {
-		maximumAge: this.getAttribute(&quot;$age&quot;,10000),
-		timeout: this.getAttribute(&quot;$timeout&quot;,15000),
-		enableHighAccuracy: this.getAttribute(&quot;$highaccuracy&quot;)
-	};
-
-	// start a GPS request
-	navigator.geolocation.getCurrentPosition(success, error, options);
+		$tw.wiki.setTiddlerData(window.GPS.tiddler,data);
+	   }, 
+	   {
+		maximumAge: window.GPS.maxAge,
+		timeout: window.GPS.timeout,
+		enableHighAccuracy: true
+	   }
+	);
 
 	return true; // Action was invoked
 };
@@ -6282,7 +6282,7 @@ exports.startup = function() {
 &lt;&lt;tabs &quot;[prefix[GPSTest/]] -[[GPSTest/ControlPanel]] +[!sort[]]&quot;&gt;&gt;
 --&gt;</pre>
 </div>
-<div created="20150705073206588" modified="20150705094921621" tags="" title="GPSTest/ControlPanel">
+<div created="20150705073206588" modified="20150705075452348" tags="" title="GPSTest/ControlPanel">
 <pre>\define Notify(msg)
 &lt;$action-setfield $tiddler=&quot;$:/temp/notify&quot; text=&quot;$msg$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -6303,13 +6303,10 @@ longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
 &lt;br&gt;
 digits:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&quot;$:/config/GPS/digits&quot;  default=&quot;8&quot;/&gt;
-max age:
+age (msec):
 &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/age&quot;     default=&quot;10000&quot;/&gt;
-timeout:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/timeout&quot; default=&quot;15000&quot;/&gt;
-&lt;$checkbox tiddler=&quot;$:/config/GPS/accuracy&quot; field=&quot;text&quot; checked=1 unchecked=0&gt;
-   high accuracy
-&lt;/$checkbox&gt;</pre>
+timeout (msec):
+&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/timeout&quot; default=&quot;15000&quot;/&gt;</pre>
 </div>
 <div created="20150703005241431" modified="20150705073715645" title="GPSTest/Data" type="application/json">
 <pre>{
