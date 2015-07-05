@@ -140,6 +140,8 @@ Error message and password prompt
 
 <li>$:/state/tab--1498284803</li>
 
+<li>$:/state/tab--626799445</li>
+
 <li>$:/state/tab/sidebar--1835078512</li>
 
 <li>$:/StoryList</li>
@@ -166,7 +168,13 @@ Error message and password prompt
 
 <li>GPSTest</li>
 
-<li>GPSTestData</li>
+<li>GPSTest/ControlPanel</li>
+
+<li>GPSTest/Data</li>
+
+<li>GPSTest/Lookup</li>
+
+<li>GPSTest/Map</li>
 
 </ul>
 </p>
@@ -5934,6 +5942,9 @@ Error message and password prompt
 <div modified="20150704200615030" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
+<div modified="20150705075528966" title="$:/state/tab--626799445">
+<pre>GPSTest/Map</pre>
+</div>
 <div modified="20150704192159707" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
@@ -6262,29 +6273,23 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20150704213312555" tags="" title="GPSTest">
-<pre>\define ShowMap()
-[ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
-&lt;embed src=&quot;https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123&quot; width=&quot;100%&quot; height=&quot;300&quot;&gt;
-\end
-
-\define ShowLookup()
-[ext[ReverseGEO Lookup|https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
-\end
-
-\define Notify(msg)
+<div created="20150623211607895" modified="20150705075509804" tags="" title="GPSTest">
+<pre>@@.center.shadowbox {{GPSTest/ControlPanel}}@@
+&lt;&lt;tabs &quot;[prefix[GPSTest/]] -[[GPSTest/ControlPanel]] +[!sort[]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20150705073206588" modified="20150705075452348" tags="" title="GPSTest/ControlPanel">
+<pre>\define Notify(msg)
 &lt;$action-setfield $tiddler=&quot;$:/temp/notify&quot; text=&quot;$msg$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
 \end
 
-@@.center.shadowbox 
 latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
-   tiddler=&quot;GPSTestData&quot; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
+   tiddler=&quot;GPSTest/Data&quot; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
 longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
-   tiddler=&quot;GPSTestData&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+   tiddler=&quot;GPSTest/Data&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
 &lt;$button&gt; get GPS data
 &lt;$action-getGPS
-   $tiddler=&quot;GPSTestData&quot;
+   $tiddler=&quot;GPSTest/Data&quot;
    $age={{$:/config/GPS/age}}
    $timeout={{$:/config/GPS/timeout}}
    $digits={{$:/config/GPS/digits}} /&gt;
@@ -6296,23 +6301,34 @@ digits:
 age (msec):
 &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/age&quot;     default=&quot;10000&quot;/&gt;
 timeout (msec):
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/timeout&quot; default=&quot;15000&quot;/&gt;
-@@
-
-[[GPSTestData]]:
-&lt;$edit-text tiddler=&quot;GPSTestData&quot; class=&quot;tc-edit-texteditor&quot; /&gt;&lt;br&gt;
-&lt;$set name=&quot;latitude&quot;  value={{GPSTestData##latitude}}&gt;
-&lt;$set name=&quot;longitude&quot; value={{GPSTestData##longitude}}&gt;
-@@float:right; &lt;&lt;ShowLookup&gt;&gt;@@&lt;&lt;ShowMap&gt;&gt;
-@@display:block;clear:both;@@
-&lt;/$set&gt;
-&lt;/$set&gt;</pre>
+&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/timeout&quot; default=&quot;15000&quot;/&gt;</pre>
 </div>
-<div created="20150703005241431" modified="20150704213322963" title="GPSTestData" type="application/json">
+<div created="20150703005241431" modified="20150705073715645" title="GPSTest/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.6597978&quot;,
     &quot;longitude&quot;: &quot;-79.3905865&quot;
 }</pre>
+</div>
+<div created="20150705074022612" modified="20150705074050131" tags="" title="GPSTest/Lookup">
+<pre>\define ShowLookup()
+[ext[ReverseGEO Lookup|https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
+\end
+&lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
+&lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
+&lt;&lt;ShowLookup&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;</pre>
+</div>
+<div created="20150705073747922" modified="20150705073927419" tags="" title="GPSTest/Map">
+<pre>\define ShowMap()
+[ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
+&lt;embed src=&quot;https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123&quot; width=&quot;100%&quot; height=&quot;300&quot;&gt;
+\end
+&lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
+&lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
+&lt;&lt;ShowMap&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;</pre>
 </div>
 
 </div>
