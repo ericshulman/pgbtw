@@ -5953,7 +5953,7 @@ Error message and password prompt
 <div modified="20150704192159707" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="ELS/PhoneGap/GPS/action-getGPS.js" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150704200605153" modified="20150705094743183" title="$:/temp/advancedsearch">
@@ -6081,7 +6081,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150703003712020" modified="20150705095945443" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
+<div created="20150703003712020" modified="20150705100925077" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/action-getGPS.js
 type: application/javascript
@@ -6131,23 +6131,6 @@ GetGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var self = this;
 	self.tiddler = this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;);
 	self.digits  = Math.pow(10,this.getAttribute(&quot;$digits&quot;,8));
-	self.success = function(position) {
-		var data = {};
-		for (var i in position.coords) {
-			data[i] = position.coords[i]||&quot;&quot;;
-			data[i] = parseInt(data[i]*self.digits,10)/self.digits;
-		}
-		data['timestamp'] = position.timestamp;
-		$tw.wiki.setTiddlerData(self.tiddler,data);
-	};
-	self.error  = function(err) {
-		var data = {};
-		data[&quot;errorcode&quot;]    = err.code;
-		data[&quot;errormessage&quot;] = err.message;
-		data[&quot;latitude&quot;]     = &quot;&quot;;
-		data[&quot;longitude&quot;]    = &quot;&quot;;
-		$tw.wiki.setTiddlerData(self.tiddler,data);
-	};
 	self.options = {
 		maximumAge: this.getAttribute(&quot;$age&quot;,10000),
 		timeout: this.getAttribute(&quot;$timeout&quot;,15000),
@@ -6156,7 +6139,24 @@ GetGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
 	// start a GPS request
 	navigator.geolocation.getCurrentPosition(
-		self.success, self.error, self.options);
+	    function(position) {
+		var data = {};
+		for (var i in position.coords) {
+			data[i] = position.coords[i]||&quot;&quot;;
+			data[i] = parseInt(data[i]*self.digits,10)/self.digits;
+		}
+		data['timestamp'] = position.timestamp;
+		$tw.wiki.setTiddlerData(self.tiddler,data);
+	    },
+	    function(err) {
+		var data = {};
+		data[&quot;errorcode&quot;]    = err.code;
+		data[&quot;errormessage&quot;] = err.message;
+		data[&quot;latitude&quot;]     = &quot;&quot;;
+		data[&quot;longitude&quot;]    = &quot;&quot;;
+		$tw.wiki.setTiddlerData(self.tiddler,data);
+	    },
+	    self.options);
 
 	return true; // Action was invoked
 };
