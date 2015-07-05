@@ -6268,21 +6268,16 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20150705104834410" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150705103947040" tags="" title="GPSTest">
 <pre>@@.center.shadowbox {{GPSTest/ControlPanel}}@@
 
 [[GPSTest/Data]]:
 {{GPSTest/Data}}
-@@float:right; &lt;nobr&gt;{{GPSTest/Lookup}}&lt;/nobr&gt;@@
+@@float:right; {{GPSTest/Lookup}}@@
 {{GPSTest/Map}}</pre>
 </div>
-<div created="20150705103720884" modified="20150705104541909" tags="" title="GPSTest/ControlPanel">
-<pre>\define Notify(msg)
-&lt;$action-setfield $tiddler=&quot;$:/temp/notify&quot; text=&quot;$msg$&quot;/&gt;
-&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
-\end
-
-latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
+<div created="20150705103720884" modified="20150705103754249" tags="" title="GPSTest/ControlPanel">
+<pre>latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
 longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
@@ -6292,7 +6287,6 @@ longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    $age={{$:/config/GPS/age}}
    $timeout={{$:/config/GPS/timeout}}
    $digits={{$:/config/GPS/digits}} /&gt;
-&lt;&lt;Notify &quot;Requesting GPS data from device...&quot;&gt;&gt;
 &lt;/$button&gt;
 &lt;br&gt;
 digits:
@@ -6308,9 +6302,9 @@ timeout:
     &quot;longitude&quot;: &quot;-79.3905865&quot;
 }</pre>
 </div>
-<div created="20150705103443883" modified="20150705104723068" tags="" title="GPSTest/Lookup">
+<div created="20150705103443883" modified="20150705103520486" tags="" title="GPSTest/Lookup">
 <pre>\define ShowLookup()
-[ext[Reverse geo-code|https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
+[ext[ReverseGEO Lookup|https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
 \end
 &lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
 &lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
