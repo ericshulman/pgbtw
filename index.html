@@ -5911,8 +5911,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150623224550947" modified="20150705095628926" title="$:/DefaultTiddlers">
-<pre></pre>
+<div created="20150623224550947" modified="20150703005307021" title="$:/DefaultTiddlers">
+<pre>GPSTest</pre>
 </div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
@@ -5953,7 +5953,7 @@ Error message and password prompt
 <div modified="20150704192159707" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150704200605153" modified="20150705094743183" title="$:/temp/advancedsearch">
@@ -6081,7 +6081,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150703003712020" modified="20150705095945443" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
+<div created="20150703003712020" modified="20150705094005057" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/action-getGPS.js
 type: application/javascript
@@ -6128,35 +6128,33 @@ GetGPSWidget.prototype.refresh = function(changedTiddlers) {
 GetGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
 	// Get the parameters from the attributes
-	var self = this;
-	self.tiddler = this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;);
-	self.digits  = Math.pow(10,this.getAttribute(&quot;$digits&quot;,8));
-	self.success = function(position) {
+	var tiddler = this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;);
+	var digits  = Math.pow(10,this.getAttribute(&quot;$digits&quot;,8));
+	var success = function(position) {
 		var data = {};
 		for (var i in position.coords) {
 			data[i] = position.coords[i]||&quot;&quot;;
-			data[i] = parseInt(data[i]*self.digits,10)/self.digits;
+			data[i] = parseInt(data[i]*digits,10)/digits;
 		}
 		data['timestamp'] = position.timestamp;
-		$tw.wiki.setTiddlerData(self.tiddler,data);
+		$tw.wiki.setTiddlerData(tiddler,data);
 	};
-	self.error  = function(err) {
+	var error  = function(err) {
 		var data = {};
 		data[&quot;errorcode&quot;]    = err.code;
 		data[&quot;errormessage&quot;] = err.message;
 		data[&quot;latitude&quot;]     = &quot;&quot;;
 		data[&quot;longitude&quot;]    = &quot;&quot;;
-		$tw.wiki.setTiddlerData(self.tiddler,data);
+		$tw.wiki.setTiddlerData(tiddler,data);
 	};
-	self.options = {
+	var options = {
 		maximumAge: this.getAttribute(&quot;$age&quot;,10000),
 		timeout: this.getAttribute(&quot;$timeout&quot;,15000),
 		enableHighAccuracy: this.getAttribute(&quot;$highaccuracy&quot;)
 	};
 
 	// start a GPS request
-	navigator.geolocation.getCurrentPosition(
-		self.success, self.error, self.options);
+	navigator.geolocation.getCurrentPosition(success, error, options);
 
 	return true; // Action was invoked
 };
