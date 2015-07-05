@@ -6276,14 +6276,18 @@ exports.startup = function() {
 @@float:right; {{GPSTest/Lookup}}@@
 {{GPSTest/Map}}</pre>
 </div>
-<div created="20150705103720884" modified="20150705112412020" tags="" title="GPSTest/ControlPanel">
-<pre>latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
+<div created="20150705103720884" modified="20150705114959082" tags="" title="GPSTest/ControlPanel">
+<pre>\define msg(txt)
+&lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
+&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
+\end
+
+latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
 longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
 &lt;$button&gt; get GPS data
-&lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;Requesting GPS data...&quot;/&gt;
-&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
+&lt;&lt;msg &quot;Requesting GPS data...&quot;&gt;&gt;
 &lt;$action-getGPS      $tiddler=&quot;GPSTest/Data&quot;
    $age={{$:/config/GPS/age}}
    $timeout={{$:/config/GPS/timeout}}
