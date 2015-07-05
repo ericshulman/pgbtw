@@ -5943,7 +5943,7 @@ Error message and password prompt
 <div modified="20150705102815631" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="GPSTest" title="$:/StoryList">
+<div list="GPSTest/ControlPanel GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
 <div modified="20150705104049694" title="$:/temp/advancedsearch">
@@ -6276,20 +6276,21 @@ exports.startup = function() {
 @@float:right; {{GPSTest/Lookup}}@@
 {{GPSTest/Map}}</pre>
 </div>
-<div created="20150705103720884" modified="20150705103754249" tags="" title="GPSTest/ControlPanel">
+<div created="20150705103720884" modified="20150705112412020" tags="" title="GPSTest/ControlPanel">
 <pre>latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
 longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
 &lt;$button&gt; get GPS data
-&lt;$action-getGPS
-   $tiddler=&quot;GPSTest/Data&quot;
+&lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;Requesting GPS data...&quot;/&gt;
+&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
+&lt;$action-getGPS      $tiddler=&quot;GPSTest/Data&quot;
    $age={{$:/config/GPS/age}}
    $timeout={{$:/config/GPS/timeout}}
    $digits={{$:/config/GPS/digits}} /&gt;
 &lt;/$button&gt;
 &lt;br&gt;
-digits:
+max digits:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&quot;$:/config/GPS/digits&quot;  default=&quot;8&quot;/&gt;
 max age:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/age&quot;     default=&quot;10000&quot;/&gt;
