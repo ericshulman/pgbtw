@@ -156,6 +156,10 @@ Error message and password prompt
 
 <li>ELS/PhoneGap/GPS/action-getGPS.js</li>
 
+<li>ELS/PhoneGap/GPS/action-startGPS.js</li>
+
+<li>ELS/PhoneGap/GPS/action-stopGPS.js</li>
+
 <li>ELS/PhoneGap/PinchZoom/Markup</li>
 
 <li>ELS/PhoneGap/PinchZoom/Startup</li>
@@ -5943,7 +5947,7 @@ Error message and password prompt
 <div modified="20150705102815631" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="$:/AdvancedSearch $:/config/SaverFilter GPSTest" title="$:/StoryList">
+<div list="GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
 <div modified="20150705104049694" title="$:/temp/advancedsearch">
@@ -6071,7 +6075,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20150703003712020" modified="20150704182533670" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
+<div created="20150703003712020" modified="20150705202702821" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-getGPS.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/action-getGPS.js
 type: application/javascript
@@ -6079,7 +6083,9 @@ module-type: widget
 author: Eric Shulman elsdesign@gmail.com
 revision: 1.0
 
-Action widget to get GPS data using PhoneGap/Cordova geolocation library:
+Action widget to get GPS data
+
+see PhoneGap/Cordova geolocation library:
 
 https://github.com/apache/cordova-plugin-geolocation/blob/543afdf88a201131eb8f3109f4c135d6a671f513/doc/index.md
 
@@ -6155,6 +6161,145 @@ GetGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 };
 
 exports[&quot;action-getGPS&quot;] = GetGPSWidget;
+
+})();</pre>
+</div>
+<div created="20150705202151779" modified="20150705202356252" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-startGPS.js" type="application/javascript">
+<pre>/*\
+title: ELS/PhoneGap/GPS/action-startGPS.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+Action widget to get GPS data using PhoneGap/Cordova geolocation library:
+
+https://github.com/apache/cordova-plugin-geolocation/blob/543afdf88a201131eb8f3109f4c135d6a671f513/doc/index.md
+
+params:
+$tiddler = Name of tiddler to store GPS data ($:/state/GPSData)
+$digits  = number of decimal places to retain (8)
+$age     = maximum age (msec) when GPS data must be re-acquired (10000)
+$timeout = limit (msec) before invoking GPS error handler (15000)
+
+\*/
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var StartGPSWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+StartGPSWidget.prototype = new Widget();
+StartGPSWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+};
+
+StartGPSWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(   changedAttributes[&quot;$tiddler&quot;]) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+StartGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
+
+	// Get the parameters from the attributes
+	window.GPS = {
+		tiddler: this.getAttribute(&quot;$tiddler&quot;,&quot;$:/state/GPSData&quot;),
+		digits:  Math.pow(10,this.getAttribute(&quot;$digits&quot;,8)),
+		maxAge:  this.getAttribute(&quot;$age&quot;,10000),
+		timeout: this.getAttribute(&quot;$timeout&quot;,15000)
+	};
+
+	// start a GPS request
+	window.GPS.watchID = navigator.geolocation.watchPosition(
+	   function(position) {
+		var data = {};
+		var digits=window.GPS.digits;
+		for (var i in position.coords) {
+			data[i] = position.coords[i]||&quot;&quot;;
+			data[i] = parseInt(data[i]*digits,10)/digits;
+		}
+		data['timestamp'] = position.timestamp;
+		$tw.wiki.setTiddlerData(window.GPS.tiddler,data);
+	   },
+	   function(err) {
+		var data = {};
+		data[&quot;errorcode&quot;]    = err.code;
+		data[&quot;errormessage&quot;] = err.message;
+		data[&quot;latitude&quot;]     = &quot;&quot;;
+		data[&quot;longitude&quot;]    = &quot;&quot;;
+		$tw.wiki.setTiddlerData(window.GPS.tiddler,data);
+	   }, 
+	   {
+		maximumAge: window.GPS.maxAge,
+		timeout: window.GPS.timeout,
+		enableHighAccuracy: true
+	   }
+	);
+
+	return true; // Action was invoked
+};
+
+exports[&quot;action-startGPS&quot;] = StartGPSWidget;
+
+})();</pre>
+</div>
+<div created="20150705202407155" modified="20150705202646686" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-stopGPS.js" type="application/javascript">
+<pre>/*\
+title: ELS/PhoneGap/GPS/action-stopGPS.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+Action widget to stop GPS requests
+
+see PhoneGap/Cordova geolocation library:
+
+https://github.com/apache/cordova-plugin-geolocation/blob/543afdf88a201131eb8f3109f4c135d6a671f513/doc/index.md
+
+params:
+none
+
+\*/
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var StopGPSWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+StopGPSWidget.prototype = new Widget();
+StopGPSWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+};
+
+StopGPSWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(   changedAttributes[&quot;$tiddler&quot;]) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+StopGPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
+	// stop GPS requests
+	navigator.geolocation.clearWatch(window.GPS.watchID);
+	return true; // Action was invoked
+};
+
+exports[&quot;action-stopGPS&quot;] = StopGPSWidget;
 
 })();</pre>
 </div>
@@ -6268,7 +6413,7 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20150705103947040" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150705203828198" tags="" title="GPSTest">
 <pre>@@.center.shadowbox {{GPSTest/ControlPanel}}@@
 
 [[GPSTest/Data]]:
@@ -6276,7 +6421,7 @@ exports.startup = function() {
 @@float:right; {{GPSTest/Lookup}}@@
 {{GPSTest/Map}}</pre>
 </div>
-<div created="20150705103720884" modified="20150705114959082" tags="" title="GPSTest/ControlPanel">
+<div created="20150705103720884" modified="20150705203824227" tags="" title="GPSTest/ControlPanel">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -6286,20 +6431,39 @@ latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
 longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;10&quot;
    tiddler=&quot;GPSTest/Data&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+
 &lt;$button&gt; get GPS data
 &lt;&lt;msg &quot;Requesting GPS data...&quot;&gt;&gt;
-&lt;$action-getGPS      $tiddler=&quot;GPSTest/Data&quot;
+&lt;$action-getGPS
+   $tiddler=&quot;GPSTest/Data&quot;
    $age={{$:/config/GPS/age}}
    $timeout={{$:/config/GPS/timeout}}
    $digits={{$:/config/GPS/digits}} /&gt;
 &lt;/$button&gt;
-&lt;br&gt;
+
+&lt;hr&gt;
+
 max digits:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&quot;$:/config/GPS/digits&quot;  default=&quot;8&quot;/&gt;
 max age:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/age&quot;     default=&quot;10000&quot;/&gt;
 timeout:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/timeout&quot; default=&quot;15000&quot;/&gt;</pre>
+&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/timeout&quot; default=&quot;15000&quot;/&gt;
+
+&lt;$button&gt; start GPS
+&lt;&lt;msg &quot;Starting continuous GPS&quot;&gt;&gt;
+&lt;$action-startGPS
+   $tiddler=&quot;GPSTest/Data&quot;
+   $age={{$:/config/GPS/age}}
+   $timeout={{$:/config/GPS/timeout}}
+   $digits={{$:/config/GPS/digits}} /&gt;
+&lt;/$button&gt;
+
+&lt;$button&gt; stop GPS
+&lt;&lt;msg &quot;GPS stopped&quot;&gt;&gt;
+&lt;$action-stopGPS /&gt;
+&lt;/$button&gt;
+</pre>
 </div>
 <div created="20150703005241431" modified="20150705115743037" title="GPSTest/Data" type="application/json">
 <pre>{
