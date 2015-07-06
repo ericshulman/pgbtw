@@ -22,8 +22,10 @@
 
 <!-- ICON/SPLASH/STARTUP -->
 <icon src="icon.png" />
+<!--
 <gap:splash src="splash.png" />
 <preference name="SplashScreenDelay" value="3000"/>
+-->
 <preference name="LoadingDialog" value="CurbSide,loading... please wait..."/>
 
 <!-- SCREEN RESOLUTION/ORIENTATION -->
