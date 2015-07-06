@@ -174,6 +174,8 @@ Error message and password prompt
 
 <li>GPSTest/Map</li>
 
+<li>GPSTest/StreetView</li>
+
 </ul>
 </p>
 
@@ -5910,23 +5912,7 @@ Error message and password prompt
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/config/GPS/age]]
-# [[$:/config/GPS/digits]]
-# [[$:/config/GPS/timeout]]
-# [[$:/DefaultTiddlers]]
-# [[$:/Import]]
-# [[$:/isEncrypted]]
-# [[$:/SiteSubtitle]]
-# [[$:/SiteTitle]]
-# [[$:/themes/tiddlywiki/snowwhite]]
-# [[$:/themes/tiddlywiki/vanilla]]
-# [[ELS/PhoneGap/GPS/action-getGPS.js]]
-# [[ELS/PhoneGap/PinchZoom/Markup]]
-# [[ELS/PhoneGap/PinchZoom/Startup]]
-# [[ELS/StyleSheet/Adjustments]]
-# [[ELS/StyleSheet/Shortcuts]]
-# [[GPSTest]]
-# [[GPSTestData]]</pre>
+# [[GPSTest/Data]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -5943,7 +5929,7 @@ Error message and password prompt
 <div modified="20150705102815631" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="ELS/PhoneGap/GPS/action-gps.js GPSTest" title="$:/StoryList">
+<div list="GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
 <div modified="20150705104049694" title="$:/temp/advancedsearch">
@@ -6276,13 +6262,14 @@ exports.startup = function() {
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20150705221446056" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150706050922012" tags="" title="GPSTest">
 <pre>@@.center.shadowbox {{GPSTest/Controls}}@@
 
 [[GPSTest/Data]]:
 {{GPSTest/Data}}
 @@float:right; {{GPSTest/Lookup}}@@
-{{GPSTest/Map}}</pre>
+{{GPSTest/Map}}
+{{GPSTest/StreetView}}</pre>
 </div>
 <div created="20150705103720884" modified="20150705221906045" tags="" title="GPSTest/Controls">
 <pre>\define msg(txt)
@@ -6353,6 +6340,16 @@ timeout:
 &lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
 &lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
 &lt;&lt;ShowMap&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;</pre>
+</div>
+<div created="20150706050712264" modified="20150706050831395" tags="" title="GPSTest/StreetView">
+<pre>\define ShowStreetView()
+[img[https://maps.googleapis.com/maps/api/streetview?size=600x300&amp;location=$(latitude)$,$(longitude)$&amp;fov=90&amp;heading=235&amp;pitch=10]]
+\end
+&lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
+&lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
+&lt;&lt;ShowStreetView&gt;&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;</pre>
 </div>
