@@ -118,6 +118,8 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="http://tiddlywiki.com" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/GoogleMaps/zoom</li>
+
 <li>$:/config/GPS/age</li>
 
 <li>$:/config/GPS/digits</li>
@@ -158,6 +160,10 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/NewTagName</li>
+
+<li>$:/temp/notify</li>
+
 <li>$:/temp/search</li>
 
 <li>$:/temp/StreetView/fov</li>
@@ -192,6 +198,10 @@ Error message and password prompt
 
 <li>GPSTest/StreetView</li>
 
+<li>Greenwich Observatory</li>
+
+<li>Toronto</li>
+
 </ul>
 </p>
 
@@ -202,6 +212,9 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20150706212000752" modified="20150706215820325" title="$:/config/GoogleMaps/zoom">
+<pre>12</pre>
+</div>
 <div created="20150627192609080" modified="20150627192610329" title="$:/config/GPS/age">
 <pre>10000</pre>
 </div>
@@ -214,14 +227,14 @@ Error message and password prompt
 <div created="20150705120259221" modified="20150705120315792" title="$:/config/SaverFilter">
 <pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[[GPSTest/Data]]</pre>
 </div>
-<div created="20150706194209653" modified="20150706200511919" title="$:/config/StreetView/fov">
+<div created="20150706194209653" modified="20150706214435808" title="$:/config/StreetView/fov">
 <pre>120</pre>
 </div>
 <div created="20150706194241651" modified="20150706200515263" title="$:/config/StreetView/heading">
 <pre>0</pre>
 </div>
-<div created="20150706195954662" modified="20150706200500158" title="$:/config/StreetView/pitch">
-<pre>0</pre>
+<div created="20150706195954662" modified="20150706214449956" title="$:/config/StreetView/pitch">
+<pre>1</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.9">
 <pre>{
@@ -6235,7 +6248,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150706192240600" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
-<div modified="20150706201724263" title="$:/state/tab--626799445">
+<div modified="20150706215555146" title="$:/state/tab--626799445">
 <pre>GPSTest/Map</pre>
 </div>
 <div modified="20150705102815631" title="$:/state/tab/sidebar--1835078512">
@@ -6260,6 +6273,12 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
         }
     }
 }</pre>
+</div>
+<div created="20150706215305238" modified="20150706215344496" title="$:/temp/NewTagName">
+<pre></pre>
+</div>
+<div modified="20150706210209133" title="$:/temp/notify">
+<pre>Requesting GPS data...</pre>
 </div>
 <div created="20150705104045705" modified="20150706193941303" title="$:/temp/search">
 <pre></pre>
@@ -6632,10 +6651,10 @@ timeout:
 &lt;&lt;msg &quot;GPS stopped&quot;&gt;&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div created="20150703005241431" modified="20150705115743037" title="GPSTest/Data" type="application/json">
+<div created="20150706215754190" modified="20150706215807070" title="GPSTest/Data" type="application/json">
 <pre>{
-    &quot;latitude&quot;: &quot;43.6597978 &quot;,
-    &quot;longitude&quot;: &quot;-79.3905865&quot;
+    &quot;latitude&quot;: &quot;43.659797&quot;,
+    &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
 <div created="20150705103443883" modified="20150706201515474" tags="" title="GPSTest/Lookup">
@@ -6652,48 +6671,68 @@ timeout:
 
 Additional development is needed to directly retrieve the reverse geocode JSON data and store it in a tiddler, and then parse it for the actual formatted address information to be displayed.//</pre>
 </div>
-<div created="20150705103236444" modified="20150705103322611" tags="" title="GPSTest/Map">
-<pre>\define ShowMap()
+<div created="20150705103236444" modified="20150706213821922" tags="" title="GPSTest/Map">
+<pre>\define ShowMap(w,h)
 [ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
-&lt;embed src=&quot;https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123&quot; width=&quot;100%&quot; height=&quot;300&quot;&gt;
-\end
-&lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
-&lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
-&lt;&lt;ShowMap&gt;&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;</pre>
-</div>
-<div created="20150706050712264" modified="20150706200845415" tags="" title="GPSTest/StreetView">
-<pre>\define StreetView(w,h)
-&lt;div style=&quot;height:$h$px&quot;&gt;
-[img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=$(pitch)$]]
+&lt;div style=&quot;height:$h$px;&quot;&gt;
+[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=600x300&amp;scale=2&amp;maptype=hybrid&amp;format=jpg]]
 &lt;/div&gt;
 \end
 
+@@.floatright.center.smallest 
+zoom={{$:/config/GoogleMaps/zoom}}&lt;br&gt;
+&lt;$edit-text tiddler=&quot;$:/config/GoogleMaps/zoom&quot;
+   tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;21&quot; step=&quot;1&quot;/&gt;
+@@
+&lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
+&lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
+&lt;$set name=&quot;zoom&quot;       value={{$:/config/GoogleMaps/zoom}}&gt;
+&lt;&lt;ShowMap&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;</pre>
+</div>
+<div created="20150706050712264" modified="20150706214840232" tags="" title="GPSTest/StreetView">
+<pre>\define StreetView(w,h)
+[ext[GoogleStreetView|https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
+&lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
+[img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
+&lt;/div&gt;
+\end
+
+@@.floatright 
+&lt;table class=&quot;borderless smallest&quot; style=&quot;width:100%;text-align:center;&quot;&gt;&lt;tr&gt;&lt;td&gt;
+   heading={{$:/config/StreetView/heading}}&lt;br&gt;
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView/heading&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;&lt;br&gt;
+&lt;/td&gt;&lt;td&gt;
+   &amp;nbsp;
+&lt;/td&gt;&lt;td&gt;
+   viewsize={{$:/config/StreetView/fov}}&lt;br&gt;
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView/fov&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;&lt;br&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+@@
 &lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
 &lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
 &lt;$set name=&quot;heading&quot;   value={{$:/config/StreetView/heading}}&gt;
 &lt;$set name=&quot;fov&quot;       value={{$:/config/StreetView/fov}}&gt;
-&lt;$set name=&quot;pitch&quot;     value={{$:/config/StreetView/pitch}}&gt;
 &lt;&lt;StreetView 600 300&gt;&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;br&gt;
-&lt;table class=&quot;borderless smallest&quot; style=&quot;width:100%;text-align:center;&quot;&gt;&lt;tr&gt;&lt;td&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/StreetView/heading&quot;
-      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;&lt;br&gt;
-   heading={{$:/config/StreetView/heading}}
-&lt;/td&gt;&lt;td&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/StreetView/fov&quot;
-      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;&lt;br&gt;
-   view={{$:/config/StreetView/fov}}
-&lt;/td&gt;&lt;td&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/StreetView/pitch&quot;
-      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;-50&quot; max=&quot;50&quot; step=&quot;5&quot;/&gt;&lt;br&gt;
-   pitch={{$:/config/StreetView/pitch}}
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</pre>
+&lt;/$set&gt;</pre>
+</div>
+<div created="20150706215323456" modified="20150706215349421" tags="location" title="Greenwich Observatory" type="application/json">
+<pre>{
+    &quot;latitude&quot;: &quot;51.477222&quot;,
+    &quot;longitude&quot;: &quot;0&quot;
+}</pre>
+</div>
+<div created="20150706215050370" modified="20150706215312316" tags="location" title="Toronto" type="application/json">
+<pre>{
+    &quot;latitude&quot;: &quot;43.659797&quot;,
+    &quot;longitude&quot;: &quot;-79.390586&quot;
+}</pre>
 </div>
 
 </div>
