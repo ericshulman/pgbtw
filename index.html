@@ -6619,7 +6619,7 @@ exports.startup = function() {
     &quot;longitude&quot;: &quot;-122.0199&quot;
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150707130513813" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150707201223595" tags="" title="GPSTest">
 <pre>\define target() GPSTest/Data
 
 \define msg(txt)
@@ -6687,8 +6687,9 @@ latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
    tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
 longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
    tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
-&lt;$view tiddler=&lt;&lt;target&gt;&gt; field=&quot;modified&quot;
-   format=&quot;date&quot; template=&quot;MMM DDth, YYYY 0hh:0mm:0ss&quot;&gt;
+&amp;nbsp;
+&lt;$view tiddler=&lt;&lt;target&gt;&gt;
+   field=&quot;modified&quot; format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
 \end
 
 \define GPSoptions()
@@ -6706,7 +6707,10 @@ timeout:
 @@.floatright &lt;&lt;saveGPS&gt;&gt; &lt;&lt;loadGPS&gt;&gt;@@
 @@.clear @@
 
-@@.center.shadowbox &lt;&lt;latlong&gt;&gt;&lt;hr&gt;&lt;&lt;GPSoptions&gt;&gt;@@
+@@.shadowbox.center &lt;&lt;latlong&gt;&gt;@@
+
+@@.center &lt;&lt;GPSoptions&gt;&gt;@@
+
 &lt;&lt;tabs &quot;[prefix[GPSTest/]] -[[GPSTest/Controls]]&quot; &quot;GPSTest/Map&quot;&gt;&gt;</pre>
 </div>
 <div created="20150706215754190" modified="20150707130700186" tags="location" title="GPSTest/Data" type="application/json">
