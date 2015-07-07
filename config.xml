@@ -20,13 +20,10 @@
 <gap:platform name="android" />
 <!-- <gap:platform name="ios"> -->
 
-<!-- ICON/SPLASH/STARTUP -->
+<!-- ICON/SPLASH/LOADING MESSAGE -->
 <icon src="icon.png" />
-<!--
-<gap:splash src="splash.png" />
-<preference name="SplashScreenDelay" value="3000"/>
--->
 <preference name="LoadingDialog" value="CurbSide,loading... please wait..."/>
+<!-- <gap:splash src="splash.png" /> -->
 
 <!-- SCREEN RESOLUTION/ORIENTATION -->
 <preference name="orientation"      value="default" /> <!-- portrait, landscape -->
@@ -56,8 +53,8 @@
 <access origin="*" />
 
 <!-- PLUGINS -->
-<gap:plugin name="org.apache.cordova.inappbrowser" />
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
+<!-- <gap:plugin name="org.apache.cordova.inappbrowser" /> -->
 
 </widget>
