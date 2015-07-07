@@ -120,6 +120,8 @@ Error message and password prompt
 
 <li>$:/config/GoogleMaps/zoom</li>
 
+<li>$:/config/GPS/accuracy</li>
+
 <li>$:/config/GPS/age</li>
 
 <li>$:/config/GPS/digits</li>
@@ -214,8 +216,11 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20150706212000752" modified="20150707065707500" title="$:/config/GoogleMaps/zoom">
+<div created="20150706212000752" modified="20150707130655131" title="$:/config/GoogleMaps/zoom">
 <pre>16</pre>
+</div>
+<div modified="20150707130955906" title="$:/config/GPS/accuracy">
+<pre>no</pre>
 </div>
 <div created="20150627192609080" modified="20150627192610329" title="$:/config/GPS/age">
 <pre>10000</pre>
@@ -6402,7 +6407,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150705202151779" modified="20150707062645424" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-gps.js" type="application/javascript">
+<div created="20150705202151779" modified="20150707125449152" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-gps.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/action-gps.js
 type: application/javascript
@@ -6420,6 +6425,7 @@ tiddler = name of tiddler to store GPS data ($:/state/GPSData)
 digits  = maximum number of decimal places to retain (6)
 age     = maximum age when GPS data must be re-acquired (10000 msec)
 timeout = time limit before invoking GPS error handler (15000 msec)
+highaccuracy = if &quot;yes&quot;, use GPS, not just WiFi and network location
 
 \*/
 
@@ -6476,7 +6482,7 @@ GPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var GPSoptions={
 		maximumAge: this.getAttribute(&quot;age&quot;,10000),
 		timeout: this.getAttribute(&quot;timeout&quot;,15000),
-		enableHighAccuracy: true
+		enableHighAccuracy: (this.getAttribute(&quot;highaccuracy&quot;)==&quot;yes&quot;)
 	};
 
 	// get GPS data or start/stop continuous GPS requests
@@ -6613,7 +6619,7 @@ exports.startup = function() {
     &quot;longitude&quot;: &quot;-122.0199&quot;
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150707065610685" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150707130513813" tags="" title="GPSTest">
 <pre>\define target() GPSTest/Data
 
 \define msg(txt)
@@ -6622,52 +6628,57 @@ exports.startup = function() {
 \end
 
 \define getGPS()
-&lt;$button&gt; get GPS data
-&lt;$action-gps mode=&quot;get&quot; tiddler=&lt;&lt;target&gt;&gt;
-   age={{$:/config/GPS/age}}
-   timeout={{$:/config/GPS/timeout}}
-   digits={{$:/config/GPS/digits}} /&gt;
-&lt;&lt;msg &quot;Requesting GPS data...&quot;&gt;&gt;
+&lt;$button&gt;
+   get GPS data
+   &lt;$action-gps mode=&quot;get&quot; tiddler=&lt;&lt;target&gt;&gt;
+      age={{$:/config/GPS/age}}
+      timeout={{$:/config/GPS/timeout}}
+      digits={{$:/config/GPS/digits}}
+      highaccuracy={{$:/config/GPS/accuracy}} /&gt;
+   &lt;&lt;msg &quot;Requesting GPS data...&quot;&gt;&gt;
 &lt;/$button&gt;
 \end
 
 \define startstopGPS()
 &lt;$reveal state=&quot;$:/config/GPS/watch&quot; type=&quot;match&quot; text=&quot;off&quot;&gt; 
-&lt;$button&gt; start GPS scan
-&lt;$action-gps mode=&quot;start&quot; tiddler=&lt;&lt;target&gt;&gt;
-   age={{$:/config/GPS/age}}
-   timeout={{$:/config/GPS/timeout}}
-   digits={{$:/config/GPS/digits}} /&gt;
-&lt;$action-setfield $tiddler=&quot;$:/config/GPS/watch&quot; $value=&quot;on&quot;/&gt;
-&lt;&lt;msg &quot;Starting continuous GPS&quot;&gt;&gt;
-&lt;/$button&gt;
+   &lt;$button&gt;
+      start GPS scan
+      &lt;$action-gps mode=&quot;start&quot; tiddler=&lt;&lt;target&gt;&gt;
+         age={{$:/config/GPS/age}}
+         timeout={{$:/config/GPS/timeout}}
+         digits={{$:/config/GPS/digits}}
+         highaccuracy={{$:/config/GPS/accuracy}} /&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/GPS/watch&quot; $value=&quot;on&quot;/&gt;
+      &lt;&lt;msg &quot;Starting continuous GPS&quot;&gt;&gt;
+   &lt;/$button&gt;
 &lt;/$reveal&gt;
 &lt;$reveal state=&quot;$:/config/GPS/watch&quot; type=&quot;nomatch&quot; text=&quot;off&quot;&gt; 
-&lt;$button&gt; stop GPS scan
-&lt;$action-gps mode=&quot;stop&quot; /&gt;
-&lt;$action-setfield $tiddler=&quot;$:/config/GPS/watch&quot; $value=&quot;off&quot;/&gt;
-&lt;&lt;msg &quot;GPS stopped&quot;&gt;&gt;
-&lt;/$button&gt;
+   &lt;$button&gt;
+      stop GPS scan
+      &lt;$action-gps mode=&quot;stop&quot; /&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/GPS/watch&quot; $value=&quot;off&quot;/&gt;
+      &lt;&lt;msg &quot;GPS stopped&quot;&gt;&gt;
+   &lt;/$button&gt;
 &lt;/$reveal&gt;
 \end
 
 \define saveGPS()
 &lt;$button message=&quot;tm-new-tiddler&quot; param=&lt;&lt;target&gt;&gt;&gt;
-save GPS data
+   save GPS data
 &lt;/$button&gt;
 \end
 
 \define loadGPS()
 &lt;$button popup=&quot;$:/temp/popup/loadGPS&quot;&gt;
-load GPS data
+   load GPS data
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/loadGPS&quot; class=&quot;tc-drop-down&quot;&gt;
-&lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
-&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-&lt;$view field=&quot;title&quot;/&gt;
-&lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
-&lt;/$button&gt;
-&lt;/$list&gt;
+   &lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
+      &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+         &lt;$view field=&quot;title&quot;/&gt;
+         &lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
+      &lt;/$button&gt;
+   &lt;/$list&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -6676,6 +6687,8 @@ latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
    tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
 longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
    tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+&lt;$view tiddler=&lt;&lt;target&gt;&gt; field=&quot;modified&quot;
+   format=&quot;date&quot; template=&quot;MMM DDth, YYYY 0hh:0mm:0ss&quot;&gt;
 \end
 
 \define GPSoptions()
@@ -6685,6 +6698,8 @@ max age:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/age&quot;     default=&quot;10000&quot;/&gt;
 timeout:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/GPS/timeout&quot; default=&quot;15000&quot;/&gt;
+&lt;$checkbox tiddler=&quot;$:/config/GPS/accuracy&quot; field=&quot;text&quot;
+   checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
 \end
 
 @@.floatleft &lt;&lt;getGPS&gt;&gt; &lt;&lt;startstopGPS&gt;&gt;@@
@@ -6694,7 +6709,7 @@ timeout:
 @@.center.shadowbox &lt;&lt;latlong&gt;&gt;&lt;hr&gt;&lt;&lt;GPSoptions&gt;&gt;@@
 &lt;&lt;tabs &quot;[prefix[GPSTest/]] -[[GPSTest/Controls]]&quot; &quot;GPSTest/Map&quot;&gt;&gt;</pre>
 </div>
-<div created="20150706215754190" modified="20150707065711972" tags="location" title="GPSTest/Data" type="application/json">
+<div created="20150706215754190" modified="20150707130700186" tags="location" title="GPSTest/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
