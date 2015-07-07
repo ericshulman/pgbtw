@@ -214,8 +214,8 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20150706212000752" modified="20150707063957673" title="$:/config/GoogleMaps/zoom">
-<pre>15</pre>
+<div created="20150706212000752" modified="20150707065707500" title="$:/config/GoogleMaps/zoom">
+<pre>16</pre>
 </div>
 <div created="20150627192609080" modified="20150627192610329" title="$:/config/GPS/age">
 <pre>10000</pre>
@@ -6279,7 +6279,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150706215305238" modified="20150707060823346" title="$:/temp/NewTagName">
+<div created="20150706215305238" modified="20150707065310755" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div modified="20150707055839604" title="$:/temp/notify">
@@ -6613,7 +6613,7 @@ exports.startup = function() {
     &quot;longitude&quot;: &quot;-122.0199&quot;
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150707064223836" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150707065610685" tags="" title="GPSTest">
 <pre>\define target() GPSTest/Data
 
 \define msg(txt)
@@ -6652,8 +6652,7 @@ exports.startup = function() {
 \end
 
 \define saveGPS()
-&lt;$button&gt;
-&lt;$action-sendmessage $message=&quot;tm-new-tiddler&quot; $param=&lt;&lt;target&gt;&gt; tags=&quot;location&quot; /&gt;
+&lt;$button message=&quot;tm-new-tiddler&quot; param=&lt;&lt;target&gt;&gt;&gt;
 save GPS data
 &lt;/$button&gt;
 \end
@@ -6663,7 +6662,7 @@ save GPS data
 load GPS data
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/loadGPS&quot; class=&quot;tc-drop-down&quot;&gt;
-&lt;$list filter=&quot;[tag[location]sort[]]&quot;&gt;
+&lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
 &lt;$view field=&quot;title&quot;/&gt;
 &lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
@@ -6692,18 +6691,13 @@ timeout:
 @@.floatright &lt;&lt;saveGPS&gt;&gt; &lt;&lt;loadGPS&gt;&gt;@@
 @@.clear @@
 
-@@.center.shadowbox 
-&lt;&lt;latlong&gt;&gt;
-&lt;br&gt;
-&lt;&lt;GPSoptions&gt;&gt;
-@@
-
+@@.center.shadowbox &lt;&lt;latlong&gt;&gt;&lt;hr&gt;&lt;&lt;GPSoptions&gt;&gt;@@
 &lt;&lt;tabs &quot;[prefix[GPSTest/]] -[[GPSTest/Controls]]&quot; &quot;GPSTest/Map&quot;&gt;&gt;</pre>
 </div>
-<div created="20150706215754190" modified="20150707064229770" title="GPSTest/Data" type="application/json">
+<div created="20150706215754190" modified="20150707065711972" tags="location" title="GPSTest/Data" type="application/json">
 <pre>{
-    &quot;latitude&quot;: &quot;37.36798&quot;,
-    &quot;longitude&quot;: &quot;-122.0199&quot;
+    &quot;latitude&quot;: &quot;43.659797&quot;,
+    &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
 <div caption="Address Lookup" created="20150705103443883" modified="20150707063249124" tags="" title="GPSTest/Lookup">
