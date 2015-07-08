@@ -216,7 +216,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20150706212000752" modified="20150707130655131" title="$:/config/GoogleMaps/zoom">
+<div created="20150706212000752" modified="20150708000841407" title="$:/config/GoogleMaps/zoom">
 <pre>16</pre>
 </div>
 <div modified="20150707130955906" title="$:/config/GPS/accuracy">
@@ -237,10 +237,10 @@ Error message and password prompt
 <div created="20150705120259221" modified="20150707052358571" title="$:/config/SaverFilter">
 <pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[[GPSTest/Data]]</pre>
 </div>
-<div created="20150706194209653" modified="20150706214435808" title="$:/config/StreetView/fov">
+<div created="20150706194209653" modified="20150708000948300" title="$:/config/StreetView/fov">
 <pre>120</pre>
 </div>
-<div created="20150706194241651" modified="20150707062111197" title="$:/config/StreetView/heading">
+<div created="20150706194241651" modified="20150708001854509" title="$:/config/StreetView/heading">
 <pre>0</pre>
 </div>
 <div created="20150706195954662" modified="20150706214449956" title="$:/config/StreetView/pitch">
@@ -6255,20 +6255,20 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20150707053249506" title="$:/state/tab--1498284803">
+<div modified="20150708001514865" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
-<div modified="20150707062620200" title="$:/state/tab--626799445">
+<div modified="20150708001911475" title="$:/state/tab--626799445">
 <pre>GPSTest/Map</pre>
 </div>
 <div modified="20150705102815631" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="GPSTest" title="$:/StoryList">
+<div list="GPSTest/Lookup GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20150707053246938" title="$:/temp/advancedsearch">
-<pre>clone</pre>
+<div created="20150706192244698" modified="20150708001508828" title="$:/temp/advancedsearch">
+<pre>exports.let</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6290,7 +6290,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150707055839604" title="$:/temp/notify">
 <pre>Requesting GPS data...</pre>
 </div>
-<div created="20150705104045705" modified="20150707052325401" title="$:/temp/search">
+<div created="20150705104045705" modified="20150708001436646" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
@@ -6407,7 +6407,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150705202151779" modified="20150707125449152" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-gps.js" type="application/javascript">
+<div created="20150705202151779" modified="20150707235607702" module-type="widget" tags="" title="ELS/PhoneGap/GPS/action-gps.js" type="application/javascript">
 <pre>/*\
 title: ELS/PhoneGap/GPS/action-gps.js
 type: application/javascript
@@ -6493,7 +6493,7 @@ GPSWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	if (mode == &quot;start&quot;)
 		window.GPS.watchID = navigator.geolocation.watchPosition(
 		   GPSsuccess, GPSerror, GPSoptions);
-	if (mode == &quot;end&quot;)
+	if (mode == &quot;stop&quot;)
 		navigator.geolocation.clearWatch(window.GPS.watchID);
 
 	return true; // Action was invoked
@@ -6619,7 +6619,7 @@ exports.startup = function() {
     &quot;longitude&quot;: &quot;-122.0199&quot;
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150707201223595" tags="" title="GPSTest">
+<div created="20150623211607895" modified="20150708002012164" tags="" title="GPSTest">
 <pre>\define target() GPSTest/Data
 
 \define msg(txt)
@@ -6711,15 +6711,15 @@ timeout:
 
 @@.center &lt;&lt;GPSoptions&gt;&gt;@@
 
-&lt;&lt;tabs &quot;[prefix[GPSTest/]] -[[GPSTest/Controls]]&quot; &quot;GPSTest/Map&quot;&gt;&gt;</pre>
+&lt;&lt;tabs &quot;[prefix[GPSTest/]]&quot; &quot;GPSTest/Map&quot;&gt;&gt;</pre>
 </div>
-<div created="20150706215754190" modified="20150707130700186" tags="location" title="GPSTest/Data" type="application/json">
+<div created="20150706215754190" modified="20150708001901892" tags="location" title="GPSTest/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div caption="Address Lookup" created="20150705103443883" modified="20150707063249124" tags="" title="GPSTest/Lookup">
+<div caption="Address Lookup" created="20150705103443883" modified="20150708002006314" tags="" title="GPSTest/Lookup">
 <pre>\define ShowLookup()
 [ext[ReverseGEOCode Address Lookup|https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
 \end
@@ -6733,11 +6733,11 @@ timeout:
 
 Additional development is needed to directly retrieve the reverse geocode JSON data and store it in a tiddler, and then parse it for the actual formatted address information to be displayed.//</pre>
 </div>
-<div caption="GoogleMaps" created="20150705103236444" modified="20150707062934536" tags="" title="GPSTest/Map">
+<div caption="GoogleMaps" created="20150705103236444" modified="20150708001942525" tags="" title="GPSTest/Map">
 <pre>\define ShowMap(w,h)
 [ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
 &lt;div style=&quot;height:$h$px;&quot;&gt;
-[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=600x300&amp;scale=2&amp;maptype=hybrid&amp;format=jpg]]
+[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$w$x$h$&amp;scale=2&amp;maptype=hybrid&amp;format=jpg]]
 &lt;/div&gt;
 \end
 
@@ -6748,13 +6748,13 @@ zoom={{$:/config/GoogleMaps/zoom}}&lt;br&gt;
 @@
 &lt;$set name=&quot;latitude&quot;  value={{GPSTest/Data##latitude}}&gt;
 &lt;$set name=&quot;longitude&quot; value={{GPSTest/Data##longitude}}&gt;
-&lt;$set name=&quot;zoom&quot;       value={{$:/config/GoogleMaps/zoom}}&gt;
-&lt;&lt;ShowMap&gt;&gt;
+&lt;$set name=&quot;zoom&quot;      value={{$:/config/GoogleMaps/zoom}}&gt;
+&lt;&lt;ShowMap 600 300&gt;&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div caption="Google StreetView" created="20150706050712264" modified="20150707063338340" tags="" title="GPSTest/StreetView">
+<div caption="Google StreetView" created="20150706050712264" modified="20150708001607521" tags="" title="GPSTest/StreetView">
 <pre>\define StreetView(w,h)
 [ext[GoogleStreetView|https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 &lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
@@ -6780,6 +6780,7 @@ zoom={{$:/config/GoogleMaps/zoom}}&lt;br&gt;
 &lt;$set name=&quot;heading&quot;   value={{$:/config/StreetView/heading}}&gt;
 &lt;$set name=&quot;fov&quot;       value={{$:/config/StreetView/fov}}&gt;
 &lt;&lt;StreetView 600 300&gt;&gt;
+&lt;/$set&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;</pre>
