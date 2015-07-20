@@ -6264,7 +6264,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150705102815631" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="GPSTest/Lookup GPSTest" title="$:/StoryList">
+<div list="ELS/PhoneGap/PinchZoom/Startup GPSTest" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20150708001508828" title="$:/temp/advancedsearch">
@@ -6507,7 +6507,7 @@ exports[&quot;action-gps&quot;] = GPSWidget;
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150212062530288" creator="EricShulman" modified="20150623215108344" modifier="EricShulman" module-type="startup" tags="" title="ELS/PhoneGap/PinchZoom/Startup" type="application/javascript">
+<div created="20150212062530288" creator="EricShulman" modified="20150720190026813" modifier="EricShulman" module-type="startup" tags="" title="ELS/PhoneGap/PinchZoom/Startup" type="application/javascript">
 <pre>(function(){
 /*jslint node: true, browser: true */
 /*global $tw: false */
@@ -6522,12 +6522,16 @@ exports.synchronous = true;
 // PhoneGap Pinch Zoom Init
 exports.startup = function() {
    if (typeof cordova !== &quot;undefined&quot;){
-      //enabling zoom control
-      cordova.plugins.ZoomControl.ZoomControl(&quot;true&quot;);
-      // enabling built in zoom control
-      cordova.plugins.ZoomControl.setBuiltInZoomControls(&quot;true&quot;);
-      // enabling display zoom control
-      cordova.plugins.ZoomControl.setDisplayZoomControls(&quot;true&quot;);
+      document.addEventListener('deviceready', function(){
+         // enabling zoom control
+         cordova.plugins.ZoomControl.ZoomControl(&quot;true&quot;);
+         // enabling built in zoom control
+         cordova.plugins.ZoomControl.setBuiltInZoomControls(&quot;true&quot;);
+         // enabling display zoom control
+         cordova.plugins.ZoomControl.setDisplayZoomControls(&quot;true&quot;);
+     }, function(){
+         alert('PinchZoomInit: error deviceready');
+     });
    }
 };
 
