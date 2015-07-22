@@ -178,7 +178,7 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
-<li>ELS/PhoneGap/Geo/action-geo.js</li>
+<li>ELS/Geo/action-geo.js</li>
 
 <li>ELS/PhoneGap/PinchZoom/Markup</li>
 
@@ -6242,7 +6242,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/core/modules/widgets/edit-text.js]]</pre>
+# [[ELS/PhoneGap/GPS/action-gps.js]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -6282,8 +6282,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20150707065310755" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20150722001713373" title="$:/temp/notify">
-<pre>Geo scan stopped</pre>
+<div modified="20150722003004893" title="$:/temp/notify">
+<pre>Requesting Geo data...</pre>
 </div>
 <div created="20150705104045705" modified="20150722001140087" title="$:/temp/search">
 <pre></pre>
@@ -6402,9 +6402,9 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150705202151779" modified="20150722001517352" module-type="widget" tags="" title="ELS/PhoneGap/Geo/action-geo.js" type="application/javascript">
+<div created="20150705202151779" modified="20150722003751804" module-type="widget" tags="" title="ELS/Geo/action-geo.js" type="application/javascript">
 <pre>/*\
-title: ELS/PhoneGap/Geo/action-geo.js
+title: ELS/Geo/action-geo.js
 type: application/javascript
 module-type: widget
 author: Eric Shulman elsdesign@gmail.com
@@ -6414,11 +6414,11 @@ Action widget to get geolocation data
 
 params (default):
 mode    = keyword: get, start, or stop (get)
-tiddler = name of tiddler to store data ($:/state/GeoData)
+tiddler = name of tiddler to store geo data ($:/state/GeoData)
 digits  = maximum number of decimal places to retain (6)
-age     = maximum age when data must be re-acquired (10000 msec)
+age     = maximum age when geo data must be re-acquired (10000 msec)
 timeout = time limit before invoking error handler (15000 msec)
-highaccuracy = if &quot;yes&quot;, use device, not just WiFi and network location
+highaccuracy = if &quot;yes&quot;, use device sensor, not just WiFi and network location
 
 \*/
 
@@ -6447,47 +6447,47 @@ GeoWidget.prototype.refresh = function(changedTiddlers) {
 
 GeoWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
-	var geo = {
+	window.geo = {
 		tiddler: this.getAttribute(&quot;tiddler&quot;,&quot;$:/state/GeoData&quot;),
-		digits:  Math.pow(10,this.getAttribute(&quot;digits&quot;,6)),
-		success: function(position) {
-			var data = {};
-			var digits=this.digits;
-			for (var i in position.coords) {
-				data[i] = position.coords[i]||&quot;&quot;;
-				data[i] = parseInt(data[i]*digits,10)/digits;
-			}
-			data['timestamp'] = position.timestamp;
-			$tw.wiki.setTiddlerData(this.tiddler,data);
-		},
-		error: function(err) {
-			var data = {};
-			data[&quot;errorcode&quot;]    = err.code;
-			data[&quot;errormessage&quot;] = err.message;
-			data[&quot;latitude&quot;]     = &quot;&quot;;
-			data[&quot;longitude&quot;]    = &quot;&quot;;
-			$tw.wiki.setTiddlerData(this.tiddler,data);
-		},
-		options: {
-			maximumAge:
-				this.getAttribute(&quot;age&quot;,10000),
-			timeout:
-				this.getAttribute(&quot;timeout&quot;,15000),
-			enableHighAccuracy:
-				this.getAttribute(&quot;highaccuracy&quot;)==&quot;yes&quot;
-		}
+		digits:  Math.pow(10,this.getAttribute(&quot;digits&quot;,6)) 
 	};
 
-	// get location data or start/stop continuous location requests
+	var success=function(position) {
+		var data = {};
+		var digits=window.geo.digits;
+		for (var i in position.coords) {
+			data[i] = position.coords[i]||&quot;&quot;;
+			data[i] = parseInt(data[i]*digits,10)/digits;
+		}
+		data['timestamp'] = position.timestamp;
+		$tw.wiki.setTiddlerData(window.geo.tiddler,data);
+	};
+
+	var error=function(err) {
+		var data = {};
+		data[&quot;errorcode&quot;]    = err.code;
+		data[&quot;errormessage&quot;] = err.message;
+		data[&quot;latitude&quot;]     = &quot;&quot;;
+		data[&quot;longitude&quot;]    = &quot;&quot;;
+		$tw.wiki.setTiddlerData(window.geo.tiddler,data);
+	};
+
+	var options={
+		maximumAge: this.getAttribute(&quot;age&quot;,10000),
+		timeout: this.getAttribute(&quot;timeout&quot;,15000),
+		enableHighAccuracy: (this.getAttribute(&quot;highaccuracy&quot;)==&quot;yes&quot;)
+	};
+
+	// get location data or start/stop continuous location scan
 	var mode=this.getAttribute(&quot;mode&quot;,&quot;get&quot;);
 	if (mode == &quot;get&quot;)
 		navigator.geolocation.getCurrentPosition(
-		   geo.success, geo.error, geo.options);
+		   success, error, options);
 	if (mode == &quot;start&quot;)
-		window.geoWatchID = navigator.geolocation.watchPosition(
-		   geo.success, geo.error, geo.options);
+		window.geo.watchID = navigator.geolocation.watchPosition(
+		   success, error, options);
 	if (mode == &quot;stop&quot;)
-		navigator.geolocation.clearWatch(window.geoWatchID);
+		navigator.geolocation.clearWatch(window.geo.watchID);
 
 	return true; // Action was invoked
 };
