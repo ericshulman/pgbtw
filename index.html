@@ -154,6 +154,8 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/tab--1119925701</li>
+
 <li>$:/state/tab--1498284803</li>
 
 <li>$:/state/tab--238403861</li>
@@ -184,21 +186,19 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
-<li>Geo/action-geo.js</li>
+<li>Dashboard</li>
 
 <li>Geo/action-getAddressData.js</li>
+
+<li>Geo/action-getGeoData.js</li>
 
 <li>Geo/Data</li>
 
 <li>Geo/Lookup</li>
 
-<li>Geo/Macros</li>
-
 <li>Geo/Map</li>
 
 <li>Geo/StreetView</li>
-
-<li>Geo/Test</li>
 
 <li>Greenwich Observatory</li>
 
@@ -236,7 +236,7 @@ Error message and password prompt
 <div created="20150722001611703" modified="20150722001611848" title="$:/config/Geo/timeout">
 <pre>15000</pre>
 </div>
-<div modified="20150722001713373" title="$:/config/Geo/watch">
+<div modified="20150724072250770" title="$:/config/Geo/watch">
 <pre>off</pre>
 </div>
 <div created="20150706212000752" modified="20150722001620789" title="$:/config/GoogleMaps/zoom">
@@ -6249,8 +6249,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 })();
 </pre>
 </div>
-<div created="20150623224550947" modified="20150722010813505" title="$:/DefaultTiddlers">
-<pre>Geo/Test</pre>
+<div created="20150623224550947" modified="20150724070415663" title="$:/DefaultTiddlers">
+<pre>Dashboard</pre>
 </div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
@@ -6266,6 +6266,9 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
+<div modified="20150724072353741" title="$:/state/tab--1119925701">
+<pre>Geo/Map</pre>
+</div>
 <div modified="20150722013932381" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
@@ -6278,7 +6281,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150722012055538" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Geo/Test" title="$:/StoryList">
+<div list="Dashboard Geo/Data/Address" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20150724054726965" title="$:/temp/advancedsearch">
@@ -6301,8 +6304,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20150722011814725" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20150724054410086" title="$:/temp/notify">
-<pre>Requesting Geo data...</pre>
+<div modified="20150724072250770" title="$:/temp/notify">
+<pre>Geo scan stopped</pre>
 </div>
 <div created="20150705104045705" modified="20150724054658260" title="$:/temp/search">
 <pre></pre>
@@ -6421,101 +6424,101 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150705202151779" modified="20150722010418549" module-type="widget" tags="" title="Geo/action-geo.js" type="application/javascript">
-<pre>/*\
-title: Geo/action-geo.js
-type: application/javascript
-module-type: widget
-author: Eric Shulman elsdesign@gmail.com
-revision: 1.0
+<div created="20150623211607895" modified="20150724072342887" title="Dashboard">
+<pre>\define target() Geo/Data
+\define state(id)  $:/config/Geo/$id$
+\define config(id) {{$:/config/Geo/$id$}}
 
-Action widget to get geolocation data
+\define msg(txt)
+&lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
+&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
+\end
 
-params (default):
-mode    = keyword: get, start, or stop (get)
-tiddler = name of tiddler to store geo data ($:/state/GeoData)
-digits  = maximum number of decimal places to retain (6)
-age     = maximum age when geo data must be re-acquired (10000 msec)
-timeout = time limit before invoking error handler (15000 msec)
-highaccuracy = if &quot;yes&quot;, use device sensor, not just WiFi and network location
+\define getGeo()
+&lt;$button&gt;
+   get Geo data
+   &lt;$action-getGeoData mode=&quot;get&quot; tiddler=&lt;&lt;target&gt;&gt;
+      age=&lt;&lt;config age&gt;&gt;
+      timeout=&lt;&lt;config timeout&gt;&gt;
+      digits=&lt;&lt;config digits&gt;&gt;
+      highaccuracy=&lt;&lt;config accuracy&gt;&gt; /&gt;
+   &lt;&lt;msg &quot;Requesting Geo data...&quot;&gt;&gt;
+&lt;/$button&gt;
+\end
 
-\*/
+\define startstopGeo()
+&lt;$reveal state=&lt;&lt;state watch&gt;&gt; type=&quot;match&quot; text=&quot;off&quot;&gt; 
+   &lt;$button&gt;
+      start Geo scan
+      &lt;$action-getGeoData mode=&quot;start&quot; tiddler=&lt;&lt;target&gt;&gt;
+         age=&lt;&lt;config age&gt;&gt;
+         timeout=&lt;&lt;config timeout&gt;&gt;
+         digits=&lt;&lt;config digits&gt;&gt;
+         highaccuracy=&lt;&lt;config accuracy&gt;&gt; /&gt;
+      &lt;$action-setfield $tiddler=&lt;&lt;state watch&gt;&gt; $value=&quot;on&quot;/&gt;
+      &lt;&lt;msg &quot;Starting continuous Geo scan&quot;&gt;&gt;
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&lt;&lt;state watch&gt;&gt; type=&quot;nomatch&quot; text=&quot;off&quot;&gt; 
+   &lt;$button&gt;
+      stop Geo scan
+      &lt;$action-getGeoData mode=&quot;stop&quot; /&gt;
+      &lt;$action-setfield $tiddler=&lt;&lt;state watch&gt;&gt; $value=&quot;off&quot;/&gt;
+      &lt;&lt;msg &quot;Geo scan stopped&quot;&gt;&gt;
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
+\end
 
-(function(){
+\define saveGeo()
+&lt;$button message=&quot;tm-new-tiddler&quot; param=&lt;&lt;target&gt;&gt;&gt;
+   save Geo data
+&lt;/$button&gt;
+\end
 
-/*jslint node: true, browser: true */
-/*global $tw: false */
-&quot;use strict&quot;;
-var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
-var GeoWidget = function(parseTreeNode,options) {
-	this.initialise(parseTreeNode,options);
-};
-GeoWidget.prototype = new Widget();
-GeoWidget.prototype.render = function(parent,nextSibling) {
-	this.computeAttributes();
-};
+\define loadGeo()
+&lt;$button popup=&quot;$:/temp/popup/loadGeo&quot;&gt;
+   load Geo data
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/loadGeo&quot; class=&quot;tc-drop-down&quot;&gt;
+   &lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
+      &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+         &lt;$view field=&quot;title&quot;/&gt;
+         &lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
+      &lt;/$button&gt;
+   &lt;/$list&gt;
+&lt;/$reveal&gt;
+\end
 
-GeoWidget.prototype.refresh = function(changedTiddlers) {
-	var changedAttributes = this.computeAttributes();
-	if(   changedAttributes[&quot;tiddler&quot;]) {
-		this.refreshSelf();
-		return true;
-	}
-	return this.refreshChildren(changedTiddlers);
-};
+\define latlong()
+latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
+longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+&amp;nbsp;
+&lt;$view tiddler=&lt;&lt;target&gt;&gt;
+   field=&quot;modified&quot; format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
+\end
 
-GeoWidget.prototype.invokeAction = function(triggeringWidget,event) {
+\define GeoOptions()
+max digits:
+&lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&lt;&lt;config digits&gt;&gt;  default=&quot;6&quot;/&gt;
+max age:
+&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&lt;&lt;config age&gt;&gt;     default=&quot;10000&quot;/&gt;
+timeout:
+&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&lt;&lt;config timeout&gt;&gt; default=&quot;15000&quot;/&gt;
+&lt;$checkbox tiddler=&lt;&lt;config accuracy&gt;&gt; field=&quot;text&quot;
+   checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
+\end
 
-	window.geo = {
-		tiddler: this.getAttribute(&quot;tiddler&quot;,&quot;$:/state/GeoData&quot;),
-		digits:  Math.pow(10,this.getAttribute(&quot;digits&quot;,6)) 
-	};
+@@.floatleft &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt;@@
+@@.floatright &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
+@@.clear @@
 
-	var success=function(position) {
-		var data = {};
-		var digits=window.geo.digits;
-		for (var i in position.coords) {
-			data[i] = position.coords[i]||&quot;&quot;;
-			data[i] = parseInt(data[i]*digits,10)/digits;
-		}
-		data['timestamp'] = position.timestamp;
-		$tw.wiki.setTiddlerData(window.geo.tiddler,data);
-	};
+@@.shadowbox.center &lt;&lt;latlong&gt;&gt;&lt;hr&gt;&lt;&lt;GeoOptions&gt;&gt;@@
 
-	var error=function(err) {
-		var data = {};
-		data[&quot;errorcode&quot;]    = err.code;
-		data[&quot;errormessage&quot;] = err.message;
-		data[&quot;latitude&quot;]     = &quot;&quot;;
-		data[&quot;longitude&quot;]    = &quot;&quot;;
-		$tw.wiki.setTiddlerData(window.geo.tiddler,data);
-	};
-
-	var options={
-		maximumAge: this.getAttribute(&quot;age&quot;,10000),
-		timeout: this.getAttribute(&quot;timeout&quot;,15000),
-		enableHighAccuracy: (this.getAttribute(&quot;highaccuracy&quot;)==&quot;yes&quot;)
-	};
-
-	// get location data or start/stop continuous location scan
-	var mode=this.getAttribute(&quot;mode&quot;,&quot;get&quot;);
-	if (mode == &quot;get&quot;)
-		navigator.geolocation.getCurrentPosition(
-		   success, error, options);
-	if (mode == &quot;start&quot;)
-		window.geo.watchID = navigator.geolocation.watchPosition(
-		   success, error, options);
-	if (mode == &quot;stop&quot;)
-		navigator.geolocation.clearWatch(window.geo.watchID);
-
-	return true; // Action was invoked
-};
-
-exports[&quot;action-geo&quot;] = GeoWidget;
-
-})();</pre>
+&lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Lookup Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
 </div>
-<div created="20150722012731325" modified="20150724052118610" module-type="widget" tags="" title="Geo/action-getAddressData.js" type="application/javascript">
+<div created="20150722012731325" modified="20150724070458207" module-type="widget" tags="" title="Geo/action-getAddressData.js" type="application/javascript">
 <pre>/*\
 title: Geo/action-getAddressData.js
 type: application/javascript
@@ -6614,13 +6617,107 @@ exports[&quot;getAddressData&quot;] = GetAddressWidget;
 
 })();</pre>
 </div>
-<div created="20150706215754190" modified="20150724054823911" tags="location" title="Geo/Data" type="application/json">
+<div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
+<pre>/*\
+title: Geo/action-getGeoData.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+Action widget to get geolocation data
+
+params (default):
+mode    = keyword: get, start, or stop (get)
+tiddler = name of tiddler to store geo data ($:/state/GeoData)
+digits  = maximum number of decimal places to retain (6)
+age     = maximum age when geo data must be re-acquired (10000 msec)
+timeout = time limit before invoking error handler (15000 msec)
+highaccuracy = if &quot;yes&quot;, use device sensor, not just WiFi and network location
+
+\*/
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var GeoWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+GeoWidget.prototype = new Widget();
+GeoWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+};
+
+GeoWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(   changedAttributes[&quot;tiddler&quot;]) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+GeoWidget.prototype.invokeAction = function(triggeringWidget,event) {
+
+	window.geo = {
+		tiddler: this.getAttribute(&quot;tiddler&quot;,&quot;$:/state/GeoData&quot;),
+		digits:  Math.pow(10,this.getAttribute(&quot;digits&quot;,6)) 
+	};
+
+	var success=function(position) {
+		var data = {};
+		var digits=window.geo.digits;
+		for (var i in position.coords) {
+			data[i] = position.coords[i]||&quot;&quot;;
+			data[i] = parseInt(data[i]*digits,10)/digits;
+		}
+		data['timestamp'] = position.timestamp;
+		$tw.wiki.setTiddlerData(window.geo.tiddler,data);
+	};
+
+	var error=function(err) {
+		var data = {};
+		data[&quot;errorcode&quot;]    = err.code;
+		data[&quot;errormessage&quot;] = err.message;
+		data[&quot;latitude&quot;]     = &quot;&quot;;
+		data[&quot;longitude&quot;]    = &quot;&quot;;
+		$tw.wiki.setTiddlerData(window.geo.tiddler,data);
+	};
+
+	var options={
+		maximumAge: this.getAttribute(&quot;age&quot;,10000),
+		timeout: this.getAttribute(&quot;timeout&quot;,15000),
+		enableHighAccuracy: (this.getAttribute(&quot;highaccuracy&quot;)==&quot;yes&quot;)
+	};
+
+	// get location data or start/stop continuous location scan
+	var mode=this.getAttribute(&quot;mode&quot;,&quot;get&quot;);
+	if (mode == &quot;get&quot;)
+		navigator.geolocation.getCurrentPosition(
+		   success, error, options);
+	if (mode == &quot;start&quot;)
+		window.geo.watchID = navigator.geolocation.watchPosition(
+		   success, error, options);
+	if (mode == &quot;stop&quot;)
+		navigator.geolocation.clearWatch(window.geo.watchID);
+
+	return true; // Action was invoked
+};
+
+exports[&quot;action-getGeoData&quot;] = GeoWidget;
+
+})();</pre>
+</div>
+<div created="20150706215754190" modified="20150724072302940" tags="location" title="Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div caption="Address Lookup" created="20150705103443883" modified="20150724054135044" tags="" title="Geo/Lookup">
+<div caption="Address Lookup" created="20150705103443883" modified="20150724070525990" tags="" title="Geo/Lookup">
 <pre>\define ShowLookup()
 
 &lt;$button&gt; Get Address Data
@@ -6648,89 +6745,7 @@ exports[&quot;getAddressData&quot;] = GetAddressWidget;
 &lt;/$list&gt;
 &lt;/table&gt;</pre>
 </div>
-<div created="20150722010959887" modified="20150722011818274" tags="$:/tags/Macro" title="Geo/Macros">
-<pre>\define msg(txt)
-&lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
-&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
-\end
-
-\define getGeo()
-&lt;$button&gt;
-   get Geo data
-   &lt;$action-geo mode=&quot;get&quot; tiddler=&lt;&lt;target&gt;&gt;
-      age={{$:/config/Geo/age}}
-      timeout={{$:/config/Geo/timeout}}
-      digits={{$:/config/Geo/digits}}
-      highaccuracy={{$:/config/Geo/accuracy}} /&gt;
-   &lt;&lt;msg &quot;Requesting Geo data...&quot;&gt;&gt;
-&lt;/$button&gt;
-\end
-
-\define startstopGeo()
-&lt;$reveal state=&quot;$:/config/Geo/watch&quot; type=&quot;match&quot; text=&quot;off&quot;&gt; 
-   &lt;$button&gt;
-      start Geo scan
-      &lt;$action-geo mode=&quot;start&quot; tiddler=&lt;&lt;target&gt;&gt;
-         age={{$:/config/Geo/age}}
-         timeout={{$:/config/Geo/timeout}}
-         digits={{$:/config/Geo/digits}}
-         highaccuracy={{$:/config/Geo/accuracy}} /&gt;
-      &lt;$action-setfield $tiddler=&quot;$:/config/Geo/watch&quot; $value=&quot;on&quot;/&gt;
-      &lt;&lt;msg &quot;Starting continuous Geo scan&quot;&gt;&gt;
-   &lt;/$button&gt;
-&lt;/$reveal&gt;
-&lt;$reveal state=&quot;$:/config/Geo/watch&quot; type=&quot;nomatch&quot; text=&quot;off&quot;&gt; 
-   &lt;$button&gt;
-      stop Geo scan
-      &lt;$action-geo mode=&quot;stop&quot; /&gt;
-      &lt;$action-setfield $tiddler=&quot;$:/config/Geo/watch&quot; $value=&quot;off&quot;/&gt;
-      &lt;&lt;msg &quot;Geo scan stopped&quot;&gt;&gt;
-   &lt;/$button&gt;
-&lt;/$reveal&gt;
-\end
-
-\define saveGeo()
-&lt;$button message=&quot;tm-new-tiddler&quot; param=&lt;&lt;target&gt;&gt;&gt;
-   save Geo data
-&lt;/$button&gt;
-\end
-
-\define loadGeo()
-&lt;$button popup=&quot;$:/temp/popup/loadGeo&quot;&gt;
-   load Geo data
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/loadGeo&quot; class=&quot;tc-drop-down&quot;&gt;
-   &lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
-      &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-         &lt;$view field=&quot;title&quot;/&gt;
-         &lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
-      &lt;/$button&gt;
-   &lt;/$list&gt;
-&lt;/$reveal&gt;
-\end
-
-\define latlong()
-latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-   tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
-longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-   tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
-&amp;nbsp;
-&lt;$view tiddler=&lt;&lt;target&gt;&gt;
-   field=&quot;modified&quot; format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
-\end
-
-\define GeoOptions()
-max digits:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&quot;$:/config/Geo/digits&quot;  default=&quot;6&quot;/&gt;
-max age:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/Geo/age&quot;     default=&quot;10000&quot;/&gt;
-timeout:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&quot;$:/config/Geo/timeout&quot; default=&quot;15000&quot;/&gt;
-&lt;$checkbox tiddler=&quot;$:/config/Geo/accuracy&quot; field=&quot;text&quot;
-   checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
-\end</pre>
-</div>
-<div caption="GoogleMaps" created="20150705103236444" modified="20150722010606503" tags="" title="Geo/Map">
+<div caption="GoogleMaps" created="20150705103236444" modified="20150724070506828" tags="" title="Geo/Map">
 <pre>\define ShowMap(w,h)
 [ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
 &lt;div style=&quot;height:$h$px;&quot;&gt;
@@ -6751,7 +6766,7 @@ zoom={{$:/config/GoogleMaps/zoom}}&lt;br&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div caption="Google StreetView" created="20150706050712264" modified="20150722010544248" tags="" title="Geo/StreetView">
+<div caption="Google StreetView" created="20150706050712264" modified="20150724070512931" tags="" title="Geo/StreetView">
 <pre>\define StreetView(w,h)
 [ext[GoogleStreetView|https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 &lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
@@ -6781,19 +6796,6 @@ zoom={{$:/config/GoogleMaps/zoom}}&lt;br&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;</pre>
-</div>
-<div created="20150623211607895" modified="20150724054357326" title="Geo/Test">
-<pre>\define target() Geo/Data
-
-@@.floatleft &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt;@@
-@@.floatright &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
-@@.clear @@
-
-@@.shadowbox.center &lt;&lt;latlong&gt;&gt;@@
-
-@@.center &lt;&lt;GeoOptions&gt;&gt;@@
-
-&lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Lookup Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
 </div>
 <div created="20150706215323456" modified="20150722012001825" tags="location" title="Greenwich Observatory" type="application/json">
 <pre>{
