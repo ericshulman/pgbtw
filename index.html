@@ -6281,7 +6281,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150722012055538" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard Geo/Data/Address" title="$:/StoryList">
+<div list="Geo/action-getGeoData.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20150724054726965" title="$:/temp/advancedsearch">
@@ -6424,10 +6424,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150724072342887" title="Dashboard">
+<div created="20150623211607895" modified="20150724092119026" title="Dashboard">
 <pre>\define target() Geo/Data
-\define state(id)  $:/config/Geo/$id$
-\define config(id) {{$:/config/Geo/$id$}}
 
 \define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
@@ -6438,32 +6436,32 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 &lt;$button&gt;
    get Geo data
    &lt;$action-getGeoData mode=&quot;get&quot; tiddler=&lt;&lt;target&gt;&gt;
-      age=&lt;&lt;config age&gt;&gt;
-      timeout=&lt;&lt;config timeout&gt;&gt;
-      digits=&lt;&lt;config digits&gt;&gt;
-      highaccuracy=&lt;&lt;config accuracy&gt;&gt; /&gt;
+      age={{$:/config/Geo/age}}
+      timeout={{$:/config/Geo/timeout}}
+      digits={{$:/config/Geo/digits}}
+      highaccuracy={{$:/config/Geo/accuracy}} /&gt;
    &lt;&lt;msg &quot;Requesting Geo data...&quot;&gt;&gt;
 &lt;/$button&gt;
 \end
 
 \define startstopGeo()
-&lt;$reveal state=&lt;&lt;state watch&gt;&gt; type=&quot;match&quot; text=&quot;off&quot;&gt; 
+&lt;$reveal state=&quot;$:/config/Geo/watch&quot; type=&quot;match&quot; text=&quot;off&quot;&gt; 
    &lt;$button&gt;
       start Geo scan
       &lt;$action-getGeoData mode=&quot;start&quot; tiddler=&lt;&lt;target&gt;&gt;
-         age=&lt;&lt;config age&gt;&gt;
-         timeout=&lt;&lt;config timeout&gt;&gt;
-         digits=&lt;&lt;config digits&gt;&gt;
-         highaccuracy=&lt;&lt;config accuracy&gt;&gt; /&gt;
-      &lt;$action-setfield $tiddler=&lt;&lt;state watch&gt;&gt; $value=&quot;on&quot;/&gt;
+         age={{$:/config/Geo/age}}
+         timeout={{$:/config/Geo/timeout}}
+         digits={{$:/config/Geo/digits}}
+         highaccuracy={{$:/config/Geo/accuracy}} /&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/Geo/watch&quot; $value=&quot;on&quot;/&gt;
       &lt;&lt;msg &quot;Starting continuous Geo scan&quot;&gt;&gt;
    &lt;/$button&gt;
 &lt;/$reveal&gt;
-&lt;$reveal state=&lt;&lt;state watch&gt;&gt; type=&quot;nomatch&quot; text=&quot;off&quot;&gt; 
+&lt;$reveal state=&quot;$:/config/Geo/watch&quot; type=&quot;nomatch&quot; text=&quot;off&quot;&gt; 
    &lt;$button&gt;
       stop Geo scan
       &lt;$action-getGeoData mode=&quot;stop&quot; /&gt;
-      &lt;$action-setfield $tiddler=&lt;&lt;state watch&gt;&gt; $value=&quot;off&quot;/&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/Geo/watch&quot; $value=&quot;off&quot;/&gt;
       &lt;&lt;msg &quot;Geo scan stopped&quot;&gt;&gt;
    &lt;/$button&gt;
 &lt;/$reveal&gt;
@@ -6501,12 +6499,15 @@ longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
 
 \define GeoOptions()
 max digits:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot; tiddler=&lt;&lt;config digits&gt;&gt;  default=&quot;6&quot;/&gt;
+&lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot;
+   tiddler={{$:/config/Geo/digits}} default=&quot;6&quot;/&gt;
 max age:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&lt;&lt;config age&gt;&gt;     default=&quot;10000&quot;/&gt;
+&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
+   tiddler={{$:/config/Geo/age}} default=&quot;10000&quot;/&gt;
 timeout:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot; tiddler=&lt;&lt;config timeout&gt;&gt; default=&quot;15000&quot;/&gt;
-&lt;$checkbox tiddler=&lt;&lt;config accuracy&gt;&gt; field=&quot;text&quot;
+&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
+   tiddler={{$:/config/Geo/timeout}} default=&quot;15000&quot;/&gt;
+&lt;$checkbox tiddler={{$:/config/Geo/accuracy}} field=&quot;text&quot;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
 \end
 
