@@ -6281,7 +6281,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150722012055538" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Geo/action-getGeoData.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20150724054726965" title="$:/temp/advancedsearch">
@@ -6424,7 +6424,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150623211607895" modified="20150724092119026" title="Dashboard">
+<div created="20150623211607895" modified="20150724092948075" title="Dashboard">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
@@ -6498,16 +6498,13 @@ longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
 \end
 
 \define GeoOptions()
-max digits:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot;
-   tiddler={{$:/config/Geo/digits}} default=&quot;6&quot;/&gt;
-max age:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
-   tiddler={{$:/config/Geo/age}} default=&quot;10000&quot;/&gt;
-timeout:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
-   tiddler={{$:/config/Geo/timeout}} default=&quot;15000&quot;/&gt;
-&lt;$checkbox tiddler={{$:/config/Geo/accuracy}} field=&quot;text&quot;
+max digits: &lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot;
+   tiddler=&quot;$:/config/Geo/digits&quot; default=&quot;6&quot;/&gt;
+max age: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
+   tiddler=&quot;$:/config/Geo/age&quot; default=&quot;10000&quot;/&gt;
+timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
+   tiddler=&quot;$:/config/Geo/timeout&quot; default=&quot;15000&quot;/&gt;
+&lt;$checkbox tiddler=&quot;$:/config/Geo/accuracy&quot; field=&quot;text&quot;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
 \end
 
