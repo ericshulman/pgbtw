@@ -188,8 +188,6 @@ Error message and password prompt
 
 <li>Dashboard</li>
 
-<li>Geo/action-getAddressData.js</li>
-
 <li>Geo/action-getGeoData.js</li>
 
 <li>Geo/Data</li>
@@ -201,6 +199,8 @@ Error message and password prompt
 <li>Geo/StreetView</li>
 
 <li>Greenwich Observatory</li>
+
+<li>http/action-httprequest.js</li>
 
 <li>PhoneGap/pinchzoom.js</li>
 
@@ -245,8 +245,8 @@ Error message and password prompt
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
 </div>
-<div created="20150705120259221" modified="20150724054712809" title="$:/config/SaverFilter">
-<pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]]</pre>
+<div created="20150705120259221" modified="20150729215910957" title="$:/config/SaverFilter">
+<pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]]</pre>
 </div>
 <div created="20150706194209653" modified="20150708000948300" title="$:/config/StreetView/fov">
 <pre>120</pre>
@@ -6266,7 +6266,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20150724072353741" title="$:/state/tab--1119925701">
+<div modified="20150729215656155" title="$:/state/tab--1119925701">
 <pre>Geo/Map</pre>
 </div>
 <div modified="20150722013932381" title="$:/state/tab--1498284803">
@@ -6284,7 +6284,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20150724054726965" title="$:/temp/advancedsearch">
+<div created="20150706192244698" modified="20150729215935233" title="$:/temp/advancedsearch">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6307,7 +6307,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150724072250770" title="$:/temp/notify">
 <pre>Geo scan stopped</pre>
 </div>
-<div created="20150705104045705" modified="20150724054658260" title="$:/temp/search">
+<div created="20150705104045705" modified="20150729215807319" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
@@ -6516,105 +6516,6 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 
 &lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Lookup Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
 </div>
-<div created="20150722012731325" modified="20150724070458207" module-type="widget" tags="" title="Geo/action-getAddressData.js" type="application/javascript">
-<pre>/*\
-title: Geo/action-getAddressData.js
-type: application/javascript
-module-type: widget
-author: Eric Shulman elsdesign@gmail.com
-revision: 1.0
-
-widget to get reverse-geo address data from google maps API
-
-params (default):
-src         = source URI for reverse geo JSON data
-tiddler     = tiddler to store results
-tiddlertype = MIME type for target tiddler
-
-\*/
-
-(function(){
-
-/*jslint node: true, browser: true */
-/*global $tw: false */
-&quot;use strict&quot;;
-var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
-var GetAddressWidget= function(parseTreeNode,options) {
-	this.initialise(parseTreeNode,options);
-};
-GetAddressWidget.prototype = new Widget();
-GetAddressWidget.prototype.render = function(parent,nextSibling) {
-	this.computeAttributes();
-	this.getURI();
-};
-
-GetAddressWidget.prototype.refresh = function(changedTiddlers) {
-	var changedAttributes = this.computeAttributes();
-	if(   changedAttributes[&quot;tiddler&quot;]
-	   || changedAttributes[&quot;src&quot;]) {
-		this.refreshSelf();
-		return true;
-	}
-	return this.refreshChildren(changedTiddlers);
-};
-
-GetAddressWidget.prototype.getURI = function() {
-	var self=this;
-	var src=this.getAttribute(&quot;src&quot;,&quot;&quot;);
-	var tid=this.getAttribute(&quot;tiddler&quot;,src);
-	var tiddlertype=this.getAttribute(&quot;tiddlertype&quot;,&quot;application/json&quot;);
-	var callback=function(err,data,xhr) {
-		var tiddler		= $tw.wiki.getTiddler(tid);
-		var fallbackFields	= {text: &quot;&quot;};
-		var newFields		= {
-			title: tid,
-			type:  tiddlertype,
-			text:  data || err
-		};
-		$tw.wiki.addTiddler(
-			new $tw.Tiddler(fallbackFields,tiddler,newFields,
-			$tw.wiki.getModificationFields()));
-		if (data &amp;&amp; tiddlertype==&quot;application/json&quot;)
-			self.json2tiddlers(tid,data);
-	};
-
-	if (!src.length) {
-		tiddlertype=&quot;&quot;;
-		callback('missing src=&quot;URI&quot; widget parameter');
-	} else {
-		$tw.utils.httpRequest({ url:src, type:&quot;GET&quot;, callback:callback });
-	}
-};
-
-GetAddressWidget.prototype.json2tiddlers = function(tid,data) {
-	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+tid+&quot;/]]&quot;);
-	for(var t=0; t&lt;tiddlers.length; t++) $tw.wiki.deleteTiddler(tiddlers[t]);
-	var obj=JSON.parse(data);
-	for (var i=0; i&lt;obj.results.length; i++) {
-		var r=obj.results[i];
-		var target=tid+&quot;/&quot;+r.types[0];
-		var tiddler	= $tw.wiki.getTiddler(target);
-		var fallbackFields	= {text: &quot;&quot;};
-		var newFields		= {
-			title: target,
-			text:  r.formatted_address
-		};
-		$tw.wiki.addTiddler(
-			new $tw.Tiddler(fallbackFields,tiddler,
-			newFields, $tw.wiki.getModificationFields()));
-	}
-};
-
-GetAddressWidget.prototype.invokeAction = function(triggeringWidget,event) {
-	this.getURI();
-	return true; // Action was invoked
-};
-
-exports[&quot;action-getAddressData&quot;] = GetAddressWidget;
-exports[&quot;getAddressData&quot;] = GetAddressWidget;
-
-})();</pre>
-</div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
 <pre>/*\
 title: Geo/action-getGeoData.js
@@ -6715,13 +6616,18 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div caption="Address Lookup" created="20150705103443883" modified="20150724070525990" tags="" title="Geo/Lookup">
+<div caption="Address Lookup" created="20150705103443883" modified="20150729215622113" tags="" title="Geo/Lookup">
 <pre>\define ShowLookup()
 
 &lt;$button&gt; Get Address Data
-&lt;$action-getAddressData src=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot; tiddler=&quot;Geo/Data/Address&quot;/&gt;
+&lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
+   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;geo&quot; autoload=&quot;true&quot;/&gt;
 &lt;/$button&gt;
-&lt;$button&gt; Clear Address Data
+&lt;$button&gt; Unpack JSON
+&lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
+   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;json&quot;/&gt;
+&lt;/$button&gt;
+&lt;$button&gt; Clear Data
 &lt;$action-deletetiddler $filter=&quot;[prefix[Geo/Data/Address]]&quot;/&gt;
 &lt;/$button&gt;
 
@@ -6800,6 +6706,114 @@ zoom={{$:/config/GoogleMaps/zoom}}&lt;br&gt;
     &quot;latitude&quot;: &quot;51.477222&quot;,
     &quot;longitude&quot;: &quot;0&quot;
 }</pre>
+</div>
+<div created="20150728060155235" modified="20150729215201825" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
+<pre>/*\
+title: http/action-httprequest.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.2
+
+widget to request data from a URL and store it in a tiddler and then optionally parse it as JSON data and write individual tiddlers
+
+params (default):
+url         = source URL
+tiddler     = tiddler to store results
+tiddlertype = MIME type for target tiddler
+parse       = keywords: &quot;json&quot;, &quot;geo&quot; (default=no parsing)
+autoload    = if defined, action is invoked when widget is rendered
+
+\*/
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var HttpRequestWidget= function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+HttpRequestWidget.prototype = new Widget();
+HttpRequestWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+	if (this.getAttribute(&quot;autoload&quot;)) this.invokeAction();
+};
+
+HttpRequestWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(   changedAttributes[&quot;tiddler&quot;]
+	   || changedAttributes[&quot;url&quot;]) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+HttpRequestWidget.prototype.json2tiddlers = function(tid,data) {
+	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+tid+&quot;/]]&quot;);
+	for(var t=0; t&lt;tiddlers.length; t++) $tw.wiki.deleteTiddler(tiddlers[t]);
+	var obj=JSON.parse(data);
+	function set(target,value) {
+		$tw.wiki.setText(target,&quot;text&quot;,null,value);
+		return value;
+	}
+	function walk(obj,target,level) {
+		if (level&gt;10)
+			return set(target,'...');
+		if (obj &amp;&amp; obj.exec!==undefined)
+			return set(target,obj.toString());
+		if (typeof obj=='function')
+			return set(target,'function(...){...}');
+		if (typeof obj=='string')
+			return set(target,'&quot;'+obj+'&quot;');
+		if (typeof obj=='object') {
+			for(var p in obj)
+				walk(obj[p],target+'/'+p,level+1);
+			return;
+		}
+		return set(target,obj.toString());
+	}
+	walk(obj,tid,0);
+};
+
+HttpRequestWidget.prototype.geo2tiddlers = function(tid,data) {
+	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+tid+&quot;/]]&quot;);
+	for(var t=0; t&lt;tiddlers.length; t++) $tw.wiki.deleteTiddler(tiddlers[t]);
+	var obj=JSON.parse(data);
+	for (var i=0; i&lt;obj.results.length; i++) {
+		var r=obj.results[i];
+		var target=tid+&quot;/&quot;+r.types[0];
+		$tw.wiki.setText(target,&quot;text&quot;,null,r.formatted_address);
+	}
+};
+
+HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
+	var self=this;
+	var url=this.getAttribute(&quot;url&quot;,&quot;&quot;);
+	var tid=this.getAttribute(&quot;tiddler&quot;,url);
+	var tiddlertype=this.getAttribute(&quot;tiddlertype&quot;,&quot;application/json&quot;);
+	var parse=this.getAttribute(&quot;parse&quot;,&quot;&quot;);
+	var callback=function(err,data,xhr) {
+		$tw.wiki.setText(tid,&quot;text&quot;,null,data||err);
+		$tw.wiki.setText(tid,&quot;type&quot;,null,tiddlertype);
+		if (data &amp;&amp; parse==&quot;geo&quot;)	self.geo2tiddlers(tid,data);
+		else if (data &amp;&amp; parse==&quot;json&quot;)	self.json2tiddlers(tid,data);
+	};
+	if (!url.length) {
+		var msg=&quot;missing source URL parameter in widget&quot;;
+		$tw.wiki.setText(tid,&quot;text&quot;,null,msg);
+	} else {
+		$tw.utils.httpRequest({ url:url, type:&quot;GET&quot;, callback:callback });
+	}
+	return true; // Action was invoked
+};
+
+exports[&quot;action-httpRequest&quot;] = HttpRequestWidget;
+exports[&quot;httpRequest&quot;] = HttpRequestWidget;
+
+})();</pre>
 </div>
 <div created="20150212062530288" creator="EricShulman" modified="20150722010316325" modifier="EricShulman" module-type="startup" tags="" title="PhoneGap/pinchzoom.js" type="application/javascript">
 <pre>(function(){
