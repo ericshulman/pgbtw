@@ -21,7 +21,7 @@
 <!-- <gap:platform name="ios"> -->
 
 <!-- ICON/SPLASH/LOADING MESSAGE -->
-<icon src="icon.png" />
+<icon src="res/icon.png" />
 <preference name="LoadingDialog" value="CurbSide,loading... please wait..."/>
 <!-- <gap:splash src="splash.png" /> -->
 
