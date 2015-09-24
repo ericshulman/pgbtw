@@ -17,7 +17,7 @@
 </author>
 
 <!-- PHONEGAP VERSION -->
-<preference name='phonegap-version' value='cli-5.1.1' />
+<!-- <preference name='phonegap-version' value='cli-5.1.1' /> -->
 
 <!-- PLATFORMS -->
 <gap:platform name="android" />
@@ -57,8 +57,8 @@
 
 <!-- PLUGINS -->
 <gap:plugin name="org.apache.cordova.geolocation" />
+<gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
 <!-- <gap:plugin name="org.apache.cordova.file" />             -->
-<!-- <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" /> -->
 <!-- <gap:plugin name="org.apache.cordova.inappbrowser" />     -->
 
 </widget>
