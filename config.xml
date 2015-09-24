@@ -38,11 +38,14 @@
 <!-- INSTALLATION LOCATION -->
 <preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
 
+<!-- CROSS DOMAIN ACCESS -->
+<access origin="*" />
+
 <!-- DEVICE PERMISSIONS -->
 <preference name="permissions" value="none"/>
 <feature name="http://api.phonegap.com/1.0/geolocation" />
-<!--
 <feature name="http://api.phonegap.com/1.0/file" />
+<!--
 <feature name="http://api.phonegap.com/1.0/network" />
 <feature name="http://api.phonegap.com/1.0/camera" />
 <feature name="http://api.phonegap.com/1.0/notification" />
@@ -52,13 +55,9 @@
 <feature name="http://api.phonegap.com/1.0/device" />
 -->
 
-<!-- CROSS DOMAIN ACCESS -->
-<access origin="*" />
-
 <!-- PLUGINS -->
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
-<!-- <gap:plugin name="org.apache.cordova.file" />             -->
-<!-- <gap:plugin name="org.apache.cordova.inappbrowser" />     -->
+<gap:plugin name="org.apache.cordova.file" />
 
 </widget>
