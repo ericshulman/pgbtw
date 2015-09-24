@@ -16,6 +16,9 @@
     Eric Shulman
 </author>
 
+<!-- PHONEGAP VERSION -->
+<preference name='phonegap-version' value='cli-5.1.1' />
+
 <!-- PLATFORMS -->
 <gap:platform name="android" />
 <!-- <gap:platform name="ios"> -->
