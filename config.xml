@@ -41,8 +41,8 @@
 <!-- DEVICE PERMISSIONS -->
 <preference name="permissions" value="none"/>
 <feature name="http://api.phonegap.com/1.0/geolocation" />
-<feature name="http://api.phonegap.com/1.0/file" />
 <!--
+<feature name="http://api.phonegap.com/1.0/file" />
 <feature name="http://api.phonegap.com/1.0/network" />
 <feature name="http://api.phonegap.com/1.0/camera" />
 <feature name="http://api.phonegap.com/1.0/notification" />
@@ -57,7 +57,7 @@
 
 <!-- PLUGINS -->
 <gap:plugin name="org.apache.cordova.geolocation" />
-<gap:plugin name="org.apache.cordova.file" />
+<!-- <gap:plugin name="org.apache.cordova.file" />             -->
 <!-- <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" /> -->
 <!-- <gap:plugin name="org.apache.cordova.inappbrowser" />     -->
 
