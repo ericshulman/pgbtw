@@ -4,7 +4,7 @@
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id            = "com.elsdesign.CurbSide"
         versionCode   = "10" 
-        version       = "0.1.0" >
+        version       = "0.1.1" >
 
 <name>
     CurbSide Prototype
@@ -17,7 +17,7 @@
 </author>
 
 <!-- PHONEGAP VERSION -->
-<!-- <preference name="phonegap-version" value="3.7.0" /> -->
+<preference name="phonegap-version" value="3.7.0" />
 
 <!-- PLATFORMS -->
 <gap:platform name="android" />
@@ -61,7 +61,7 @@
 
 <!-- PLUGINS -->
 <gap:plugin name="org.apache.cordova.geolocation" />
-<!-- <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" /> -->
+<gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
 <gap:plugin name="org.apache.cordova.file" />
 
 </widget>
