@@ -40,7 +40,10 @@
 
 <!-- CROSS DOMAIN ACCESS -->
 <access origin="*" />
-<access origin="http://*.google.com" />
+<access origin="https://*.google.com" />
+<access origin="https://*.googleapis.com" />
+<allow-navigation origin="https://*.google.com" />
+<allow-navigation origin="https://*.googleapis.com" />
 
 <!-- DEVICE PERMISSIONS -->
 <preference name="permissions" value="none"/>
