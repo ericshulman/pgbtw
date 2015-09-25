@@ -17,7 +17,7 @@
 </author>
 
 <!-- PHONEGAP VERSION -->
-<preference name="phonegap-version" value="3.7.0" />
+<!-- <preference name="phonegap-version" value="3.7.0" /> -->
 
 <!-- PLATFORMS -->
 <gap:platform name="android" />
@@ -40,6 +40,7 @@
 
 <!-- CROSS DOMAIN ACCESS -->
 <access origin="*" />
+<access origin="http://*.google.com" />
 
 <!-- DEVICE PERMISSIONS -->
 <preference name="permissions" value="none"/>
