@@ -188,6 +188,12 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Cordova/pinchzoom.js</li>
+
+<li>Cordova/pinchzoom.markup</li>
+
+<li>Cordova/saver.js</li>
+
 <li>Dashboard</li>
 
 <li>Geo/action-getGeoData.js</li>
@@ -203,10 +209,6 @@ Error message and password prompt
 <li>Greenwich Observatory</li>
 
 <li>http/action-httprequest.js</li>
-
-<li>PhoneGap/pinchzoom.js</li>
-
-<li>PhoneGap/pinchzoom.markup</li>
 
 <li>StyleSheet/Adjustments</li>
 
@@ -6257,7 +6259,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[TWBook/Cookies/cookie.js]]</pre>
+# [[Cordova/saver.js]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -6268,14 +6270,14 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20150817230448285" title="$:/state/sidebar">
+<div modified="20150927212701838" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20150817230917204" title="$:/state/tab--1119925701">
 <pre>Geo/Map</pre>
 </div>
-<div modified="20150817230209735" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Filter</pre>
+<div modified="20150927204134024" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -6286,11 +6288,11 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150722012055538" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Cordova/saver.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20150817230223759" title="$:/temp/advancedsearch">
-<pre>[prefix[Geo/Data/Address]]</pre>
+<div created="20150706192244698" modified="20150927204130614" title="$:/temp/advancedsearch">
+<pre>savers</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6428,6 +6430,138 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
         }
     }
 }</pre>
+</div>
+<div created="20150212062530288" creator="EricShulman" modified="20150927204911831" modifier="EricShulman" module-type="startup" tags="" title="Cordova/pinchzoom.js" type="application/javascript">
+<pre>(function(){
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+// Export name and synchronous status
+exports.name = &quot;pinchzoom&quot;;
+exports.platforms = [&quot;browser&quot;];
+exports.after = [&quot;startup&quot;];
+exports.synchronous = true;
+		
+// PhoneGap Pinch Zoom Init
+exports.startup = function() {
+   if (typeof cordova !== &quot;undefined&quot;){
+      document.addEventListener('deviceready', function(){
+         // enabling zoom control
+         cordova.plugins.ZoomControl.ZoomControl(&quot;true&quot;);
+         // enabling built in zoom control
+         cordova.plugins.ZoomControl.setBuiltInZoomControls(&quot;true&quot;);
+         // enabling display zoom control
+         cordova.plugins.ZoomControl.setDisplayZoomControls(&quot;true&quot;);
+     }, function(){
+         alert('PinchZoomInit: error deviceready');
+     });
+   }
+};
+
+})();</pre>
+</div>
+<div created="20150212062340891" creator="EricShulman" modified="20150927204851529" modifier="EricShulman" tags="$:/tags/RawMarkup" title="Cordova/pinchzoom.markup">
+<pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
+</div>
+<div created="20150927204152464" modified="20150929225310369" module-type="saver" tags="" title="Cordova/saver.js" type="application/javascript">
+<pre>/*\
+title: Cordova/saver.js
+type: application/javascript
+module-type: saver
+
+Handles saving changes via the HTML5 FileWriter API
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false, netscape: false, Components: false */
+&quot;use strict&quot;;
+
+var CordovaSaver = function(wiki) {
+};
+
+CordovaSaver.prototype.save = function(text,method,callback) {
+
+  window.requestFileSystem = window.requestFileSystem ||
+                             window.webkitRequestFileSystem;
+
+  if (!window.requestFileSystem) return false;
+
+  // A simple error handler for testing purposes only
+  function errorHandler(id,error) {
+    var message = '';
+    switch (error.code) {
+      case FileError.SECURITY_ERR:
+        message = 'Security Error';
+        break;
+      case FileError.NOT_FOUND_ERR:
+        message = 'Not Found Error';
+        break;
+      case FileError.QUOTA_EXCEEDED_ERR:
+        message = 'Quota Exceeded Error';
+        break;
+      case FileError.INVALID_MODIFICATION_ERR:
+        message = 'Invalid Modification Error';
+        break;
+      case FileError.INVALID_STATE_ERR:
+        message = 'Invalid State Error';
+        break;
+      default:
+        message = 'Unknown Error';
+        break;
+    }
+    callback(id+&quot;: &quot;+message);
+  }
+
+  var filename=&quot;index.html&quot;;
+  navigator.webkitPersistentStorage.requestQuota(1024*1024,
+    function(grantedSize) {
+      window.requestFileSystem(window.PERSISTENT, text.length, function(fs) {
+        fs.root.getFile(filename, {create: true}, function(fileEntry) {
+          fileEntry.createWriter(function(fileWriter) {
+            fileWriter.onwriteend = function(e) {
+              callback(&quot;file saved&quot;);
+            };
+            fileWriter.onerror = function(e) {
+              callback(&quot;save failed!&quot;)
+            };
+            var contentBlob = new Blob([text], {type: 'text/plain'});
+            fileWriter.write(contentBlob);
+          }, function(err) { errorHandler(&quot;createWriter&quot;,err); });
+        }, function(err) { errorHandler(&quot;getFile&quot;,err); });
+      }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+    }, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+  return (typeof cordova !== &quot;undefined&quot;);
+};
+
+/*
+Information about this saver
+*/
+CordovaSaver.prototype.info = {
+	name: &quot;cordova&quot;,
+	priority: 1500,
+	capabilities: [&quot;save&quot;]
+};
+
+/*
+Static method that returns true if this saver is capable of working
+*/
+exports.canSave = function(wiki) {
+	return window.requestFileSystem || window.webkitRequestFileSystem;
+};
+
+/*
+Create an instance of this saver
+*/
+exports.create = function(wiki) {
+	return new CordovaSaver(wiki);
+};
+
+})();
+</pre>
 </div>
 <div created="20150623211607895" modified="20150724092948075" title="Dashboard">
 <pre>\define target() Geo/Data
@@ -6823,40 +6957,6 @@ exports[&quot;action-httpRequest&quot;] = HttpRequestWidget;
 exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
-</div>
-<div created="20150212062530288" creator="EricShulman" modified="20150722010316325" modifier="EricShulman" module-type="startup" tags="" title="PhoneGap/pinchzoom.js" type="application/javascript">
-<pre>(function(){
-/*jslint node: true, browser: true */
-/*global $tw: false */
-&quot;use strict&quot;;
-
-// Export name and synchronous status
-exports.name = &quot;pinchzoom&quot;;
-exports.platforms = [&quot;browser&quot;];
-exports.after = [&quot;startup&quot;];
-exports.synchronous = true;
-		
-// PhoneGap Pinch Zoom Init
-exports.startup = function() {
-   if (typeof cordova !== &quot;undefined&quot;){
-      document.addEventListener('deviceready', function(){
-         // enabling zoom control
-         cordova.plugins.ZoomControl.ZoomControl(&quot;true&quot;);
-         // enabling built in zoom control
-         cordova.plugins.ZoomControl.setBuiltInZoomControls(&quot;true&quot;);
-         // enabling display zoom control
-         cordova.plugins.ZoomControl.setDisplayZoomControls(&quot;true&quot;);
-     }, function(){
-         alert('PinchZoomInit: error deviceready');
-     });
-   }
-};
-
-})();</pre>
-</div>
-<div created="20150212062340891" creator="EricShulman" modified="20150722010259711" modifier="EricShulman" tags="$:/tags/RawMarkup" title="PhoneGap/pinchzoom.markup">
-<pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
 <div created="20150314000609556" creator="EricShulman" modified="20150722010902078" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
