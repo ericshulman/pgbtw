@@ -6291,8 +6291,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div list="Cordova/saver.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20150927204130614" title="$:/temp/advancedsearch">
-<pre>savers</pre>
+<div created="20150706192244698" modified="20150929231328678" title="$:/temp/advancedsearch">
+<pre>$tw.notif</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6465,7 +6465,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150927204152464" modified="20150929225310369" module-type="saver" tags="" title="Cordova/saver.js" type="application/javascript">
+<div created="20150927204152464" modified="20150929232616342" module-type="saver" tags="" title="Cordova/saver.js" type="application/javascript">
 <pre>/*\
 title: Cordova/saver.js
 type: application/javascript
@@ -6523,10 +6523,17 @@ CordovaSaver.prototype.save = function(text,method,callback) {
         fs.root.getFile(filename, {create: true}, function(fileEntry) {
           fileEntry.createWriter(function(fileWriter) {
             fileWriter.onwriteend = function(e) {
-              callback(&quot;file saved&quot;);
+              alert(&quot;file saved&quot;);
+              fileEntry.file(function(file) {
+                var reader = new FileReader();
+                reader.onloadend = function(e) {
+                  alert(this.result.length);
+                };
+                reader.readAsText(file);
+              }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
             };
             fileWriter.onerror = function(e) {
-              callback(&quot;save failed!&quot;)
+              alert(&quot;save failed!&quot;)
             };
             var contentBlob = new Blob([text], {type: 'text/plain'});
             fileWriter.write(contentBlob);
