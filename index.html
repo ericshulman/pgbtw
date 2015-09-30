@@ -188,6 +188,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Cordova/loader.js</li>
+
 <li>Cordova/pinchzoom.js</li>
 
 <li>Cordova/pinchzoom.markup</li>
@@ -6276,8 +6278,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150817230917204" title="$:/state/tab--1119925701">
 <pre>Geo/Map</pre>
 </div>
-<div modified="20150927204134024" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+<div modified="20150930104308037" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -6288,11 +6290,11 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150722012055538" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Cordova/saver.js Dashboard" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20150929231328678" title="$:/temp/advancedsearch">
-<pre>$tw.notif</pre>
+<div created="20150706192244698" modified="20150930111717457" title="$:/temp/advancedsearch">
+<pre>[prefix[Cordova/]]</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6314,7 +6316,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150724072250770" title="$:/temp/notify">
 <pre>Geo scan stopped</pre>
 </div>
-<div created="20150705104045705" modified="20150729215807319" title="$:/temp/search">
+<div created="20150705104045705" modified="20150930095200216" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
@@ -6431,6 +6433,78 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
+<div created="20150930104421736" creator="EricShulman" modified="20150930111013495" modifier="EricShulman" module-type="DISABLED_startup" tags="" title="Cordova/loader.js" type="application/javascript">
+<pre>/*\
+title: Cordova/loader.js
+type: application/javascript
+module-type: startup
+
+Handles loading changes saved in LocalStorage (as .json file)
+
+\*/
+(function(){
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+// Export name and synchronous status
+exports.name = &quot;loader&quot;;
+exports.platforms = [&quot;browser&quot;];
+exports.after = [&quot;startup&quot;];
+exports.synchronous = true;
+		
+exports.startup = function() {
+
+  // if LocalStorage is supported
+  window.requestFileSystem = window.requestFileSystem ||
+                             window.webkitRequestFileSystem;
+  if (!window.requestFileSystem) return false;
+
+  // if (typeof cordova === &quot;undefined&quot;) return false;
+
+  // A simple error handler for testing purposes only
+  function errorHandler(id,error) {
+    var message = '';
+    switch (error.code) {
+      case FileError.SECURITY_ERR:
+        message = 'Security Error';
+        break;
+      case FileError.NOT_FOUND_ERR:
+        message = 'Not Found Error';
+        break;
+      case FileError.QUOTA_EXCEEDED_ERR:
+        message = 'Quota Exceeded Error';
+        break;
+      case FileError.INVALID_MODIFICATION_ERR:
+        message = 'Invalid Modification Error';
+        break;
+      case FileError.INVALID_STATE_ERR:
+        message = 'Invalid State Error';
+        break;
+      default:
+        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
+        break;
+    }
+    callback(id+&quot;: &quot;+message);
+  }
+
+  var filename=&quot;tiddlers.json&quot;;
+  window.requestFileSystem(window.PERSISTENT, 1, function(fs) {
+    fs.root.getFile(filename, {}, function(fileEntry) {
+      fileEntry.file(function(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(e) {
+          alert(&quot;Cordova/loader.js: &quot;+this.result.length);
+        };
+        reader.readAsText(file);
+      }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
+    }, function(err) { errorHandler(&quot;getFile&quot;,err); });
+  }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+
+};
+
+})();</pre>
+</div>
 <div created="20150212062530288" creator="EricShulman" modified="20150927204911831" modifier="EricShulman" module-type="startup" tags="" title="Cordova/pinchzoom.js" type="application/javascript">
 <pre>(function(){
 /*jslint node: true, browser: true */
@@ -6465,14 +6539,13 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150927204152464" modified="20150929232616342" module-type="saver" tags="" title="Cordova/saver.js" type="application/javascript">
+<div created="20150927204152464" modified="20150930112647094" module-type="saver" tags="" title="Cordova/saver.js" type="application/javascript">
 <pre>/*\
 title: Cordova/saver.js
 type: application/javascript
 module-type: saver
 
-Handles saving changes via the HTML5 FileWriter API
-
+Handles saving to local storage
 \*/
 (function(){
 
@@ -6483,12 +6556,28 @@ Handles saving changes via the HTML5 FileWriter API
 var CordovaSaver = function(wiki) {
 };
 
-CordovaSaver.prototype.save = function(text,method,callback) {
+CordovaSaver.prototype.save = function(text,method,callback,options) {
 
+  // platform-specific function names
   window.requestFileSystem = window.requestFileSystem ||
                              window.webkitRequestFileSystem;
 
-  if (!window.requestFileSystem) return false;
+  // only for use with Cordova (PhoneGap)
+  // if (typeof cordova === &quot;undefined&quot;)
+  //  return false;
+
+  // only if File I/O Plugin is enabled
+  if (!window.requestFileSystem)
+    return false;
+
+  // Get the current filename
+  options = options || {};
+  var filename = options.variables.filename;
+  if(!filename) {
+    var p = document.location.pathname.lastIndexOf(&quot;/&quot;);
+    if(p !== -1) filename = document.location.pathname.substr(p+1);
+  }
+  if(!filename) filename = &quot;index.html&quot;;
 
   // A simple error handler for testing purposes only
   function errorHandler(id,error) {
@@ -6510,37 +6599,42 @@ CordovaSaver.prototype.save = function(text,method,callback) {
         message = 'Invalid State Error';
         break;
       default:
-        message = 'Unknown Error';
+        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
         break;
     }
     callback(id+&quot;: &quot;+message);
   }
 
-  var filename=&quot;index.html&quot;;
-  navigator.webkitPersistentStorage.requestQuota(1024*1024,
+  function testRead(fileEntry) {
+    fileEntry.file(function(file) {
+      var reader = new FileReader();
+      reader.onloadend = function(e) {
+        alert(this.result.length);
+      };
+      reader.readAsText(file);
+    }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
+  }
+
+  navigator.webkitPersistentStorage.requestQuota(1024*1024*5,
     function(grantedSize) {
-      window.requestFileSystem(window.PERSISTENT, text.length, function(fs) {
+      window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
         fs.root.getFile(filename, {create: true}, function(fileEntry) {
           fileEntry.createWriter(function(fileWriter) {
             fileWriter.onwriteend = function(e) {
-              alert(&quot;file saved&quot;);
-              fileEntry.file(function(file) {
-                var reader = new FileReader();
-                reader.onloadend = function(e) {
-                  alert(this.result.length);
-                };
-                reader.readAsText(file);
-              }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
+              testRead(fileEntry); // TEST ONLY
+              callback(null);
             };
             fileWriter.onerror = function(e) {
-              alert(&quot;save failed!&quot;)
+              errorHandler(&quot;FileWriter&quot;,&quot;Save to LocalStorage failed!\n\n&quot;+e)
             };
+            $tw.notifier.display(&quot;$:/language/Notifications/Save/Starting&quot;);
             var contentBlob = new Blob([text], {type: 'text/plain'});
             fileWriter.write(contentBlob);
           }, function(err) { errorHandler(&quot;createWriter&quot;,err); });
         }, function(err) { errorHandler(&quot;getFile&quot;,err); });
       }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
     }, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+
   return (typeof cordova !== &quot;undefined&quot;);
 };
 
@@ -6550,7 +6644,7 @@ Information about this saver
 CordovaSaver.prototype.info = {
 	name: &quot;cordova&quot;,
 	priority: 1500,
-	capabilities: [&quot;save&quot;]
+	capabilities: [&quot;save&quot;,&quot;download&quot;]
 };
 
 /*
