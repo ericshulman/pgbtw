@@ -150,6 +150,8 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
+<li>$:/LocalStorage</li>
+
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
@@ -188,13 +190,9 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
-<li>Cordova/loader.js</li>
-
 <li>Cordova/pinchzoom.js</li>
 
 <li>Cordova/pinchzoom.markup</li>
-
-<li>Cordova/saver.js</li>
 
 <li>Dashboard</li>
 
@@ -211,6 +209,10 @@ Error message and password prompt
 <li>Greenwich Observatory</li>
 
 <li>http/action-httprequest.js</li>
+
+<li>LocalStorage/loader.js</li>
+
+<li>LocalStorage/saver.js</li>
 
 <li>StyleSheet/Adjustments</li>
 
@@ -6266,6 +6268,11 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
+<div status="complete" title="$:/LocalStorage">
+<pre>The following tiddlers were imported:
+
+# [[Pittsburgh]]</pre>
+</div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
 </div>
@@ -6278,23 +6285,23 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150817230917204" title="$:/state/tab--1119925701">
 <pre>Geo/Map</pre>
 </div>
-<div modified="20151005221946946" title="$:/state/tab--1498284803">
+<div modified="20151005233723456" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
 </div>
-<div modified="20150722012025140" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/Tags</pre>
+<div modified="20151005235036713" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20150722012055538" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151005235103694" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Cordova/loader.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151005222004846" title="$:/temp/advancedsearch">
-<pre>performimport</pre>
+<div created="20150706192244698" modified="20151006000411250" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6316,7 +6323,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150724072250770" title="$:/temp/notify">
 <pre>Geo scan stopped</pre>
 </div>
-<div created="20150705104045705" modified="20151005222530536" title="$:/temp/search">
+<div created="20150705104045705" modified="20151006000407612" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
@@ -6433,96 +6440,6 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150930104421736" creator="EricShulman" modified="20151005223628405" modifier="EricShulman" module-type="startup" tags="" title="Cordova/loader.js" type="application/javascript">
-<pre>/*\
-title: Cordova/loader.js
-type: application/javascript
-module-type: startup
-
-Handles loading changes saved in LocalStorage (as .json file)
-
-\*/
-(function(){
-/*jslint node: true, browser: true */
-/*global $tw: false */
-&quot;use strict&quot;;
-
-// Export name and synchronous status
-exports.name = &quot;loader&quot;;
-exports.platforms = [&quot;browser&quot;];
-exports.after = [&quot;startup&quot;];
-exports.synchronous = true;
-		
-exports.startup = function() {
-
-  // if LocalStorage is supported
-  window.requestFileSystem = window.requestFileSystem ||
-                             window.webkitRequestFileSystem;
-  if (!window.requestFileSystem) return false;
-
-  // if (typeof cordova === &quot;undefined&quot;) return false;
-
-  // A simple error handler for testing purposes only
-  function errorHandler(id,error) {
-    var message = '';
-    switch (error.code) {
-      case FileError.SECURITY_ERR:
-        message = 'Security Error';
-        break;
-      case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error';
-        break;
-      case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error';
-        break;
-      case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error';
-        break;
-      case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error';
-        break;
-      default:
-        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
-        break;
-    }
-    callback(id+&quot;: &quot;+message);
-  }
-
-  function testRead(fileEntry) {
-    fileEntry.file(function(file) {
-      var reader = new FileReader();
-      reader.onloadend = function(e) {
-      };
-      reader.readAsText(file);
-    }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
-  }
-
-  var filename=&quot;tiddlers.json&quot;;
-  window.requestFileSystem(window.PERSISTENT, 1024*1024*5, function(fs) {
-    fs.root.getFile(filename, {}, function(fileEntry) {
-      fileEntry.file(function(file) {
-        var reader = new FileReader();
-        reader.onloadend = function(e) {
-          var msg=&quot;LocalStorage: &quot;+file.name+&quot; (&quot;+this.result.length+&quot; bytes)&quot;
-          if (confirm(msg+&quot;\n\nOK to load tiddlers?&quot;)) {
-            // import json as tiddlers...
-            var tiddlers=JSON.parse(this.result);
-            $tw.utils.each(tiddlers,function(tiddlerFields) {
-              var title = tiddlerFields.title;
-                $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
-                alert('loaded '+tiddlerFields.title);
-            });
-          }
-        };
-        reader.readAsText(file);
-      }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
-    }, function(err) { errorHandler(&quot;getFile&quot;,err); });
-  }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
-
-};
-
-})();</pre>
-</div>
 <div created="20150212062530288" creator="EricShulman" modified="20150927204911831" modifier="EricShulman" module-type="startup" tags="" title="Cordova/pinchzoom.js" type="application/javascript">
 <pre>(function(){
 /*jslint node: true, browser: true */
@@ -6556,136 +6473,6 @@ exports.startup = function() {
 <div created="20150212062340891" creator="EricShulman" modified="20150927204851529" modifier="EricShulman" tags="$:/tags/RawMarkup" title="Cordova/pinchzoom.markup">
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
-</div>
-<div created="20150927204152464" modified="20151005215125438" module-type="saver" tags="" title="Cordova/saver.js" type="application/javascript">
-<pre>/*\
-title: Cordova/saver.js
-type: application/javascript
-module-type: saver
-
-Handles saving to local storage
-\*/
-(function(){
-
-/*jslint node: true, browser: true */
-/*global $tw: false, netscape: false, Components: false */
-&quot;use strict&quot;;
-
-var CordovaSaver = function(wiki) {
-};
-
-CordovaSaver.prototype.save = function(text,method,callback,options) {
-
-  // adjust for platform-specific function names
-  window.requestFileSystem = window.requestFileSystem ||
-                             window.webkitRequestFileSystem;
-
-  // only if LocalStorage is enabled
-  if (!window.requestFileSystem)
-    return false;
-
-  // only for use with Cordova (PhoneGap)
-  // if (typeof cordova === &quot;undefined&quot;)
-  //  return false;
-
-  // Get the current filename
-  options = options || {};
-  var filename = options.variables.filename;
-  if(!filename) {
-    var p = document.location.pathname.lastIndexOf(&quot;/&quot;);
-    if(p !== -1) filename = document.location.pathname.substr(p+1);
-  }
-  if(!filename) filename = &quot;index.html&quot;;
-
-  // A simple error handler for testing purposes only
-  function errorHandler(id,error) {
-    var message = '';
-    switch (error.code) {
-      case FileError.SECURITY_ERR:
-        message = 'Security Error';
-        break;
-      case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error';
-        break;
-      case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error';
-        break;
-      case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error';
-        break;
-      case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error';
-        break;
-      default:
-        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
-        break;
-    }
-    callback(id+&quot;: &quot;+message);
-  }
-
-  function testRead(fileEntry) {
-    fileEntry.file(function(file) {
-      var reader = new FileReader();
-      reader.onloadend = function(e) {
-        if (confirm(&quot;save to LocalStorage: &quot;+file.name+&quot; (&quot;+this.result.length+&quot; bytes)&quot;)) alert(file.name+&quot; contents:\n----------\n&quot;+this.result);
-      };
-      reader.readAsText(file);
-    }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
-  }
-
-  navigator.webkitPersistentStorage.requestQuota(1024*1024*5,
-    function(grantedSize) {
-      window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
-        fs.root.getFile(filename, {create: true}, function(fileEntry) {
-          fileEntry.createWriter(function(fileWriter) {
-            var truncated = false;
-            fileWriter.onwriteend = function(e) {
-              if (!truncated) {
-                truncated = true;
-                this.truncate(this.position);
-                return;
-              }
-              testRead(fileEntry);
-              callback(null);
-            };
-            fileWriter.onerror = function(e) {
-              errorHandler(&quot;FileWriter&quot;,&quot;Save to LocalStorage failed!\n\n&quot;+e)
-            };
-            var blob = new Blob([text], {type: 'text/plain'});
-            fileWriter.write(blob);
-          }, function(err) { errorHandler(&quot;createWriter&quot;,err); });
-        }, function(err) { errorHandler(&quot;getFile&quot;,err); });
-      }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
-    }, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
-
-  return (typeof cordova !== &quot;undefined&quot;);
-};
-
-/*
-Information about this saver
-*/
-CordovaSaver.prototype.info = {
-	name: &quot;cordova&quot;,
-	priority: 1500,
-	capabilities: [&quot;download&quot;]
-};
-
-/*
-Static method that returns true if this saver is capable of working
-*/
-exports.canSave = function(wiki) {
-	return window.requestFileSystem || window.webkitRequestFileSystem;
-};
-
-/*
-Create an instance of this saver
-*/
-exports.create = function(wiki) {
-	return new CordovaSaver(wiki);
-};
-
-})();
-</pre>
 </div>
 <div created="20150623211607895" modified="20150724092948075" title="Dashboard">
 <pre>\define target() Geo/Data
@@ -7079,6 +6866,212 @@ HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
 exports[&quot;action-httpRequest&quot;] = HttpRequestWidget;
 exports[&quot;httpRequest&quot;] = HttpRequestWidget;
+
+})();</pre>
+</div>
+<div created="20150930104421736" creator="EricShulman" modified="20151006000038831" modifier="EricShulman" module-type="startup" tags="" title="LocalStorage/loader.js" type="application/javascript">
+<pre>/*\
+title: LocalStorage/loader.js
+type: application/javascript
+module-type: startup
+
+Handles loading tiddlers previously saved in LocalStorage (as .json file)
+
+\*/
+(function(){
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+// Export name and synchronous status
+exports.name = &quot;loader&quot;;
+exports.platforms = [&quot;browser&quot;];
+exports.after = [&quot;startup&quot;];
+exports.synchronous = true;
+		
+exports.startup = function() {
+
+  // if LocalStorage is supported
+  window.requestFileSystem = window.requestFileSystem ||
+                             window.webkitRequestFileSystem;
+  if (!window.requestFileSystem) return false;
+
+  // A simple error handler for testing purposes only
+  function errorHandler(id,error) {
+    var message = '';
+    switch (error.code) {
+      case FileError.SECURITY_ERR:
+        message = 'Security Error';
+        break;
+      case FileError.NOT_FOUND_ERR:
+        message = 'Not Found Error';
+        break;
+      case FileError.QUOTA_EXCEEDED_ERR:
+        message = 'Quota Exceeded Error';
+        break;
+      case FileError.INVALID_MODIFICATION_ERR:
+        message = 'Invalid Modification Error';
+        break;
+      case FileError.INVALID_STATE_ERR:
+        message = 'Invalid State Error';
+        break;
+      default:
+        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
+        break;
+    }
+    callback(id+&quot;: &quot;+message);
+  }
+
+  var REPORT_TITLE = &quot;$:/LocalStorage&quot;;
+
+  function doImport(file,result) {
+    var msg=&quot;LocalStorage: &quot;+file.name+&quot; (&quot;+result.length+&quot; bytes)&quot;
+    if (!confirm(msg+&quot;\n\nOK to load tiddlers?&quot;)) return;
+
+    var report = [];
+    report.push(&quot;The following tiddlers were loaded from LocalStorage:\n&quot;);
+
+    // import json as tiddlers...
+    var tiddlers=JSON.parse(result);
+    $tw.utils.each(tiddlers,function(tiddlerFields) {
+      var title = tiddlerFields.title;
+      $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
+      report.push(&quot;# [[&quot; + tiddlerFields.title + &quot;]]&quot;);
+    });
+
+    // write the report tiddler
+    $tw.wiki.addTiddler(new $tw.Tiddler({
+      title: REPORT_TITLE,
+      text: report.join(&quot;\n&quot;),
+      &quot;status&quot;: &quot;complete&quot;
+    }));
+  }
+
+  var filename=&quot;tiddlers.json&quot;;
+  window.requestFileSystem(window.PERSISTENT, 1024*1024*5, function(fs) {
+    fs.root.getFile(filename, {}, function(fileEntry) {
+      fileEntry.file(function(file) {
+        var reader = new FileReader();
+        reader.onloadend = function(e) {
+          if (this.result.length) doImport(file,this.result);
+        };
+        reader.readAsText(file);
+      }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
+    }, function(err) { errorHandler(&quot;getFile&quot;,err); });
+  }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+
+};
+
+})();</pre>
+</div>
+<div created="20150927204152464" modified="20151005235936636" module-type="saver" tags="" title="LocalStorage/saver.js" type="application/javascript">
+<pre>/*\
+title: LocalStorage/saver.js
+type: application/javascript
+module-type: saver
+
+Handles saving to local storage
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false, netscape: false, Components: false */
+&quot;use strict&quot;;
+
+var LocalStorageSaver = function(wiki) {
+};
+
+LocalStorageSaver.prototype.save = function(text,method,callback,options) {
+
+  // if LocalStorage is enabled
+  window.requestFileSystem = window.requestFileSystem ||
+                             window.webkitRequestFileSystem;
+  if (!window.requestFileSystem) return false;
+
+  // Get the current filename
+  options = options || {};
+  var filename = options.variables.filename;
+  if(!filename) {
+    var p = document.location.pathname.lastIndexOf(&quot;/&quot;);
+    if(p !== -1) filename = document.location.pathname.substr(p+1);
+  }
+  if(!filename) filename = &quot;index.html&quot;;
+
+  // A simple error handler for testing purposes only
+  function errorHandler(id,error) {
+    var message = '';
+    switch (error.code) {
+      case FileError.SECURITY_ERR:
+        message = 'Security Error';
+        break;
+      case FileError.NOT_FOUND_ERR:
+        message = 'Not Found Error';
+        break;
+      case FileError.QUOTA_EXCEEDED_ERR:
+        message = 'Quota Exceeded Error';
+        break;
+      case FileError.INVALID_MODIFICATION_ERR:
+        message = 'Invalid Modification Error';
+        break;
+      case FileError.INVALID_STATE_ERR:
+        message = 'Invalid State Error';
+        break;
+      default:
+        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
+        break;
+    }
+    callback(id+&quot;: &quot;+message);
+  }
+
+  navigator.webkitPersistentStorage.requestQuota(1024*1024*5,
+    function(grantedSize) {
+      window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
+        fs.root.getFile(filename, {create: true}, function(fileEntry) {
+          fileEntry.createWriter(function(fileWriter) {
+            var truncated = false;
+            fileWriter.onwriteend = function(e) {
+              if (!truncated) {
+                truncated = true;
+                this.truncate(this.position);
+                return;
+              }
+              callback(null);
+            };
+            fileWriter.onerror = function(e) {
+              errorHandler(&quot;FileWriter&quot;,&quot;Save to LocalStorage failed!\n\n&quot;+e)
+            };
+            var blob = new Blob([text], {type: 'text/plain'});
+            fileWriter.write(blob);
+          }, function(err) { errorHandler(&quot;createWriter&quot;,err); });
+        }, function(err) { errorHandler(&quot;getFile&quot;,err); });
+      }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+    }, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+
+  return (typeof cordova !== &quot;undefined&quot;);
+};
+
+/*
+Information about this saver
+*/
+LocalStorageSaver.prototype.info = {
+	name: &quot;LocalStorage&quot;,
+	priority: 1500,
+	capabilities: [&quot;download&quot;]
+};
+
+/*
+Static method that returns true if this saver is capable of working
+*/
+exports.canSave = function(wiki) {
+	return window.requestFileSystem || window.webkitRequestFileSystem;
+};
+
+/*
+Create an instance of this saver
+*/
+exports.create = function(wiki) {
+	return new LocalStorageSaver(wiki);
+};
 
 })();</pre>
 </div>
