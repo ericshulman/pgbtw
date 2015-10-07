@@ -150,8 +150,6 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
-<li>$:/LocalStorage/tiddlers.json</li>
-
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
@@ -210,7 +208,7 @@ Error message and password prompt
 
 <li>http/action-httprequest.js</li>
 
-<li>LocalStorage/loader.js</li>
+<li>LocalStorage/action-loadjson.js</li>
 
 <li>LocalStorage/saver.js</li>
 
@@ -6268,11 +6266,6 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div created="20151006092202587" modified="20151006092204137" status="complete" title="$:/LocalStorage/tiddlers.json">
-<pre>1 tiddlers loaded from tiddlers.json
-
-# [[Pittsburgh]]</pre>
-</div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
 </div>
@@ -6294,14 +6287,14 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151006091335639" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151006092214784" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151007084318568" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="LocalStorage/loader.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151006000411250" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20150706192244698" modified="20151007082244450" title="$:/temp/advancedsearch">
+<pre>exporter</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6323,7 +6316,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150724072250770" title="$:/temp/notify">
 <pre>Geo scan stopped</pre>
 </div>
-<div created="20150705104045705" modified="20151006000407612" title="$:/temp/search">
+<div created="20150705104045705" modified="20151007082244450" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
@@ -6474,7 +6467,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20150724092948075" title="Dashboard">
+<div created="20150623211607895" modified="20151007085129793" title="Dashboard">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
@@ -6515,6 +6508,23 @@ exports.startup = function() {
       &lt;&lt;msg &quot;Geo scan stopped&quot;&gt;&gt;
    &lt;/$button&gt;
 &lt;/$reveal&gt;
+\end
+
+\define loadJSON()
+&lt;$button&gt;
+   &lt;$action-loadJSON/&gt;
+   load locations
+&lt;/$button&gt;
+\end
+
+\define saveJSON()
+&lt;$button&gt;
+   &lt;$action-sendmessage $message=&quot;tm-download-file&quot;
+      $param=&quot;$:/core/templates/exporters/JsonFile&quot;
+      exportFilter=&quot;[tag[location]]&quot;
+      filename=&quot;tiddlers.json&quot;/&gt;
+   save locations
+&lt;/$button&gt;
 \end
 
 \define saveGeo()
@@ -6562,7 +6572,11 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 @@.floatright &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
 @@.clear @@
 
-@@.shadowbox.center &lt;&lt;latlong&gt;&gt;&lt;hr&gt;&lt;&lt;GeoOptions&gt;&gt;@@
+&lt;div class=&quot;shadowbox center&quot;&gt;
+&lt;&lt;latlong&gt;&gt;&lt;hr&gt;&lt;&lt;GeoOptions&gt;&gt;
+&lt;/div&gt;
+
+@@.shadowbox.center $:/LocalStorage/tiddlers.json: &lt;&lt;loadJSON&gt;&gt; &lt;&lt;saveJSON&gt;&gt;@@
 
 &lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Lookup Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
 </div>
@@ -6869,27 +6883,45 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20150930104421736" creator="EricShulman" modified="20151006092609530" modifier="EricShulman" module-type="startup" tags="" title="LocalStorage/loader.js" type="application/javascript">
+<div created="20151007080142500" modified="20151007084420881" module-type="widget" tags="" title="LocalStorage/action-loadjson.js" type="application/javascript">
 <pre>/*\
-title: LocalStorage/loader.js
+title: LocalStorage/action-loadjson.js
 type: application/javascript
-module-type: startup
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
 
-Handles loading tiddlers previously saved in LocalStorage (as .json file)
+widget to load tiddlers from .json files in LocalStorage
+
+params (default):
+filename    = source filename in local storage
 
 \*/
+
 (function(){
+
 /*jslint node: true, browser: true */
 /*global $tw: false */
 &quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var LocalStorageLoadJSONWidget= function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+LocalStorageLoadJSONWidget.prototype = new Widget();
+LocalStorageLoadJSONWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+};
 
-// Export name and synchronous status
-exports.name = &quot;loader&quot;;
-exports.platforms = [&quot;browser&quot;];
-exports.after = [&quot;startup&quot;];
-exports.synchronous = true;
-		
-exports.startup = function() {
+LocalStorageLoadJSONWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if( changedAttributes[&quot;filename&quot;] ) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+LocalStorageLoadJSONWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
   // if LocalStorage is supported
   window.requestFileSystem = window.requestFileSystem ||
@@ -6922,46 +6954,37 @@ exports.startup = function() {
     alert(id+&quot;: &quot;+message);
   }
 
-  function loadTiddlers(source,tiddlers) {
-    var report = [];
-    // import json as tiddlers...
-    $tw.utils.each(tiddlers,function(tiddlerFields) {
-      var title = tiddlerFields.title;
-      $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
-      report.push(&quot;# [[&quot; + tiddlerFields.title + &quot;]]&quot;);
-    });
-    // write the report tiddler
-    var len=tiddlers.length;
-    var hdr=len+&quot; tiddler&quot;+(len&gt;1?&quot;s&quot;:&quot;&quot;)+&quot; loaded from: &quot;+source+&quot;\n&quot;;
-    report.unshift(hdr);
-    $tw.wiki.addTiddler(new $tw.Tiddler({
-      title: &quot;$:/LocalStorage/&quot;+source,
-      text: report.join(&quot;\n&quot;),
-      &quot;status&quot;: &quot;complete&quot;
-    }));
-  }
-
-  var filename=&quot;tiddlers.json&quot;;
+  var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
   window.requestFileSystem(window.PERSISTENT, 1024*1024*5, function(fs) {
     fs.root.getFile(filename, {}, function(fileEntry) {
       fileEntry.file(function(file) {
         var reader = new FileReader();
         reader.onloadend = function(e) {
-          if (!this.result.length) return;
-          var msg=&quot;LocalStorage: &quot;+file.name+&quot; (&quot;+this.result.length+&quot; bytes)&quot;
-          if (confirm(msg+&quot;\n\nOK to load tiddlers?&quot;))
-            loadTiddlers(file.name,JSON.parse(this.result));
+          if (this.result.length) {
+            // save JSON tiddler
+            $tw.wiki.addTiddler(new $tw.Tiddler({
+              title: &quot;$:/LocalStorage/&quot;+file.name,
+              text: this.result,
+              type: &quot;application/json&quot;
+            }));
+            // add separate tiddlers
+            $tw.utils.each(JSON.parse(this.result),function(tiddlerFields) {
+              $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
+            });
+          }
         };
         reader.readAsText(file);
       }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
     }, function(err) { errorHandler(&quot;getFile&quot;,err); });
   }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
 
+  return true; // Action was invoked
 };
 
+exports[&quot;action-loadJSON&quot;] = LocalStorageLoadJSONWidget;
 })();</pre>
 </div>
-<div created="20150927204152464" modified="20151006084259951" module-type="saver" tags="" title="LocalStorage/saver.js" type="application/javascript">
+<div created="20150927204152464" modified="20151007084604966" module-type="saver" tags="" title="LocalStorage/saver.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/saver.js
 type: application/javascript
