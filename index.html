@@ -7111,7 +7111,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20150927204152464" modified="20151008232835684" module-type="saver" tags="" title="LocalStorage/saver.js" type="application/javascript">
+<div created="20150927204152464" modified="20151008235301408" module-type="saver" tags="" title="LocalStorage/saver.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/saver.js
 type: application/javascript
@@ -7134,6 +7134,8 @@ LocalStorageSaver.prototype.save = function(text,method,callback,options) {
   window.requestFileSystem = window.requestFileSystem ||
                              window.webkitRequestFileSystem;
   if (!window.requestFileSystem) return false;
+
+  var quota=1024*1024*2;
 
   // Get the current filename
   options = options || {};
@@ -7170,35 +7172,34 @@ LocalStorageSaver.prototype.save = function(text,method,callback,options) {
     callback(id+&quot;: &quot;+message);
   }
 
-    function saveFile(grantedSize) {
-      window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
-        fs.root.getFile(filename, {create: true}, function(fileEntry) {
-          fileEntry.createWriter(function(fileWriter) {
-            var truncated = false;
-            fileWriter.onwriteend = function(e) {
-              if (!truncated) {
-                truncated = true;
-                this.truncate(this.position);
-                return;
-              }
-              callback(null);
-            };
-            fileWriter.onerror = function(e) {
-              errorHandler(&quot;FileWriter&quot;,&quot;Save to LocalStorage failed!\n\n&quot;+e)
-            };
-            var blob = new Blob([text], {type: 'text/plain'});
-            fileWriter.write(blob);
-          }, function(err) { errorHandler(&quot;createWriter&quot;,err); });
-        }, function(err) { errorHandler(&quot;getFile&quot;,err); });
-      }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
-    }
-
-  if (navigator.webkitPersistentStorage) {
-    navigator.webkitPersistentStorage.requestQuota(1024*1024*5,saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
-  } else if (window.webkitStorageInfo) {
-    window.webkitStorageInfo.requestQuota(window.PERSISTENT,1024*1024*5,saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+  function saveFile(grantedSize) {
+    window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
+      fs.root.getFile(filename, {create: true}, function(fileEntry) {
+        fileEntry.createWriter(function(fileWriter) {
+          var truncated = false;
+          fileWriter.onwriteend = function(e) {
+            if (!truncated) {
+              truncated = true;
+              this.truncate(this.position);
+              return;
+            }
+            callback(null);
+          };
+          fileWriter.onerror = function(e) {
+            errorHandler(&quot;FileWriter&quot;,&quot;Save to LocalStorage failed!\n\n&quot;+e)
+          };
+          var blob = new Blob([text], {type: 'text/plain'});
+          fileWriter.write(blob);
+        }, function(err) { errorHandler(&quot;createWriter&quot;,err); });
+      }, function(err) { errorHandler(&quot;getFile&quot;,err); });
+    }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
   }
 
+  if (navigator.webkitPersistentStorage)
+    navigator.webkitPersistentStorage.requestQuota(quota,saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+  else if (window.webkitStorageInfo)
+    window.webkitStorageInfo.requestQuota(window.PERSISTENT,quota,saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+  
   return (!options.variables.fallbacksaver);
 };
 
