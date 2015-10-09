@@ -216,7 +216,7 @@ Error message and password prompt
 
 <li>LocalStorage/action-removefile.js</li>
 
-<li>LocalStorage/saver.js</li>
+<li>LocalStorage/action-savefile.js</li>
 
 <li>Pittsburgh</li>
 
@@ -256,7 +256,7 @@ Error message and password prompt
 <div created="20150706212000752" modified="20150722001620789" title="$:/config/GoogleMaps/zoom">
 <pre>16</pre>
 </div>
-<div created="20151007095534363" modified="20151008233529191" title="$:/config/LocalStorage/filename">
+<div created="20151007095534363" modified="20151009022618106" title="$:/config/LocalStorage/filename">
 <pre>locations</pre>
 </div>
 <div created="20151007095537546" modified="20151008233536117" title="$:/config/LocalStorage/filter">
@@ -6301,14 +6301,14 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151006091335639" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151008233754833" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151009022107721" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151007082244450" title="$:/temp/advancedsearch">
-<pre>exporter</pre>
+<div created="20150706192244698" modified="20151009020520474" title="$:/temp/advancedsearch">
+<pre>macros/j</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6327,10 +6327,10 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20150722011814725" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151008232944560" title="$:/temp/notify">
+<div modified="20151009021728472" title="$:/temp/notify">
 <pre>Loading tiddlers from ~LocalStorage</pre>
 </div>
-<div created="20150705104045705" modified="20151007082244450" title="$:/temp/search">
+<div created="20150705104045705" modified="20151009020520474" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
@@ -6481,7 +6481,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151007104137481" title="Dashboard">
+<div created="20150623211607895" modified="20151009021420900" title="Dashboard">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
@@ -6544,6 +6544,16 @@ exports.startup = function() {
 \end
 
 \define savefile()
+&lt;$button&gt;
+   &lt;$action-savefile
+      filename={{$:/config/LocalStorage/filename}}
+      filter={{$:/config/LocalStorage/filter}} /&gt;
+   save file
+   &lt;&lt;msg &quot;Saving tiddlers to LocalStorage&quot;&gt;&gt;
+&lt;/$button&gt;
+\end
+
+\define OLDsavefile()
 &lt;$button&gt;
    &lt;$action-sendmessage $message=&quot;tm-download-file&quot;
       $param=&quot;$:/core/templates/exporters/JsonFile&quot;
@@ -6922,7 +6932,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151007100601238" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151009022244820" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -6973,30 +6983,27 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
     var message = '';
     switch (error.code) {
       case FileError.SECURITY_ERR:
-        message = 'Security Error';
-        break;
+        message = 'Security Error'; break;
       case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error';
-        break;
+        message = 'Not Found Error'; break;
       case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error';
-        break;
+        message = 'Quota Exceeded Error'; break;
       case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error';
-        break;
+        message = 'Invalid Modification Error'; break;
       case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error';
-        break;
+        message = 'Invalid State Error'; break;
       default:
-        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
+        message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
     }
     alert(id+&quot;: &quot;+message);
   }
 
   var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
+  var quota   =1024*1024*5;
   var parse   =this.getAttribute(&quot;parse&quot;,&quot;&quot;);
-  window.requestFileSystem(window.PERSISTENT, 1024*1024*5, function(fs) {
+
+  window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
     fs.root.getFile(filename, {}, function(fileEntry) {
       fileEntry.file(function(file) {
         var reader = new FileReader();
@@ -7025,7 +7032,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
 exports[&quot;action-loadfile&quot;] = LocalStorageLoadFileWidget;
 })();</pre>
 </div>
-<div created="20151007103210499" modified="20151007104439907" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
+<div created="20151007103210499" modified="20151009022208116" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefile.js
 type: application/javascript
@@ -7075,29 +7082,26 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
     var message = '';
     switch (error.code) {
       case FileError.SECURITY_ERR:
-        message = 'Security Error';
-        break;
+        message = 'Security Error'; break;
       case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error';
-        break;
+        message = 'Not Found Error'; break;
       case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error';
-        break;
+        message = 'Quota Exceeded Error'; break;
       case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error';
-        break;
+        message = 'Invalid Modification Error'; break;
       case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error';
-        break;
+        message = 'Invalid State Error'; break;
       default:
-        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
+        message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
     }
     alert(id+&quot;: &quot;+message);
   }
 
   var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
-  window.requestFileSystem(window.PERSISTENT, 1024*1024*5, function(fs) {
+  var quota=1024*1024*5;
+
+  window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
     fs.root.getFile(filename, {}, function(fileEntry) {
       fileEntry.remove(function() {
         alert(filename+&quot; removed from LocalStorage&quot;);
@@ -7111,66 +7115,90 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20150927204152464" modified="20151008235301408" module-type="saver" tags="" title="LocalStorage/saver.js" type="application/javascript">
+<div created="20151009015741946" modified="20151009022330159" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
 <pre>/*\
-title: LocalStorage/saver.js
+title: LocalStorage/action-savefile.js
 type: application/javascript
-module-type: saver
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
 
-Handles saving to local storage
+widget to save filtered tiddlers to LocalStorage
+
+params (default):
+filename    = source filename in local storage
+
 \*/
+
 (function(){
 
 /*jslint node: true, browser: true */
-/*global $tw: false, netscape: false, Components: false */
+/*global $tw: false */
 &quot;use strict&quot;;
-
-var LocalStorageSaver = function(wiki) {
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var LocalStorageSaveFileWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+LocalStorageSaveFileWidget.prototype = new Widget();
+LocalStorageSaveFileWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
 };
 
-LocalStorageSaver.prototype.save = function(text,method,callback,options) {
+LocalStorageSaveFileWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if( changedAttributes[&quot;filename&quot;] ) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
 
-  // if LocalStorage is enabled
+LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,event) {
+
+  // if LocalStorage is supported
   window.requestFileSystem = window.requestFileSystem ||
                              window.webkitRequestFileSystem;
   if (!window.requestFileSystem) return false;
-
-  var quota=1024*1024*2;
-
-  // Get the current filename
-  options = options || {};
-  var filename = options.variables.filename;
-  if(!filename) {
-    var p = document.location.pathname.lastIndexOf(&quot;/&quot;);
-    if(p !== -1) filename = document.location.pathname.substr(p+1);
-  }
-  if(!filename) filename = &quot;index.html&quot;;
 
   // A simple error handler for testing purposes only
   function errorHandler(id,error) {
     var message = '';
     switch (error.code) {
       case FileError.SECURITY_ERR:
-        message = 'Security Error';
-        break;
+        message = 'Security Error'; break;
       case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error';
-        break;
+        message = 'Not Found Error'; break;
       case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error';
-        break;
+        message = 'Quota Exceeded Error'; break;
       case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error';
-        break;
+        message = 'Invalid Modification Error'; break;
       case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error';
-        break;
+        message = 'Invalid State Error'; break;
       default:
-        message = (typeof error == &quot;string&quot;) ? error : 'Unknown Error';
+        message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
     }
-    callback(id+&quot;: &quot;+message);
+    alert(id+&quot;: &quot;+message);
   }
+
+  // get the target filename and quota
+  var filename=this.getAttribute(&quot;filename&quot;,&quot;&quot;);
+  var quota=1024*1024*5;
+
+  // get the tiddlers as JSON
+  var filter=this.getAttribute(&quot;filter&quot;,&quot;&quot;);
+  var tiddlers = this.wiki.filterTiddlers(filter), data = [];
+  for(var t=0;t&lt;tiddlers.length; t++) {
+    var tiddler = this.wiki.getTiddler(tiddlers[t]);
+    if(tiddler) {
+      var fields = new Object();
+      for(var field in tiddler.fields) {
+        fields[field] = tiddler.getFieldString(field);
+      }
+      data.push(fields);
+    }
+  }
+  var text=JSON.stringify(data,null,$tw.config.preferences.jsonSpaces);
 
   function saveFile(grantedSize) {
     window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
@@ -7181,9 +7209,7 @@ LocalStorageSaver.prototype.save = function(text,method,callback,options) {
             if (!truncated) {
               truncated = true;
               this.truncate(this.position);
-              return;
             }
-            callback(null);
           };
           fileWriter.onerror = function(e) {
             errorHandler(&quot;FileWriter&quot;,&quot;Save to LocalStorage failed!\n\n&quot;+e)
@@ -7196,36 +7222,16 @@ LocalStorageSaver.prototype.save = function(text,method,callback,options) {
   }
 
   if (navigator.webkitPersistentStorage)
-    navigator.webkitPersistentStorage.requestQuota(quota,saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+    navigator.webkitPersistentStorage.requestQuota(
+       quota, saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
   else if (window.webkitStorageInfo)
-    window.webkitStorageInfo.requestQuota(window.PERSISTENT,quota,saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
-  
-  return (!options.variables.fallbacksaver);
+    window.webkitStorageInfo.requestQuota(window.PERSISTENT,
+       quota, saveFile, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+
+  return true; // Action was invoked
 };
 
-/*
-Information about this saver
-*/
-LocalStorageSaver.prototype.info = {
-	name: &quot;LocalStorage&quot;,
-	priority: 1500,
-	capabilities: [&quot;download&quot;]
-};
-
-/*
-Static method that returns true if this saver is capable of working
-*/
-exports.canSave = function(wiki) {
-	return window.requestFileSystem || window.webkitRequestFileSystem;
-};
-
-/*
-Create an instance of this saver
-*/
-exports.create = function(wiki) {
-	return new LocalStorageSaver(wiki);
-};
-
+exports[&quot;action-savefile&quot;] = LocalStorageSaveFileWidget;
 })();</pre>
 </div>
 <div created="20151007100857611" modified="20151007100906585" tags="location" title="Pittsburgh" type="application/json">
