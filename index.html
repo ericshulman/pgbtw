@@ -200,6 +200,10 @@ Error message and password prompt
 
 <li>Dashboard</li>
 
+<li>Dashboard/Geo</li>
+
+<li>Dashboard/LocalStorage</li>
+
 <li>Geo/action-getGeoData.js</li>
 
 <li>Geo/Data</li>
@@ -6306,13 +6310,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
 </div>
-<div modified="20151006091335639" title="$:/state/tab/moresidebar-401116514">
+<div modified="20151009200532005" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151009092623033" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151009200642400" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="$:/AdvancedSearch $:/config/SaverFilter Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151009123702166" title="$:/temp/advancedsearch">
@@ -6335,8 +6339,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20150722011814725" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151009122350858" title="$:/temp/notify">
-<pre>locations.json removed from LocalStorage</pre>
+<div modified="20151009200522790" title="$:/temp/notify">
+<pre>locations.json removed from ~LocalStorage</pre>
 </div>
 <div created="20150705104045705" modified="20151009123702167" title="$:/temp/search">
 <pre></pre>
@@ -6489,7 +6493,12 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151009120640757" title="Dashboard">
+<div created="20150623211607895" modified="20151009193358701" title="Dashboard">
+<pre>{{Dashboard/Geo}}
+{{Dashboard/LocalStorage}}
+&lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Lookup Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
+</div>
+<div created="20151009192708809" modified="20151009193347410" tags="" title="Dashboard/Geo">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
@@ -6529,71 +6538,6 @@ exports.startup = function() {
       &lt;$action-setfield $tiddler=&quot;$:/config/Geo/watch&quot; $value=&quot;off&quot;/&gt;
       &lt;&lt;msg &quot;Geo scan stopped&quot;&gt;&gt;
    &lt;/$button&gt;
-&lt;/$reveal&gt;
-\end
-
-\define loadfile()
-&lt;$button&gt;
-   &lt;$action-loadfile
-      filename={{$:/config/LocalStorage/filename}}
-      parse=&quot;tiddlers&quot;/&gt;
-   load file
-&lt;/$button&gt;
-\end
-
-\define removefile()
-&lt;$button&gt;
-   &lt;$action-removefile
-      filename={{$:/config/LocalStorage/filename}}/&gt;
-   remove file
-&lt;/$button&gt;
-\end
-
-\define savefile()
-&lt;$button&gt;
-   &lt;$action-savefile
-      filename={{$:/config/LocalStorage/filename}}
-      filter={{$:/config/LocalStorage/filter}} /&gt;
-   save file
-&lt;/$button&gt;
-\end
-
-\define setfilename()
-filename: &lt;$edit-text tag=&quot;input&quot;
-   tiddler=&quot;$:/config/LocalStorage/filename&quot; default=&quot;locations.json&quot;/&gt;
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
-   &lt;$action-getdirectory /&gt;
-   {{$:/core/images/down-arrow}}
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot;
-   state=&quot;$:/temp/popup/filenameDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
-   &amp;nbsp;select an existing filename...&amp;nbsp;
-   @@.thinline @@
-   &lt;$list filter={{$:/LocalStorage/!!list}}
-      emptyMessage=&quot;@@.smallest //(no files)//@@&quot;&gt;
-      &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-         &lt;$view field=&quot;title&quot;/&gt;
-         &lt;$action-setfield
-            $tiddler=&quot;$:/config/LocalStorage/filename&quot;
-            $value={{!!title}}/&gt;
-      &lt;/$button&gt;
-   &lt;/$list&gt;
-&lt;/$reveal&gt;
-\end
-
-\define setfilter()
-filter: &lt;$edit-text tag=&quot;input&quot;
-   tiddler=&quot;$:/config/LocalStorage/filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterDropdown&quot;&gt;
-   {{$:/core/images/down-arrow}}
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; style=&quot;text-align:left&quot;
-  state=&quot;$:/temp/popup/filterDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
-   &amp;nbsp;This filter matches these tiddlers:&amp;nbsp;
-   @@.thinline @@
-   &lt;$list filter={{$:/config/LocalStorage/filter}}&gt;
-   &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
-   &lt;/$list&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -6645,15 +6589,79 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;latlong&gt;&gt;
 &lt;hr&gt;
 &lt;&lt;GeoOptions&gt;&gt;
-&lt;/div&gt;
+&lt;/div&gt;</pre>
+</div>
+<div created="20151009192813110" modified="20151009193330401" tags="" title="Dashboard/LocalStorage">
+<pre>\define loadfile()
+&lt;$button&gt;
+   &lt;$action-loadfile
+      filename={{$:/config/LocalStorage/filename}}
+      parse=&quot;tiddlers&quot;/&gt;
+   load file
+&lt;/$button&gt;
+\end
+
+\define removefile()
+&lt;$button&gt;
+   &lt;$action-removefile
+      filename={{$:/config/LocalStorage/filename}}/&gt;
+   remove file
+&lt;/$button&gt;
+\end
+
+\define savefile()
+&lt;$button&gt;
+   &lt;$action-savefile
+      filename={{$:/config/LocalStorage/filename}}
+      filter={{$:/config/LocalStorage/filter}} /&gt;
+   save file
+&lt;/$button&gt;
+\end
+
+\define setfilename()
+filename: &lt;$edit-text tag=&quot;input&quot;
+   tiddler=&quot;$:/config/LocalStorage/filename&quot; default=&quot;locations.json&quot;/&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
+   &lt;$action-getdirectory /&gt;
+   {{$:/core/images/down-arrow}}
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot;
+   state=&quot;$:/temp/popup/filenameDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
+   &amp;nbsp;select a filename...&amp;nbsp;
+   @@.thinline @@
+   &lt;$list filter={{$:/LocalStorage/!!list}}
+      emptyMessage=&quot;@@.smallest //(no saved files)//@@&quot;&gt;
+      &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+         &lt;$view field=&quot;title&quot;/&gt;
+         &lt;$action-setfield
+            $tiddler=&quot;$:/config/LocalStorage/filename&quot;
+            $value={{!!title}}/&gt;
+      &lt;/$button&gt;
+   &lt;/$list&gt;
+&lt;/$reveal&gt;
+\end
+
+\define setfilter()
+filter: &lt;$edit-text tag=&quot;input&quot;
+   tiddler=&quot;$:/config/LocalStorage/filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterDropdown&quot;&gt;
+   {{$:/core/images/down-arrow}}
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; style=&quot;text-align:left&quot;
+  state=&quot;$:/temp/popup/filterDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
+   &amp;nbsp;This filter matches these tiddlers:&amp;nbsp;
+   @@.thinline @@
+   &lt;$list filter={{$:/config/LocalStorage/filter}}&gt;
+   &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
+   &lt;/$list&gt;
+&lt;/$reveal&gt;
+\end
 
 @@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt;@@
 ''~LocalStorage:''
 &lt;div class=&quot;shadowbox center clear&quot;&gt;
 &lt;&lt;setfilter&gt;&gt; &lt;&lt;setfilename&gt;&gt;
-&lt;/div&gt;
-
-&lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Lookup Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
+&lt;/div&gt;</pre>
 </div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
 <pre>/*\
@@ -6958,7 +6966,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151009070709830" modified="20151009090318962" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
+<div created="20151009070709830" modified="20151009193830247" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getdirectory.js
 type: application/javascript
@@ -7021,7 +7029,8 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
         message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
     }
-    alert(id+&quot;: &quot;+message);
+    $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,id+&quot;: &quot;+message);
+    $tw.notifier.display(&quot;$:/temp/notify&quot;);
   }
 
   var path=this.getAttribute(&quot;path&quot;,&quot;&quot;);
@@ -7035,7 +7044,6 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
       out.push(entry.name);
       if (!isDir) filelist.push(entry.name);
     });
-
     // save directory list in tiddler
     $tw.wiki.addTiddler(new $tw.Tiddler({
       title: &quot;$:/LocalStorage/&quot;+path,
@@ -7068,7 +7076,7 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
 exports[&quot;action-getdirectory&quot;] = LocalStorageDirectoryWidget;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151009123127919" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151009200009837" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -7146,18 +7154,21 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
         var reader = new FileReader();
         reader.onloadend = function(e) {
           if (!this.result.length) return;
+          var title=&quot;$:/LocalStorage/&quot;+file.name;
           // save JSON tiddler
           $tw.wiki.addTiddler(new $tw.Tiddler({
-            title: &quot;$:/LocalStorage/&quot;+file.name,
+            title: title,
             text: this.result,
             type: &quot;application/json&quot;
           }));
+          var msg=&quot;loaded &quot;+title;
           if (parse==&quot;tiddlers&quot;) { // add separate tiddlers
-            $tw.utils.each(JSON.parse(this.result),function(tiddlerFields) {
+            var tids=JSON.parse(this.result);
+            $tw.utils.each(tids,function(tiddlerFields) {
               $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
             });
+            var msg=tids.length+&quot; tiddlers loaded from &quot;+title;
           }
-          var msg=file.name+&quot; loaded from ~LocalStorage&quot;;
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
         };
@@ -7172,7 +7183,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
 exports[&quot;action-loadfile&quot;] = LocalStorageLoadFileWidget;
 })();</pre>
 </div>
-<div created="20151007103210499" modified="20151009122545143" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
+<div created="20151007103210499" modified="20151009194322381" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefile.js
 type: application/javascript
@@ -7184,6 +7195,7 @@ widget to remove a file in LocalStorage
 
 params (default):
 filename    = source filename in local storage
+force       = true/false. Set to true to skip confirmation
 
 \*/
 
@@ -7240,12 +7252,13 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
   }
 
   var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
+  var force=this.getAttribute(&quot;force&quot;)==&quot;true&quot;;
   var quota=1024*1024*5;
 
   window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
     fs.root.getFile(filename, {}, function(fileEntry) {
       var msg=&quot;OK to remove '&quot;+filename+&quot;' from LocalStorage?&quot;;
-      if (confirm(msg)) {
+      if (force || confirm(msg)) {
         fileEntry.remove(function() {
           var msg=filename+&quot; removed from ~LocalStorage&quot;;
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
@@ -7261,7 +7274,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20151009015741946" modified="20151009122758745" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
+<div created="20151009015741946" modified="20151009200322313" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-savefile.js
 type: application/javascript
@@ -7273,6 +7286,7 @@ widget to save filtered tiddlers to LocalStorage
 
 params (default):
 filename    = source filename in local storage
+force       = true/false.  Set to true skips confirmation for overwrites.
 
 \*/
 
@@ -7328,24 +7342,27 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
     $tw.notifier.display(&quot;$:/temp/notify&quot;);
   }
 
-  // get the target filename and quota
-  var filename=this.getAttribute(&quot;filename&quot;,&quot;&quot;);
-  var quota=1024*1024*5;
-
   // get the tiddlers as JSON
-  var filter=this.getAttribute(&quot;filter&quot;,&quot;&quot;);
-  var tiddlers = this.wiki.filterTiddlers(filter), data = [];
-  for(var t=0;t&lt;tiddlers.length; t++) {
-    var tiddler = this.wiki.getTiddler(tiddlers[t]);
-    if(tiddler) {
-      var fields = new Object();
-      for(var field in tiddler.fields) {
-        fields[field] = tiddler.getFieldString(field);
+  function tids2json(filter) {
+    var tiddlers = $tw.wiki.filterTiddlers(filter), data = [];
+    for(var t=0;t&lt;tiddlers.length; t++) {
+      var tiddler = $tw.wiki.getTiddler(tiddlers[t]);
+      if(tiddler) {
+        var fields = new Object();
+        for(var field in tiddler.fields) {
+          fields[field] = tiddler.getFieldString(field);
+        }
+        data.push(fields);
       }
-      data.push(fields);
     }
+    return JSON.stringify(data,null,$tw.config.preferences.jsonSpaces);
   }
-  var text=JSON.stringify(data,null,$tw.config.preferences.jsonSpaces);
+
+  // get the parameters
+  var filename = this.getAttribute(&quot;filename&quot;,&quot;&quot;);
+  var force    = this.getAttribute(&quot;force&quot;)==&quot;true&quot;;
+  var quota    = 1024*1024*5;
+  var text     = tids2json(this.getAttribute(&quot;filter&quot;,&quot;&quot;));
 
   function saveFile(fs,filename,text) {
     fs.root.getFile(filename, {create: true}, function(fileEntry) {
@@ -7374,7 +7391,7 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
     window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
       fs.root.getFile(filename, {}, function(fileEntry) {
         var msg=filename+&quot; already exists. OK to overwrite?&quot;;
-        if (confirm(msg)) saveFile(fs,filename,text); 
+        if (force || confirm(msg)) saveFile(fs,filename,text); 
       }, function(err) { saveFile(fs,filename,text); });
     }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
   }
