@@ -200,6 +200,8 @@ Error message and password prompt
 
 <li>Dashboard</li>
 
+<li>Dashboard/AddressLookup</li>
+
 <li>Dashboard/Geo</li>
 
 <li>Dashboard/LocalStorage</li>
@@ -207,8 +209,6 @@ Error message and password prompt
 <li>Geo/action-getGeoData.js</li>
 
 <li>Geo/Data</li>
-
-<li>Geo/Lookup</li>
 
 <li>Geo/Map</li>
 
@@ -264,11 +264,11 @@ Error message and password prompt
 <div created="20150706212000752" modified="20150722001620789" title="$:/config/GoogleMaps/zoom">
 <pre>16</pre>
 </div>
-<div created="20151007095534363" modified="20151009090404564" title="$:/config/LocalStorage/filename">
-<pre>locations.json</pre>
+<div created="20151007095534363" modified="20151010195707134" title="$:/config/LocalStorage/filename">
+<pre>settings.json</pre>
 </div>
-<div created="20151007095537546" modified="20151009091644943" title="$:/config/LocalStorage/filter">
-<pre>[tag[location]]</pre>
+<div created="20151007095537546" modified="20151010195707134" title="$:/config/LocalStorage/filter">
+<pre>[prefix[$:/config]]</pre>
 </div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -6289,8 +6289,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <pre>no</pre>
 </div>
 <div list="" title="$:/LocalStorage/">
-<pre>
-</pre>
+<pre></pre>
 </div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
@@ -6301,7 +6300,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150927212701838" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div modified="20151009092534712" title="$:/state/tab--1119925701">
+<div modified="20151010201407686" title="$:/state/tab--1119925701">
 <pre>Geo/Map</pre>
 </div>
 <div modified="20151005233723456" title="$:/state/tab--1498284803">
@@ -6319,8 +6318,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151009123702166" title="$:/temp/advancedsearch">
-<pre>saverf</pre>
+<div created="20150706192244698" modified="20151010191830133" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6342,7 +6341,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151009200522790" title="$:/temp/notify">
 <pre>locations.json removed from ~LocalStorage</pre>
 </div>
-<div created="20150705104045705" modified="20151009123702167" title="$:/temp/search">
+<div created="20150705104045705" modified="20151010190116824" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
@@ -6493,12 +6492,55 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151009193358701" title="Dashboard">
+<div created="20150623211607895" modified="20151010200026020" title="Dashboard">
 <pre>{{Dashboard/Geo}}
+{{Dashboard/AddressLookup}}
 {{Dashboard/LocalStorage}}
-&lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Lookup Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
+&lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
 </div>
-<div created="20151009192708809" modified="20151009193347410" tags="" title="Dashboard/Geo">
+<div created="20151010193622207" modified="20151010201532390" tags="" title="Dashboard/AddressLookup">
+<pre>\define getdata()
+&lt;$button&gt; get address
+&lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
+   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;geo&quot; NO-autoload=&quot;true&quot; /&gt;
+&lt;/$button&gt;
+\end
+
+\define unpackdata()
+&lt;$button&gt; unpack data
+&lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
+   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;json&quot;/&gt;
+&lt;/$button&gt;
+\end
+
+\define cleardata()
+&lt;$button&gt; clear data
+&lt;$action-deletetiddler $filter=&quot;[prefix[Geo/Data/Address]]&quot;/&gt;
+&lt;/$button&gt;
+\end
+
+\define showsource()
+[ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
+\end
+
+&lt;$vars latitude={{Geo/Data##latitude}} longitude={{Geo/Data##longitude}}&gt;
+@@.floatright.smaller &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
+''~AddressLookup:''
+&lt;div class=&quot;shadowbox left clear&quot;&gt;
+@@.smaller &lt;&lt;showsource&gt;&gt;@@
+&lt;$list filter=&quot;[prefix[Geo/Data/Address/]limit[1]]&quot;&gt;
+&lt;table&gt;
+&lt;$list filter=&quot;[prefix[Geo/Data/Address/]]&quot;&gt;
+&lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[Geo/Data/Address/]]&quot;&gt;
+&lt;tr&gt;&lt;td&gt;&lt;&lt;item&gt;&gt;:&lt;/td&gt;&lt;td&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/$set&gt;
+&lt;/$list&gt;
+&lt;/table&gt;
+&lt;/$list&gt;
+&lt;/div&gt;
+&lt;/$vars&gt;</pre>
+</div>
+<div created="20151009192708809" modified="20151010200016684" tags="" title="Dashboard/Geo">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
@@ -6582,16 +6624,16 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
 \end
 
-
 @@.floatright.smaller &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
 ''~GeoLocation:''
 &lt;div class=&quot;shadowbox center clear&quot;&gt;
 &lt;&lt;latlong&gt;&gt;
 &lt;hr&gt;
 &lt;&lt;GeoOptions&gt;&gt;
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+</pre>
 </div>
-<div created="20151009192813110" modified="20151009193330401" tags="" title="Dashboard/LocalStorage">
+<div created="20151009192813110" modified="20151010200003487" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt;
    &lt;$action-loadfile
@@ -6621,13 +6663,14 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 \define setfilename()
 filename: &lt;$edit-text tag=&quot;input&quot;
    tiddler=&quot;$:/config/LocalStorage/filename&quot; default=&quot;locations.json&quot;/&gt;
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filename&quot;
+   popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
    &lt;$action-getdirectory /&gt;
    {{$:/core/images/down-arrow}}
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot;
    state=&quot;$:/temp/popup/filenameDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
-   &amp;nbsp;select a filename...&amp;nbsp;
+   &amp;nbsp; select a filename &amp;nbsp;
    @@.thinline @@
    &lt;$list filter={{$:/LocalStorage/!!list}}
       emptyMessage=&quot;@@.smallest //(no saved files)//@@&quot;&gt;
@@ -6641,26 +6684,48 @@ filename: &lt;$edit-text tag=&quot;input&quot;
 &lt;/$reveal&gt;
 \end
 
+\define filterbutton(text,filter,filename)
+   &lt;$button class=&quot;tc-btn-invisible&quot;&gt;$text$
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
+         $value=&quot;$filter$&quot;/&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
+         $value=&quot;$filename$&quot;/&gt;
+   &lt;/$button&gt;
+\end
+
 \define setfilter()
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterInfoDropdown&quot;&gt;
+   {{$:/core/images/info-button}}
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowright&quot;
+  state=&quot;$:/temp/popup/filterInfoDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
+   &amp;nbsp; This filter matches these tiddlers: &amp;nbsp;
+   @@.thinline @@
+   &lt;$list filter={{$:/config/LocalStorage/filter}}
+      emptyMessage=&quot;@@.smallest //(no matching tiddlers)//@@&quot;&gt;
+      &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
+   &lt;/$list&gt;
+&lt;/$reveal&gt;
 filter: &lt;$edit-text tag=&quot;input&quot;
    tiddler=&quot;$:/config/LocalStorage/filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterDropdown&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filter&quot;
+   popup=&quot;$:/temp/popup/filterPickerDropdown&quot;&gt;
    {{$:/core/images/down-arrow}}
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; style=&quot;text-align:left&quot;
-  state=&quot;$:/temp/popup/filterDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
-   &amp;nbsp;This filter matches these tiddlers:&amp;nbsp;
+  state=&quot;$:/temp/popup/filterPickerDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
+   &amp;nbsp;select a filter...&amp;nbsp;
    @@.thinline @@
-   &lt;$list filter={{$:/config/LocalStorage/filter}}&gt;
-   &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
-   &lt;/$list&gt;
+   &lt;&lt;filterbutton &quot;Locations&quot;    &quot;[tag[location]]&quot;            &quot;locations.json&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Settings&quot;     &quot;[prefix[$:/config]]&quot;        &quot;settings.json&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Address Data&quot; &quot;[prefix[Geo/Data/Address]]&quot; &quot;address.json&quot;&gt;&gt;
 &lt;/$reveal&gt;
 \end
 
 @@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt;@@
 ''~LocalStorage:''
 &lt;div class=&quot;shadowbox center clear&quot;&gt;
-&lt;&lt;setfilter&gt;&gt; &lt;&lt;setfilename&gt;&gt;
+&lt;&lt;setfilter&gt;&gt; &amp;nbsp; &lt;&lt;setfilename&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
@@ -6757,44 +6822,11 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
 
 })();</pre>
 </div>
-<div created="20150706215754190" modified="20151008233404346" tags="location" title="Geo/Data" type="application/json">
+<div created="20150706215754190" modified="20151010201426764" tags="location" title="Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
-</div>
-<div caption="Address Lookup" created="20150705103443883" modified="20150817230847545" tags="" title="Geo/Lookup">
-<pre>\define ShowLookup()
-
-&lt;$button&gt; Get Address Data
-&lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
-   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;geo&quot; autoload=&quot;true&quot;/&gt;
-&lt;/$button&gt;
-&lt;$button&gt; Unpack JSON
-&lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
-   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;json&quot;/&gt;
-&lt;/$button&gt;
-&lt;$button&gt; Clear Data
-&lt;$action-deletetiddler $filter=&quot;[prefix[Geo/Data/Address]]&quot;/&gt;
-&lt;/$button&gt;
-
-@@.smaller 
-&lt;br&gt;source:
-[ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
-@@
-\end
-
-@@.floatright [[view raw JSON data|Geo/Data/Address]]@@
-&lt;$vars latitude={{Geo/Data##latitude}} longitude={{Geo/Data##longitude}}&gt;
-&lt;&lt;ShowLookup&gt;&gt;
-&lt;/$vars&gt;
-&lt;table&gt;
-&lt;$list filter=&quot;[prefix[Geo/Data/Address/]]&quot;&gt;
-&lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[Geo/Data/Address/]]&quot;&gt;
-&lt;tr&gt;&lt;td&gt;&lt;&lt;item&gt;&gt;:&lt;/td&gt;&lt;td&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/$set&gt;
-&lt;/$list&gt;
-&lt;/table&gt;</pre>
 </div>
 <div caption="GoogleMaps" created="20150705103236444" modified="20150724070506828" tags="" title="Geo/Map">
 <pre>\define ShowMap(w,h)
@@ -6966,7 +6998,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151009070709830" modified="20151009193830247" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
+<div created="20151009070709830" modified="20151010005848923" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getdirectory.js
 type: application/javascript
@@ -7036,13 +7068,11 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
   var path=this.getAttribute(&quot;path&quot;,&quot;&quot;);
   var quota   =1024*1024*5;
 
-  function makeTiddler(path,entries) {
+  function makeDirectoryTiddler(path,entries) {
     var out = [], filelist = [];
     entries.forEach(function(entry, i) {
-      var isDir = entry.isDirectory;
-      var name  = entry.name;
       out.push(entry.name);
-      if (!isDir) filelist.push(entry.name);
+      if (!entry.isDirectory) filelist.push(entry.name);
     });
     // save directory list in tiddler
     $tw.wiki.addTiddler(new $tw.Tiddler({
@@ -7060,7 +7090,7 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
     var readEntries = function() {
       dirReader.readEntries (function(results) {
         if (!results.length) {
-          makeTiddler(fs.root.name,entries.sort());
+          makeDirectoryTiddler(fs.root.name,entries.sort());
         } else {
           entries = entries.concat(toArray(results));
           readEntries();
