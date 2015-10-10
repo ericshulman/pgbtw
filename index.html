@@ -160,6 +160,16 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/Dashboard/AddressLookup</li>
+
+<li>$:/state/Dashboard/GeoLocation</li>
+
+<li>$:/state/Dashboard/LocalStorage</li>
+
+<li>$:/state/Dashboard/Maps</li>
+
+<li>$:/state/Dashboard/StreetView</li>
+
 <li>$:/state/sidebar</li>
 
 <li>$:/state/tab--1119925701</li>
@@ -184,12 +194,6 @@ Error message and password prompt
 
 <li>$:/temp/search</li>
 
-<li>$:/temp/StreetView/fov</li>
-
-<li>$:/temp/StreetView/heading</li>
-
-<li>$:/temp/StreetView/pitch</li>
-
 <li>$:/themes/tiddlywiki/snowwhite</li>
 
 <li>$:/themes/tiddlywiki/vanilla</li>
@@ -202,17 +206,17 @@ Error message and password prompt
 
 <li>Dashboard/AddressLookup</li>
 
-<li>Dashboard/Geo</li>
+<li>Dashboard/GeoLocation</li>
 
 <li>Dashboard/LocalStorage</li>
+
+<li>Dashboard/Maps</li>
+
+<li>Dashboard/StreetView</li>
 
 <li>Geo/action-getGeoData.js</li>
 
 <li>Geo/Data</li>
-
-<li>Geo/Map</li>
-
-<li>Geo/StreetView</li>
 
 <li>Greenwich Observatory</li>
 
@@ -261,14 +265,14 @@ Error message and password prompt
 <div modified="20150724072250770" title="$:/config/Geo/watch">
 <pre>off</pre>
 </div>
-<div created="20150706212000752" modified="20150722001620789" title="$:/config/GoogleMaps/zoom">
-<pre>16</pre>
+<div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
+<pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151010195707134" title="$:/config/LocalStorage/filename">
-<pre>settings.json</pre>
+<div created="20151007095534363" modified="20151010225037959" title="$:/config/LocalStorage/filename">
+<pre>locations.json</pre>
 </div>
-<div created="20151007095537546" modified="20151010195707134" title="$:/config/LocalStorage/filter">
-<pre>[prefix[$:/config]]</pre>
+<div created="20151007095537546" modified="20151010225037959" title="$:/config/LocalStorage/filter">
+<pre>[tag[location]]</pre>
 </div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -276,11 +280,11 @@ Error message and password prompt
 <div created="20150705120259221" modified="20151009123801738" title="$:/config/SaverFilter">
 <pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage/]]</pre>
 </div>
-<div created="20150706194209653" modified="20150708000948300" title="$:/config/StreetView/fov">
+<div created="20150706194209653" modified="20151010224408908" title="$:/config/StreetView/fov">
 <pre>120</pre>
 </div>
-<div created="20150706194241651" modified="20150708001854509" title="$:/config/StreetView/heading">
-<pre>0</pre>
+<div created="20150706194241651" modified="20151010224412708" title="$:/config/StreetView/heading">
+<pre>200</pre>
 </div>
 <div created="20150706195954662" modified="20150706214449956" title="$:/config/StreetView/pitch">
 <pre>1</pre>
@@ -6289,7 +6293,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <pre>no</pre>
 </div>
 <div list="" title="$:/LocalStorage/">
-<pre></pre>
+<pre>
+</pre>
 </div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
@@ -6297,29 +6302,44 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
+<div modified="20151010225124645" title="$:/state/Dashboard/AddressLookup">
+<pre></pre>
+</div>
+<div modified="20151010224414748" title="$:/state/Dashboard/GeoLocation">
+<pre>show</pre>
+</div>
+<div modified="20151010224425931" title="$:/state/Dashboard/LocalStorage">
+<pre>show</pre>
+</div>
+<div modified="20151010225112691" title="$:/state/Dashboard/Maps">
+<pre>show</pre>
+</div>
+<div modified="20151010224456749" title="$:/state/Dashboard/StreetView">
+<pre></pre>
+</div>
 <div modified="20150927212701838" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div modified="20151010201407686" title="$:/state/tab--1119925701">
-<pre>Geo/Map</pre>
+<div modified="20151010224139384" title="$:/state/tab--1119925701">
+<pre>Dashboard/Maps</pre>
 </div>
-<div modified="20151005233723456" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+<div modified="20151010223533291" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
 </div>
-<div modified="20151009200532005" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/System</pre>
+<div modified="20151010225219839" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div modified="20151009200642400" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div modified="20151010225332069" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/More</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151010191830133" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20150706192244698" modified="20151010223642521" title="$:/temp/advancedsearch">
+<pre>$:/temp</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6341,17 +6361,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151009200522790" title="$:/temp/notify">
 <pre>locations.json removed from ~LocalStorage</pre>
 </div>
-<div created="20150705104045705" modified="20151010190116824" title="$:/temp/search">
+<div created="20150705104045705" modified="20151010223903024" title="$:/temp/search">
 <pre></pre>
-</div>
-<div created="20150706192726376" modified="20150706194105747" title="$:/temp/StreetView/fov">
-<pre>120</pre>
-</div>
-<div created="20150706192223171" modified="20150706194034400" title="$:/temp/StreetView/heading">
-<pre>0</pre>
-</div>
-<div created="20150706192746317" modified="20150706192757131" title="$:/temp/StreetView/pitch">
-<pre>6</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
 <pre>{
@@ -6492,17 +6503,18 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151010200026020" title="Dashboard">
-<pre>{{Dashboard/Geo}}
-{{Dashboard/AddressLookup}}
+<div created="20150623211607895" modified="20151010224226204" title="Dashboard">
+<pre>{{Dashboard/GeoLocation}}
 {{Dashboard/LocalStorage}}
-&lt;&lt;tabs &quot;Geo/Map Geo/StreetView Geo/Data Geo/Data/Address&quot; &quot;Geo/Map&quot;&gt;&gt;</pre>
+{{Dashboard/Maps}}
+{{Dashboard/StreetView }}
+{{Dashboard/AddressLookup}}</pre>
 </div>
-<div created="20151010193622207" modified="20151010201532390" tags="" title="Dashboard/AddressLookup">
+<div caption="Address Lookup" created="20151010193622207" modified="20151010223224518" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata()
 &lt;$button&gt; get address
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
-   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;geo&quot; NO-autoload=&quot;true&quot; /&gt;
+   tiddler=&quot;Geo/Data/Address&quot; parse=&quot;geo&quot; autoload=&quot;true&quot; /&gt;
 &lt;/$button&gt;
 \end
 
@@ -6523,24 +6535,32 @@ exports.startup = function() {
 [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$]]
 \end
 
-&lt;$vars latitude={{Geo/Data##latitude}} longitude={{Geo/Data##longitude}}&gt;
-@@.floatright.smaller &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
-''~AddressLookup:''
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
-@@.smaller &lt;&lt;showsource&gt;&gt;@@
-&lt;$list filter=&quot;[prefix[Geo/Data/Address/]limit[1]]&quot;&gt;
-&lt;table&gt;
-&lt;$list filter=&quot;[prefix[Geo/Data/Address/]]&quot;&gt;
-&lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[Geo/Data/Address/]]&quot;&gt;
-&lt;tr&gt;&lt;td&gt;&lt;&lt;item&gt;&gt;:&lt;/td&gt;&lt;td&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;/$set&gt;
-&lt;/$list&gt;
-&lt;/table&gt;
-&lt;/$list&gt;
-&lt;/div&gt;
+&lt;$vars latitude={{Geo/Data##latitude}}
+       longitude={{Geo/Data##longitude}}&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/AddressLookup&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+&lt;$button set=&quot;$:/state/Dashboard/AddressLookup&quot; setTo=&quot;show&quot;
+   class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/AddressLookup&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+   &lt;$button set=&quot;$:/state/Dashboard/AddressLookup&quot; setTo=&quot;&quot;
+      class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+   @@.floatright.smaller &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
+   &lt;div class=&quot;shadowbox left clear&quot;&gt;
+   @@.smaller &lt;&lt;showsource&gt;&gt;@@
+   &lt;$list filter=&quot;[prefix[Geo/Data/Address/]limit[1]]&quot;&gt;
+   &lt;table&gt;
+   &lt;$list filter=&quot;[prefix[Geo/Data/Address/]]&quot;&gt;
+      &lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[Geo/Data/Address/]]&quot;&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;&lt;item&gt;&gt;:&lt;/td&gt;&lt;td&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;/$set&gt;
+   &lt;/$list&gt;
+   &lt;/table&gt;
+   &lt;/$list&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20151009192708809" modified="20151010200016684" tags="" title="Dashboard/Geo">
+<div caption="Geo Location" created="20151009192708809" modified="20151010222719249" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
@@ -6624,16 +6644,22 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
 \end
 
-@@.floatright.smaller &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
-''~GeoLocation:''
-&lt;div class=&quot;shadowbox center clear&quot;&gt;
-&lt;&lt;latlong&gt;&gt;
-&lt;hr&gt;
-&lt;&lt;GeoOptions&gt;&gt;
-&lt;/div&gt;
-</pre>
+&lt;$reveal state=&quot;$:/state/Dashboard/GeoLocation&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+&lt;$button set=&quot;$:/state/Dashboard/GeoLocation&quot; setTo=&quot;show&quot;
+   class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/GeoLocation&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+   &lt;$button set=&quot;$:/state/Dashboard/GeoLocation&quot; setTo=&quot;&quot;
+      class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+   @@.floatright.smaller &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
+   &lt;div class=&quot;shadowbox center clear&quot;&gt;
+   &lt;&lt;latlong&gt;&gt;
+   &lt;hr&gt;
+   &lt;&lt;GeoOptions&gt;&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;</pre>
 </div>
-<div created="20151009192813110" modified="20151010200003487" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151010224935035" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt;
    &lt;$action-loadfile
@@ -6684,7 +6710,7 @@ filename: &lt;$edit-text tag=&quot;input&quot;
 &lt;/$reveal&gt;
 \end
 
-\define filterbutton(text,filter,filename)
+\define filterbutton(text,filename,filter)
    &lt;$button class=&quot;tc-btn-invisible&quot;&gt;$text$
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
          $value=&quot;$filter$&quot;/&gt;
@@ -6716,17 +6742,94 @@ filter: &lt;$edit-text tag=&quot;input&quot;
   state=&quot;$:/temp/popup/filterPickerDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
    &amp;nbsp;select a filter...&amp;nbsp;
    @@.thinline @@
-   &lt;&lt;filterbutton &quot;Locations&quot;    &quot;[tag[location]]&quot;            &quot;locations.json&quot;&gt;&gt;
-   &lt;&lt;filterbutton &quot;Settings&quot;     &quot;[prefix[$:/config]]&quot;        &quot;settings.json&quot;&gt;&gt;
-   &lt;&lt;filterbutton &quot;Address Data&quot; &quot;[prefix[Geo/Data/Address]]&quot; &quot;address.json&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Locations&quot; &quot;locations.json&quot;
+      &quot;[tag[location]]&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Settings&quot; &quot;settings.json&quot;
+      &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Address Data&quot; &quot;address.json&quot;
+      &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
 &lt;/$reveal&gt;
 \end
 
-@@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt;@@
-''~LocalStorage:''
-&lt;div class=&quot;shadowbox center clear&quot;&gt;
-&lt;&lt;setfilter&gt;&gt; &amp;nbsp; &lt;&lt;setfilename&gt;&gt;
-&lt;/div&gt;</pre>
+&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+&lt;$button set=&quot;$:/state/Dashboard/LocalStorage&quot; setTo=&quot;show&quot;
+   class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+   &lt;$button set=&quot;$:/state/Dashboard/LocalStorage&quot; setTo=&quot;&quot;
+      class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+   @@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt;@@
+   &lt;div class=&quot;shadowbox center clear&quot;&gt;
+   &lt;&lt;setfilter&gt;&gt; &amp;nbsp; &lt;&lt;setfilename&gt;&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;</pre>
+</div>
+<div caption="Google Maps" created="20151010204309614" modified="20151010222849168" tags="" title="Dashboard/Maps">
+<pre>\define ShowMap(w,h)
+[ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$...|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
+&lt;div style=&quot;height:$h$px;&quot;&gt;
+[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$w$x$h$&amp;scale=2&amp;maptype=hybrid&amp;format=jpg]]
+&lt;/div&gt;
+\end
+
+
+&lt;$vars latitude={{Geo/Data##latitude}}
+       longitude={{Geo/Data##longitude}}
+       zoom={{$:/config/GoogleMaps/zoom}}&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/Maps&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+&lt;$button set=&quot;$:/state/Dashboard/Maps&quot; setTo=&quot;show&quot;
+   class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/Maps&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+   &lt;$button set=&quot;$:/state/Dashboard/Maps&quot; setTo=&quot;&quot;
+      class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+   @@.floatright.smallest 
+   &lt;$edit-text tiddler=&quot;$:/config/GoogleMaps/zoom&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;20&quot; step=&quot;1&quot;/&gt;
+   @@
+   &lt;div class=&quot;shadowbox left clear smaller&quot;&gt;
+   @@.floatright.smaller zoom={{$:/config/GoogleMaps/zoom}}@@
+   &lt;&lt;ShowMap 600 300&gt;&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;
+&lt;/$vars&gt;</pre>
+</div>
+<div caption="Street View" created="20151010205755347" modified="20151010222810203" tags="" title="Dashboard/StreetView">
+<pre>\define StreetView(w,h)
+[ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$...|https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
+&lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
+[img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
+&lt;/div&gt;
+\end
+
+&lt;$vars latitude={{Geo/Data##latitude}}
+       longitude={{Geo/Data##longitude}}
+       heading={{$:/config/StreetView/heading}}
+       fov={{$:/config/StreetView/fov}}&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/StreetView&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+&lt;$button set=&quot;$:/state/Dashboard/StreetView&quot; setTo=&quot;show&quot;
+   class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/StreetView&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+   &lt;$button set=&quot;$:/state/Dashboard/StreetView&quot; setTo=&quot;&quot;
+      class=&quot;tc-btn-invisible&quot;&gt;''{{!!caption}}''&lt;/$button&gt;
+   @@.floatright.smallest 
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView/heading&quot; tooltip=&quot;heading&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;
+   &amp;nbsp;
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView/fov&quot; tooltip=&quot;field of view&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;
+   @@
+   &lt;div class=&quot;shadowbox left clear smaller&quot;&gt;
+   @@.floatright
+   heading=''{{$:/config/StreetView/heading}}''
+   &amp;nbsp;
+   field of view=''{{$:/config/StreetView/fov}}''
+   @@
+   &lt;&lt;StreetView 600 300&gt;&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;
+&lt;/$vars&gt;</pre>
 </div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
 <pre>/*\
@@ -6822,63 +6925,11 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
 
 })();</pre>
 </div>
-<div created="20150706215754190" modified="20151010201426764" tags="location" title="Geo/Data" type="application/json">
+<div created="20150706215754190" modified="20151010224558436" tags="location" title="Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
-</div>
-<div caption="GoogleMaps" created="20150705103236444" modified="20150724070506828" tags="" title="Geo/Map">
-<pre>\define ShowMap(w,h)
-[ext[GoogleMaps|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]&lt;br&gt;
-&lt;div style=&quot;height:$h$px;&quot;&gt;
-[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$w$x$h$&amp;scale=2&amp;maptype=hybrid&amp;format=jpg]]
-&lt;/div&gt;
-\end
-
-@@.floatright.center.smallest 
-zoom={{$:/config/GoogleMaps/zoom}}&lt;br&gt;
-&lt;$edit-text tiddler=&quot;$:/config/GoogleMaps/zoom&quot;
-   tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;20&quot; step=&quot;1&quot;/&gt;
-@@
-&lt;$set name=&quot;latitude&quot;  value={{Geo/Data##latitude}}&gt;
-&lt;$set name=&quot;longitude&quot; value={{Geo/Data##longitude}}&gt;
-&lt;$set name=&quot;zoom&quot;      value={{$:/config/GoogleMaps/zoom}}&gt;
-&lt;&lt;ShowMap 600 300&gt;&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;</pre>
-</div>
-<div caption="Google StreetView" created="20150706050712264" modified="20150724070512931" tags="" title="Geo/StreetView">
-<pre>\define StreetView(w,h)
-[ext[GoogleStreetView|https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
-&lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
-[img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
-&lt;/div&gt;
-\end
-
-@@.floatright 
-&lt;table class=&quot;borderless smallest&quot; style=&quot;width:100%;text-align:center;&quot;&gt;&lt;tr&gt;&lt;td&gt;
-   heading={{$:/config/StreetView/heading}}&lt;br&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/StreetView/heading&quot;
-      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;&lt;br&gt;
-&lt;/td&gt;&lt;td&gt;
-   &amp;nbsp;
-&lt;/td&gt;&lt;td&gt;
-   field of view={{$:/config/StreetView/fov}}&lt;br&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/StreetView/fov&quot;
-      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;&lt;br&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-@@
-&lt;$set name=&quot;latitude&quot;  value={{Geo/Data##latitude}}&gt;
-&lt;$set name=&quot;longitude&quot; value={{Geo/Data##longitude}}&gt;
-&lt;$set name=&quot;heading&quot;   value={{$:/config/StreetView/heading}}&gt;
-&lt;$set name=&quot;fov&quot;       value={{$:/config/StreetView/fov}}&gt;
-&lt;&lt;StreetView 600 300&gt;&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;</pre>
 </div>
 <div created="20150706215323456" modified="20150722012001825" tags="location" title="Greenwich Observatory" type="application/json">
 <pre>{
