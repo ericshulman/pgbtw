@@ -156,6 +156,10 @@ Error message and password prompt
 
 <li>$:/LocalStorage/</li>
 
+<li>$:/LocalStorage/locations.json</li>
+
+<li>$:/LocalStorage/settings.json</li>
+
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
@@ -270,11 +274,11 @@ Error message and password prompt
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151011031404591" title="$:/config/LocalStorage/filename">
-<pre>locations.json</pre>
+<div created="20151007095534363" modified="20151011224531263" title="$:/config/LocalStorage/filename">
+<pre>address.json</pre>
 </div>
-<div created="20151007095537546" modified="20151011031404591" title="$:/config/LocalStorage/filter">
-<pre>[tag[location]]</pre>
+<div created="20151007095537546" modified="20151011224531263" title="$:/config/LocalStorage/filter">
+<pre>[prefix[Geo/Data/Address]]</pre>
 </div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -6294,8 +6298,162 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div list="settings.json" title="$:/LocalStorage/">
-<pre>settings.json</pre>
+<div list="" title="$:/LocalStorage/">
+<pre>
+</pre>
+</div>
+<div title="$:/LocalStorage/locations.json" type="application/json">
+<pre>[
+    {
+        &quot;text&quot;: &quot;{\n    \&quot;latitude\&quot;: \&quot;43.659797\&quot;,\n    \&quot;longitude\&quot;: \&quot;-79.390586\&quot;\n}&quot;,
+        &quot;type&quot;: &quot;application/json&quot;,
+        &quot;title&quot;: &quot;Geo/Data&quot;,
+        &quot;tags&quot;: &quot;location&quot;,
+        &quot;modified&quot;: &quot;20151011052033441&quot;,
+        &quot;created&quot;: &quot;20150706215754190&quot;
+    },
+    {
+        &quot;text&quot;: &quot;{\n    \&quot;latitude\&quot;: \&quot;51.477222\&quot;,\n    \&quot;longitude\&quot;: \&quot;0\&quot;\n}&quot;,
+        &quot;type&quot;: &quot;application/json&quot;,
+        &quot;title&quot;: &quot;Greenwich Observatory&quot;,
+        &quot;tags&quot;: &quot;location&quot;,
+        &quot;modified&quot;: &quot;20150722012001825&quot;,
+        &quot;created&quot;: &quot;20150706215323456&quot;
+    },
+    {
+        &quot;text&quot;: &quot;{\n    \&quot;latitude\&quot;: \&quot;40.3543957\&quot;,\n    \&quot;longitude\&quot;: \&quot;-80.0045251\&quot;\n}&quot;,
+        &quot;type&quot;: &quot;application/json&quot;,
+        &quot;title&quot;: &quot;Pittsburgh&quot;,
+        &quot;tags&quot;: &quot;location&quot;,
+        &quot;modified&quot;: &quot;20151007100906585&quot;,
+        &quot;created&quot;: &quot;20151007100857611&quot;
+    },
+    {
+        &quot;text&quot;: &quot;{\n    \&quot;latitude\&quot;: \&quot;37.36798\&quot;,\n    \&quot;longitude\&quot;: \&quot;-122.0199\&quot;\n}&quot;,
+        &quot;type&quot;: &quot;application/json&quot;,
+        &quot;title&quot;: &quot;Sunnyvale&quot;,
+        &quot;tags&quot;: &quot;location&quot;,
+        &quot;modified&quot;: &quot;20150722011940764&quot;,
+        &quot;created&quot;: &quot;20150707064036605&quot;
+    },
+    {
+        &quot;text&quot;: &quot;{\n    \&quot;latitude\&quot;: \&quot;43.659797\&quot;,\n    \&quot;longitude\&quot;: \&quot;-79.390586\&quot;\n}&quot;,
+        &quot;type&quot;: &quot;application/json&quot;,
+        &quot;title&quot;: &quot;Toronto&quot;,
+        &quot;tags&quot;: &quot;location&quot;,
+        &quot;modified&quot;: &quot;20150722011948835&quot;,
+        &quot;created&quot;: &quot;20150706215050370&quot;
+    }
+]</pre>
+</div>
+<div title="$:/LocalStorage/settings.json" type="application/json">
+<pre>[
+    {
+        &quot;text&quot;: &quot;no&quot;,
+        &quot;title&quot;: &quot;$:/config/Geo/accuracy&quot;,
+        &quot;modified&quot;: &quot;20150722001614902&quot;
+    },
+    {
+        &quot;text&quot;: &quot;10000&quot;,
+        &quot;title&quot;: &quot;$:/config/Geo/age&quot;,
+        &quot;modified&quot;: &quot;20150722001608920&quot;,
+        &quot;created&quot;: &quot;20150722001608792&quot;
+    },
+    {
+        &quot;text&quot;: &quot;6&quot;,
+        &quot;title&quot;: &quot;$:/config/Geo/digits&quot;,
+        &quot;modified&quot;: &quot;20150722001605608&quot;,
+        &quot;created&quot;: &quot;20150722001605193&quot;
+    },
+    {
+        &quot;text&quot;: &quot;15000&quot;,
+        &quot;title&quot;: &quot;$:/config/Geo/timeout&quot;,
+        &quot;modified&quot;: &quot;20150722001611848&quot;,
+        &quot;created&quot;: &quot;20150722001611703&quot;
+    },
+    {
+        &quot;text&quot;: &quot;off&quot;,
+        &quot;title&quot;: &quot;$:/config/Geo/watch&quot;,
+        &quot;modified&quot;: &quot;20150724072250770&quot;
+    },
+    {
+        &quot;text&quot;: &quot;17&quot;,
+        &quot;title&quot;: &quot;$:/config/GoogleMaps/zoom&quot;,
+        &quot;modified&quot;: &quot;20151010205207188&quot;,
+        &quot;created&quot;: &quot;20150706212000752&quot;
+    },
+    {
+        &quot;text&quot;: &quot;settings.json&quot;,
+        &quot;title&quot;: &quot;$:/config/LocalStorage/filename&quot;,
+        &quot;modified&quot;: &quot;20151011222816399&quot;,
+        &quot;created&quot;: &quot;20151007095534363&quot;
+    },
+    {
+        &quot;text&quot;: &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;,
+        &quot;title&quot;: &quot;$:/config/LocalStorage/filter&quot;,
+        &quot;modified&quot;: &quot;20151011222816399&quot;,
+        &quot;created&quot;: &quot;20151007095537546&quot;
+    },
+    {
+        &quot;text&quot;: &quot;show&quot;,
+        &quot;title&quot;: &quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home&quot;,
+        &quot;modified&quot;: &quot;20150722012049072&quot;
+    },
+    {
+        &quot;text&quot;: &quot;[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage/]]&quot;,
+        &quot;title&quot;: &quot;$:/config/SaverFilter&quot;,
+        &quot;modified&quot;: &quot;20151009123801738&quot;,
+        &quot;created&quot;: &quot;20150705120259221&quot;
+    },
+    {
+        &quot;text&quot;: &quot;120&quot;,
+        &quot;title&quot;: &quot;$:/config/StreetView/fov&quot;,
+        &quot;modified&quot;: &quot;20151010224408908&quot;,
+        &quot;created&quot;: &quot;20150706194209653&quot;
+    },
+    {
+        &quot;text&quot;: &quot;200&quot;,
+        &quot;title&quot;: &quot;$:/config/StreetView/heading&quot;,
+        &quot;modified&quot;: &quot;20151010224412708&quot;,
+        &quot;created&quot;: &quot;20150706194241651&quot;
+    },
+    {
+        &quot;text&quot;: &quot;1&quot;,
+        &quot;title&quot;: &quot;$:/config/StreetView/pitch&quot;,
+        &quot;modified&quot;: &quot;20150706214449956&quot;,
+        &quot;created&quot;: &quot;20150706195954662&quot;
+    },
+    {
+        &quot;text&quot;: &quot;show&quot;,
+        &quot;title&quot;: &quot;$:/state/Dashboard/AddressLookup&quot;,
+        &quot;modified&quot;: &quot;20151011030051735&quot;
+    },
+    {
+        &quot;text&quot;: &quot;show&quot;,
+        &quot;title&quot;: &quot;$:/state/Dashboard/GeoLocation&quot;,
+        &quot;modified&quot;: &quot;20151010224414748&quot;
+    },
+    {
+        &quot;text&quot;: &quot;show&quot;,
+        &quot;title&quot;: &quot;$:/state/Dashboard/LocalStorage&quot;,
+        &quot;modified&quot;: &quot;20151010224425931&quot;
+    },
+    {
+        &quot;text&quot;: &quot;show&quot;,
+        &quot;title&quot;: &quot;$:/state/Dashboard/Maps&quot;,
+        &quot;modified&quot;: &quot;20151010225112691&quot;
+    },
+    {
+        &quot;text&quot;: &quot;show&quot;,
+        &quot;title&quot;: &quot;$:/state/Dashboard/StreetView&quot;,
+        &quot;modified&quot;: &quot;20151011030049225&quot;
+    },
+    {
+        &quot;text&quot;: &quot;yes&quot;,
+        &quot;title&quot;: &quot;$:/state/sidebar&quot;,
+        &quot;modified&quot;: &quot;20150927212701838&quot;
+    }
+]</pre>
 </div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
@@ -6303,22 +6461,22 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151011121243430" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151011223349734" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151011121249234" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151010224414748" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151011121251444" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151010224425931" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151011121358839" title="$:/state/Dashboard/Maps">
+<div modified="20151011224448304" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
-<div modified="20151011121348696" title="$:/state/Dashboard/StreetView">
+<div modified="20151011223351109" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20150927212701838" title="$:/state/sidebar">
+<div modified="20151011224705699" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151010224139384" title="$:/state/tab--1119925701">
@@ -6359,8 +6517,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151011030102298" title="$:/temp/notify">
-<pre>settings.json saved to ~LocalStorage</pre>
+<div modified="20151011224531268" title="$:/temp/notify">
+<pre>address.json: Not Found</pre>
 </div>
 <div created="20150705104045705" modified="20151010223903024" title="$:/temp/search">
 <pre></pre>
@@ -6504,14 +6662,30 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151011121622601" title="Dashboard">
-<pre>{{Dashboard/GeoLocation}}
-{{Dashboard/LocalStorage}}
-{{Dashboard/Maps}}
-{{Dashboard/StreetView }}
-{{Dashboard/AddressLookup}}</pre>
+<div created="20150623211607895" modified="20151011220029232" title="Dashboard">
+<pre>\define slider(tid)
+&lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+&lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
+   class=&quot;tc-btn-invisible&quot;&gt;
+   ''{{$tid$!!caption}}'' {{$:/core/images/right-arrow}}
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+&lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;&quot;
+   class=&quot;tc-btn-invisible&quot;&gt;
+   ''{{$tid$!!caption}}'' {{$:/core/images/down-arrow}}
+&lt;/$button&gt;
+{{$tid$}}
+&lt;/$reveal&gt;
+\end
+
+&lt;&lt;slider Dashboard/GeoLocation&gt;&gt;
+&lt;&lt;slider Dashboard/LocalStorage&gt;&gt;
+&lt;&lt;slider Dashboard/Maps&gt;&gt;
+&lt;&lt;slider Dashboard/StreetView&gt;&gt;
+&lt;&lt;slider Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
-<div caption="Address Lookup" created="20151010193622207" modified="20151011120317804" tags="" title="Dashboard/AddressLookup">
+<div caption="Address Lookup" created="20151010193622207" modified="20151011215819650" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata()
 &lt;$button&gt; get address
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -6538,22 +6712,19 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 &lt;$vars latitude={{Geo/Data##latitude}}
        longitude={{Geo/Data##longitude}}&gt;
-&lt;&lt;sliderbutton&gt;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;
-   state=&quot;$:/state/Dashboard/AddressLookup&quot;&gt;
-   @@.floatright.smaller &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
-   &lt;div class=&quot;shadowbox left clear&quot;&gt;
-   &lt;$list filter=&quot;[prefix[Geo/Data/Address/]limit[1]]&quot;&gt;&lt;table&gt;
-   &lt;$list filter=&quot;[prefix[Geo/Data/Address/]]&quot;&gt;
-      &lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[Geo/Data/Address/]]&quot;&gt;
-      &lt;tr&gt;&lt;td&gt;&lt;&lt;item&gt;&gt;:&lt;/td&gt;&lt;td&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
-      &lt;/$set&gt;
-   &lt;/$list&gt;&lt;/table&gt;&lt;/$list&gt;
-   @@.smallest &lt;&lt;showlink&gt;&gt;@@
-   &lt;/div&gt;
-&lt;/$reveal&gt;
+@@.floatright.smaller &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
+&lt;div class=&quot;shadowbox left clear&quot;&gt;
+&lt;$list filter=&quot;[prefix[Geo/Data/Address/]limit[1]]&quot;&gt;&lt;table&gt;
+&lt;$list filter=&quot;[prefix[Geo/Data/Address/]]&quot;&gt;
+   &lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[Geo/Data/Address/]]&quot;&gt;
+   &lt;tr&gt;&lt;td&gt;&lt;&lt;item&gt;&gt;:&lt;/td&gt;&lt;td&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
+   &lt;/$set&gt;
+&lt;/$list&gt;&lt;/table&gt;&lt;/$list&gt;
+@@.smallest &lt;&lt;showlink&gt;&gt;@@
+&lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Geo Location" created="20151009192708809" modified="20151011114455944" tags="" title="Dashboard/GeoLocation">
+<div caption="Geo Location" created="20151009192708809" modified="20151011215913020" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
@@ -6637,45 +6808,85 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
 \end
 
-&lt;&lt;sliderbutton&gt;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot; 
-   state=&quot;$:/state/Dashboard/GeoLocation&quot;&gt;
-   @@.floatright.smaller &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
-   &lt;div class=&quot;shadowbox center clear&quot;&gt;
-   &lt;&lt;latlong&gt;&gt;
-   &lt;hr&gt;
-   &lt;&lt;GeoOptions&gt;&gt;
-   &lt;/div&gt;
-&lt;/$reveal&gt;</pre>
+@@.floatright.smaller &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
+@@.shadowbox.center.clear
+&lt;&lt;latlong&gt;&gt;
+&lt;hr&gt;
+&lt;&lt;GeoOptions&gt;&gt;
+@@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151011114306022" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151011224429761" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
-&lt;$button&gt;
-   &lt;$action-loadfile
-      filename={{$:/config/LocalStorage/filename}}
-      parse=&quot;tiddlers&quot;/&gt;
-   load file
+&lt;$button&gt; load file
+&lt;$action-loadfile filename={{$:/config/LocalStorage/filename}} parse=&quot;tiddlers&quot;/&gt;
 &lt;/$button&gt;
 \end
 
 \define removefile()
-&lt;$button&gt;
-   &lt;$action-removefile
-      filename={{$:/config/LocalStorage/filename}}/&gt;
-   remove file
+&lt;$button&gt; remove file
+&lt;$action-removefile filename={{$:/config/LocalStorage/filename}}/&gt;
 &lt;/$button&gt;
 \end
 
 \define savefile()
-&lt;$button&gt;
-   &lt;$action-savefile
-      filename={{$:/config/LocalStorage/filename}}
+&lt;$button&gt; save file
+&lt;$action-savefile filename={{$:/config/LocalStorage/filename}}
       filter={{$:/config/LocalStorage/filter}} /&gt;
-   save file
 &lt;/$button&gt;
 \end
 
+\define filterinfo()
+   &amp;nbsp; This filter matches these tiddlers: &amp;nbsp;
+   @@.thinline @@
+   &lt;$list filter={{$:/config/LocalStorage/filter}}
+      emptyMessage=&quot;@@.smallest //(no matching tiddlers)//@@&quot;&gt;
+      &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
+   &lt;/$list&gt;
+\end
+
+\define filterbutton(text,filename,filter)
+   &lt;$button class=&quot;tc-btn-invisible&quot;&gt;$text$
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
+         $value=&quot;$filter$&quot;/&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
+         $value=&quot;$filename$&quot;/&gt;
+   &lt;/$button&gt;
+\end
+
+\define filterpicker()
+   &amp;nbsp;select a filter...&amp;nbsp;
+   @@.thinline @@
+   &lt;&lt;filterbutton &quot;Locations&quot; &quot;locations.json&quot;
+      &quot;[tag[location]]&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Settings&quot; &quot;settings.json&quot;
+      &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Address Data&quot; &quot;address.json&quot;
+      &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
+\end
+
+\define setfilter()
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterInfoDropdown&quot;&gt;
+   {{$:/core/images/info-button}}
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowright&quot;
+   state=&quot;$:/temp/popup/filterInfoDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
+   &lt;&lt;filterinfo&gt;&gt;
+&lt;/$reveal&gt;
+filter: &lt;$edit-text tag=&quot;input&quot;
+   tiddler=&quot;$:/config/LocalStorage/filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filter&quot;
+   popup=&quot;$:/temp/popup/filterPickerDropdown&quot;&gt;
+   {{$:/core/images/down-arrow}}
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; style=&quot;text-align:left&quot;
+   state=&quot;$:/temp/popup/filterPickerDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
+   &lt;&lt;filterpicker&gt;&gt;
+&lt;/$reveal&gt;
+\end
+
 \define setfilename()
-filename: &lt;$edit-text tag=&quot;input&quot;
+filename:
+&lt;$edit-text tag=&quot;input&quot;
    tiddler=&quot;$:/config/LocalStorage/filename&quot; default=&quot;locations.json&quot;/&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filename&quot;
    popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
@@ -6684,7 +6895,7 @@ filename: &lt;$edit-text tag=&quot;input&quot;
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot;
    state=&quot;$:/temp/popup/filenameDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
-   &amp;nbsp; select a filename &amp;nbsp;
+   &amp;nbsp; select an existing file &amp;nbsp;
    @@.thinline @@
    &lt;$list filter={{$:/LocalStorage/!!list}}
       emptyMessage=&quot;@@.smallest //(no saved files)//@@&quot;&gt;
@@ -6698,54 +6909,46 @@ filename: &lt;$edit-text tag=&quot;input&quot;
 &lt;/$reveal&gt;
 \end
 
-\define filterbutton(text,filename,filter)
-   &lt;$button class=&quot;tc-btn-invisible&quot;&gt;$text$
-      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
-         $value=&quot;$filter$&quot;/&gt;
+\define load(text,filename,filter)
+   &lt;$button class=&quot;Xtc-btn-invisible&quot;&gt;load $text$
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
          $value=&quot;$filename$&quot;/&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
+         $value=&quot;$filter$&quot;/&gt;
+      &lt;$action-loadfile filename=&quot;&quot;&quot;$filename$&quot;&quot;&quot; parse=&quot;tiddlers&quot;/&gt;
    &lt;/$button&gt;
 \end
 
-\define setfilter()
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterInfoDropdown&quot;&gt;
-   {{$:/core/images/info-button}}
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowright&quot;
-  state=&quot;$:/temp/popup/filterInfoDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
-   &amp;nbsp; This filter matches these tiddlers: &amp;nbsp;
-   @@.thinline @@
-   &lt;$list filter={{$:/config/LocalStorage/filter}}
-      emptyMessage=&quot;@@.smallest //(no matching tiddlers)//@@&quot;&gt;
-      &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
-   &lt;/$list&gt;
-&lt;/$reveal&gt;
-filter: &lt;$edit-text tag=&quot;input&quot;
-   tiddler=&quot;$:/config/LocalStorage/filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
-&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filter&quot;
-   popup=&quot;$:/temp/popup/filterPickerDropdown&quot;&gt;
-   {{$:/core/images/down-arrow}}
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; style=&quot;text-align:left&quot;
-  state=&quot;$:/temp/popup/filterPickerDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
-   &amp;nbsp;select a filter...&amp;nbsp;
-   @@.thinline @@
-   &lt;&lt;filterbutton &quot;Locations&quot; &quot;locations.json&quot;
-      &quot;[tag[location]]&quot;&gt;&gt;
-   &lt;&lt;filterbutton &quot;Settings&quot; &quot;settings.json&quot;
-      &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
-   &lt;&lt;filterbutton &quot;Address Data&quot; &quot;address.json&quot;
-      &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
-&lt;/$reveal&gt;
+\define save(text,filename,filter)
+   &lt;$button class=&quot;Xtc-btn-invisible&quot;&gt;save $text$
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
+         $value=&quot;$filename$&quot;/&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
+         $value=&quot;$filter$&quot;/&gt;
+      &lt;$action-savefile filename=&quot;&quot;&quot;$filename$&quot;&quot;&quot; filter=&quot;&quot;&quot;$filter$&quot;&quot;&quot; 
+         force=&quot;true&quot; /&gt;
+   &lt;/$button&gt;
 \end
 
-&lt;&lt;sliderbutton&gt;&gt;&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot;
-   state=&quot;$:/state/Dashboard/LocalStorage&quot;&gt;
-   @@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt;@@
-   &lt;div class=&quot;shadowbox center clear&quot;&gt;
-   &lt;&lt;setfilter&gt;&gt; &amp;nbsp; &lt;&lt;setfilename&gt;&gt;
-   &lt;/div&gt;
-&lt;/$reveal&gt;</pre>
+@@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt;@@
+@@.shadowbox.center.clear
+&lt;&lt;setfilter&gt;&gt; &amp;nbsp; &lt;&lt;setfilename&gt;&gt;
+&lt;hr&gt;
+&lt;div class=&quot;smallest center&quot;&gt;
+&lt;&lt;load locations locations.json
+   &quot;[tag[location]]&quot;&gt;&gt;
+&lt;&lt;save locations locations.json
+   &quot;[tag[location]]&quot;&gt;&gt;
+&lt;&lt;load settings settings.json
+   &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
+&lt;&lt;save settings settings.json
+   &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
+&lt;&lt;load &quot;Address Data&quot; address.json
+   &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
+&lt;&lt;save &quot;Address Data&quot; address.json
+   &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
+&lt;/div&gt;
+@@</pre>
 </div>
 <div created="20151011121449003" modified="20151011121505484" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define sliderbutton()
@@ -6763,10 +6966,10 @@ filter: &lt;$edit-text tag=&quot;input&quot;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="Google Maps" created="20151010204309614" modified="20151011115900405" tags="" title="Dashboard/Maps">
+<div caption="Google Maps" created="20151010204309614" modified="20151011224628569" tags="" title="Dashboard/Maps">
 <pre>\define ShowMap(w,h)
 &lt;div style=&quot;height:$h$px;&quot;&gt;
-[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$w$x$h$&amp;scale=2&amp;maptype=hybrid&amp;format=jpg]]
+[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$w$x$h$&amp;scale=1&amp;maptype=hybrid&amp;format=jpg]]
 &lt;/div&gt;
 \end
 
@@ -6777,21 +6980,17 @@ source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$..
 &lt;$vars latitude={{Geo/Data##latitude}}
        longitude={{Geo/Data##longitude}}
        zoom={{$:/config/GoogleMaps/zoom}}&gt;
-&lt;&lt;sliderbutton&gt;&gt;
-&lt;$reveal type=&quot;nomatch&quot; text=&quot;&quot; state=&quot;$:/state/Dashboard/Maps&quot;&gt;
-   @@.floatright.smaller.borderless
-   &lt;table&gt;&lt;tr&gt;&lt;td&gt;
-      zoom=''{{$:/config/GoogleMaps/zoom}}'' &amp;nbsp;
-   &lt;/td&gt;&lt;td&gt;
-      &lt;$edit-text tiddler=&quot;$:/config/GoogleMaps/zoom&quot; tooltip=&quot;heading&quot;
-         tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;20&quot; step=&quot;1&quot;/&gt;
-   &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-   @@
-   @@.shadowbox.left.clear.smallest &lt;&lt;ShowMap 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@
-&lt;/$reveal&gt;
-&lt;/$vars&gt;</pre>
+@@.floatright.smaller.borderless
+&lt;table&gt;&lt;tr&gt;&lt;td&gt;
+   zoom=''{{$:/config/GoogleMaps/zoom}}'' &amp;nbsp;
+&lt;/td&gt;&lt;td&gt;
+   &lt;$edit-text tiddler=&quot;$:/config/GoogleMaps/zoom&quot; tooltip=&quot;heading&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;20&quot; step=&quot;1&quot;/&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+@@
+@@.shadowbox.left.clear.smallest &lt;&lt;ShowMap 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@</pre>
 </div>
-<div caption="Street View" created="20151010205755347" modified="20151011115427226" tags="" title="Dashboard/StreetView">
+<div caption="Street View" created="20151010205755347" modified="20151011215946727" tags="" title="Dashboard/StreetView">
 <pre>\define StreetView(w,h)
 &lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
 [img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -6806,26 +7005,22 @@ source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$.
        longitude={{Geo/Data##longitude}}
        heading={{$:/config/StreetView/heading}}
        fov={{$:/config/StreetView/fov}}&gt;
-&lt;&lt;sliderbutton&gt;&gt;
-&lt;$reveal state=&quot;$:/state/Dashboard/StreetView&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
-   @@.floatright.smaller.borderless
-   &lt;table&gt;&lt;tr&gt;&lt;td&gt;
-      heading=''{{$:/config/StreetView/heading}}'' &amp;nbsp;
-   &lt;/td&gt;&lt;td&gt;
-      &lt;$edit-text tiddler=&quot;$:/config/StreetView/heading&quot; tooltip=&quot;heading&quot;
-         tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;
-   &lt;/td&gt;&lt;td&gt;
-      &amp;nbsp; &amp;nbsp; &amp;nbsp;
-   &lt;/td&gt;&lt;td&gt;
-      field of view=''{{$:/config/StreetView/fov}}'' &amp;nbsp;
-   &lt;/td&gt;&lt;td&gt;
-      &lt;$edit-text tiddler=&quot;$:/config/StreetView/fov&quot; tooltip=&quot;field of view&quot;
-         tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;
-   &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-   @@
-   @@.shadowbox.left.clear.smallest &lt;&lt;StreetView 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@
-&lt;/$reveal&gt;
-&lt;/$vars&gt;</pre>
+@@.floatright.smaller.borderless
+&lt;table&gt;&lt;tr&gt;&lt;td&gt;
+   heading=''{{$:/config/StreetView/heading}}'' &amp;nbsp;
+&lt;/td&gt;&lt;td&gt;
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView/heading&quot; tooltip=&quot;heading&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;
+&lt;/td&gt;&lt;td&gt;
+   &amp;nbsp; &amp;nbsp; &amp;nbsp;
+&lt;/td&gt;&lt;td&gt;
+   field of view=''{{$:/config/StreetView/fov}}'' &amp;nbsp;
+&lt;/td&gt;&lt;td&gt;
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView/fov&quot; tooltip=&quot;field of view&quot;
+      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+@@
+@@.shadowbox.left.clear.smallest &lt;&lt;StreetView 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@</pre>
 </div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
 <pre>/*\
@@ -7045,7 +7240,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151009070709830" modified="20151010005848923" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
+<div created="20151009070709830" modified="20151011224004090" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getdirectory.js
 type: application/javascript
@@ -7097,13 +7292,13 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
       case FileError.SECURITY_ERR:
         message = 'Security Error'; break;
       case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error'; break;
+        message = 'Not Found'; break;
       case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error'; break;
+        message = 'Quota Exceeded'; break;
       case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error'; break;
+        message = 'Invalid Modification'; break;
       case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error'; break;
+        message = 'Invalid State'; break;
       default:
         message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
@@ -7142,10 +7337,10 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
           entries = entries.concat(toArray(results));
           readEntries();
         }
-      }, errorHandler);
+      }, function(err) { errorHandler(filename,err); });
     };
     readEntries(); // Start reading dirs.
-  }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+  }, function(err) { errorHandler(filename,err); });
 
   return true; // Action was invoked
 };
@@ -7153,7 +7348,7 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
 exports[&quot;action-getdirectory&quot;] = LocalStorageDirectoryWidget;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151009200009837" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151011223626763" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -7206,13 +7401,13 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
       case FileError.SECURITY_ERR:
         message = 'Security Error'; break;
       case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error'; break;
+        message = 'Not Found'; break;
       case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error'; break;
+        message = 'Quota Exceeded'; break;
       case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error'; break;
+        message = 'Invalid Modification'; break;
       case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error'; break;
+        message = 'Invalid State'; break;
       default:
         message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
@@ -7250,9 +7445,9 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
         };
         reader.readAsText(file);
-      }, function(err) { errorHandler(&quot;FileReader&quot;,err); });
-    }, function(err) { errorHandler(&quot;getFile&quot;,err); });
-  }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+      }, function(err) { errorHandler(filename,err); });
+    }, function(err) { errorHandler(filename,err); });
+  }, function(err) { errorHandler(filename,err); });
 
   return true; // Action was invoked
 };
@@ -7260,7 +7455,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
 exports[&quot;action-loadfile&quot;] = LocalStorageLoadFileWidget;
 })();</pre>
 </div>
-<div created="20151007103210499" modified="20151009194322381" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
+<div created="20151007103210499" modified="20151011223837883" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefile.js
 type: application/javascript
@@ -7313,13 +7508,13 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
       case FileError.SECURITY_ERR:
         message = 'Security Error'; break;
       case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error'; break;
+        message = 'Not Found'; break;
       case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error'; break;
+        message = 'Quota Exceeded'; break;
       case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error'; break;
+        message = 'Invalid Modification'; break;
       case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error'; break;
+        message = 'Invalid State'; break;
       default:
         message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
@@ -7340,10 +7535,10 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
           var msg=filename+&quot; removed from ~LocalStorage&quot;;
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
-        }, function(err) { errorHandler(&quot;remove&quot;,err); });
+        }, function(err) { errorHandler(filename,err); });
       }
-    }, function(err) { errorHandler(&quot;getFile&quot;,err); });
-  }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+    }, function(err) { errorHandler(filename,err); });
+  }, function(err) { errorHandler(filename,err); });
 
   return true; // Action was invoked
 };
@@ -7351,7 +7546,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20151009015741946" modified="20151009200322313" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
+<div created="20151009015741946" modified="20151011224239848" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-savefile.js
 type: application/javascript
@@ -7404,13 +7599,13 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
       case FileError.SECURITY_ERR:
         message = 'Security Error'; break;
       case FileError.NOT_FOUND_ERR:
-        message = 'Not Found Error'; break;
+        message = 'Not Found'; break;
       case FileError.QUOTA_EXCEEDED_ERR:
-        message = 'Quota Exceeded Error'; break;
+        message = 'Quota Exceeded'; break;
       case FileError.INVALID_MODIFICATION_ERR:
-        message = 'Invalid Modification Error'; break;
+        message = 'Invalid Modification'; break;
       case FileError.INVALID_STATE_ERR:
-        message = 'Invalid State Error'; break;
+        message = 'Invalid State'; break;
       default:
         message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
         break;
@@ -7451,7 +7646,7 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
             this.truncate(this.position);
             return;
           }
-          var msg=filename+&quot; saved to ~LocalStorage&quot;;
+          var msg=filename+&quot; (&quot;+text.length+&quot; bytes) saved to ~LocalStorage&quot;;
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
         };
@@ -7460,8 +7655,8 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
         };
         var blob = new Blob([text], {type: 'text/plain'});
         fileWriter.write(blob);
-      }, function(err) { errorHandler(&quot;createWriter&quot;,err); });
-    }, function(err) { errorHandler(&quot;getFile&quot;,err); });
+      }, function(err) { errorHandler(filename,err); });
+    }, function(err) { errorHandler(filename,err); });
   }
 
   function onInitFS(grantedSize) {
@@ -7470,15 +7665,15 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
         var msg=filename+&quot; already exists. OK to overwrite?&quot;;
         if (force || confirm(msg)) saveFile(fs,filename,text); 
       }, function(err) { saveFile(fs,filename,text); });
-    }, function(err) { errorHandler(&quot;requestFileSystem&quot;,err); });
+    }, function(err) { errorHandler(filename,err); });
   }
 
   if (navigator.webkitPersistentStorage)
     navigator.webkitPersistentStorage.requestQuota(
-       quota, onInitFS, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+       quota, onInitFS, function(err) { errorHandler(filename,err); });
   else if (window.webkitStorageInfo)
     window.webkitStorageInfo.requestQuota(window.PERSISTENT,
-       quota, onInitFS, function(err) { errorHandler(&quot;requestQuota&quot;,err); });
+       quota, onInitFS, function(err) { errorHandler(filename,err); });
 
   return true; // Action was invoked
 };
