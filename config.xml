@@ -4,13 +4,13 @@
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id            = "com.elsdesign.CurbSide"
         versionCode   = "10" 
-        version       = "0.1.1" >
+        version       = "0.2.0" >
 
 <name>
-    CurbSide Prototype
+    CurbSide 0.2.0
 </name>
 <description>
-    CurbSide with TW5 and PhoneGap
+    CurbSide Development Prototype
 </description>
 <author href="http://tiddlytools.com" email="elsdesign@gmail.com">
     Eric Shulman
