@@ -6479,8 +6479,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151012053048052" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151012053052345" title="$:/state/Dashboard/Maps">
-<pre>show</pre>
+<div modified="20151012190642275" title="$:/state/Dashboard/Maps">
+<pre></pre>
 </div>
 <div modified="20151012053934153" title="$:/state/Dashboard/StreetView">
 <pre></pre>
@@ -6503,7 +6503,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151012053636467" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="LocalStorage/action-getdirectory.js LocalStorage/action-removefile.js LocalStorage/action-savefile.js LocalStorage/action-loadfile.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151010223642521" title="$:/temp/advancedsearch">
@@ -6671,7 +6671,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151012053604450" title="Dashboard">
+<div created="20150623211607895" modified="20151012194436160" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6870,7 +6870,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151012044006152" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151012194245924" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile filename={{$:/config/LocalStorage/filename}} parse=&quot;tiddlers&quot;/&gt;
@@ -6965,7 +6965,7 @@ filename:
 \end
 
 \define load(text,filename,filter)
-   &lt;$button class=&quot;Xtc-btn-invisible&quot;&gt;load $text$
+   &lt;$button&gt;load $text$
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
          $value=&quot;$filename$&quot;/&gt;
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
@@ -6975,7 +6975,7 @@ filename:
 \end
 
 \define save(text,filename,filter)
-   &lt;$button class=&quot;Xtc-btn-invisible&quot;&gt;save $text$
+   &lt;$button&gt;save $text$
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
          $value=&quot;$filename$&quot;/&gt;
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
@@ -7305,7 +7305,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151009070709830" modified="20151011224004090" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
+<div created="20151009070709830" modified="20151012193605538" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getdirectory.js
 type: application/javascript
@@ -7413,7 +7413,7 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
 exports[&quot;action-getdirectory&quot;] = LocalStorageDirectoryWidget;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151011223626763" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151012193040065" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -7426,6 +7426,7 @@ widget to load a file in LocalStorage into a tiddler and optionally parse the re
 params (default):
 filename    = source filename in local storage
 parse       = &quot;tiddlers&quot;
+silent      = &quot;false&quot;
 
 \*/
 
@@ -7484,6 +7485,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
   var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
   var quota   =1024*1024*5;
   var parse   =this.getAttribute(&quot;parse&quot;,&quot;&quot;);
+  var silent  =this.getAttribute(&quot;silent&quot;,&quot;false&quot;)==&quot;true&quot;;
 
   window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
     fs.root.getFile(filename, {}, function(fileEntry) {
@@ -7506,6 +7508,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
             });
             var msg=tids.length+&quot; tiddlers loaded from &quot;+title;
           }
+          if (silent) return;
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
         };
@@ -7520,7 +7523,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
 exports[&quot;action-loadfile&quot;] = LocalStorageLoadFileWidget;
 })();</pre>
 </div>
-<div created="20151007103210499" modified="20151011223837883" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
+<div created="20151007103210499" modified="20151012193505405" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefile.js
 type: application/javascript
@@ -7533,6 +7536,7 @@ widget to remove a file in LocalStorage
 params (default):
 filename    = source filename in local storage
 force       = true/false. Set to true to skip confirmation
+silent      = true/false. Set to true to skip notifications
 
 \*/
 
@@ -7590,6 +7594,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 
   var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
   var force=this.getAttribute(&quot;force&quot;)==&quot;true&quot;;
+  var silent  =this.getAttribute(&quot;silent&quot;,&quot;false&quot;)==&quot;true&quot;;
   var quota=1024*1024*5;
 
   window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
@@ -7597,6 +7602,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
       var msg=&quot;OK to remove '&quot;+filename+&quot;' from LocalStorage?&quot;;
       if (force || confirm(msg)) {
         fileEntry.remove(function() {
+          if (silent) return;
           var msg=filename+&quot; removed from ~LocalStorage&quot;;
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
@@ -7611,7 +7617,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20151009015741946" modified="20151011224239848" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
+<div created="20151009015741946" modified="20151012193438429" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-savefile.js
 type: application/javascript
@@ -7623,7 +7629,8 @@ widget to save filtered tiddlers to LocalStorage
 
 params (default):
 filename    = source filename in local storage
-force       = true/false.  Set to true skips confirmation for overwrites.
+force       = true/false.  Set to true to skip confirmation for overwrites.
+silent      = true/false.  Set to true to skip notifications.
 
 \*/
 
@@ -7700,6 +7707,7 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
   var force    = this.getAttribute(&quot;force&quot;)==&quot;true&quot;;
   var quota    = 1024*1024*5;
   var text     = tids2json(this.getAttribute(&quot;filter&quot;,&quot;&quot;));
+  var silent   = this.getAttribute(&quot;silent&quot;,&quot;false&quot;)==&quot;true&quot;;
 
   function saveFile(fs,filename,text) {
     fs.root.getFile(filename, {create: true}, function(fileEntry) {
@@ -7711,6 +7719,7 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
             this.truncate(this.position);
             return;
           }
+          if (silent) return;
           var msg=filename+&quot; (&quot;+text.length+&quot; bytes) saved to ~LocalStorage&quot;;
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
