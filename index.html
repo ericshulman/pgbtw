@@ -162,8 +162,6 @@ Error message and password prompt
 
 <li>$:/LocalStorage/locations.json</li>
 
-<li>$:/LocalStorage/settings.json</li>
-
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
@@ -238,6 +236,8 @@ Error message and password prompt
 
 <li>LocalStorage/action-removefile.js</li>
 
+<li>LocalStorage/action-removefolder.js</li>
+
 <li>LocalStorage/action-savefile.js</li>
 
 <li>Pittsburgh</li>
@@ -278,17 +278,17 @@ Error message and password prompt
 <div modified="20150724072250770" title="$:/config/Geo/watch">
 <pre>off</pre>
 </div>
-<div modified="20151012044305154" title="$:/config/GoogleMaps/maptype">
+<div modified="20151013023031771" title="$:/config/GoogleMaps/maptype">
 <pre>hybrid</pre>
 </div>
-<div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
+<div created="20150706212000752" modified="20151012232742786" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151012043600053" title="$:/config/LocalStorage/filename">
-<pre>address.json</pre>
+<div created="20151007095534363" modified="20151013023955694" title="$:/config/LocalStorage/filename">
+<pre>test</pre>
 </div>
-<div created="20151007095537546" modified="20151012043147321" title="$:/config/LocalStorage/filter">
-<pre>[prefix[Geo/Data/Address]]</pre>
+<div created="20151007095537546" modified="20151013022412047" title="$:/config/LocalStorage/filter">
+<pre>[tag[location]]</pre>
 </div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -6308,8 +6308,9 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div list="address.json" title="$:/LocalStorage/">
-<pre>address.json</pre>
+<div list="locations.json" title="$:/LocalStorage/">
+<pre>
+locations.json</pre>
 </div>
 <div title="$:/LocalStorage/locations.json" type="application/json">
 <pre>[
@@ -6318,7 +6319,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
         &quot;type&quot;: &quot;application/json&quot;,
         &quot;title&quot;: &quot;Geo/Data&quot;,
         &quot;tags&quot;: &quot;location&quot;,
-        &quot;modified&quot;: &quot;20151011052033441&quot;,
+        &quot;modified&quot;: &quot;20151012232814469&quot;,
         &quot;created&quot;: &quot;20150706215754190&quot;
     },
     {
@@ -6355,137 +6356,28 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 ]</pre>
 </div>
-<div title="$:/LocalStorage/settings.json" type="application/json">
-<pre>[
-    {
-        &quot;text&quot;: &quot;no&quot;,
-        &quot;title&quot;: &quot;$:/config/Geo/accuracy&quot;,
-        &quot;modified&quot;: &quot;20150722001614902&quot;
-    },
-    {
-        &quot;text&quot;: &quot;10000&quot;,
-        &quot;title&quot;: &quot;$:/config/Geo/age&quot;,
-        &quot;modified&quot;: &quot;20150722001608920&quot;,
-        &quot;created&quot;: &quot;20150722001608792&quot;
-    },
-    {
-        &quot;text&quot;: &quot;6&quot;,
-        &quot;title&quot;: &quot;$:/config/Geo/digits&quot;,
-        &quot;modified&quot;: &quot;20150722001605608&quot;,
-        &quot;created&quot;: &quot;20150722001605193&quot;
-    },
-    {
-        &quot;text&quot;: &quot;15000&quot;,
-        &quot;title&quot;: &quot;$:/config/Geo/timeout&quot;,
-        &quot;modified&quot;: &quot;20150722001611848&quot;,
-        &quot;created&quot;: &quot;20150722001611703&quot;
-    },
-    {
-        &quot;text&quot;: &quot;off&quot;,
-        &quot;title&quot;: &quot;$:/config/Geo/watch&quot;,
-        &quot;modified&quot;: &quot;20150724072250770&quot;
-    },
-    {
-        &quot;text&quot;: &quot;17&quot;,
-        &quot;title&quot;: &quot;$:/config/GoogleMaps/zoom&quot;,
-        &quot;modified&quot;: &quot;20151010205207188&quot;,
-        &quot;created&quot;: &quot;20150706212000752&quot;
-    },
-    {
-        &quot;text&quot;: &quot;settings.json&quot;,
-        &quot;title&quot;: &quot;$:/config/LocalStorage/filename&quot;,
-        &quot;modified&quot;: &quot;20151011222816399&quot;,
-        &quot;created&quot;: &quot;20151007095534363&quot;
-    },
-    {
-        &quot;text&quot;: &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;,
-        &quot;title&quot;: &quot;$:/config/LocalStorage/filter&quot;,
-        &quot;modified&quot;: &quot;20151011222816399&quot;,
-        &quot;created&quot;: &quot;20151007095537546&quot;
-    },
-    {
-        &quot;text&quot;: &quot;show&quot;,
-        &quot;title&quot;: &quot;$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home&quot;,
-        &quot;modified&quot;: &quot;20150722012049072&quot;
-    },
-    {
-        &quot;text&quot;: &quot;[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage/]]&quot;,
-        &quot;title&quot;: &quot;$:/config/SaverFilter&quot;,
-        &quot;modified&quot;: &quot;20151009123801738&quot;,
-        &quot;created&quot;: &quot;20150705120259221&quot;
-    },
-    {
-        &quot;text&quot;: &quot;120&quot;,
-        &quot;title&quot;: &quot;$:/config/StreetView/fov&quot;,
-        &quot;modified&quot;: &quot;20151010224408908&quot;,
-        &quot;created&quot;: &quot;20150706194209653&quot;
-    },
-    {
-        &quot;text&quot;: &quot;200&quot;,
-        &quot;title&quot;: &quot;$:/config/StreetView/heading&quot;,
-        &quot;modified&quot;: &quot;20151010224412708&quot;,
-        &quot;created&quot;: &quot;20150706194241651&quot;
-    },
-    {
-        &quot;text&quot;: &quot;1&quot;,
-        &quot;title&quot;: &quot;$:/config/StreetView/pitch&quot;,
-        &quot;modified&quot;: &quot;20150706214449956&quot;,
-        &quot;created&quot;: &quot;20150706195954662&quot;
-    },
-    {
-        &quot;text&quot;: &quot;show&quot;,
-        &quot;title&quot;: &quot;$:/state/Dashboard/AddressLookup&quot;,
-        &quot;modified&quot;: &quot;20151011030051735&quot;
-    },
-    {
-        &quot;text&quot;: &quot;show&quot;,
-        &quot;title&quot;: &quot;$:/state/Dashboard/GeoLocation&quot;,
-        &quot;modified&quot;: &quot;20151010224414748&quot;
-    },
-    {
-        &quot;text&quot;: &quot;show&quot;,
-        &quot;title&quot;: &quot;$:/state/Dashboard/LocalStorage&quot;,
-        &quot;modified&quot;: &quot;20151010224425931&quot;
-    },
-    {
-        &quot;text&quot;: &quot;show&quot;,
-        &quot;title&quot;: &quot;$:/state/Dashboard/Maps&quot;,
-        &quot;modified&quot;: &quot;20151010225112691&quot;
-    },
-    {
-        &quot;text&quot;: &quot;show&quot;,
-        &quot;title&quot;: &quot;$:/state/Dashboard/StreetView&quot;,
-        &quot;modified&quot;: &quot;20151011030049225&quot;
-    },
-    {
-        &quot;text&quot;: &quot;yes&quot;,
-        &quot;title&quot;: &quot;$:/state/sidebar&quot;,
-        &quot;modified&quot;: &quot;20150927212701838&quot;
-    }
-]</pre>
-</div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
 </div>
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151012053937310" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151013023020357" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151012053548640" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151012224931347" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151012053048052" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151012225225341" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151012190642275" title="$:/state/Dashboard/Maps">
+<div modified="20151013023021637" title="$:/state/Dashboard/Maps">
+<pre>show</pre>
+</div>
+<div modified="20151013022713404" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151012053934153" title="$:/state/Dashboard/StreetView">
-<pre></pre>
-</div>
-<div modified="20151011224705699" title="$:/state/sidebar">
+<div modified="20151013002120126" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
@@ -6500,10 +6392,10 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151012053636467" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151013022458119" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="LocalStorage/action-getdirectory.js LocalStorage/action-removefile.js LocalStorage/action-savefile.js LocalStorage/action-loadfile.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151010223642521" title="$:/temp/advancedsearch">
@@ -6523,11 +6415,11 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
+<div created="20150706215305238" modified="20151012225833274" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151012043603357" title="$:/temp/notify">
-<pre>address.json removed from ~LocalStorage</pre>
+<div modified="20151013023959338" title="$:/temp/notify">
+<pre>test removed from ~LocalStorage</pre>
 </div>
 <div created="20150705104045705" modified="20151010223903024" title="$:/temp/search">
 <pre></pre>
@@ -6671,29 +6563,33 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151012194436160" title="Dashboard">
+<div created="20150623211607895" modified="20151013022703879" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
    class=&quot;tc-btn-invisible&quot;&gt;
-&lt;!--   &lt;input type=&quot;checkbox&quot;&gt; --&gt;
+   &lt;input type=&quot;checkbox&quot;&gt;
    {{$tid$!!caption}}
+&lt;!--
    {{$:/core/images/right-arrow}}
+--&gt;
 &lt;/$button&gt;
 &lt;/$reveal&gt;
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;&quot;
    class=&quot;tc-btn-invisible&quot;&gt;
-&lt;!--   &lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;&gt; --&gt;
+   &lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;&gt;
    {{$tid$!!caption}}
+&lt;!--
    {{$:/core/images/down-arrow}}
+--&gt;
 &lt;/$button&gt;
 &lt;/$reveal&gt;
 \end
 
 \define sliderpanel(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
-&lt;!-- ''&lt;$text text={{$tid$!!caption}}/&gt;:'' --&gt;
+''&lt;$text text={{$tid$!!caption}}/&gt;:''
 {{$tid$}}
 &lt;/$reveal&gt;
 \end
@@ -6702,17 +6598,15 @@ exports.startup = function() {
 &lt;&lt;sliderbutton &quot;&quot;&quot;$tid$&quot;&quot;&quot;&gt;&gt;&lt;&lt;sliderpanel  &quot;&quot;&quot;$tid$&quot;&quot;&quot;&gt;&gt;
 \end
 
-&lt;!--
-@@.center
+@@.shadowbox.center
 &lt;&lt;sliderbutton Dashboard/GeoLocation&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/LocalStorage&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/Maps&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/StreetView&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/AddressLookup&gt;&gt;
 @@
---&gt;
 
-&lt;&lt;slider Dashboard/GeoLocation&gt;&gt;
-&lt;&lt;slider Dashboard/LocalStorage&gt;&gt;
-&lt;&lt;slider Dashboard/Maps&gt;&gt;
-&lt;&lt;slider Dashboard/StreetView&gt;&gt;
-&lt;&lt;slider Dashboard/AddressLookup&gt;&gt;</pre>
+&lt;&lt;sliderpanel Dashboard/GeoLocation&gt;&gt;
+&lt;&lt;sliderpanel Dashboard/LocalStorage&gt;&gt;
+&lt;&lt;sliderpanel Dashboard/Maps&gt;&gt;
+&lt;&lt;sliderpanel Dashboard/StreetView&gt;&gt;
+&lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
 <div caption="Address Lookup" created="20151010193622207" modified="20151012040017779" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata()
@@ -6870,10 +6764,17 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151012194245924" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151013020637782" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile filename={{$:/config/LocalStorage/filename}} parse=&quot;tiddlers&quot;/&gt;
+&lt;/$button&gt;
+\end
+
+\define savefile()
+&lt;$button&gt; save file
+&lt;$action-savefile filename={{$:/config/LocalStorage/filename}}
+      filter={{$:/config/LocalStorage/filter}} /&gt;
 &lt;/$button&gt;
 \end
 
@@ -6883,10 +6784,9 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;/$button&gt;
 \end
 
-\define savefile()
-&lt;$button&gt; save file
-&lt;$action-savefile filename={{$:/config/LocalStorage/filename}}
-      filter={{$:/config/LocalStorage/filter}} /&gt;
+\define removefolder()
+&lt;$button&gt; remove folder
+&lt;$action-removefolder filename={{$:/config/LocalStorage/filename}}/&gt;
 &lt;/$button&gt;
 \end
 
@@ -6985,7 +6885,7 @@ filename:
    &lt;/$button&gt;
 \end
 
-@@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt;@@
+@@.floatright.smaller &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;@@
 @@.shadowbox.center.clear
 &lt;&lt;setfilename&gt;&gt; &amp;nbsp; &lt;&lt;setfilter&gt;&gt;
 &lt;div style=&quot;height:0.5em&quot;&gt;&lt;/div&gt;
@@ -7055,7 +6955,7 @@ source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$..
 @@
 @@.shadowbox.left.clear.smallest &lt;&lt;ShowMap 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@</pre>
 </div>
-<div caption="Street View" created="20151010205755347" modified="20151011215946727" tags="" title="Dashboard/StreetView">
+<div caption="Street View" created="20151010205755347" modified="20151012232619079" tags="" title="Dashboard/StreetView">
 <pre>\define StreetView(w,h)
 &lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
 [img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -7085,7 +6985,8 @@ source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$.
       tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 @@
-@@.shadowbox.left.clear.smallest &lt;&lt;StreetView 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@</pre>
+@@.shadowbox.left.clear.smallest &lt;&lt;StreetView 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@
+&lt;/$vars&gt;</pre>
 </div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
 <pre>/*\
@@ -7181,7 +7082,7 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
 
 })();</pre>
 </div>
-<div created="20150706215754190" modified="20151011052033441" tags="location" title="Geo/Data" type="application/json">
+<div created="20150706215754190" modified="20151012232814469" tags="location" title="Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
@@ -7305,7 +7206,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151009070709830" modified="20151012193605538" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
+<div created="20151009070709830" modified="20151013002115671" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getdirectory.js
 type: application/javascript
@@ -7378,8 +7279,12 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
   function makeDirectoryTiddler(path,entries) {
     var out = [], filelist = [];
     entries.forEach(function(entry, i) {
+      // &quot;ls -l&quot; text output
       out.push(entry.name);
-      if (!entry.isDirectory) filelist.push(entry.name);
+      // create a subdirectory tiddler
+      if (entry.isDirectory) getDirectory(entry);
+      // or add to list of files
+      else filelist.push(entry.name);
     });
     // save directory list in tiddler
     $tw.wiki.addTiddler(new $tw.Tiddler({
@@ -7389,15 +7294,15 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
     }));
   }
 
-  function toArray(list) { return Array.prototype.slice.call(list || [], 0); }
-  window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
-    var dirReader = fs.root.createReader();
+  function getDirectory(direntry) {
+    function toArray(list) { return Array.prototype.slice.call(list || [], 0); }
+    var dirReader = direntry.createReader();
     var entries = [];
     // Call the reader.readEntries() until no more results are returned.
     var readEntries = function() {
       dirReader.readEntries (function(results) {
         if (!results.length) {
-          makeDirectoryTiddler(fs.root.name,entries.sort());
+          makeDirectoryTiddler(direntry.name,entries.sort());
         } else {
           entries = entries.concat(toArray(results));
           readEntries();
@@ -7405,7 +7310,12 @@ LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,e
       }, function(err) { errorHandler(filename,err); });
     };
     readEntries(); // Start reading dirs.
-  }, function(err) { errorHandler(filename,err); });
+  }
+
+  window.requestFileSystem(window.PERSISTENT, quota,
+    function(fs)  { getDirectory(fs.root); },
+    function(err) { errorHandler(filename,err); }
+  );
 
   return true; // Action was invoked
 };
@@ -7523,7 +7433,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
 exports[&quot;action-loadfile&quot;] = LocalStorageLoadFileWidget;
 })();</pre>
 </div>
-<div created="20151007103210499" modified="20151012193505405" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
+<div created="20151007103210499" modified="20151013020319820" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefile.js
 type: application/javascript
@@ -7617,7 +7527,101 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20151009015741946" modified="20151012193438429" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
+<div created="20151013020324640" modified="20151013020659670" module-type="widget" tags="" title="LocalStorage/action-removefolder.js" type="application/javascript">
+<pre>/*\
+title: LocalStorage/action-removefolder.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+widget to remove a folder (and it's contents) from LocalStorage
+
+params (default):
+filename    = source filename in local storage
+force       = true/false. Set to true to skip confirmation
+silent      = true/false. Set to true to skip notifications
+
+\*/
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var LocalStorageRemoveFolderWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+LocalStorageRemoveFolderWidget.prototype = new Widget();
+LocalStorageRemoveFolderWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+};
+
+LocalStorageRemoveFolderWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if( changedAttributes[&quot;filename&quot;]) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+LocalStorageRemoveFolderWidget.prototype.invokeAction = function(triggeringWidget,event) {
+
+  // if LocalStorage is supported
+  window.requestFileSystem = window.requestFileSystem ||
+                             window.webkitRequestFileSystem;
+  if (!window.requestFileSystem) return false;
+
+  // A simple error handler for testing purposes only
+  function errorHandler(id,error) {
+    var message = '';
+    switch (error.code) {
+      case FileError.SECURITY_ERR:
+        message = 'Security Error'; break;
+      case FileError.NOT_FOUND_ERR:
+        message = 'Not Found'; break;
+      case FileError.QUOTA_EXCEEDED_ERR:
+        message = 'Quota Exceeded'; break;
+      case FileError.INVALID_MODIFICATION_ERR:
+        message = 'Invalid Modification'; break;
+      case FileError.INVALID_STATE_ERR:
+        message = 'Invalid State'; break;
+      default:
+        message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
+        break;
+    }
+    $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,id+&quot;: &quot;+message);
+    $tw.notifier.display(&quot;$:/temp/notify&quot;);
+  }
+
+  var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
+  var force=this.getAttribute(&quot;force&quot;)==&quot;true&quot;;
+  var silent  =this.getAttribute(&quot;silent&quot;,&quot;false&quot;)==&quot;true&quot;;
+  var quota=1024*1024*5;
+
+  window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
+    fs.root.getDirectory(filename, {}, function(dirEntry) {
+      var msg=&quot;OK to remove '&quot;+filename+&quot;' from LocalStorage?&quot;;
+      if (force || confirm(msg)) {
+        dirEntry.removeRecursively(function() {
+          if (silent) return;
+          var msg=filename+&quot; removed from ~LocalStorage&quot;;
+          $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
+          $tw.notifier.display(&quot;$:/temp/notify&quot;);
+        }, function(err) { errorHandler(filename,err); });
+      }
+    }, function(err) { errorHandler(filename,err); });
+  }, function(err) { errorHandler(filename,err); });
+
+  return true; // Action was invoked
+};
+
+exports[&quot;action-removefolder&quot;] = LocalStorageRemoveFolderWidget;
+})();</pre>
+</div>
+<div created="20151009015741946" modified="20151013022049607" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-savefile.js
 type: application/javascript
@@ -7710,38 +7714,58 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
   var silent   = this.getAttribute(&quot;silent&quot;,&quot;false&quot;)==&quot;true&quot;;
 
   function saveFile(fs,filename,text) {
-    fs.root.getFile(filename, {create: true}, function(fileEntry) {
-      fileEntry.createWriter(function(fileWriter) {
-        var truncated = false;
-        fileWriter.onwriteend = function(e) {
-          if (!truncated) {
-            truncated = true;
-            this.truncate(this.position);
-            return;
-          }
-          if (silent) return;
-          var msg=filename+&quot; (&quot;+text.length+&quot; bytes) saved to ~LocalStorage&quot;;
-          $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
-          $tw.notifier.display(&quot;$:/temp/notify&quot;);
-        };
-        fileWriter.onerror = function(e) {
-          errorHandler(&quot;FileWriter&quot;,&quot;Save to ~LocalStorage failed!\n\n&quot;+e)
-        };
-        var blob = new Blob([text], {type: 'text/plain'});
-        fileWriter.write(blob);
+
+    function createFile(fs,filename,text) {
+      fs.root.getFile(filename, {create: true}, function(fileEntry) {
+        fileEntry.createWriter(function(fileWriter) {
+          var truncated = false;
+          fileWriter.onwriteend = function(e) {
+            if (!truncated) {
+              truncated = true;
+              this.truncate(this.position);
+              return;
+            }
+            if (silent) return;
+            var msg=filename+&quot; (&quot;+text.length+&quot; bytes) saved to ~LocalStorage&quot;;
+            $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
+            $tw.notifier.display(&quot;$:/temp/notify&quot;);
+          };
+          fileWriter.onerror = function(e) {
+            errorHandler(&quot;FileWriter&quot;,&quot;Save to ~LocalStorage failed!\n\n&quot;+e)
+          };
+          var blob = new Blob([text], {type: 'text/plain'});
+          fileWriter.write(blob);
+        }, function(err) { errorHandler(filename,err); });
       }, function(err) { errorHandler(filename,err); });
-    }, function(err) { errorHandler(filename,err); });
+    }
+
+    function createDir(rootDirEntry, folders) {
+      if (folders[0] == '.' || folders[0] == '')
+        folders = folders.slice(1);
+      if (folders.length &gt; 1) {
+        rootDirEntry.getDirectory(folders[0], {create: true}, function(dirEntry) {
+          createDir(dirEntry, folders.slice(1));
+        }, function(err) { errorHandler(filename,err); });
+      }
+      else {
+        createFile(fs,filename,text);
+      }
+    }
+
+    createDir(fs.root, filename.split('/'));
   }
 
+  // confirm overwrites before saving
   function onInitFS(grantedSize) {
     window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
       fs.root.getFile(filename, {}, function(fileEntry) {
         var msg=filename+&quot; already exists. OK to overwrite?&quot;;
-        if (force || confirm(msg)) saveFile(fs,filename,text); 
+        if (force || confirm(msg)) { saveFile(fs,filename,text); }
       }, function(err) { saveFile(fs,filename,text); });
     }, function(err) { errorHandler(filename,err); });
   }
 
+  // platform-specific calls for quota
   if (navigator.webkitPersistentStorage)
     navigator.webkitPersistentStorage.requestQuota(
        quota, onInitFS, function(err) { errorHandler(filename,err); });
