@@ -158,7 +158,7 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
-<li>$:/LocalStorage</li>
+<li>$:/LocalStorage/</li>
 
 <li>$:/SiteSubtitle</li>
 
@@ -169,8 +169,6 @@ Error message and password prompt
 <li>$:/state/Dashboard/GeoLocation</li>
 
 <li>$:/state/Dashboard/LocalStorage</li>
-
-<li>$:/state/Dashboard/LocalStorage/showcache</li>
 
 <li>$:/state/Dashboard/LocalStorage/viewer</li>
 
@@ -232,6 +230,8 @@ Error message and password prompt
 
 <li>http/action-httprequest.js</li>
 
+<li>LocalStorage/action-getdirectory.js</li>
+
 <li>LocalStorage/action-getfolders.js</li>
 
 <li>LocalStorage/action-loadfile.js</li>
@@ -280,23 +280,23 @@ Error message and password prompt
 <div modified="20150724072250770" title="$:/config/Geo/watch">
 <pre>off</pre>
 </div>
-<div modified="20151013222510577" title="$:/config/GoogleMaps/maptype">
+<div modified="20151014005901675" title="$:/config/GoogleMaps/maptype">
 <pre>roadmap</pre>
 </div>
-<div created="20150706212000752" modified="20151012232742786" title="$:/config/GoogleMaps/zoom">
+<div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151013232717695" title="$:/config/LocalStorage/filename">
-<pre>/locations.json</pre>
+<div created="20151007095534363" modified="20151014013135615" title="$:/config/LocalStorage/filename">
+<pre>/test</pre>
 </div>
-<div created="20151007095537546" modified="20151013232717695" title="$:/config/LocalStorage/filter">
+<div created="20151007095537546" modified="20151014013123810" title="$:/config/LocalStorage/filter">
 <pre>[tag[location]]</pre>
 </div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
 </div>
-<div created="20150705120259221" modified="20151013062114376" title="$:/config/SaverFilter">
-<pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage]]</pre>
+<div created="20150705120259221" modified="20151009123801738" title="$:/config/SaverFilter">
+<pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage/]]</pre>
 </div>
 <div created="20150706194209653" modified="20151010224408908" title="$:/config/StreetView/fov">
 <pre>120</pre>
@@ -6305,13 +6305,14 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Cordova/saver.js]]</pre>
+# [[LocalStorage/action-getfolders.js]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div list="" title="$:/LocalStorage">
-<pre></pre>
+<div list="" title="$:/LocalStorage/">
+<pre>
+</pre>
 </div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
@@ -6319,28 +6320,25 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151013023020357" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151012053937310" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151013235403804" title="$:/state/Dashboard/GeoLocation">
-<pre>show</pre>
-</div>
-<div modified="20151013215154697" title="$:/state/Dashboard/LocalStorage">
-<pre>show</pre>
-</div>
-<div modified="20151013220520308" title="$:/state/Dashboard/LocalStorage/showcache">
-<pre>closed</pre>
-</div>
-<div modified="20151014000906118" title="$:/state/Dashboard/LocalStorage/viewer">
-<pre>closed</pre>
-</div>
-<div modified="20151013235402405" title="$:/state/Dashboard/Maps">
-<pre>show</pre>
-</div>
-<div modified="20151013022713404" title="$:/state/Dashboard/StreetView">
+<div modified="20151014012748183" title="$:/state/Dashboard/GeoLocation">
 <pre></pre>
 </div>
-<div modified="20151014000739443" title="$:/state/sidebar">
+<div modified="20151012053048052" title="$:/state/Dashboard/LocalStorage">
+<pre>show</pre>
+</div>
+<div modified="20151014012706485" title="$:/state/Dashboard/LocalStorage/viewer">
+<pre>open</pre>
+</div>
+<div modified="20151014005902893" title="$:/state/Dashboard/Maps">
+<pre></pre>
+</div>
+<div modified="20151012053934153" title="$:/state/Dashboard/StreetView">
+<pre></pre>
+</div>
+<div modified="20151011224705699" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
@@ -6352,13 +6350,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
 </div>
-<div modified="20151013230526200" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/Tags</pre>
+<div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151013231134709" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151014010958788" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Dashboard/LocalStorage Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151010223642521" title="$:/temp/advancedsearch">
@@ -6378,13 +6376,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20150706215305238" modified="20151012225833274" title="$:/temp/NewTagName">
+<div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151013232826115" title="$:/temp/notify">
-<pre>/locations.json removed from ~LocalStorage</pre>
+<div modified="20151014013138891" title="$:/temp/notify">
+<pre>/test removed from ~LocalStorage</pre>
 </div>
-<div created="20150705104045705" modified="20151014000940760" title="$:/temp/search">
+<div created="20150705104045705" modified="20151010223903024" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -6526,7 +6524,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151013211516034" title="Dashboard">
+<div created="20150623211607895" modified="20151014013431253" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6721,7 +6719,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014000845753" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014013710951" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile filename={{$:/config/LocalStorage/filename}} parse=&quot;tiddlers&quot;/&gt;
@@ -6732,26 +6730,23 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;$button&gt; save file
 &lt;$action-savefile filename={{$:/config/LocalStorage/filename}}
       filter={{$:/config/LocalStorage/filter}} /&gt;
-&lt;$action-getfolders /&gt;
 &lt;/$button&gt;
 \end
 
 \define removefile()
 &lt;$button&gt; remove file
 &lt;$action-removefile filename={{$:/config/LocalStorage/filename}}/&gt;
-&lt;$action-getfolders /&gt;
 &lt;/$button&gt;
 \end
 
 \define removefolder()
 &lt;$button&gt; remove folder
 &lt;$action-removefolder filename={{$:/config/LocalStorage/filename}}/&gt;
-&lt;$action-getfolders /&gt;
 &lt;/$button&gt;
 \end
 
 \define toggleviewer()
-&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt; debug &lt;/$checkbox&gt;
+&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt; viewer &lt;/$checkbox&gt;
 \end
 
 \define viewer()
@@ -6760,7 +6755,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 @@display:block;height:0.5em;@@
 @@.floatright.smaller 
 &lt;$button&gt; get working set
-   &lt;$action-getfolders /&gt;
+   &lt;$action-getdirectory /&gt;
 &lt;/$button&gt;
 &lt;$button&gt; clear working set
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
@@ -6797,7 +6792,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 \end
 
 \define filterpicker()
-   &amp;nbsp; select a filter: &amp;nbsp;
+   &amp;nbsp;select a filter...&amp;nbsp;
    @@.thinline @@
    &lt;&lt;filterbutton &quot;Locations&quot; &quot;/locations.json&quot;
       &quot;[tag[location]]&quot;&gt;&gt;
@@ -6850,7 +6845,7 @@ filename:
    tiddler=&quot;$:/config/LocalStorage/filename&quot; default=&quot;locations.json&quot;/&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filename&quot;
    popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
-   &lt;$action-getfolders /&gt;
+   &lt;$action-getdirectory /&gt;
    {{$:/core/images/down-arrow}}
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot;
@@ -6877,11 +6872,10 @@ filename:
          $value=&quot;$filter$&quot;/&gt;
       &lt;$action-savefile filename=&quot;&quot;&quot;$filename$&quot;&quot;&quot; filter=&quot;&quot;&quot;$filter$&quot;&quot;&quot; 
          force=&quot;true&quot; /&gt;
-      &lt;$action-getfolders /&gt;
    &lt;/$button&gt;
 \end
 
-@@.floatright.smaller 
+@@.floatright.smaller
 &lt;&lt;toggleviewer&gt;&gt; &lt;span style=&quot;white-space:nowrap&quot;&gt;&lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;&lt;/span&gt;
 @@
 @@.shadowbox.center.clear
@@ -6954,7 +6948,7 @@ source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$..
 @@
 @@.shadowbox.left.clear.smallest &lt;&lt;ShowMap 600 300&gt;&gt;&lt;&lt;ShowLink&gt;&gt;@@</pre>
 </div>
-<div caption="Street View" created="20151010205755347" modified="20151012232619079" tags="" title="Dashboard/StreetView">
+<div caption="Street View" created="20151010205755347" modified="20151014010414519" tags="" title="Dashboard/StreetView">
 <pre>\define StreetView(w,h)
 &lt;div style=&quot;clear:both;height:$h$px&quot;&gt;
 [img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -7081,7 +7075,7 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
 
 })();</pre>
 </div>
-<div created="20150706215754190" modified="20151012232814469" tags="location" title="Geo/Data" type="application/json">
+<div created="20150706215754190" modified="20151011052033441" tags="location" title="Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
@@ -7203,6 +7197,114 @@ HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 exports[&quot;action-httpRequest&quot;] = HttpRequestWidget;
 exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
+})();</pre>
+</div>
+<div created="20151009070709830" modified="20151012193605538" module-type="widget" tags="" title="LocalStorage/action-getdirectory.js" type="application/javascript">
+<pre>/*\
+title: LocalStorage/action-getdirectory.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+widget to read directory information from LocalStorage into a tiddler
+
+params (default):
+path    = source path in local storage (default=root)
+
+\*/
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var LocalStorageDirectoryWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+LocalStorageDirectoryWidget.prototype = new Widget();
+LocalStorageDirectoryWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+};
+
+LocalStorageDirectoryWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if( changedAttributes[&quot;path&quot;] ) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+LocalStorageDirectoryWidget.prototype.invokeAction = function(triggeringWidget,event) {
+
+  // if LocalStorage is supported
+  window.requestFileSystem = window.requestFileSystem ||
+                             window.webkitRequestFileSystem;
+  if (!window.requestFileSystem) return false;
+
+  // A simple error handler for testing purposes only
+  function errorHandler(id,error) {
+    var message = '';
+    switch (error.code) {
+      case FileError.SECURITY_ERR:
+        message = 'Security Error'; break;
+      case FileError.NOT_FOUND_ERR:
+        message = 'Not Found'; break;
+      case FileError.QUOTA_EXCEEDED_ERR:
+        message = 'Quota Exceeded'; break;
+      case FileError.INVALID_MODIFICATION_ERR:
+        message = 'Invalid Modification'; break;
+      case FileError.INVALID_STATE_ERR:
+        message = 'Invalid State'; break;
+      default:
+        message = (typeof error==&quot;string&quot;)?error:'Unknown Error';
+        break;
+    }
+    $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,id+&quot;: &quot;+message);
+    $tw.notifier.display(&quot;$:/temp/notify&quot;);
+  }
+
+  var path=this.getAttribute(&quot;path&quot;,&quot;&quot;);
+  var quota   =1024*1024*5;
+
+  function makeDirectoryTiddler(path,entries) {
+    var out = [], filelist = [];
+    entries.forEach(function(entry, i) {
+      out.push(entry.name);
+      if (!entry.isDirectory) filelist.push(entry.name);
+    });
+    // save directory list in tiddler
+    $tw.wiki.addTiddler(new $tw.Tiddler({
+      title: &quot;$:/LocalStorage/&quot;+path,
+      text: &quot;\n&quot;+out.join(&quot;\n&quot;),
+      list: &quot;[[&quot;+filelist.join(&quot;]] [[&quot;)+&quot;]]&quot;
+    }));
+  }
+
+  function toArray(list) { return Array.prototype.slice.call(list || [], 0); }
+  window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
+    var dirReader = fs.root.createReader();
+    var entries = [];
+    // Call the reader.readEntries() until no more results are returned.
+    var readEntries = function() {
+      dirReader.readEntries (function(results) {
+        if (!results.length) {
+          makeDirectoryTiddler(fs.root.name,entries.sort());
+        } else {
+          entries = entries.concat(toArray(results));
+          readEntries();
+        }
+      }, function(err) { errorHandler(filename,err); });
+    };
+    readEntries(); // Start reading dirs.
+  }, function(err) { errorHandler(filename,err); });
+
+  return true; // Action was invoked
+};
+
+exports[&quot;action-getdirectory&quot;] = LocalStorageDirectoryWidget;
 })();</pre>
 </div>
 <div created="20151009070709830" modified="20151013232039715" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
@@ -7330,13 +7432,13 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151013213250364" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151014012903147" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
 module-type: widget
 author: Eric Shulman elsdesign@gmail.com
-revision: 1.0
+revision: 1.1
 
 widget to load a file in LocalStorage into a tiddler and optionally parse the results
 
@@ -7400,6 +7502,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
   }
 
   var filename=this.getAttribute(&quot;filename&quot;,&quot;tiddlers.json&quot;);
+  if (filename.indexOf(&quot;/&quot;)!=0) filename=&quot;/&quot;+filename;
   var quota   =1024*1024*5;
   var parse   =this.getAttribute(&quot;parse&quot;,&quot;&quot;);
   var silent  =this.getAttribute(&quot;silent&quot;,&quot;false&quot;)==&quot;true&quot;;
@@ -7440,7 +7543,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
 exports[&quot;action-loadfile&quot;] = LocalStorageLoadFileWidget;
 })();</pre>
 </div>
-<div created="20151007103210499" modified="20151013020319820" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
+<div created="20151007103210499" modified="20151012193505405" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefile.js
 type: application/javascript
@@ -7534,7 +7637,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20151013020324640" modified="20151013020659670" module-type="widget" tags="" title="LocalStorage/action-removefolder.js" type="application/javascript">
+<div created="20151013020324640" modified="20151014010359385" module-type="widget" tags="" title="LocalStorage/action-removefolder.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefolder.js
 type: application/javascript
@@ -7628,13 +7731,13 @@ LocalStorageRemoveFolderWidget.prototype.invokeAction = function(triggeringWidge
 exports[&quot;action-removefolder&quot;] = LocalStorageRemoveFolderWidget;
 })();</pre>
 </div>
-<div created="20151009015741946" modified="20151013022049607" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
+<div created="20151009015741946" modified="20151014010741851" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-savefile.js
 type: application/javascript
 module-type: widget
 author: Eric Shulman elsdesign@gmail.com
-revision: 1.0
+revision: 1.1
 
 widget to save filtered tiddlers to LocalStorage
 
