@@ -6338,7 +6338,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014105815548" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151014132425196" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151014135138472" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
 </div>
 <div modified="20151014132416728" title="$:/state/Dashboard/Maps">
@@ -6533,7 +6533,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151014132411089" title="Dashboard">
+<div created="20150623211607895" modified="20151014135200505" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6730,7 +6730,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014132306905" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014135153761" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$set name=&quot;tooltip&quot; filter=&quot;[title{$:/config/LocalStorage/filename}addprefix[copy /]addsuffix[ from local storage to tiddler cache]]&quot;&gt;
 &lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt; load file
@@ -6921,7 +6921,7 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div created="20151014083917209" modified="20151014131121266" tags="" title="Dashboard/LocalStorage/Viewer">
+<div created="20151014083917209" modified="20151014135123371" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -6932,12 +6932,12 @@ root:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/root&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;5&quot; default=&quot;TW5/&quot; /&gt;
 max depth:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;5&quot; /&gt;
-&lt;$button tooltip=&quot;read folder info from local storage into tiddler cache&quot;&gt; fetch
+&lt;$button tooltip=&quot;get current local storage folder info&quot;&gt; refresh
    &lt;$action-getfolders
       root={{$:/config/LocalStorage/root}}
       limit={{$:/config/LocalStorage/limit}}/&gt;
 &lt;/$button&gt;
-&lt;$button tooltip=&quot;empty tiddler cache (no changes to local storage)&quot;&gt; flush
+&lt;$button tooltip=&quot;clear tiddler cache (local storage is unchanged)&quot;&gt; reset
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
 &lt;/$button&gt;
 \end
