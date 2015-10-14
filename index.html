@@ -6334,7 +6334,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151012053048052" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151014062303340" title="$:/state/Dashboard/LocalStorage/viewer">
+<div modified="20151014064311955" title="$:/state/Dashboard/LocalStorage/viewer">
 <pre>closed</pre>
 </div>
 <div modified="20151014050457624" title="$:/state/Dashboard/Maps">
@@ -6343,7 +6343,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151012053934153" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151011224705699" title="$:/state/sidebar">
+<div modified="20151014063938326" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
@@ -6529,7 +6529,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151014022752710" title="Dashboard">
+<div created="20150623211607895" modified="20151014063931846" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6558,7 +6558,7 @@ exports.startup = function() {
 &lt;&lt;sliderbutton &quot;&quot;&quot;$tid$&quot;&quot;&quot;&gt;&gt;&lt;&lt;sliderpanel  &quot;&quot;&quot;$tid$&quot;&quot;&quot;&gt;&gt;
 \end
 
-@@.center
+@@.center.smaller
 &lt;&lt;sliderbutton Dashboard/GeoLocation&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/LocalStorage&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/Maps&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/StreetView&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/AddressLookup&gt;&gt;
 &lt;hr&gt;
 @@
@@ -6725,7 +6725,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014062156332" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014063853037" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile
@@ -6761,7 +6761,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 \end
 
 \define toggleviewer()
-&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt; show working set &lt;/$checkbox&gt;
+&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt;show working set&lt;/$checkbox&gt;
 \end
 
 \define viewer()
@@ -6823,6 +6823,7 @@ limit:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 \end
 
 \define setfilter()
+@@.nowrap
 &lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterInfoDropdown&quot;&gt;
    {{$:/core/images/info-button}}
 &lt;/$button&gt;
@@ -6840,6 +6841,7 @@ filter: &lt;$edit-text tag=&quot;input&quot;
    state=&quot;$:/temp/popup/filterPickerDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
    &lt;&lt;filterpicker&gt;&gt;
 &lt;/$reveal&gt;
+@@
 \end
 
 \define filepicker()
@@ -6860,6 +6862,7 @@ filter: &lt;$edit-text tag=&quot;input&quot;
 \end
 
 \define setfilename()
+@@.nowrap
 filename:
 &lt;$edit-text tag=&quot;input&quot;
    tiddler=&quot;$:/config/LocalStorage/filename&quot; default=&quot;locations.json&quot;/&gt;
@@ -6874,6 +6877,7 @@ filename:
    state=&quot;$:/temp/popup/filenameDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
    &lt;&lt;filepicker&gt;&gt;
 &lt;/$reveal&gt;
+@@
 \end
 
 \define load(text,filename,filter)
@@ -6897,25 +6901,23 @@ filename:
    &lt;/$button&gt;
 \end
 
-@@.floatright.smaller
-&lt;&lt;toggleviewer&gt;&gt; &lt;span style=&quot;white-space:nowrap&quot;&gt;&lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;&lt;/span&gt;
-@@
+@@.floatright.smaller.nowrap &lt;&lt;toggleviewer&gt;&gt; &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;@@
 @@.shadowbox.center.clear
 &lt;&lt;setfilename&gt;&gt; &amp;nbsp; &lt;&lt;setfilter&gt;&gt;
 &lt;div style=&quot;height:0.5em&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;smallest center&quot;&gt;
-&lt;&lt;load locations locations.json
-   &quot;[tag[location]]&quot;&gt;&gt;
-&lt;&lt;save locations locations.json
-   &quot;[tag[location]]&quot;&gt;&gt;
-&lt;&lt;load settings settings.json
-   &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
-&lt;&lt;save settings settings.json
-   &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
-&lt;&lt;load &quot;address data&quot; address.json
-   &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
-&lt;&lt;save &quot;address data&quot; address.json
-   &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
+@@.nowrap
+&lt;&lt;load locations locations.json &quot;[tag[location]]&quot;&gt;&gt;
+&lt;&lt;save locations locations.json &quot;[tag[location]]&quot;&gt;&gt;
+@@
+@@.nowrap
+&lt;&lt;load settings settings.json &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
+&lt;&lt;save settings settings.json &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
+@@
+@@.nowrap
+&lt;&lt;load &quot;address data&quot; address.json &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
+&lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
+@@
 &lt;/div&gt;
 &lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
    @@display:block;height:0.5em; @@
@@ -7833,7 +7835,7 @@ exports[&quot;action-savefile&quot;] = LocalStorageSaveFileWidget;
 .tc-drop-down { min-width:100px; }
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150418111607835" creator="EricShulman" modified="20150722010910877" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
+<div created="20150418111607835" creator="EricShulman" modified="20150722010924757" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
 <pre>&lt;pre&gt;
 /* ---- FORMATTING SHORTCUTS ---- */
 
@@ -7856,6 +7858,7 @@ exports[&quot;action-savefile&quot;] = LocalStorageSaveFileWidget;
 .floatleft  { float:left; }
 .floatright { float:right; }
 .clear      { display:block;clear:both; }
+.nowrap     { white-space:nowrap; }
 
 /* POSITIONING */
 .absolute { position:absolute; }
