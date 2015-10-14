@@ -284,8 +284,8 @@ Error message and password prompt
 <div modified="20150724072250770" title="$:/config/Geo/watch">
 <pre>off</pre>
 </div>
-<div modified="20151014083638441" title="$:/config/GoogleMaps/maptype">
-<pre>roadmap</pre>
+<div modified="20151014093210512" title="$:/config/GoogleMaps/maptype">
+<pre>hybrid</pre>
 </div>
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
@@ -6329,7 +6329,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151014084710972" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151014095057090" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
 <div modified="20151014083705797" title="$:/state/Dashboard/GeoLocation">
@@ -6338,13 +6338,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014083615117" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151014084722256" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151014092306095" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
 </div>
-<div modified="20151014084735162" title="$:/state/Dashboard/Maps">
+<div modified="20151014094002947" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
-<div modified="20151014084707821" title="$:/state/Dashboard/StreetView">
+<div modified="20151014095009969" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
 <div modified="20151014063938326" title="$:/state/sidebar">
@@ -6533,7 +6533,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151014085033374" title="Dashboard">
+<div created="20150623211607895" modified="20151014095003938" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6562,17 +6562,17 @@ exports.startup = function() {
 &lt;&lt;sliderbutton &quot;&quot;&quot;$tid$&quot;&quot;&quot;&gt;&gt;&lt;&lt;sliderpanel  &quot;&quot;&quot;$tid$&quot;&quot;&quot;&gt;&gt;
 \end
 
-@@.center.smaller
+|borderless|k
+| ''Local device functions:''|&amp;nbsp; &lt;&lt;sliderbutton Dashboard/GeoLocation&gt;&gt; &lt;&lt;sliderbutton Dashboard/LocalStorage&gt;&gt; |
+| ''Public data sources:''|&amp;nbsp; &lt;&lt;sliderbutton Dashboard/Maps&gt;&gt; &lt;&lt;sliderbutton Dashboard/StreetView&gt;&gt; &lt;&lt;sliderbutton Dashboard/AddressLookup&gt;&gt; |
+| ''Private data sources:''|&amp;nbsp; //TBD// |
 &lt;hr&gt;
-&lt;&lt;sliderbutton Dashboard/GeoLocation&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/Maps&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/StreetView&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/AddressLookup&gt;&gt; &amp;nbsp; &lt;&lt;sliderbutton Dashboard/LocalStorage&gt;&gt;
-&lt;hr&gt;
-@@
 
 &lt;&lt;sliderpanel Dashboard/GeoLocation&gt;&gt;
+&lt;&lt;sliderpanel Dashboard/LocalStorage&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/Maps&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/StreetView&gt;&gt;
-&lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;
-&lt;&lt;sliderpanel Dashboard/LocalStorage&gt;&gt;</pre>
+&lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
 <div caption="Address Lookup" created="20151010193622207" modified="20151012040017779" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata()
@@ -6730,7 +6730,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014085021480" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014093024602" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile
@@ -6868,11 +6868,13 @@ filename:
    @@display:block;height:0.5em; @@
    @@.shadowbox.inset.left {{Dashboard/LocalStorage/Viewer}}@@
 &lt;/$reveal&gt;
+&lt;div class=&quot;smallest&quot; style=&quot;margin-top:0.5em&quot;&gt;
+{{Dashboard/LocalStorage/QuickButtons}}
+&lt;/div&gt;
 @@
-@@display:block;height:0.5em; @@
-{{Dashboard/LocalStorage/QuickButtons}}</pre>
+</pre>
 </div>
-<div created="20151014084310662" modified="20151014084325179" tags="" title="Dashboard/LocalStorage/QuickButtons">
+<div created="20151014084310662" modified="20151014091624169" tags="" title="Dashboard/LocalStorage/QuickButtons">
 <pre>\define load(text,filename,filter)
    &lt;$button&gt;load $text$
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
@@ -6894,14 +6896,14 @@ filename:
    &lt;/$button&gt;
 \end
 
-&lt;div class=&quot;smallest center&quot;&gt;
+@@.center 
 &lt;&lt;load locations locations.json &quot;[tag[location]]&quot;&gt;&gt;
 &lt;&lt;save locations locations.json &quot;[tag[location]]&quot;&gt;&gt;
 &lt;&lt;load settings settings.json &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
 &lt;&lt;save settings settings.json &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
 &lt;&lt;load &quot;address data&quot; address.json &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
-&lt;/div&gt;</pre>
+@@</pre>
 </div>
 <div created="20151014083917209" modified="20151014084127386" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>@@.floatright.smaller.nowrap 
