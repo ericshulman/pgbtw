@@ -162,8 +162,6 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
-<li>$:/LocalStorage</li>
-
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
@@ -290,14 +288,14 @@ Error message and password prompt
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151014132422871" title="$:/config/LocalStorage/filename">
+<div created="20151007095534363" modified="20151014204213517" title="$:/config/LocalStorage/filename">
 <pre>locations.json</pre>
 </div>
-<div created="20151007095537546" modified="20151014132422871" title="$:/config/LocalStorage/filter">
+<div created="20151007095537546" modified="20151014204213517" title="$:/config/LocalStorage/filter">
 <pre>[tag[location]]</pre>
 </div>
-<div created="20151014043514021" modified="20151014060305017" title="$:/config/LocalStorage/limit">
-<pre>5</pre>
+<div created="20151014043514021" modified="20151014201856082" title="$:/config/LocalStorage/limit">
+<pre>10</pre>
 </div>
 <div created="20151014043511269" modified="20151014045711874" title="$:/config/LocalStorage/root">
 <pre>TW5/</pre>
@@ -6320,9 +6318,6 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div list="" title="$:/LocalStorage">
-<pre></pre>
-</div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
 </div>
@@ -6338,7 +6333,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014105815548" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151014135138472" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151014204220564" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
 </div>
 <div modified="20151014132416728" title="$:/state/Dashboard/Maps">
@@ -6362,10 +6357,10 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151014115338201" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151014202851896" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Dashboard/LocalStorage Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151014133754680" title="$:/temp/advancedsearch">
@@ -6388,7 +6383,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151014132422876" title="$:/temp/notify">
+<div modified="20151014204213522" title="$:/temp/notify">
 <pre>locations.json: Not Found</pre>
 </div>
 <div created="20150705104045705" modified="20151014133016863" title="$:/temp/search">
@@ -6533,7 +6528,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151014135200505" title="Dashboard">
+<div created="20150623211607895" modified="20151014204209994" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6730,7 +6725,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014135153761" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014203924119" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$set name=&quot;tooltip&quot; filter=&quot;[title{$:/config/LocalStorage/filename}addprefix[copy /]addsuffix[ from local storage to tiddler cache]]&quot;&gt;
 &lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt; load file
@@ -6836,7 +6831,7 @@ filter: &lt;$edit-text tag=&quot;input&quot;
 @@.thinline @@
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]]&quot;&gt;
 &lt;$list filter=&quot;[all[current]list[]]&quot; variable=&quot;filename&quot;&gt;
-   &lt;$set name=&quot;fullname&quot; filter=&quot;[all[current]removeprefix[$:/LocalStorage/]addsuffix&lt;filename&gt;]&quot;&gt;
+   &lt;$set name=&quot;fullname&quot; filter=&quot;[all[current]removeprefix[$:/LocalStorage]addsuffix[/]addsuffix&lt;filename&gt;removeprefix[/]]&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
       &lt;$text text=&lt;&lt;fullname&gt;&gt;/&gt;
       &lt;$action-setfield
