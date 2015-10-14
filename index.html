@@ -6331,7 +6331,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151013220520308" title="$:/state/Dashboard/LocalStorage/showcache">
 <pre>closed</pre>
 </div>
-<div modified="20151013235401351" title="$:/state/Dashboard/LocalStorage/viewer">
+<div modified="20151014000906118" title="$:/state/Dashboard/LocalStorage/viewer">
 <pre>closed</pre>
 </div>
 <div modified="20151013235402405" title="$:/state/Dashboard/Maps">
@@ -6340,7 +6340,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151013022713404" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151013002120126" title="$:/state/sidebar">
+<div modified="20151014000739443" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
@@ -6384,7 +6384,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151013232826115" title="$:/temp/notify">
 <pre>/locations.json removed from ~LocalStorage</pre>
 </div>
-<div created="20150705104045705" modified="20151013222218588" title="$:/temp/search">
+<div created="20150705104045705" modified="20151014000940760" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -6721,7 +6721,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151013225929516" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014000845753" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile filename={{$:/config/LocalStorage/filename}} parse=&quot;tiddlers&quot;/&gt;
@@ -6751,7 +6751,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 \end
 
 \define toggleviewer()
-&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt; view working set&lt;/$checkbox&gt;
+&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt; debug &lt;/$checkbox&gt;
 \end
 
 \define viewer()
@@ -6882,7 +6882,7 @@ filename:
 \end
 
 @@.floatright.smaller 
-&lt;&lt;toggleviewer&gt;&gt; &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;
+&lt;&lt;toggleviewer&gt;&gt; &lt;span style=&quot;white-space:nowrap&quot;&gt;&lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;&lt;/span&gt;
 @@
 @@.shadowbox.center.clear
 &lt;&lt;setfilename&gt;&gt; &amp;nbsp; &lt;&lt;setfilter&gt;&gt;
