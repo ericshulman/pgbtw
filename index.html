@@ -286,14 +286,14 @@ Error message and password prompt
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151014045009355" title="$:/config/LocalStorage/filename">
+<div created="20151007095534363" modified="20151014061612793" title="$:/config/LocalStorage/filename">
 <pre>locations.json</pre>
 </div>
-<div created="20151007095537546" modified="20151014045009356" title="$:/config/LocalStorage/filter">
+<div created="20151007095537546" modified="20151014061612793" title="$:/config/LocalStorage/filter">
 <pre>[tag[location]]</pre>
 </div>
-<div created="20151014043514021" modified="20151014043514611" title="$:/config/LocalStorage/limit">
-<pre>20</pre>
+<div created="20151014043514021" modified="20151014060305017" title="$:/config/LocalStorage/limit">
+<pre>5</pre>
 </div>
 <div created="20151014043511269" modified="20151014045711874" title="$:/config/LocalStorage/root">
 <pre>TW5/</pre>
@@ -6334,8 +6334,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151012053048052" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151014050658975" title="$:/state/Dashboard/LocalStorage/viewer">
-<pre>open</pre>
+<div modified="20151014062303340" title="$:/state/Dashboard/LocalStorage/viewer">
+<pre>closed</pre>
 </div>
 <div modified="20151014050457624" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
@@ -6361,7 +6361,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014010958788" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard/LocalStorage Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151010223642521" title="$:/temp/advancedsearch">
@@ -6384,8 +6384,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151014045654250" title="$:/temp/notify">
-<pre>TW5/locations.json removed from ~LocalStorage</pre>
+<div modified="20151014061644446" title="$:/temp/notify">
+<pre>locations.json removed from ~LocalStorage</pre>
 </div>
 <div created="20150705104045705" modified="20151014050608343" title="$:/temp/search">
 <pre></pre>
@@ -6725,7 +6725,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014051156297" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014062156332" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile
@@ -6761,19 +6761,16 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 \end
 
 \define toggleviewer()
-&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt; viewer &lt;/$checkbox&gt;
+&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt; show working set &lt;/$checkbox&gt;
 \end
 
 \define viewer()
-&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/viewer&quot;
-   type=&quot;match&quot; text=&quot;open&quot;&gt;
-@@display:block;height:0.5em;@@
 @@.floatright.smaller 
 &lt;span style=&quot;white-space:nowrap&quot;&gt;
 root:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/root&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;3&quot; default=&quot;TW5/&quot; /&gt;
+   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;5&quot; default=&quot;TW5/&quot; /&gt;
 limit:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;3&quot; default=&quot;20&quot; /&gt;
+   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;5&quot; /&gt;
 &lt;$button&gt; get working set
    &lt;$action-getfolders
       root={{$:/config/LocalStorage/root}}
@@ -6784,16 +6781,16 @@ limit:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 &lt;/$button&gt;
 &lt;/span&gt;
 @@
-''~LocalStorage working set:''
-@@.shadowbox.left.clear
+@@.left working set:@@
+@@.thinline.clear @@
+@@.left 
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]sort[]]&quot;&gt;
    &lt;$link to={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
-   @@display:block;margin-left:2em;padding-left:2em;border-left:1px dotted;
+   @@display:block;margin-left:1em;padding-left:1em;border-left:1px dotted;
    {{!!text}}
    @@
 &lt;/$list&gt;
 @@
-&lt;/$reveal&gt;
 \end
 
 \define filterinfo()
@@ -6920,8 +6917,11 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json
    &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
 &lt;/div&gt;
-@@
-&lt;&lt;viewer&gt;&gt;</pre>
+&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/viewer&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
+   @@display:block;height:0.5em; @@
+   @@.shadowbox.inset.left &lt;&lt;viewer&gt;&gt;@@
+&lt;/$reveal&gt;
+@@</pre>
 </div>
 <div caption="Google Maps" created="20151010204309614" modified="20151012042531473" tags="" title="Dashboard/Maps">
 <pre>\define ShowMap(w,h)
