@@ -162,7 +162,7 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
-<li>$:/LocalStorage/</li>
+<li>$:/LocalStorage</li>
 
 <li>$:/SiteSubtitle</li>
 
@@ -290,10 +290,10 @@ Error message and password prompt
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151014083217277" title="$:/config/LocalStorage/filename">
+<div created="20151007095534363" modified="20151014120022981" title="$:/config/LocalStorage/filename">
 <pre>locations.json</pre>
 </div>
-<div created="20151007095537546" modified="20151014083217277" title="$:/config/LocalStorage/filter">
+<div created="20151007095537546" modified="20151014120022981" title="$:/config/LocalStorage/filter">
 <pre>[tag[location]]</pre>
 </div>
 <div created="20151014043514021" modified="20151014060305017" title="$:/config/LocalStorage/limit">
@@ -6320,7 +6320,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div list="" title="$:/LocalStorage/">
+<div list="" title="$:/LocalStorage">
 <pre></pre>
 </div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
@@ -6335,10 +6335,10 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014083705797" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151014083615117" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151014105815548" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151014092306095" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151014120036100" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
 </div>
 <div modified="20151014094002947" title="$:/state/Dashboard/Maps">
@@ -6362,14 +6362,14 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151014010958788" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151014115338201" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Dashboard/LocalStorage Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151014084823740" title="$:/temp/advancedsearch">
-<pre>$:/state</pre>
+<div created="20150706192244698" modified="20151014102521379" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6388,10 +6388,10 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151014083217282" title="$:/temp/notify">
+<div modified="20151014120022986" title="$:/temp/notify">
 <pre>locations.json: Not Found</pre>
 </div>
-<div created="20150705104045705" modified="20151014050608343" title="$:/temp/search">
+<div created="20150705104045705" modified="20151014113507193" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -6533,7 +6533,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151014095932862" title="Dashboard">
+<div created="20150623211607895" modified="20151014120044520" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6730,9 +6730,9 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014093024602" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014115925737" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
-&lt;$button&gt; load file
+&lt;$button tooltip={{$:/config/LocalStorage/filename}}&gt; load file
 &lt;$action-loadfile
    root={{$:/config/LocalStorage/root}}
    filename={{$:/config/LocalStorage/filename}}
@@ -6741,16 +6741,19 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 \end
 
 \define savefile()
-&lt;$button&gt; save file
+&lt;$button tooltip={{$:/config/LocalStorage/filename}}&gt; save file
 &lt;$action-savefile
    root={{$:/config/LocalStorage/root}}
    filename={{$:/config/LocalStorage/filename}}
    filter={{$:/config/LocalStorage/filter}} /&gt;
+&lt;$action-getfolders
+   root={{$:/config/LocalStorage/root}}
+   limit={{$:/config/LocalStorage/limit}}/&gt;
 &lt;/$button&gt;
 \end
 
 \define removefile()
-&lt;$button&gt; remove file
+&lt;$button tooltip={{$:/config/LocalStorage/filename}}&gt; remove file
 &lt;$action-removefile
    root={{$:/config/LocalStorage/root}}
    filename={{$:/config/LocalStorage/filename}}/&gt;
@@ -6761,15 +6764,12 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 \end
 
 \define removefolder()
-&lt;$button&gt; remove folder
+&lt;$button tooltip={{$:/config/LocalStorage/filename}}&gt; remove folder
 &lt;$action-removefolder
    root={{$:/config/LocalStorage/root}}
    filename={{$:/config/LocalStorage/filename}}/&gt;
+&lt;$action-deletetiddler $filter=&quot;[prefix{$:/config/LocalStorage/filename}]&quot; /&gt;
 &lt;/$button&gt;
-\end
-
-\define toggleviewer()
-&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt;show working set&lt;/$checkbox&gt;
 \end
 
 \define filterinfo()
@@ -6859,22 +6859,27 @@ filename:
 @@
 \end
 
+\define toggleviewer()
+&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; field=&quot;text&quot; checked=&quot;open&quot; unchecked=&quot;closed&quot; default=&quot;closed&quot;&gt;view cache&lt;/$checkbox&gt;
+\end
+
 @@.floatright.smaller.nowrap
 &lt;&lt;toggleviewer&gt;&gt; &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;
 @@
 @@.shadowbox.center.clear
 &lt;&lt;setfilename&gt;&gt; &amp;nbsp; &lt;&lt;setfilter&gt;&gt;
-&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
-   @@display:block;height:0.5em; @@
-   @@.shadowbox.inset.left {{Dashboard/LocalStorage/Viewer}}@@
-&lt;/$reveal&gt;
 &lt;div class=&quot;smallest&quot; style=&quot;margin-top:0.5em&quot;&gt;
 {{Dashboard/LocalStorage/QuickButtons}}
 &lt;/div&gt;
-@@
-</pre>
+&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
+   @@display:block;height:0.5em; @@
+   @@.shadowbox.inset.left
+   {{Dashboard/LocalStorage/Viewer}}
+   @@
+&lt;/$reveal&gt;
+@@</pre>
 </div>
-<div created="20151014084310662" modified="20151014091624169" tags="" title="Dashboard/LocalStorage/QuickButtons">
+<div created="20151014084310662" modified="20151014115705271" tags="" title="Dashboard/LocalStorage/QuickButtons">
 <pre>\define load(text,filename,filter)
    &lt;$button&gt;load $text$
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
@@ -6893,6 +6898,9 @@ filename:
          $value=&quot;$filter$&quot;/&gt;
       &lt;$action-savefile filename=&quot;&quot;&quot;$filename$&quot;&quot;&quot; filter=&quot;&quot;&quot;$filter$&quot;&quot;&quot; 
          force=&quot;true&quot; /&gt;
+      &lt;$action-getfolders
+         root={{$:/config/LocalStorage/root}}
+         limit={{$:/config/LocalStorage/limit}}/&gt;
    &lt;/$button&gt;
 \end
 
@@ -6905,39 +6913,67 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div created="20151014083917209" modified="20151014084127386" tags="" title="Dashboard/LocalStorage/Viewer">
-<pre>@@.floatright.smaller.nowrap 
+<div created="20151014083917209" modified="20151014115718541" tags="" title="Dashboard/LocalStorage/Viewer">
+<pre>\define msg(txt)
+&lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
+&lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
+\end
+
+@@.floatright.smaller.nowrap 
 root:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/root&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;5&quot; default=&quot;TW5/&quot; /&gt;
 max depth:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;5&quot; /&gt;
-&lt;$button&gt; refresh
+&lt;$button tooltip=&quot;fetch folder info from LocalStorage into cache&quot;&gt; fetch
    &lt;$action-getfolders
       root={{$:/config/LocalStorage/root}}
       limit={{$:/config/LocalStorage/limit}}/&gt;
 &lt;/$button&gt;
-&lt;$button&gt; clear
+&lt;$button tooltip=&quot;clear $:/LocalStorage cache&quot;&gt; flush
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
 &lt;/$button&gt;
 @@
-@@.left working set:@@
+@@.left ~LocalStorage tiddler cache:@@
 @@.thinline.clear @@
 @@.left 
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[list]sort[]]&quot;&gt;
+   &lt;$set name=&quot;fullname&quot; filter=&quot;[all[current]removeprefix[$:/LocalStorage/]]&quot;&gt;
+   &lt;$list filter=&lt;&lt;fullname&gt;&gt; variable=&quot;if-not-blank&quot;&gt;
+   @@.smallest.floatright
+   &lt;$button tooltip=&lt;&lt;fullname&gt;&gt;&gt;remove folder
+      &lt;$action-removefolder filename=&lt;&lt;fullname&gt;&gt;
+         root={{$:/config/LocalStorage/root}} /&gt;
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;currentTiddler&gt;]&quot; /&gt;
+   &lt;/$button&gt;@@
+   &lt;/$list&gt;
    &lt;$link to={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
-   @@display:block;margin-left:1em;padding-left:1em;border-left:1px dotted;
-   &lt;$list filter=&quot;[all[current]list[]]&quot; variable=&quot;item&quot;&gt;
+   &lt;/$set&gt;
+   @@.clear
+   &lt;$list filter=&quot;[all[current]list[]]&quot; variable=&quot;filename&quot;&gt;
       &lt;$set name=&quot;tid&quot;
-         filter=&quot;[all[current]addsuffix[/]addsuffix&lt;item&gt;]&quot;&gt;
+         filter=&quot;[all[current]addsuffix[/]addsuffix&lt;filename&gt;]&quot;&gt;
       &lt;$set name=&quot;fullname&quot;
          filter=&quot;[title&lt;tid&gt;removeprefix[$:/LocalStorage/]]&quot;&gt;
-      @@.smaller
-      &lt;$button&gt;load file
+      @@.smallest.floatright
+      &lt;$list filter=&quot;[title&lt;tid&gt;is[missing]]&quot; variable=&quot;if-tiddler-missing&quot;&gt;
+      &lt;$button tooltip=&lt;&lt;fullname&gt;&gt;&gt;load file
          &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt;
             root={{$:/config/LocalStorage/root}}
             parse=&quot;tiddlers&quot; /&gt;
       &lt;/$button&gt;
-      &lt;$button&gt;remove file
+      &lt;/$list&gt;
+      &lt;$list filter=&quot;[title&lt;tid&gt;is[tiddler]]&quot; variable=&quot;if-tiddler-exists&quot;&gt;
+      &lt;$button tooltip=&lt;&lt;tid&gt;&gt;&gt;unload file
+         &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
+         &lt;$set name=&quot;txt&quot; filter=&quot;[title&lt;tid&gt;addprefix[deleted tiddler ]]&quot;&gt;
+            &lt;$macrocall $name=&quot;msg&quot; txt=&lt;&lt;txt&gt;&gt;/&gt;
+         &lt;/$set&gt;
+         &lt;$action-getfolders
+            root={{$:/config/LocalStorage/root}}
+            limit={{$:/config/LocalStorage/limit}}/&gt;
+      &lt;/$button&gt;
+      &lt;/$list&gt;
+      &lt;$button tooltip=&lt;&lt;fullname&gt;&gt;&gt;delete file
          &lt;$action-removefile filename=&lt;&lt;fullname&gt;&gt;
             root={{$:/config/LocalStorage/root}} /&gt;
          &lt;$action-getfolders
@@ -6945,7 +6981,7 @@ max depth:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
             limit={{$:/config/LocalStorage/limit}}/&gt;
       &lt;/$button&gt;
       @@
-      &lt;$link to=&lt;&lt;tid&gt;&gt;&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;&lt;/$link&gt;
+      &lt;$link to=&lt;&lt;tid&gt;&gt;&gt;&lt;$text text=&lt;&lt;tid&gt;&gt;/&gt;&lt;/$link&gt;
       &lt;br&gt;
       &lt;/$set&gt;
       &lt;/$set&gt;
@@ -7239,7 +7275,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151009070709830" modified="20151014082446613" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
+<div created="20151009070709830" modified="20151014102400272" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getfolders.js
 type: application/javascript
@@ -7322,7 +7358,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
     });
     // save folder info in tiddler
     $tw.wiki.addTiddler(new $tw.Tiddler({
-      title: &quot;$:/LocalStorage/&quot;+path,
+      title: &quot;$:/LocalStorage&quot;+(path.length?&quot;/&quot;:&quot;&quot;)+path,
       text: &quot;&quot;,
       list: &quot;[[&quot;+filelist.join(&quot;]] [[&quot;)+&quot;]]&quot;
     }));
@@ -7362,7 +7398,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151014042001481" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151014102429419" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
