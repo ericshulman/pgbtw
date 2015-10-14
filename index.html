@@ -162,6 +162,8 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
+<li>$:/LocalStorage/</li>
+
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
@@ -6314,6 +6316,9 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
+<div list="" title="$:/LocalStorage/">
+<pre></pre>
+</div>
 <div created="20150623204429429" modified="20150623204528952" title="$:/SiteSubtitle">
 <pre>Investigative Prototype - Do Not Copy</pre>
 </div>
@@ -6329,8 +6334,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151012053048052" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div modified="20151014050416608" title="$:/state/Dashboard/LocalStorage/viewer">
-<pre>closed</pre>
+<div modified="20151014050658975" title="$:/state/Dashboard/LocalStorage/viewer">
+<pre>open</pre>
 </div>
 <div modified="20151014050457624" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
@@ -6356,7 +6361,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014010958788" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Dashboard/LocalStorage Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151010223642521" title="$:/temp/advancedsearch">
@@ -6720,7 +6725,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 &lt;&lt;GeoOptions&gt;&gt;
 @@</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014050604402" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151014051156297" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button&gt; load file
 &lt;$action-loadfile
@@ -6764,9 +6769,10 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
    type=&quot;match&quot; text=&quot;open&quot;&gt;
 @@display:block;height:0.5em;@@
 @@.floatright.smaller 
-root:  &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/root&quot;
+&lt;span style=&quot;white-space:nowrap&quot;&gt;
+root:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/root&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;3&quot; default=&quot;TW5/&quot; /&gt;
-limit: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
+limit:&lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;3&quot; default=&quot;20&quot; /&gt;
 &lt;$button&gt; get working set
    &lt;$action-getfolders
@@ -6776,6 +6782,7 @@ limit: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 &lt;$button&gt; clear working set
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
 &lt;/$button&gt;
+&lt;/span&gt;
 @@
 ''~LocalStorage working set:''
 @@.shadowbox.left.clear
