@@ -6396,8 +6396,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151014230405125" title="$:/temp/notify">
-<pre>a removed from ~LocalStorage</pre>
+<div modified="20151015070012036" title="$:/temp/notify">
+<pre>camera error: no camera support on this device</pre>
 </div>
 <div created="20150705104045705" modified="20151014133016863" title="$:/temp/search">
 <pre></pre>
@@ -6507,7 +6507,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20151015065348555" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20151015070032584" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -6560,7 +6560,7 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   }
 
   // if camera is not supported (e.g., not on a tablet/mobile device)
-  if (!Camera || !navigator.camera.getPicture) {
+  if (typeof Camera == &quot;undefined&quot;) {
     errorHandler(&quot;not supported on this device&quot;)
     return false;
   }
@@ -6605,7 +6605,7 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
 exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
 })();</pre>
 </div>
-<div created="20151015065408822" modified="20151015065522835" tags="" title="Camera/Test">
+<div created="20151015065408822" modified="20151015070045535" tags="" title="Camera/Test">
 <pre>&lt;$button&gt; invoke getPicture(...) with defaults
    &lt;$action-getpicture /&gt;
 &lt;/$button&gt;</pre>
