@@ -6403,7 +6403,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151015083901216" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Camera/action-getpicture.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151015083205704" title="$:/temp/advancedsearch">
@@ -6429,7 +6429,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151015082952554" title="$:/temp/notify">
 <pre>locations.json: Not Found</pre>
 </div>
-<div created="20150705104045705" modified="20151014133016863" title="$:/temp/search">
+<div created="20150705104045705" modified="20151015105445642" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -6537,7 +6537,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20151015081815852" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20151015105705128" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -6603,13 +6603,8 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   var height  = this.getAttribute(&quot;height&quot;,384);
   var format  = this.getAttribute(&quot;format&quot;,&quot;JPEG&quot;);
   var quality = this.getAttribute(&quot;quality&quot;,50);
- 
-  var type    = &quot;image/jpeg&quot;;
-  var enctype = Camera.EncodingType.JPEG;
-  if (format==&quot;PNG&quot;) {
-    type    = &quot;image/png&quot;;
-    enctype = Camera.EncodingType.PNG;
-  }
+  var type    = (format==&quot;PNG&quot;)?&quot;image/png&quot;:&quot;image/jpeg&quot;;
+  var enctype = (format==&quot;PNG&quot;)?Camera.EncodingType.PNG:Camera.EncodingType.JPEG;
 
   var cameraOptions = {
     quality : quality,
@@ -7505,7 +7500,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
 </div>
-<div created="20151009070709830" modified="20151014102400272" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
+<div created="20151009070709830" modified="20151015105425588" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getfolders.js
 type: application/javascript
@@ -7587,11 +7582,11 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
       }
     });
     // save folder info in tiddler
-    $tw.wiki.addTiddler(new $tw.Tiddler({
-      title: &quot;$:/LocalStorage&quot;+(path.length?&quot;/&quot;:&quot;&quot;)+path,
-      text: &quot;&quot;,
-      list: &quot;[[&quot;+filelist.join(&quot;]] [[&quot;)+&quot;]]&quot;
-    }));
+    $tw.wiki.addTiddler(new $tw.Tiddler({ 
+        title: &quot;$:/LocalStorage&quot;+(path.length?&quot;/&quot;:&quot;&quot;)+path,
+        text: &quot;&quot;,
+        list: &quot;[[&quot;+filelist.join(&quot;]] [[&quot;)+&quot;]]&quot;
+      },null,{},$tw.wiki.getModificationFields()));
   }
 
   function getFolder(direntry,path,level) {
@@ -7628,7 +7623,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151014102429419" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151015105149187" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -7715,11 +7710,9 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
           if (!this.result.length) return;
           var title=&quot;$:/LocalStorage/&quot;+filename;
           // save JSON tiddler
-          $tw.wiki.addTiddler(new $tw.Tiddler({
-            title: title,
-            text: this.result,
-            type: &quot;application/json&quot;
-          }));
+          $tw.wiki.addTiddler(new $tw.Tiddler(
+            { title:title, text:this.result, type:&quot;application/json&quot; },
+            null,{},$tw.wiki.getModificationFields()));
           var msg=&quot;loaded &quot;+title;
           if (parse==&quot;tiddlers&quot;) { // add separate tiddlers
             var tids=JSON.parse(this.result);
