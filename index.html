@@ -118,6 +118,16 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="http://tiddlywiki.com" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/Camera/format</li>
+
+<li>$:/config/Camera/height</li>
+
+<li>$:/config/Camera/quality</li>
+
+<li>$:/config/Camera/target</li>
+
+<li>$:/config/Camera/width</li>
+
 <li>$:/config/Geo/accuracy</li>
 
 <li>$:/config/Geo/Address</li>
@@ -170,6 +180,8 @@ Error message and password prompt
 
 <li>$:/state/Dashboard/AddressLookup</li>
 
+<li>$:/state/Dashboard/Camera</li>
+
 <li>$:/state/Dashboard/GeoLocation</li>
 
 <li>$:/state/Dashboard/LocalStorage</li>
@@ -210,8 +222,6 @@ Error message and password prompt
 
 <li>Camera/action-getpicture.js</li>
 
-<li>Camera/Test</li>
-
 <li>Cordova/pinchzoom.js</li>
 
 <li>Cordova/pinchzoom.markup</li>
@@ -219,6 +229,8 @@ Error message and password prompt
 <li>Dashboard</li>
 
 <li>Dashboard/AddressLookup</li>
+
+<li>Dashboard/Camera</li>
 
 <li>Dashboard/GeoLocation</li>
 
@@ -270,6 +282,21 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
+<div created="20151015074642870" modified="20151015074643007" title="$:/config/Camera/format">
+<pre>JPEG</pre>
+</div>
+<div created="20151015074647669" modified="20151015074647807" title="$:/config/Camera/height">
+<pre>384</pre>
+</div>
+<div created="20151015074649859" modified="20151015074649994" title="$:/config/Camera/quality">
+<pre>100 </pre>
+</div>
+<div created="20151015074638814" modified="20151015074639974" title="$:/config/Camera/target">
+<pre>photo.jpg</pre>
+</div>
+<div created="20151015074645220" modified="20151015074645323" title="$:/config/Camera/width">
+<pre>640</pre>
+</div>
 <div modified="20150722001614902" title="$:/config/Geo/accuracy">
 <pre>no</pre>
 </div>
@@ -6340,6 +6367,9 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014230151026" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
+<div modified="20151015074836906" title="$:/state/Dashboard/Camera">
+<pre>show</pre>
+</div>
 <div modified="20151014224603381" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
@@ -6361,8 +6391,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
 <pre>Dashboard/AddressLookup</pre>
 </div>
-<div modified="20151014222733231" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div modified="20151015075007670" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -6373,11 +6403,11 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014223520859" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Camera/action-getpicture.js" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151014230741846" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20150706192244698" modified="20151015075011779" title="$:/temp/advancedsearch">
+<pre>addTiddler</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6396,7 +6426,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151015071252028" title="$:/temp/notify">
+<div modified="20151015074844497" title="$:/temp/notify">
 <pre>camera error: not supported on this device</pre>
 </div>
 <div created="20150705104045705" modified="20151014133016863" title="$:/temp/search">
@@ -6507,7 +6537,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20151015072629290" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20151015075947520" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -6554,14 +6584,14 @@ CameraGetPictureWidget.prototype.refresh = function(changedTiddlers) {
 
 CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
-  function errorHandler(msg) {
-    $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,&quot;camera error: &quot;+msg);
+  function notify(msg) {
+    $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
     $tw.notifier.display(&quot;$:/temp/notify&quot;);
   }
 
   // if camera is not supported (e.g., not on a tablet/mobile device)
   if (typeof Camera == &quot;undefined&quot;) {
-    errorHandler(&quot;not supported on this device&quot;)
+    notify(&quot;camera access not supported on this device&quot;)
     return false;
   }
 
@@ -6591,24 +6621,17 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
 
   navigator.camera.getPicture(function(imageData) {
     alert(tiddler+&quot; = &quot;+imageData.length+&quot; bytes&quot;);
-    $tw.wiki.addTiddler(new $tw.Tiddler({
-      title: tiddler,
-      text: imageData,
-      type: &quot;image/jpeg&quot;
-    }));
-    alert(&quot;imageData =\n&quot;+imageData);
-  }, errorHandler, cameraOptions);
+    $tw.wiki.addTiddler(new $tw.Tiddler(
+      { title: tiddler, text: imageData, type: &quot;image/jpeg&quot; },
+      null,{},$tw.wiki.getModificationFields()));
+    notify(&quot;created &quot;+tiddler+&quot; (&quot;+imageData.length+&quot; bytes)&quot;);
+  }, notify, cameraOptions);
 
   return true; // Action was invoked
 };
 
 exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
 })();</pre>
-</div>
-<div created="20151015065408822" modified="20151015070045535" tags="" title="Camera/Test">
-<pre>&lt;$button&gt; invoke getPicture(...) with defaults
-   &lt;$action-getpicture /&gt;
-&lt;/$button&gt;</pre>
 </div>
 <div created="20150212062530288" creator="EricShulman" modified="20150927204911831" modifier="EricShulman" module-type="startup" tags="" title="Cordova/pinchzoom.js" type="application/javascript">
 <pre>(function(){
@@ -6644,7 +6667,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151014230651836" title="Dashboard">
+<div created="20150623211607895" modified="20151015074759529" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6669,11 +6692,12 @@ exports.startup = function() {
 \end
 
 |borderless nowrap|k
-| Local device functions:|&amp;nbsp; &lt;&lt;sliderbutton Dashboard/GeoLocation&gt;&gt; &lt;&lt;sliderbutton Dashboard/LocalStorage&gt;&gt; |
+| Local device functions:|&amp;nbsp; &lt;&lt;sliderbutton Dashboard/GeoLocation&gt;&gt; &lt;&lt;sliderbutton Dashboard/LocalStorage&gt;&gt; &lt;&lt;sliderbutton Dashboard/Camera&gt;&gt; |
 | Public data sources:|&amp;nbsp; &lt;&lt;sliderbutton Dashboard/Maps&gt;&gt; &lt;&lt;sliderbutton Dashboard/StreetView&gt;&gt; &lt;&lt;sliderbutton Dashboard/AddressLookup&gt;&gt; |
 | Private data sources:|&amp;nbsp; //''to be developed...''// |
 &lt;&lt;sliderpanel Dashboard/GeoLocation&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/LocalStorage&gt;&gt;
+&lt;&lt;sliderpanel Dashboard/Camera&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/Maps&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/StreetView&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;</pre>
@@ -6745,7 +6769,38 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Geo Location" created="20151009192708809" modified="20151014230521750" tags="" title="Dashboard/GeoLocation">
+<div caption="Camera" created="20151015065408822" modified="20151015080203412" tags="" title="Dashboard/Camera">
+<pre>\define takepicture()
+&lt;$button&gt; click!
+   &lt;$action-getpicture 
+      tiddler={{$:/config/Camera/target}}
+      format={{$:/config/Camera/format}}
+      width={{$:/config/Camera/width}}
+      height={{$:/config/Camera/height}}
+      quality={{$:/config/Camera/quality}}
+   /&gt;
+&lt;/$button&gt;
+\end
+
+\define pictureoptions()
+target:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/target&quot; default=&quot;photo.jpg&quot; size=&quot;10&quot; /&gt;
+format:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/format&quot; default=&quot;JPEG&quot; size=&quot;3&quot; /&gt;
+width:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/width&quot; default=&quot;640&quot; size=&quot;3&quot; /&gt;
+height:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/height&quot; default=&quot;384&quot; size=&quot;3&quot; /&gt;
+quality:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/quality&quot; default=&quot;100&quot; size=&quot;3&quot; /&gt;
+\end
+
+&lt;div class=&quot;shadowbox left clear&quot;&gt;
+@@.floatright.smaller &lt;&lt;takepicture&gt;&gt;@@
+''&lt;$text text={{!!caption}}/&gt;:'' //(experimental)//
+@@.center.clear.smaller
+&lt;hr&gt;
+&lt;&lt;pictureoptions&gt;&gt;
+&lt;$transclude tiddler={{$:/config/Camera/target}} mode=&quot;block&quot;/&gt;
+@@
+&lt;/div&gt;</pre>
+</div>
+<div caption="Geo Location" created="20151009192708809" modified="20151015074317537" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() Geo/Data
 
 \define msg(txt)
