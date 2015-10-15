@@ -282,7 +282,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151015074642870" modified="20151015074643007" title="$:/config/Camera/format">
+<div created="20151015074642870" modified="20151015081951621" title="$:/config/Camera/format">
 <pre>JPEG</pre>
 </div>
 <div created="20151015074647669" modified="20151015074647807" title="$:/config/Camera/height">
@@ -6367,14 +6367,14 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014230151026" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151015074836906" title="$:/state/Dashboard/Camera">
-<pre>show</pre>
+<div modified="20151015082232741" title="$:/state/Dashboard/Camera">
+<pre></pre>
 </div>
 <div modified="20151014224603381" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151014230350649" title="$:/state/Dashboard/LocalStorage">
-<pre>show</pre>
+<div modified="20151015082039238" title="$:/state/Dashboard/LocalStorage">
+<pre></pre>
 </div>
 <div modified="20151014230416944" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
@@ -6537,7 +6537,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20151015075947520" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20151015081815852" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -6549,10 +6549,11 @@ widget to use device camera and create an image tiddler
 
 params (default):
 tiddler = name of tiddler to create (photo.jpg)
-width   = pixels for scaling target image (1024)
-height  = pixels for scaling target image (768)
+tag     = tag for target tiddler (photo)
+width   = pixels for scaling target image (640)
+height  = pixels for scaling target image (384)
 format  = JPEG or PNG (JPEG)
-quality = 0-100 (100)
+quality = 0-100 (50)
 \*/
 
 (function(){
@@ -6572,6 +6573,7 @@ CameraGetPictureWidget.prototype.render = function(parent,nextSibling) {
 CameraGetPictureWidget.prototype.refresh = function(changedTiddlers) {
 	var changedAttributes = this.computeAttributes();
 	if(   changedAttributes[&quot;tiddler&quot;]
+           || changedAttributes[&quot;tag&quot;]
            || changedAttributes[&quot;width&quot;]
            || changedAttributes[&quot;height&quot;]
            || changedAttributes[&quot;format&quot;]
@@ -6596,10 +6598,11 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   }
 
   var tiddler = this.getAttribute(&quot;tiddler&quot;,&quot;photo.jpg&quot;);
+  var tag     = this.getAttribute(&quot;tag&quot;,&quot;photo&quot;);
   var width   = this.getAttribute(&quot;width&quot;,640);
   var height  = this.getAttribute(&quot;height&quot;,384);
   var format  = this.getAttribute(&quot;format&quot;,&quot;JPEG&quot;);
-  var quality = this.getAttribute(&quot;quality&quot;,100);
+  var quality = this.getAttribute(&quot;quality&quot;,50);
  
   var type    = &quot;image/jpeg&quot;;
   var enctype = Camera.EncodingType.JPEG;
@@ -6620,9 +6623,8 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   };
 
   navigator.camera.getPicture(function(imageData) {
-    alert(tiddler+&quot; = &quot;+imageData.length+&quot; bytes&quot;);
     $tw.wiki.addTiddler(new $tw.Tiddler(
-      { title: tiddler, text: imageData, type: &quot;image/jpeg&quot; },
+      { title:tiddler, tags:tag, text:imageData, type:type },
       null,{},$tw.wiki.getModificationFields()));
     notify(&quot;created &quot;+tiddler+&quot; (&quot;+imageData.length+&quot; bytes)&quot;);
   }, notify, cameraOptions);
@@ -6667,7 +6669,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151015074759529" title="Dashboard">
+<div created="20150623211607895" modified="20151015082246108" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6769,7 +6771,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151015080203412" tags="" title="Dashboard/Camera">
+<div caption="Camera" created="20151015065408822" modified="20151015081944819" tags="" title="Dashboard/Camera">
 <pre>\define takepicture()
 &lt;$button&gt; click!
    &lt;$action-getpicture 
@@ -6784,18 +6786,20 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 \define pictureoptions()
 target:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/target&quot; default=&quot;photo.jpg&quot; size=&quot;10&quot; /&gt;
-format:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/format&quot; default=&quot;JPEG&quot; size=&quot;3&quot; /&gt;
-width:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/width&quot; default=&quot;640&quot; size=&quot;3&quot; /&gt;
-height:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/height&quot; default=&quot;384&quot; size=&quot;3&quot; /&gt;
-quality:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/quality&quot; default=&quot;100&quot; size=&quot;3&quot; /&gt;
+format:&lt;$select field=&quot;text&quot; tiddler=&quot;$:/config/Camera/format&quot; default=&quot;JPEG&quot;&gt;
+&lt;option value=&quot;JPEG&quot;&gt;jpg&lt;/option&gt;
+&lt;option value=&quot;PNG&quot;&gt;png&lt;/option&gt;
+&lt;/$select&gt;
+width:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/width&quot; default=&quot;640&quot; size=&quot;2&quot; /&gt;
+height:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/height&quot; default=&quot;384&quot; size=&quot;2&quot; /&gt;
+quality:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/quality&quot; default=&quot;100&quot; size=&quot;2&quot; /&gt;
 \end
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
-@@.floatright.smaller &lt;&lt;takepicture&gt;&gt;@@
-''&lt;$text text={{!!caption}}/&gt;:'' //(experimental)//
+@@.floatright.smaller &lt;&lt;pictureoptions&gt;&gt; &lt;&lt;takepicture&gt;&gt;@@
+''&lt;$text text={{!!caption}}/&gt;:''
 @@.center.clear.smaller
 &lt;hr&gt;
-&lt;&lt;pictureoptions&gt;&gt;
 &lt;$transclude tiddler={{$:/config/Camera/target}} mode=&quot;block&quot;/&gt;
 @@
 &lt;/div&gt;</pre>
