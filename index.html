@@ -321,11 +321,11 @@ Error message and password prompt
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151014230354782" title="$:/config/LocalStorage/filename">
-<pre>locations.json</pre>
+<div created="20151007095534363" modified="20151015082958144" title="$:/config/LocalStorage/filename">
+<pre>photos.json</pre>
 </div>
-<div created="20151007095537546" modified="20151014230354782" title="$:/config/LocalStorage/filter">
-<pre>[tag[location]]</pre>
+<div created="20151007095537546" modified="20151015082958144" title="$:/config/LocalStorage/filter">
+<pre>[tag[photo]]</pre>
 </div>
 <div created="20151014043514021" modified="20151014201856082" title="$:/config/LocalStorage/limit">
 <pre>10</pre>
@@ -6373,7 +6373,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014224603381" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151015082039238" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151015083014363" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div modified="20151014230416944" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -6406,8 +6406,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151015075011779" title="$:/temp/advancedsearch">
-<pre>addTiddler</pre>
+<div created="20150706192244698" modified="20151015083205704" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6426,8 +6426,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151015074844497" title="$:/temp/notify">
-<pre>camera error: not supported on this device</pre>
+<div modified="20151015082952554" title="$:/temp/notify">
+<pre>locations.json: Not Found</pre>
 </div>
 <div created="20150705104045705" modified="20151014133016863" title="$:/temp/search">
 <pre></pre>
@@ -6669,7 +6669,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151015082246108" title="Dashboard">
+<div created="20150623211607895" modified="20151015083212873" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6899,7 +6899,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151014230238401" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151015082921152" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$set name=&quot;tooltip&quot; filter=&quot;[title{$:/config/LocalStorage/filename}addprefix[copy /]addsuffix[ from local storage to tiddler cache]]&quot;&gt;
 &lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt; load file
@@ -6976,6 +6976,8 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
       &quot;[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]&quot;&gt;&gt;
    &lt;&lt;filterbutton &quot;Address Data&quot; &quot;address.json&quot;
       &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
+   &lt;&lt;filterbutton &quot;Photos&quot; &quot;photos.json&quot;
+      &quot;[tag[photo]]&quot;&gt;&gt;
 \end
 
 \define setfilter()
