@@ -6373,7 +6373,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014223520859" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Camera/Test Dashboard" title="$:/StoryList">
+<div list="Camera/action-getpicture.js Camera/Test Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151014230741846" title="$:/temp/advancedsearch">
@@ -6396,8 +6396,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151015070012036" title="$:/temp/notify">
-<pre>camera error: no camera support on this device</pre>
+<div modified="20151015070102626" title="$:/temp/notify">
+<pre>camera error: not supported on this device</pre>
 </div>
 <div created="20150705104045705" modified="20151014133016863" title="$:/temp/search">
 <pre></pre>
@@ -6507,7 +6507,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20151015070032584" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20151015071231149" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -6566,8 +6566,8 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   }
 
   var tiddler = this.getAttribute(&quot;tiddler&quot;,&quot;photo.jpg&quot;);
-  var width   = this.getAttribute(&quot;width&quot;,1024);
-  var height  = this.getAttribute(&quot;height&quot;,768);
+  var width   = this.getAttribute(&quot;width&quot;,640);
+  var height  = this.getAttribute(&quot;height&quot;,384);
   var format  = this.getAttribute(&quot;format&quot;,&quot;JPEG&quot;);
   var quality = this.getAttribute(&quot;quality&quot;,100);
  
@@ -6589,9 +6589,8 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
     saveToPhotoAlbum: false
   };
 
-  alert('say CHEESE..... click!');
-
   navigator.camera.getPicture(function(imageData) {
+    alert(tiddler+&quot; = &quot;+imageData.length+&quot; bytes&quot;);
     $tw.wiki.addTiddler(new $tw.Tiddler({
       title: tiddler,
       text: imageData,
