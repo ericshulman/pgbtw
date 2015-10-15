@@ -6373,7 +6373,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014223520859" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Camera/action-getpicture.js Camera/Test Dashboard" title="$:/StoryList">
+<div list="Camera/action-getpicture.js" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151014230741846" title="$:/temp/advancedsearch">
@@ -6396,7 +6396,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151015070102626" title="$:/temp/notify">
+<div modified="20151015071252028" title="$:/temp/notify">
 <pre>camera error: not supported on this device</pre>
 </div>
 <div created="20150705104045705" modified="20151014133016863" title="$:/temp/search">
@@ -6507,7 +6507,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20151015071231149" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20151015072629290" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -6596,6 +6596,7 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
       text: imageData,
       type: &quot;image/jpeg&quot;
     }));
+    alert(&quot;imageData =\n&quot;+imageData);
   }, errorHandler, cameraOptions);
 
   return true; // Action was invoked
