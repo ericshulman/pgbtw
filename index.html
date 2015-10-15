@@ -208,6 +208,10 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla</li>
 
+<li>Camera/action-getpicture.js</li>
+
+<li>Camera/Test</li>
+
 <li>Cordova/pinchzoom.js</li>
 
 <li>Cordova/pinchzoom.markup</li>
@@ -6369,7 +6373,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014223520859" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Camera/Test Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151014230741846" title="$:/temp/advancedsearch">
@@ -6502,6 +6506,109 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
         }
     }
 }</pre>
+</div>
+<div created="20151015061102750" modified="20151015065348555" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<pre>/*\
+title: Camera/action-getpicture.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+widget to use device camera and create an image tiddler
+
+params (default):
+tiddler = name of tiddler to create (photo.jpg)
+width   = pixels for scaling target image (1024)
+height  = pixels for scaling target image (768)
+format  = JPEG or PNG (JPEG)
+quality = 0-100 (100)
+\*/
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+var CameraGetPictureWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+CameraGetPictureWidget.prototype = new Widget();
+CameraGetPictureWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+};
+
+CameraGetPictureWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if(   changedAttributes[&quot;tiddler&quot;]
+           || changedAttributes[&quot;width&quot;]
+           || changedAttributes[&quot;height&quot;]
+           || changedAttributes[&quot;format&quot;]
+           || changedAttributes[&quot;quality&quot;] ) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event) {
+
+  function errorHandler(msg) {
+    $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,&quot;camera error: &quot;+msg);
+    $tw.notifier.display(&quot;$:/temp/notify&quot;);
+  }
+
+  // if camera is not supported (e.g., not on a tablet/mobile device)
+  if (!Camera || !navigator.camera.getPicture) {
+    errorHandler(&quot;not supported on this device&quot;)
+    return false;
+  }
+
+  var tiddler = this.getAttribute(&quot;tiddler&quot;,&quot;photo.jpg&quot;);
+  var width   = this.getAttribute(&quot;width&quot;,1024);
+  var height  = this.getAttribute(&quot;height&quot;,768);
+  var format  = this.getAttribute(&quot;format&quot;,&quot;JPEG&quot;);
+  var quality = this.getAttribute(&quot;quality&quot;,100);
+ 
+  var type    = &quot;image/jpeg&quot;;
+  var enctype = Camera.EncodingType.JPEG;
+  if (format==&quot;PNG&quot;) {
+    type    = &quot;image/png&quot;;
+    enctype = Camera.EncodingType.PNG;
+  }
+
+  var cameraOptions = {
+    quality : quality,
+    destinationType : Camera.DestinationType.DATA_URL,
+    sourceType : Camera.PictureSourceType.CAMERA,
+    encodingType: enctype,
+    targetWidth: width,
+    targetHeight: height,
+    correctOrientation: true,
+    saveToPhotoAlbum: false
+  };
+
+  alert('say CHEESE..... click!');
+
+  navigator.camera.getPicture(function(imageData) {
+    $tw.wiki.addTiddler(new $tw.Tiddler({
+      title: tiddler,
+      text: imageData,
+      type: &quot;image/jpeg&quot;
+    }));
+  }, errorHandler, cameraOptions);
+
+  return true; // Action was invoked
+};
+
+exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
+})();</pre>
+</div>
+<div created="20151015065408822" modified="20151015065522835" tags="" title="Camera/Test">
+<pre>&lt;$button&gt; invoke getPicture(...) with defaults
+   &lt;$action-getpicture /&gt;
+&lt;/$button&gt;</pre>
 </div>
 <div created="20150212062530288" creator="EricShulman" modified="20150927204911831" modifier="EricShulman" module-type="startup" tags="" title="Cordova/pinchzoom.js" type="application/javascript">
 <pre>(function(){
