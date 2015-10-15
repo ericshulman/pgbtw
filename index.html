@@ -289,8 +289,8 @@ Error message and password prompt
 <div created="20151015074642870" modified="20151015081951621" title="$:/config/Camera/format">
 <pre>JPEG</pre>
 </div>
-<div created="20151015074647669" modified="20151015074647807" title="$:/config/Camera/height">
-<pre>384</pre>
+<div created="20151015074647669" modified="20151015235348962" title="$:/config/Camera/height">
+<pre>768</pre>
 </div>
 <div created="20151015074649859" modified="20151015083745261" title="$:/config/Camera/quality">
 <pre>50</pre>
@@ -298,8 +298,8 @@ Error message and password prompt
 <div created="20151015074638814" modified="20151015074639974" title="$:/config/Camera/target">
 <pre>photo.jpg</pre>
 </div>
-<div created="20151015074645220" modified="20151015074645323" title="$:/config/Camera/width">
-<pre>640</pre>
+<div created="20151015074645220" modified="20151015235347286" title="$:/config/Camera/width">
+<pre>1280</pre>
 </div>
 <div modified="20150722001614902" title="$:/config/Geo/accuracy">
 <pre>no</pre>
@@ -319,17 +319,17 @@ Error message and password prompt
 <div modified="20150724072250770" title="$:/config/Geo/watch">
 <pre>off</pre>
 </div>
-<div modified="20151014093210512" title="$:/config/GoogleMaps/maptype">
+<div modified="20151015235409877" title="$:/config/GoogleMaps/maptype">
 <pre>hybrid</pre>
 </div>
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151015205517097" title="$:/config/LocalStorage/filename">
-<pre>locations.json</pre>
+<div created="20151007095534363" modified="20151015234825152" title="$:/config/LocalStorage/filename">
+<pre>photos.json</pre>
 </div>
-<div created="20151007095537546" modified="20151015205517097" title="$:/config/LocalStorage/filter">
-<pre>[tag[location]]</pre>
+<div created="20151007095537546" modified="20151015234825152" title="$:/config/LocalStorage/filter">
+<pre>[tag[photo]]</pre>
 </div>
 <div created="20151014043514021" modified="20151014201856082" title="$:/config/LocalStorage/limit">
 <pre>10</pre>
@@ -6372,19 +6372,19 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014230151026" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151015083831512" title="$:/state/Dashboard/Camera">
+<div modified="20151015235405735" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151015205521862" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151015235323308" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151015205521231" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151015235335987" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151015205516192" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151015235300909" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
 </div>
-<div modified="20151015205522446" title="$:/state/Dashboard/Maps">
+<div modified="20151015235335115" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
 <div modified="20151014230658789" title="$:/state/Dashboard/StreetView">
@@ -6405,7 +6405,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151015205540252" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151015234812316" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
@@ -6431,8 +6431,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151015205517180" title="$:/temp/notify">
-<pre>locations.json: Not Found</pre>
+<div modified="20151015235305974" title="$:/temp/notify">
+<pre>camera access not supported on this device</pre>
 </div>
 <div created="20150705104045705" modified="20151015105445642" title="$:/temp/search">
 <pre></pre>
@@ -6669,7 +6669,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151015083835615" title="Dashboard">
+<div created="20150623211607895" modified="20151015235123939" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6697,6 +6697,10 @@ exports.startup = function() {
 | Local device functions:|&amp;nbsp; &lt;&lt;sliderbutton Dashboard/GeoLocation&gt;&gt; &lt;&lt;sliderbutton Dashboard/LocalStorage&gt;&gt; &lt;&lt;sliderbutton Dashboard/Camera&gt;&gt; |
 | Public data sources:|&amp;nbsp; &lt;&lt;sliderbutton Dashboard/Maps&gt;&gt; &lt;&lt;sliderbutton Dashboard/StreetView&gt;&gt; &lt;&lt;sliderbutton Dashboard/AddressLookup&gt;&gt; |
 | Private data sources:|&amp;nbsp; //''to be developed...''// |
+&lt;$reveal state=&quot;&quot;&quot;$:/state/Dashboard/LocalStorage&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+@@.smallest {{Dashboard/LocalStorage/QuickButtons}}@@
+&lt;/$reveal&gt;
+
 &lt;&lt;sliderpanel Dashboard/GeoLocation&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/LocalStorage&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/Camera&gt;&gt;
@@ -6899,7 +6903,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151015082921152" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151015234908560" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$set name=&quot;tooltip&quot; filter=&quot;[title{$:/config/LocalStorage/filename}addprefix[copy /]addsuffix[ from local storage to tiddler cache]]&quot;&gt;
 &lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt; load file
@@ -7050,9 +7054,6 @@ filename:
 @@.center.clear
 &lt;hr&gt;
 &lt;&lt;setfilename&gt;&gt; &amp;nbsp; &lt;&lt;setfilter&gt;&gt;
-&lt;div class=&quot;smallest&quot; style=&quot;margin-top:0.5em&quot;&gt;
-{{Dashboard/LocalStorage/QuickButtons}}
-&lt;/div&gt;
 @@
 &lt;/div&gt;
 &lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
@@ -7095,7 +7096,7 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage Tiddler Cache" created="20151014083917209" modified="20151015205418762" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Tiddler Cache" created="20151014083917209" modified="20151015234802173" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -7117,49 +7118,40 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 \end
 
 \define loadbutton()
-&lt;$set name=&quot;tooltip&quot; filter=&quot;[title&lt;fullname&gt;addprefix[copy /]addsuffix[ from local storage to tiddler cache]]&quot;&gt;
-&lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt;load
+&lt;$button tooltip=&quot;copy /$(fullname)$ from local storage to tiddler cache&quot;&gt;load
    &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt;
       root={{$:/config/LocalStorage/root}}
       parse=&quot;tiddlers&quot; /&gt;
 &lt;/$button&gt;
-&lt;/$set&gt;
 \end
 
 \define unloadbutton()
-&lt;$set name=&quot;tooltip&quot; filter=&quot;[title&lt;fullname&gt;addprefix[remove /]addsuffix[ from tiddler cache]]&quot;&gt;
-&lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt;unload
+&lt;$button tooltip=&quot;remove /$(fullname)$ from tiddler cache&quot;&gt;unload
    &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
-   &lt;$set name=&quot;txt&quot; filter=&quot;[title&lt;tid&gt;addprefix[deleted tiddler ]]&quot;&gt;
-      &lt;$macrocall $name=&quot;msg&quot; txt=&lt;&lt;txt&gt;&gt;/&gt;
-   &lt;/$set&gt;
-   &lt;$action-getfolders
-      root={{$:/config/LocalStorage/root}}
-      limit={{$:/config/LocalStorage/limit}}/&gt;
+   &lt;&lt;msg &quot;removed tiddler $(tid)$&quot;&gt;&gt;
 &lt;/$button&gt;
-&lt;/$set&gt;
 \end
 
 \define deletebutton()
-&lt;$set name=&quot;tooltip&quot; filter=&quot;[title&lt;fullname&gt;addprefix[delete /]addsuffix[ from local storage]]&quot;&gt;
-&lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt;delete
+&lt;$button tooltip=&quot;delete /$(fullname)$ from local storage&quot;&gt;delete
    &lt;$action-removefile filename=&lt;&lt;fullname&gt;&gt;
       root={{$:/config/LocalStorage/root}} /&gt;
+   &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
    &lt;$action-getfolders
       root={{$:/config/LocalStorage/root}}
       limit={{$:/config/LocalStorage/limit}}/&gt;
 &lt;/$button&gt;
-&lt;/$set&gt;
 \end
 
 \define deletefolderbutton()
-&lt;$set name=&quot;tooltip&quot; filter=&quot;[title&lt;fullname&gt;addprefix[delete /]addsuffix[ and all its contents from local storage]]&quot;&gt;
-&lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt;delete
+&lt;$button tooltip=&quot;delete /$(fullname)$ and all its contents from local storage&quot;&gt;delete
    &lt;$action-removefolder filename=&lt;&lt;fullname&gt;&gt;
       root={{$:/config/LocalStorage/root}} /&gt;
    &lt;$action-deletetiddler $filter=&quot;[prefix&lt;currentTiddler&gt;]&quot; /&gt;
+   &lt;$action-getfolders
+      root={{$:/config/LocalStorage/root}}
+      limit={{$:/config/LocalStorage/limit}}/&gt;
 &lt;/$button&gt;
-&lt;/$set&gt;
 \end
 
 \define showfolderitem()
@@ -7178,12 +7170,8 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 &lt;$set name=&quot;fullname&quot;
    filter=&quot;[title&lt;tid&gt;removeprefix[$:/LocalStorage/]]&quot;&gt;
 @@.smallest.floatright
-&lt;$list filter=&quot;[title&lt;tid&gt;is[missing]]&quot; variable=&quot;if-tiddler-missing&quot;&gt;
-   &lt;&lt;loadbutton&gt;&gt;
-&lt;/$list&gt;
-&lt;$list filter=&quot;[title&lt;tid&gt;is[tiddler]]&quot; variable=&quot;if-tiddler-exists&quot;&gt;
-   &lt;&lt;unloadbutton&gt;&gt;
-&lt;/$list&gt;
+&lt;$list filter=&quot;[title&lt;tid&gt;is[missing]]&quot; variable=&quot;none&quot;&gt;&lt;&lt;loadbutton&gt;&gt;  &lt;/$list&gt;
+&lt;$list filter=&quot;[title&lt;tid&gt;is[tiddler]]&quot; variable=&quot;none&quot;&gt;&lt;&lt;unloadbutton&gt;&gt;&lt;/$list&gt;
 &lt;&lt;deletebutton&gt;&gt;
 @@
 &lt;$link to=&lt;&lt;tid&gt;&gt;&gt;
@@ -7200,13 +7188,10 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 ''&lt;$text text={{!!caption}}/&gt;:''
 @@.clear
 &lt;hr&gt;
-&lt;$tiddler tiddler=&quot;$:/LocalStorage&quot;&gt;
-&lt;$list filter=&quot;[all[current]list[]]&quot; variable=&quot;filename&quot;&gt;
-   &lt;&lt;showfileitem&gt;&gt;
-&lt;/$list&gt;
-&lt;/$tiddler&gt;
-&lt;$list filter=&quot;[prefix[$:/LocalStorage/]has[list]sort[]]&quot;&gt;
+&lt;$list filter=&quot;[prefix[$:/LocalStorage]has[list]sort[]]&quot;&gt;
+   &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;nomatch&quot; default=&quot;$:/LocalStorage&quot;&gt;
    &lt;&lt;showfolderitem&gt;&gt;
+   &lt;/$reveal&gt;
    &lt;$list filter=&quot;[all[current]list[]]&quot; variable=&quot;filename&quot;&gt;
       &lt;&lt;showfileitem&gt;&gt;
    &lt;/$list&gt;
