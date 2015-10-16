@@ -6775,14 +6775,14 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151016002151978" tags="" title="Dashboard/Camera">
-<pre>\define gettarget() $name$$index$.$format$
+<div caption="Camera" created="20151015065408822" modified="20151016002955434" tags="" title="Dashboard/Camera">
+<pre>\define gettarget() $(name)$$(index)$.$(format)$
 
 &lt;$vars name={{$:/config/Camera/name}}
        index={{$:/config/Camera/index}}
        format={{$:/config/Camera/format}}&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
-@@.floatright.smaller
+@@.floatright.smaller.nowrap
 name:
 &lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
    tiddler=&quot;$:/config/Camera/name&quot; default=&quot;photo&quot; size=&quot;10&quot; /&gt;
