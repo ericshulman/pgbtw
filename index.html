@@ -6372,7 +6372,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151014230151026" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151015235405735" title="$:/state/Dashboard/Camera">
+<div modified="20151016002439349" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
 <div modified="20151015235323308" title="$:/state/Dashboard/GeoLocation">
@@ -6669,7 +6669,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151015235123939" title="Dashboard">
+<div created="20150623211607895" modified="20151016002445565" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6775,38 +6775,49 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151015083741271" tags="" title="Dashboard/Camera">
-<pre>\define takepicture()
+<div caption="Camera" created="20151015065408822" modified="20151016002151978" tags="" title="Dashboard/Camera">
+<pre>\define gettarget() $name$$index$.$format$
+
+&lt;$vars name={{$:/config/Camera/name}}
+       index={{$:/config/Camera/index}}
+       format={{$:/config/Camera/format}}&gt;
+&lt;div class=&quot;shadowbox left clear&quot;&gt;
+@@.floatright.smaller
+name:
+&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
+   tiddler=&quot;$:/config/Camera/name&quot; default=&quot;photo&quot; size=&quot;10&quot; /&gt;
+&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
+   tiddler=&quot;$:/config/Camera/index&quot; default=&quot;00&quot; size=&quot;2&quot; /&gt;
+&lt;$select field=&quot;text&quot;
+   tiddler=&quot;$:/config/Camera/format&quot; default=&quot;JPEG&quot;&gt;
+   &lt;option value=&quot;JPEG&quot;&gt;jpg&lt;/option&gt;
+   &lt;option value=&quot;PNG&quot;&gt;png&lt;/option&gt;
+&lt;/$select&gt;
+size:
+&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
+   tiddler=&quot;$:/config/Camera/width&quot; default=&quot;640&quot; size=&quot;2&quot; /&gt;
+x
+&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
+   tiddler=&quot;$:/config/Camera/height&quot; default=&quot;384&quot; size=&quot;2&quot; /&gt;
+quality:
+&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
+   tiddler=&quot;$:/config/Camera/quality&quot; default=&quot;50&quot; size=&quot;2&quot; /&gt;
 &lt;$button&gt; click!
-   &lt;$action-getpicture 
-      tiddler={{$:/config/Camera/target}}
+   &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
       format={{$:/config/Camera/format}}
       width={{$:/config/Camera/width}}
       height={{$:/config/Camera/height}}
       quality={{$:/config/Camera/quality}}
    /&gt;
 &lt;/$button&gt;
-\end
-
-\define pictureoptions()
-target:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/target&quot; default=&quot;photo.jpg&quot; size=&quot;10&quot; /&gt;
-format:&lt;$select field=&quot;text&quot; tiddler=&quot;$:/config/Camera/format&quot; default=&quot;JPEG&quot;&gt;
-&lt;option value=&quot;JPEG&quot;&gt;jpg&lt;/option&gt;
-&lt;option value=&quot;PNG&quot;&gt;png&lt;/option&gt;
-&lt;/$select&gt;
-width:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/width&quot; default=&quot;640&quot; size=&quot;2&quot; /&gt;
-height:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/height&quot; default=&quot;384&quot; size=&quot;2&quot; /&gt;
-quality:&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot; tiddler=&quot;$:/config/Camera/quality&quot; default=&quot;50&quot; size=&quot;2&quot; /&gt;
-\end
-
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
-@@.floatright.smaller &lt;&lt;pictureoptions&gt;&gt; &lt;&lt;takepicture&gt;&gt;@@
+@@
 ''&lt;$text text={{!!caption}}/&gt;:''
 @@.center.clear.smaller
 &lt;hr&gt;
-&lt;$transclude tiddler={{$:/config/Camera/target}} mode=&quot;block&quot;/&gt;
+&lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;/&gt;
 @@
-&lt;/div&gt;</pre>
+&lt;/div&gt;
+&lt;/$vars&gt;</pre>
 </div>
 <div caption="Geo Location" created="20151009192708809" modified="20151015074317537" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() Geo/Data
