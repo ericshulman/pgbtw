@@ -350,11 +350,11 @@ Error message and password prompt
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
 </div>
-<div created="20151007095534363" modified="20151016015804015" title="$:/config/LocalStorage/filename">
-<pre>locations.json</pre>
+<div created="20151007095534363" modified="20151016200807514" title="$:/config/LocalStorage/filename">
+<pre>zoop.foo</pre>
 </div>
-<div created="20151007095537546" modified="20151016015804015" title="$:/config/LocalStorage/filter">
-<pre>[tag[location]]</pre>
+<div created="20151007095537546" modified="20151016200742494" title="$:/config/LocalStorage/filter">
+<pre>[prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</pre>
 </div>
 <div created="20151014043514021" modified="20151014201856082" title="$:/config/LocalStorage/limit">
 <pre>10</pre>
@@ -7031,16 +7031,16 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151016040411177" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151016040650070" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151016202332868" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151016040713643" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151016202332101" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151016030904326" title="$:/state/Dashboard/LocalStorage/Viewer">
-<pre>closed</pre>
+<div modified="20151016195830693" title="$:/state/Dashboard/LocalStorage/Viewer">
+<pre>open</pre>
 </div>
-<div modified="20151016040710013" title="$:/state/Dashboard/Maps">
+<div modified="20151016202333587" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
 <div modified="20151016014801296" title="$:/state/Dashboard/StreetView">
@@ -7061,7 +7061,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151016030856914" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151016200934979" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
@@ -7087,10 +7087,10 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151016040147638" title="$:/temp/notify">
-<pre>camera access not supported on this device</pre>
+<div modified="20151016200821694" title="$:/temp/notify">
+<pre>: Unknown Error</pre>
 </div>
-<div created="20150705104045705" modified="20151016013457038" title="$:/temp/search">
+<div created="20150705104045705" modified="20151016200323486" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7597,7 +7597,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151016030745603" tags="" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151016200318415" tags="" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 load file
@@ -7701,7 +7701,7 @@ filter: &lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
 &amp;nbsp; select a file: &amp;nbsp;
 @@.thinline @@
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]]&quot;&gt;
-&lt;$list filter=&quot;[all[current]list[]]&quot; variable=&quot;filename&quot;&gt;
+&lt;$list filter=&quot;[all[current]list[!!filelist]]&quot; variable=&quot;filename&quot;&gt;
    &lt;$set name=&quot;fullname&quot; filter=&quot;[all[current]removeprefix[$:/LocalStorage]addsuffix[/]addsuffix&lt;filename&gt;removeprefix[/]]&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
       &lt;$text text=&lt;&lt;fullname&gt;&gt;/&gt;
@@ -7738,7 +7738,7 @@ filename:
    type=&quot;nomatch&quot; text=&quot;open&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot; 
       set=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; setTo=&quot;open&quot;&gt;
-      &lt;input type=&quot;checkbox&quot;&gt; view tiddler cache
+      &lt;input type=&quot;checkbox&quot;&gt; show viewer
       &lt;$action-getfolders
          root={{$:/config/LocalStorage/root}}
          limit={{$:/config/LocalStorage/limit}}/&gt;
@@ -7748,7 +7748,7 @@ filename:
    type=&quot;match&quot; text=&quot;open&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot; 
       set=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; setTo=&quot;closed&quot;&gt;
-      &lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;&gt; view tiddler cache
+      &lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;&gt; hide viewer
    &lt;/$button&gt;
 &lt;/$reveal&gt;
 \end
@@ -7805,7 +7805,7 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[$:/Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage Tiddler Cache" created="20151014083917209" modified="20151016025422835" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151016200235670" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -7893,11 +7893,11 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 @@.floatright.smaller.nowrap &lt;&lt;showcontrols&gt;&gt;@@
 &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;
 @@.clear.shadowbox.inset
-&lt;$list filter=&quot;[prefix[$:/LocalStorage]has[list]sort[]]&quot;&gt;
+&lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;&gt;
    &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;nomatch&quot; default=&quot;$:/LocalStorage&quot;&gt;
    &lt;&lt;showfolderitem&gt;&gt;
    &lt;/$reveal&gt;
-   &lt;$list filter=&quot;[all[current]list[]]&quot; variable=&quot;filename&quot;&gt;
+   &lt;$list filter=&quot;[all[current]list[!!filelist]]&quot; variable=&quot;filename&quot;&gt;
       &lt;&lt;showfileitem&gt;&gt;
    &lt;/$list&gt;
 &lt;/$list&gt;
@@ -8293,7 +8293,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 &lt;/svg&gt;
 </pre>
 </div>
-<div created="20151009070709830" modified="20151015105425588" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
+<div created="20151009070709830" modified="20151016201014269" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getfolders.js
 type: application/javascript
@@ -8378,7 +8378,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
     $tw.wiki.addTiddler(new $tw.Tiddler({ 
         title: &quot;$:/LocalStorage&quot;+(path.length?&quot;/&quot;:&quot;&quot;)+path,
         text: &quot;&quot;,
-        list: &quot;[[&quot;+filelist.join(&quot;]] [[&quot;)+&quot;]]&quot;
+        filelist: &quot;[[&quot;+filelist.sort().join(&quot;]] [[&quot;)+&quot;]]&quot;
       },null,{},$tw.wiki.getModificationFields()));
   }
 
