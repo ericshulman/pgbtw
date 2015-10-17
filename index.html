@@ -346,8 +346,8 @@ Error message and password prompt
 <div modified="20150724072250770" title="$:/config/Geo/watch">
 <pre>off</pre>
 </div>
-<div modified="20151016063307015" title="$:/config/GoogleMaps/maptype">
-<pre>hybrid</pre>
+<div modified="20151017011739840" title="$:/config/GoogleMaps/maptype">
+<pre>roadmap</pre>
 </div>
 <div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
 <pre>17</pre>
@@ -358,8 +358,8 @@ Error message and password prompt
 <div created="20151007095537546" modified="20151017004945839" title="$:/config/LocalStorage/filter">
 <pre>[tag[location]]</pre>
 </div>
-<div created="20151014043514021" modified="20151014201856082" title="$:/config/LocalStorage/limit">
-<pre>10</pre>
+<div created="20151014043514021" modified="20151017010931634" title="$:/config/LocalStorage/limit">
+<pre>2</pre>
 </div>
 <div created="20151014043511269" modified="20151014045711874" title="$:/config/LocalStorage/root">
 <pre>TW5/</pre>
@@ -7039,20 +7039,20 @@ LOAD
 <div modified="20151016205929366" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151016040411177" title="$:/state/Dashboard/Camera">
-<pre></pre>
-</div>
-<div modified="20151017004955005" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151017011756456" title="$:/state/Dashboard/Camera">
 <pre>show</pre>
 </div>
-<div modified="20151017004955941" title="$:/state/Dashboard/LocalStorage">
-<pre></pre>
+<div modified="20151017011802645" title="$:/state/Dashboard/GeoLocation">
+<pre>show</pre>
 </div>
-<div modified="20151017004952022" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151017011803668" title="$:/state/Dashboard/LocalStorage">
+<pre>show</pre>
+</div>
+<div modified="20151017011733441" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
 </div>
-<div modified="20151017004954311" title="$:/state/Dashboard/Maps">
-<pre>show</pre>
+<div modified="20151017011758469" title="$:/state/Dashboard/Maps">
+<pre></pre>
 </div>
 <div modified="20151016205856972" title="$:/state/Dashboard/StreetView">
 <pre></pre>
@@ -7072,7 +7072,7 @@ LOAD
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151017004937200" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151017011837191" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
@@ -7101,7 +7101,7 @@ LOAD
 <div modified="20151017004317874" title="$:/temp/notify">
 <pre>0 tiddlers loaded from $:/LocalStorage/a/b/z.z</pre>
 </div>
-<div created="20150705104045705" modified="20151016200323486" title="$:/temp/search">
+<div created="20150705104045705" modified="20151017011026014" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7816,7 +7816,7 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[$:/Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151017004933105" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151017010928835" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -7826,7 +7826,7 @@ filename:
 root: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/root&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;5&quot; default=&quot;TW5/&quot; /&gt;
 max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;5&quot; /&gt;
+   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;2&quot; /&gt;
 &lt;$button tooltip=&quot;get current local storage folder info&quot;&gt; refresh
    &lt;$action-getfolders
       root={{$:/config/LocalStorage/root}}
@@ -8333,7 +8333,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 &lt;/svg&gt;
 </pre>
 </div>
-<div created="20151009070709830" modified="20151016201014269" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
+<div created="20151009070709830" modified="20151017010907254" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getfolders.js
 type: application/javascript
@@ -8402,7 +8402,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
   }
 
   var root    = this.getAttribute(&quot;root&quot;,&quot;TW5/&quot;);
-  var limit   = this.getAttribute(&quot;limit&quot;,20);
+  var limit   = this.getAttribute(&quot;limit&quot;,2);
   var quota   = 1024*1024*5;
 
   function makeFolderTiddler(path,entries,level) {
@@ -8946,7 +8946,7 @@ exports[&quot;action-savefile&quot;] = LocalStorageSaveFileWidget;
 .tc-drop-down { min-width:100px; }
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150418111607835" creator="EricShulman" modified="20151016015614806" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
+<div created="20150418111607835" creator="EricShulman" modified="20151017011656095" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
 <pre>&lt;pre&gt;
 /* ---- FORMATTING SHORTCUTS ---- */
 
@@ -9011,9 +9011,10 @@ exports[&quot;action-savefile&quot;] = LocalStorageSaveFileWidget;
 .shadowbox {
    border:1px solid #999; border-radius:0.3em; margin:0; padding:0.3em;
    box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5);
+background: #f8f8ff;
 }
 .shadowbox.inset {
-   box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5) inset;
+   box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5) inset; background: #f8f8f8;
 }
 
 &lt;/pre&gt;</pre>
