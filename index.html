@@ -7081,7 +7081,7 @@ LOAD
 <div modified="20151017011837191" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Cordova/BackButton.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151017025234961" title="$:/temp/advancedsearch">
@@ -7314,7 +7314,7 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
 exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
 })();</pre>
 </div>
-<div created="20151017031322979" creator="EricShulman" modified="20151017033617867" modifier="EricShulman" module-type="startup" tags="" title="Cordova/BackButton.js" type="application/javascript">
+<div created="20151017031322979" creator="EricShulman" modified="20151017034126219" modifier="EricShulman" module-type="startup" tags="" title="Cordova/BackButton.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -7339,8 +7339,8 @@ exports.startup = function() {
    if (typeof cordova !== &quot;undefined&quot;){
       document.addEventListener(&quot;backbutton&quot;, function(e) {
         e.preventDefault();
-        // navigator.app.exitApp();  // EXIT APP (IF MAIN PAGE)
-        window.history.back();    // GO BACK IN BROWSER
+        navigator.app.exitApp();  // EXIT APP (IF MAIN PAGE)
+        // window.history.back();    // GO BACK IN BROWSER
      }, false);
    }
 };
