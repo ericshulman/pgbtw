@@ -118,51 +118,19 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="http://tiddlywiki.com" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
-<li>$:/config/Camera/format</li>
+<li>$:/config/Camera</li>
 
-<li>$:/config/Camera/height</li>
+<li>$:/config/Geo</li>
 
-<li>$:/config/Camera/index</li>
+<li>$:/config/GoogleMaps</li>
 
-<li>$:/config/Camera/name</li>
-
-<li>$:/config/Camera/quality</li>
-
-<li>$:/config/Camera/width</li>
-
-<li>$:/config/Geo/accuracy</li>
-
-<li>$:/config/Geo/Address</li>
-
-<li>$:/config/Geo/age</li>
-
-<li>$:/config/Geo/digits</li>
-
-<li>$:/config/Geo/timeout</li>
-
-<li>$:/config/Geo/watch</li>
-
-<li>$:/config/GoogleMaps/maptype</li>
-
-<li>$:/config/GoogleMaps/zoom</li>
-
-<li>$:/config/LocalStorage/filename</li>
-
-<li>$:/config/LocalStorage/filter</li>
-
-<li>$:/config/LocalStorage/limit</li>
-
-<li>$:/config/LocalStorage/root</li>
+<li>$:/config/LocalStorage</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/config/SaverFilter</li>
 
-<li>$:/config/StreetView/fov</li>
-
-<li>$:/config/StreetView/heading</li>
-
-<li>$:/config/StreetView/pitch</li>
+<li>$:/config/StreetView</li>
 
 <li>$:/core</li>
 
@@ -217,6 +185,8 @@ Error message and password prompt
 <li>$:/state/Dashboard/Maps</li>
 
 <li>$:/state/Dashboard/StreetView</li>
+
+<li>$:/state/GeoData</li>
 
 <li>$:/state/sidebar</li>
 
@@ -316,59 +286,37 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151015074642870" modified="20151016004837675" title="$:/config/Camera/format">
-<pre>jpg</pre>
+<div created="20151017063232716" modified="20151017063842870" title="$:/config/Camera" type="application/json">
+<pre>{
+    &quot;name&quot;: &quot;photo&quot;,
+    &quot;format&quot;: &quot;png&quot;,
+    &quot;index&quot;: &quot;00&quot;,
+    &quot;width&quot;: &quot;1280&quot;,
+    &quot;height&quot;: &quot;768&quot;,
+    &quot;quality&quot;: &quot;50&quot;
+}</pre>
 </div>
-<div created="20151015074647669" modified="20151015235348962" title="$:/config/Camera/height">
-<pre>768</pre>
+<div accuracy="yes" created="20151017064839232" modified="20151017065427672" title="$:/config/Geo" type="application/json">
+<pre>{
+    &quot;digits&quot;: &quot;6&quot;,
+    &quot;age&quot;: &quot;10000&quot;,
+    &quot;timeout&quot;: &quot;15000&quot;,
+    &quot;watch&quot;: &quot;off&quot;
+}</pre>
 </div>
-<div created="20151016010023160" modified="20151016010024825" title="$:/config/Camera/index">
-<pre>00</pre>
+<div created="20151017064328706" modified="20151017064345844" title="$:/config/GoogleMaps" type="application/json">
+<pre>{
+    &quot;maptype&quot;: &quot;hybrid&quot;,
+    &quot;zoom&quot;: &quot;17&quot;
+}</pre>
 </div>
-<div created="20151016004446269" modified="20151016004447468" title="$:/config/Camera/name">
-<pre>photo</pre>
-</div>
-<div created="20151015074649859" modified="20151015083745261" title="$:/config/Camera/quality">
-<pre>50</pre>
-</div>
-<div created="20151015074645220" modified="20151015235347286" title="$:/config/Camera/width">
-<pre>1280</pre>
-</div>
-<div modified="20150722001614902" title="$:/config/Geo/accuracy">
-<pre>no</pre>
-</div>
-<div modified="20151012035919088" title="$:/config/Geo/Address">
-<pre>Toronto, ON, Canada</pre>
-</div>
-<div created="20150722001608792" modified="20150722001608920" title="$:/config/Geo/age">
-<pre>10000</pre>
-</div>
-<div created="20150722001605193" modified="20151016012746452" title="$:/config/Geo/digits">
-<pre>6</pre>
-</div>
-<div created="20150722001611703" modified="20150722001611848" title="$:/config/Geo/timeout">
-<pre>15000</pre>
-</div>
-<div modified="20150724072250770" title="$:/config/Geo/watch">
-<pre>off</pre>
-</div>
-<div modified="20151017011739840" title="$:/config/GoogleMaps/maptype">
-<pre>roadmap</pre>
-</div>
-<div created="20150706212000752" modified="20151010205207188" title="$:/config/GoogleMaps/zoom">
-<pre>17</pre>
-</div>
-<div created="20151007095534363" modified="20151017004945839" title="$:/config/LocalStorage/filename">
-<pre>locations.json</pre>
-</div>
-<div created="20151007095537546" modified="20151017004945839" title="$:/config/LocalStorage/filter">
-<pre>[tag[location]]</pre>
-</div>
-<div created="20151014043514021" modified="20151017022400547" title="$:/config/LocalStorage/limit">
-<pre>3</pre>
-</div>
-<div created="20151014043511269" modified="20151014045711874" title="$:/config/LocalStorage/root">
-<pre>TW5/</pre>
+<div created="20151017070437816" modified="20151017071221619" title="$:/config/LocalStorage" type="application/json">
+<pre>{
+    &quot;filename&quot;: &quot;locations.json&quot;,
+    &quot;filter&quot;: &quot;[tag[location]]&quot;,
+    &quot;root&quot;: &quot;TW5/&quot;,
+    &quot;limit&quot;: &quot;5&quot;
+}</pre>
 </div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -376,14 +324,11 @@ Error message and password prompt
 <div created="20150705120259221" modified="20151014133031997" title="$:/config/SaverFilter">
 <pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage]]</pre>
 </div>
-<div created="20150706194209653" modified="20151010224408908" title="$:/config/StreetView/fov">
-<pre>120</pre>
-</div>
-<div created="20150706194241651" modified="20151010224412708" title="$:/config/StreetView/heading">
-<pre>200</pre>
-</div>
-<div created="20150706195954662" modified="20150706214449956" title="$:/config/StreetView/pitch">
-<pre>1</pre>
+<div created="20151017064109083" modified="20151017064116997" title="$:/config/StreetView" type="application/json">
+<pre>{
+    &quot;heading&quot;: &quot;200&quot;,
+    &quot;fov&quot;: &quot;120&quot;
+}</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.9">
 <pre>{
@@ -6387,13 +6332,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623224550947" modified="20150724070415663" title="$:/DefaultTiddlers">
 <pre>Dashboard</pre>
 </div>
-<div created="20151016012736156" modified="20151016013538115" title="$:/Geo/Data" type="application/json">
+<div created="20151016012736156" modified="20151017065053763" title="$:/Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div modified="20151016205859255" title="$:/Geo/Data/Address" type="application/json">
+<div modified="20151017070814843" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -6991,31 +6936,31 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 }
 </pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/administrative_area_level_1">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/administrative_area_level_1">
 <pre>Ontario, Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/administrative_area_level_2">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/administrative_area_level_2">
 <pre>Toronto Division, ON, Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/bus_station">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/bus_station">
 <pre>College Park at University Ave., Toronto, ON M5G, Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/country">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/country">
 <pre>Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/locality">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/locality">
 <pre>Toronto, ON, Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/neighborhood">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/neighborhood">
 <pre>Downtown, Toronto, ON, Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/postal_code_prefix">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/postal_code_prefix">
 <pre>Toronto, ON M5G, Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/street_address">
+<div modified="20151017070814845" title="$:/Geo/Data/Address/street_address">
 <pre>700 University Ave, Toronto, ON M5G, Canada</pre>
 </div>
-<div modified="20151016205859257" title="$:/Geo/Data/Address/sublocality_level_1">
+<div modified="20151017070814846" title="$:/Geo/Data/Address/sublocality_level_1">
 <pre>Old Toronto, Toronto, ON, Canada</pre>
 </div>
 <div status="complete" title="$:/Import">
@@ -7027,8 +6972,18 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div created="20151016213510525" filelist="foo bar baz mumble frotz" modified="20151016214926524" tags="" title="$:/scraps">
-<pre>|&lt;$list filter=&quot;[list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;is[missing]]&quot; variable=&quot;item&quot;&gt;&lt;$link to=&lt;&lt;item&gt;&gt;&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;&lt;/$link&gt;&lt;br&gt;&lt;/$list&gt;|&lt;$list filter=&quot;[list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;is[tiddler]]&quot; variable=&quot;item&quot;&gt;&lt;$link to=&lt;&lt;item&gt;&gt;&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;&lt;/$link&gt;&lt;br&gt;&lt;/$list&gt;|
+<div created="20151016213510525" filelist="foo bar baz mumble frotz" modified="20151017062217169" tags="" title="$:/scraps">
+<pre>```
+navigator.app.backHistory();
+navigator.app.cancelLoadUrl();
+navigator.app.clearCache();
+navigator.app.clearHistory();
+navigator.app.exitApp();
+navigator.app.loadUrl(url, props);
+navigator.app.overrideBackbutton(override);
+```
+
+|&lt;$list filter=&quot;[list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;is[missing]]&quot; variable=&quot;item&quot;&gt;&lt;$link to=&lt;&lt;item&gt;&gt;&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;&lt;/$link&gt;&lt;br&gt;&lt;/$list&gt;|&lt;$list filter=&quot;[list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;is[tiddler]]&quot; variable=&quot;item&quot;&gt;&lt;$link to=&lt;&lt;item&gt;&gt;&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;&lt;/$link&gt;&lt;br&gt;&lt;/$list&gt;|
 
 &lt;$list filter=&quot;[list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;is[missing]limit[1]]&quot; variable=&quot;item&quot; emptyMessage=&quot;&quot;&quot;
 UNLOAD
@@ -7051,10 +7006,10 @@ LOAD
 <div modified="20151017022252497" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151017022428318" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151017071624198" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151017022425391" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151017071622955" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>closed</pre>
 </div>
 <div modified="20151017022253245" title="$:/state/Dashboard/Maps">
@@ -7062,6 +7017,18 @@ LOAD
 </div>
 <div modified="20151016205856972" title="$:/state/Dashboard/StreetView">
 <pre></pre>
+</div>
+<div created="20151017065317799" modified="20151017065317799" title="$:/state/GeoData" type="application/json">
+<pre>{
+    &quot;latitude&quot;: 37.367876,
+    &quot;longitude&quot;: -122.019947,
+    &quot;altitude&quot;: 0,
+    &quot;accuracy&quot;: 75,
+    &quot;altitudeAccuracy&quot;: 0,
+    &quot;heading&quot;: 0,
+    &quot;speed&quot;: 0,
+    &quot;timestamp&quot;: 1445064797656
+}</pre>
 </div>
 <div modified="20151014063938326" title="$:/state/sidebar">
 <pre>yes</pre>
@@ -7078,13 +7045,13 @@ LOAD
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151017011837191" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151017071633340" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Cordova/Spineless.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151017040320131" title="$:/temp/advancedsearch">
+<div created="20150706192244698" modified="20151017071629931" title="$:/temp/advancedsearch">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -7110,10 +7077,10 @@ LOAD
 <div created="20150706215305238" modified="20151011121229887" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151017004317874" title="$:/temp/notify">
-<pre>0 tiddlers loaded from $:/LocalStorage/a/b/z.z</pre>
+<div modified="20151017071235535" title="$:/temp/notify">
+<pre>locations.json (1124 bytes) saved to ~LocalStorage</pre>
 </div>
-<div created="20150705104045705" modified="20151017011026014" title="$:/temp/search">
+<div created="20150705104045705" modified="20151017070424425" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7348,7 +7315,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20151017031322979" creator="EricShulman" modified="20151017040542277" modifier="EricShulman" module-type="startup" tags="" title="Cordova/Spineless.js" type="application/javascript">
+<div created="20151017031322979" creator="EricShulman" modified="20151017063052234" modifier="EricShulman" module-type="startup" tags="" title="Cordova/Spineless.js" type="application/javascript">
 <pre>/*\
 title: Cordova/Spineless.js
 type: application/javascript
@@ -7374,13 +7341,15 @@ exports.startup = function() {
    if (typeof cordova !== &quot;undefined&quot;){
       document.addEventListener(&quot;backbutton&quot;, function(e) {
         e.preventDefault();
-        // SKIP THIS TO PREVENT EXIT: navigator.app.exitApp();
+        // navigator.app.exitApp();
+        // history.go(-1);
+        // navigator.app.backHistory();
      }, false);
    }
 };
 })();</pre>
 </div>
-<div created="20150623211607895" modified="20151016040624506" title="Dashboard">
+<div created="20150623211607895" modified="20151017071437720" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -7422,7 +7391,7 @@ exports.startup = function() {
 &lt;&lt;sliderpanel Dashboard/StreetView&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
-<div caption="Address Lookup" created="20151010193622207" modified="20151016014657887" tags="" title="Dashboard/AddressLookup">
+<div caption="Address Lookup" created="20151010193622207" modified="20151017070813836" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata()
 &lt;$button&gt; get address
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -7435,9 +7404,9 @@ https://maps.googleapis.com/maps/api/geocode/json?address=$(addr)$
 \end
 
 \define getgeo()
-&lt;$edit-text tiddler=&quot;$:/config/Geo/Address&quot; tag=&quot;input&quot; size=&quot;50&quot;/&gt;
+&lt;$edit-text tiddler=&quot;$:/config/Geo&quot; index=&quot;address&quot; tag=&quot;input&quot; size=&quot;50&quot;/&gt;
 &lt;$button&gt; get Geo data
-&lt;$vars addr={{$:/config/Geo/Address}}&gt;
+&lt;$vars addr={{$:/config/Geo##address}}&gt;
 &lt;$action-httpRequest url=&lt;&lt;getgeourl&gt;&gt;
    tiddler=&quot;$:/Geo/Data/Address&quot; parse=&quot;geo&quot;/&gt;
 &lt;/$vars&gt;
@@ -7468,7 +7437,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
       &lt;tr&gt;&lt;td style=&quot;text-align:right&quot;&gt;&lt;&lt;item&gt;&gt;:&amp;nbsp;&lt;/td&gt;&lt;td&gt;
       &lt;$button class=&quot;tc-btn-invisible left&quot;&gt;
          ''&lt;$view field=&quot;text&quot;/&gt;''
-         &lt;$action-setfield $tiddler=&quot;$:/config/Geo/Address&quot; $value={{!!text}}/&gt;
+         &lt;$action-setfield $tiddler=&quot;$:/config/Geo&quot;
+           $index=&quot;address&quot; $value={{!!text}}/&gt;
       &lt;/$button&gt;
       &lt;/td&gt;&lt;/tr&gt;
    &lt;/$set&gt;
@@ -7490,17 +7460,17 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151016040138424" tags="" title="Dashboard/Camera">
+<div caption="Camera" created="20151015065408822" modified="20151017063733578" tags="" title="Dashboard/Camera">
 <pre>\define gettarget() $(name)$$(index)$.$(format)$
 
 \define getname()
 name:
-&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
-   tiddler=&quot;$:/config/Camera/name&quot; default=&quot;photo&quot; size=&quot;10&quot; /&gt;
-&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
-   tiddler=&quot;$:/config/Camera/index&quot; default=&quot;00&quot; size=&quot;2&quot; /&gt;
-&lt;$select field=&quot;text&quot;
-   tiddler=&quot;$:/config/Camera/format&quot; default=&quot;JPEG&quot;&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;name&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;photo&quot; size=&quot;10&quot; /&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;index&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;00&quot; size=&quot;2&quot; /&gt;
+&lt;$select index=&quot;format&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;JPEG&quot;&gt;
    &lt;option value=&quot;jpg&quot;&gt;jpg&lt;/option&gt;
    &lt;option value=&quot;png&quot;&gt;png&lt;/option&gt;
 &lt;/$select&gt;
@@ -7508,38 +7478,38 @@ name:
 
 \define getsize()
 size:
-&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
-   tiddler=&quot;$:/config/Camera/width&quot; default=&quot;640&quot; size=&quot;2&quot; /&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;width&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;640&quot; size=&quot;2&quot; /&gt;
 x
-&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
-   tiddler=&quot;$:/config/Camera/height&quot; default=&quot;384&quot; size=&quot;2&quot; /&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;height&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;384&quot; size=&quot;2&quot; /&gt;
 \end
 
 \define getquality()
 quality:
-&lt;$edit-text tag=&quot;input&quot; field=&quot;text&quot;
-   tiddler=&quot;$:/config/Camera/quality&quot; default=&quot;50&quot; size=&quot;2&quot; /&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;quality&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;50&quot; size=&quot;2&quot; /&gt;
 \end
 
 \define getpicture()
-&lt;$vars name={{$:/config/Camera/name}}
-       index={{$:/config/Camera/index}}
-       format={{$:/config/Camera/format}}&gt;
+&lt;$vars name={{$:/config/Camera##name}}
+       index={{$:/config/Camera##index}}
+       format={{$:/config/Camera##format}}&gt;
    &lt;$button&gt; click!
    &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
-      format={{$:/config/Camera/format}}
-      width={{$:/config/Camera/width}}
-      height={{$:/config/Camera/height}}
-      quality={{$:/config/Camera/quality}}
+      format={{$:/config/Camera##format}}
+      width={{$:/config/Camera##width}}
+      height={{$:/config/Camera##height}}
+      quality={{$:/config/Camera##quality}}
    /&gt;
    &lt;/$button&gt;
 &lt;/$vars&gt;
 \end
 
 \define showpicture()
-&lt;$vars name={{$:/config/Camera/name}}
-       index={{$:/config/Camera/index}}
-       format={{$:/config/Camera/format}}&gt;
+&lt;$vars name={{$:/config/Camera##name}}
+       index={{$:/config/Camera##index}}
+       format={{$:/config/Camera##format}}&gt;
    &lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;&gt;
    &lt;table class=&quot;borderless&quot; style=&quot;height:10em;width:100%;&quot;&gt;
    &lt;tr valign=&quot;center&quot;&gt;&lt;td align=&quot;center&quot;&gt;
@@ -7557,7 +7527,7 @@ quality:
 @@.center.clear.smaller.shadowbox.inset &lt;&lt;showpicture&gt;&gt;@@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Geo Location" created="20151009192708809" modified="20151016012731840" tags="" title="Dashboard/GeoLocation">
+<div caption="Geo Location" created="20151009192708809" modified="20151017065412428" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7569,32 +7539,32 @@ quality:
 &lt;$button&gt;
    get Geo data
    &lt;$action-getGeoData mode=&quot;get&quot; tiddler=&lt;&lt;target&gt;&gt;
-      age={{$:/config/Geo/age}}
-      timeout={{$:/config/Geo/timeout}}
-      digits={{$:/config/Geo/digits}}
-      highaccuracy={{$:/config/Geo/accuracy}} /&gt;
+      age={{$:/config/Geo##age}}
+      timeout={{$:/config/Geo##timeout}}
+      digits={{$:/config/Geo##digits}}
+      highaccuracy={{$:/config/Geo!!accuracy}} /&gt;
    &lt;&lt;msg &quot;Requesting Geolocation data...&quot;&gt;&gt;
 &lt;/$button&gt;
 \end
 
 \define startstopGeo()
-&lt;$reveal state=&quot;$:/config/Geo/watch&quot; type=&quot;match&quot; text=&quot;off&quot;&gt; 
+&lt;$reveal state=&quot;$:/config/Geo##watch&quot; type=&quot;match&quot; text=&quot;off&quot;&gt; 
    &lt;$button&gt;
       start Geo scan
       &lt;$action-getGeoData mode=&quot;start&quot; tiddler=&lt;&lt;target&gt;&gt;
-         age={{$:/config/Geo/age}}
-         timeout={{$:/config/Geo/timeout}}
-         digits={{$:/config/Geo/digits}}
-         highaccuracy={{$:/config/Geo/accuracy}} /&gt;
-      &lt;$action-setfield $tiddler=&quot;$:/config/Geo/watch&quot; $value=&quot;on&quot;/&gt;
+         age={{$:/config/Geo##age}}
+         timeout={{$:/config/Geo##timeout}}
+         digits={{$:/config/Geo##digits}}
+         highaccuracy={{$:/config/Geo!!accuracy}} /&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/Geo&quot; $index=&quot;watch&quot; $value=&quot;on&quot;/&gt;
       &lt;&lt;msg &quot;Starting continuous Geolocation scan&quot;&gt;&gt;
    &lt;/$button&gt;
 &lt;/$reveal&gt;
-&lt;$reveal state=&quot;$:/config/Geo/watch&quot; type=&quot;nomatch&quot; text=&quot;off&quot;&gt; 
+&lt;$reveal state=&quot;$:/config/Geo##watch&quot; type=&quot;nomatch&quot; text=&quot;off&quot;&gt; 
    &lt;$button&gt;
       stop Geo scan
       &lt;$action-getGeoData mode=&quot;stop&quot; /&gt;
-      &lt;$action-setfield $tiddler=&quot;$:/config/Geo/watch&quot; $value=&quot;off&quot;/&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/Geo&quot; $index=&quot;watch&quot; $value=&quot;off&quot;/&gt;
       &lt;&lt;msg &quot;Geolocation scan stopped&quot;&gt;&gt;
    &lt;/$button&gt;
 &lt;/$reveal&gt;
@@ -7632,12 +7602,12 @@ longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
 
 \define GeoOptions()
 max digits: &lt;$edit-text tag=&quot;input&quot; size=&quot;1&quot;
-   tiddler=&quot;$:/config/Geo/digits&quot; default=&quot;6&quot;/&gt;
+   tiddler=&quot;$:/config/Geo&quot; index=&quot;digits&quot; default=&quot;6&quot;/&gt;
 max age: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
-   tiddler=&quot;$:/config/Geo/age&quot; default=&quot;10000&quot;/&gt;
+   tiddler=&quot;$:/config/Geo&quot; index=&quot;age&quot; default=&quot;10000&quot;/&gt;
 timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
-   tiddler=&quot;$:/config/Geo/timeout&quot; default=&quot;15000&quot;/&gt;
-&lt;$checkbox tiddler=&quot;$:/config/Geo/accuracy&quot; field=&quot;text&quot;
+   tiddler=&quot;$:/config/Geo&quot; index=&quot;timeout&quot; default=&quot;15000&quot;/&gt;
+&lt;$checkbox tiddler=&quot;$:/config/Geo&quot; field=&quot;accuracy&quot;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; high accuracy &lt;/$checkbox&gt;
 \end
 
@@ -7652,13 +7622,13 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151017012733647" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151017070552161" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 load file
 &lt;$action-loadfile
-   root={{$:/config/LocalStorage/root}}
-   filename={{$:/config/LocalStorage/filename}}
+   root={{$:/config/LocalStorage##root}}
+   filename={{$:/config/LocalStorage##filename}}
    parse=&quot;tiddlers&quot;/&gt;
 &lt;/$button&gt;
 \end
@@ -7667,12 +7637,12 @@ load file
 &lt;$button tooltip=&quot;save matching tiddlers to /$(filename)$ in local storage&quot;&gt;
 save file
 &lt;$action-savefile
-   root={{$:/config/LocalStorage/root}}
-   filename={{$:/config/LocalStorage/filename}}
-   filter={{$:/config/LocalStorage/filter}} /&gt;
+   root={{$:/config/LocalStorage##root}}
+   filename={{$:/config/LocalStorage##filename}}
+   filter={{$:/config/LocalStorage##filter}} /&gt;
 &lt;$action-getfolders
-   root={{$:/config/LocalStorage/root}}
-   limit={{$:/config/LocalStorage/limit}}/&gt;
+   root={{$:/config/LocalStorage##root}}
+   limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
 \end
 
@@ -7680,12 +7650,12 @@ save file
 &lt;$button tooltip=&quot;remove /$(filename)$ from local storage&quot;&gt;
 delete file
 &lt;$action-removefile
-   root={{$:/config/LocalStorage/root}}
-   filename={{$:/config/LocalStorage/filename}}/&gt;
+   root={{$:/config/LocalStorage##root}}
+   filename={{$:/config/LocalStorage##filename}}/&gt;
 &lt;$action-deletetiddler $tiddler=&quot;&quot;&quot;$:/LocalStorage/$(filename)$&quot;&quot;&quot; /&gt;
 &lt;$action-getfolders
-   root={{$:/config/LocalStorage/root}}
-   limit={{$:/config/LocalStorage/limit}}/&gt;
+   root={{$:/config/LocalStorage##root}}
+   limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
 \end
 
@@ -7693,16 +7663,16 @@ delete file
 &lt;$button tooltip=&quot;delete /$(filename)$ and all its contents from local storage&quot;&gt;
 delete folder
 &lt;$action-removefolder
-   root={{$:/config/LocalStorage/root}}
-   filename={{$:/config/LocalStorage/filename}}/&gt;
-&lt;$action-deletetiddler $filter=&quot;[prefix{$:/config/LocalStorage/filename}]&quot; /&gt;
+   root={{$:/config/LocalStorage##root}}
+   filename={{$:/config/LocalStorage##filename}}/&gt;
+&lt;$action-deletetiddler $filter=&quot;[prefix{$:/config/LocalStorage##filename}]&quot; /&gt;
 &lt;/$button&gt;
 \end
 
 \define filterinfo()
    &amp;nbsp; This filter matches these tiddlers: &amp;nbsp;
    @@.thinline @@
-   &lt;$list filter={{$:/config/LocalStorage/filter}}
+   &lt;$list filter={{$:/config/LocalStorage##filter}}
       emptyMessage=&quot;@@.smallest //(no matching tiddlers)//@@&quot;&gt;
       &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
    &lt;/$list&gt;
@@ -7710,9 +7680,9 @@ delete folder
 
 \define filterbutton(text,filename,filter)
    &lt;$button class=&quot;tc-btn-invisible&quot;&gt;$text$
-      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot; $index=&quot;filter&quot;
          $value=&quot;$filter$&quot;/&gt;
-      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot; $index=&quot;filename&quot;
          $value=&quot;$filename$&quot;/&gt;
    &lt;/$button&gt;
 \end
@@ -7740,7 +7710,7 @@ delete folder
    &lt;&lt;filterinfo&gt;&gt;
 &lt;/$reveal&gt;
 filter: &lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
-   tiddler=&quot;$:/config/LocalStorage/filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
+   tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filter&quot;
    popup=&quot;$:/temp/popup/filterPickerDropdown&quot;&gt;
    {{$:/core/images/down-arrow}}
@@ -7760,9 +7730,8 @@ filter: &lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
    &lt;$set name=&quot;fullname&quot; filter=&quot;[all[current]removeprefix[$:/LocalStorage]addsuffix[/]addsuffix&lt;filename&gt;removeprefix[/]]&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
       &lt;$text text=&lt;&lt;fullname&gt;&gt;/&gt;
-      &lt;$action-setfield
-         $tiddler=&quot;$:/config/LocalStorage/filename&quot;
-         $value=&lt;&lt;fullname&gt;&gt;/&gt;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot;
+         $index=&quot;filename&quot; $value=&lt;&lt;fullname&gt;&gt;/&gt;
    &lt;/$button&gt;
    &lt;/$set&gt;
 &lt;/$list&gt;
@@ -7773,12 +7742,12 @@ filter: &lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
 @@.nowrap
 filename:
 &lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
-   tiddler=&quot;$:/config/LocalStorage/filename&quot; default=&quot;locations.json&quot;/&gt;
+   tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;filename&quot; default=&quot;locations.json&quot;/&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filename&quot;
    popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
    &lt;$action-getfolders
-      root={{$:/config/LocalStorage/root}}
-      limit={{$:/config/LocalStorage/limit}}/&gt;
+      root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
    {{$:/core/images/down-arrow}}
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot;
@@ -7795,8 +7764,8 @@ filename:
       set=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; setTo=&quot;open&quot;&gt;
       &lt;input type=&quot;checkbox&quot;&gt; show viewer
       &lt;$action-getfolders
-         root={{$:/config/LocalStorage/root}}
-         limit={{$:/config/LocalStorage/limit}}/&gt;
+         root={{$:/config/LocalStorage##root}}
+         limit={{$:/config/LocalStorage##limit}}/&gt;
    &lt;/$button&gt;
 &lt;/$reveal&gt;
 &lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot;
@@ -7810,7 +7779,7 @@ filename:
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-&lt;$vars filename={{$:/config/LocalStorage/filename}}&gt;
+&lt;$vars filename={{$:/config/LocalStorage##filename}}&gt;
 &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;
 &lt;/$vars&gt;
 @@
@@ -7826,12 +7795,12 @@ filename:
    {{Dashboard/LocalStorage/Viewer}}
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20151014084310662" modified="20151016013346886" tags="" title="Dashboard/LocalStorage/QuickButtons">
+<div created="20151014084310662" modified="20151017065728111" tags="" title="Dashboard/LocalStorage/QuickButtons">
 <pre>\define load(text,filename,filter)
    &lt;$button&gt;load $text$
-      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot; $index=&quot;filename&quot;
          $value=&quot;$filename$&quot;/&gt;
-      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot; $index=&quot;filter&quot;
          $value=&quot;$filter$&quot;/&gt;
       &lt;$action-loadfile filename=&quot;&quot;&quot;$filename$&quot;&quot;&quot; parse=&quot;tiddlers&quot;/&gt;
    &lt;/$button&gt;
@@ -7839,15 +7808,15 @@ filename:
 
 \define save(text,filename,filter)
    &lt;$button&gt;save $text$
-      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filename&quot;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot; $index=&quot;filename&quot;
          $value=&quot;$filename$&quot;/&gt;
-      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage/filter&quot;
+      &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot; $index=&quot;filter&quot;
          $value=&quot;$filter$&quot;/&gt;
       &lt;$action-savefile filename=&quot;&quot;&quot;$filename$&quot;&quot;&quot; filter=&quot;&quot;&quot;$filter$&quot;&quot;&quot; 
          force=&quot;true&quot; /&gt;
       &lt;$action-getfolders
-         root={{$:/config/LocalStorage/root}}
-         limit={{$:/config/LocalStorage/limit}}/&gt;
+         root={{$:/config/LocalStorage##root}}
+         limit={{$:/config/LocalStorage##limit}}/&gt;
    &lt;/$button&gt;
 \end
 
@@ -7860,21 +7829,21 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[$:/Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151017021807843" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151017070951491" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
 \end
 
 \define showcontrols()
-root: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/root&quot;
+root: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;root&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;5&quot; default=&quot;TW5/&quot; /&gt;
-max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
+max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;limit&quot;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;2&quot; /&gt;
 &lt;$button tooltip=&quot;get current local storage folder info&quot;&gt; refresh
    &lt;$action-getfolders
-      root={{$:/config/LocalStorage/root}}
-      limit={{$:/config/LocalStorage/limit}}/&gt;
+      root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
 &lt;$button tooltip=&quot;clear tiddler cache (local storage is unchanged)&quot;&gt; reset
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
@@ -7884,7 +7853,7 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 \define loadbutton()
 &lt;$button tooltip=&quot;copy FILE /$(fullname)$ from local storage to tiddler cache&quot;&gt;load file
    &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt;
-      root={{$:/config/LocalStorage/root}}
+      root={{$:/config/LocalStorage##root}}
       parse=&quot;tiddlers&quot; /&gt;
 &lt;/$button&gt;
 \end
@@ -7893,7 +7862,7 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 &lt;$button tooltip=&quot;copy contents of FOLDER /$(fullname)$ from local storage to tiddler cache&quot;&gt;load all&amp;nbsp;
    &lt;$list filter=&quot;[all[current]list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;removeprefix[$:/LocalStorage/]]&quot; variable=&quot;fullname&quot;&gt;
    &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt;
-      root={{$:/config/LocalStorage/root}}
+      root={{$:/config/LocalStorage##root}}
       parse=&quot;tiddlers&quot; /&gt;
    &lt;/$list&gt;
 &lt;/$button&gt;
@@ -7916,18 +7885,18 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage/limit&quot;
 \define deletebutton()
 &lt;$button tooltip=&quot;delete FILE /$(fullname)$ from local storage&quot;&gt;delete file
    &lt;$action-removefile filename=&lt;&lt;fullname&gt;&gt;
-      root={{$:/config/LocalStorage/root}} /&gt;
+      root={{$:/config/LocalStorage##root}} /&gt;
    &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
    &lt;$action-getfolders
-      root={{$:/config/LocalStorage/root}}
-      limit={{$:/config/LocalStorage/limit}}/&gt;
+      root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
 \end
 
 \define deletefolderbutton()
 &lt;$button tooltip=&quot;delete FOLDER /$(fullname)$ and all its contents from local storage&quot;&gt;delete all&amp;nbsp;
    &lt;$action-removefolder filename=&lt;&lt;fullname&gt;&gt;
-      root={{$:/config/LocalStorage/root}} /&gt;
+      root={{$:/config/LocalStorage##root}} /&gt;
    &lt;$action-deletetiddler $filter=&quot;[prefix&lt;currentTiddler&gt;]&quot; /&gt;
 &lt;/$button&gt;
 \end
@@ -7992,7 +7961,7 @@ variable=&quot;item&quot; emptyMessage=&quot;&quot;&quot;&lt;&lt;unloadfolderbut
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Google Maps" created="20151010204309614" modified="20151016014448920" tags="" title="Dashboard/Maps">
+<div caption="Google Maps" created="20151010204309614" modified="20151017064321547" tags="" title="Dashboard/Maps">
 <pre>\define ShowMap(w,h)
 [img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$w$x$h$&amp;scale=1&amp;maptype=$(maptype)$&amp;format=jpg]]
 \end
@@ -8003,23 +7972,23 @@ source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$..
 
 &lt;$vars latitude={{$:/Geo/Data##latitude}}
        longitude={{$:/Geo/Data##longitude}}
-       zoom={{$:/config/GoogleMaps/zoom}}
-       maptype={{$:/config/GoogleMaps/maptype}}&gt;
+       zoom={{$:/config/GoogleMaps##zoom}}
+       maptype={{$:/config/GoogleMaps##maptype}}&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.borderless
 &lt;table&gt;&lt;tr&gt;&lt;td&gt;
    maptype: &amp;nbsp;
 &lt;/td&gt;&lt;td&gt;
-   &lt;$select tiddler=&quot;$:/config/GoogleMaps/maptype&quot; default=&quot;hybrid&quot;&gt;
+   &lt;$select tiddler=&quot;$:/config/GoogleMaps&quot; index=&quot;maptype&quot; default=&quot;hybrid&quot;&gt;
    &lt;option value=&quot;roadmap&quot;&gt;roadmap&lt;/option&gt;
    &lt;option value=&quot;satellite&quot;&gt;satellite&lt;/option&gt;
    &lt;option value=&quot;terrain&quot;&gt;terrain&lt;/option&gt;
    &lt;option value=&quot;hybrid&quot;&gt;hybrid&lt;/option&gt;
    &lt;/$select&gt; &amp;nbsp;
 &lt;/td&gt;&lt;td&gt;
-   zoom=''{{$:/config/GoogleMaps/zoom}}'' &amp;nbsp;
+   zoom=''{{$:/config/GoogleMaps##zoom}}'' &amp;nbsp;
 &lt;/td&gt;&lt;td&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/GoogleMaps/zoom&quot; tooltip=&quot;heading&quot;
+   &lt;$edit-text tiddler=&quot;$:/config/GoogleMaps&quot; index=&quot;zoom&quot; tooltip=&quot;heading&quot;
       tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;20&quot; step=&quot;1&quot;/&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 @@
@@ -8030,7 +7999,7 @@ source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$..
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Street View" created="20151010205755347" modified="20151016014743762" tags="" title="Dashboard/StreetView">
+<div caption="Street View" created="20151010205755347" modified="20151017064102928" tags="" title="Dashboard/StreetView">
 <pre>\define StreetView(w,h)
 [img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 \end
@@ -8041,22 +8010,22 @@ source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$.
 
 &lt;$vars latitude={{$:/Geo/Data##latitude}}
        longitude={{$:/Geo/Data##longitude}}
-       heading={{$:/config/StreetView/heading}}
-       fov={{$:/config/StreetView/fov}}&gt;
+       heading={{$:/config/StreetView##heading}}
+       fov={{$:/config/StreetView##fov}}&gt;
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.borderless
 &lt;table&gt;&lt;tr&gt;&lt;td&gt;
-   heading=''{{$:/config/StreetView/heading}}'' &amp;nbsp;
+   heading=''{{$:/config/StreetView##heading}}'' &amp;nbsp;
 &lt;/td&gt;&lt;td&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/StreetView/heading&quot; tooltip=&quot;heading&quot;
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView&quot; index=&quot;heading&quot; tooltip=&quot;heading&quot;
       tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;
 &lt;/td&gt;&lt;td&gt;
    &amp;nbsp; &amp;nbsp; &amp;nbsp;
 &lt;/td&gt;&lt;td&gt;
-   field of view=''{{$:/config/StreetView/fov}}'' &amp;nbsp;
+   field of view=''{{$:/config/StreetView##fov}}'' &amp;nbsp;
 &lt;/td&gt;&lt;td&gt;
-   &lt;$edit-text tiddler=&quot;$:/config/StreetView/fov&quot; tooltip=&quot;field of view&quot;
+   &lt;$edit-text tiddler=&quot;$:/config/StreetView&quot; index=&quot;fov&quot; tooltip=&quot;field of view&quot;
       tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 @@
