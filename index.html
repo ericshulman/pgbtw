@@ -310,7 +310,7 @@ Error message and password prompt
     &quot;zoom&quot;: &quot;17&quot;
 }</pre>
 </div>
-<div created="20151017070437816" modified="20151018001051620" title="$:/config/LocalStorage" type="application/json">
+<div created="20151017070437816" modified="20151018070516402" title="$:/config/LocalStorage" type="application/json">
 <pre>{
     &quot;filename&quot;: &quot;locations.json&quot;,
     &quot;filter&quot;: &quot;[tag[location]]&quot;,
@@ -7008,16 +7008,16 @@ LOAD
 <div modified="20151017022209799" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151017022252497" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151018070504714" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151017232047605" title="$:/state/Dashboard/LocalStorage">
-<pre>show</pre>
+<div modified="20151018070830354" title="$:/state/Dashboard/LocalStorage">
+<pre></pre>
 </div>
-<div modified="20151018000355042" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151018070827165" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151017022253245" title="$:/state/Dashboard/Maps">
+<div modified="20151018070505626" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
 <div modified="20151016205856972" title="$:/state/Dashboard/StreetView">
@@ -7053,7 +7053,7 @@ LOAD
 <div modified="20151017235326923" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard/LocalStorage/Viewer Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151017071629931" title="$:/temp/advancedsearch">
@@ -7082,8 +7082,8 @@ LOAD
 <div created="20150706215305238" modified="20151017190942722" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151018000443713" title="$:/temp/notify">
-<pre>4 tiddlers loaded from $:/LocalStorage/a/b/c/d/e.f</pre>
+<div modified="20151018070522528" title="$:/temp/notify">
+<pre>removed tiddlers from a/b/c</pre>
 </div>
 <div created="20150705104045705" modified="20151017070424425" title="$:/temp/search">
 <pre></pre>
@@ -7354,7 +7354,7 @@ exports.startup = function() {
 };
 })();</pre>
 </div>
-<div created="20150623211607895" modified="20151018000704698" title="Dashboard">
+<div created="20150623211607895" modified="20151018070459387" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -7627,7 +7627,7 @@ timeout: &lt;$edit-text tag=&quot;input&quot; size=&quot;3&quot;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Local Storage" created="20151009192813110" modified="20151018000652587" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
+<div caption="Local Storage" created="20151009192813110" modified="20151018070450476" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
 <pre>\define loadfile()
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 load file
@@ -7819,76 +7819,87 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[$:/Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151018000152072" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151018070340003" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
 \end
 
-\define getfoldersbutton(label:&quot;get folders&quot;)
+\define setroot()
+root: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;root&quot;
+   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;5&quot; default=&quot;TW5/&quot; /&gt;
+\end
+
+\define setmaxdepth()
+max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;limit&quot;
+   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;2&quot; /&gt;
+\end
+
+\define getfoldersbutton(label:&quot;refresh&quot;)
 &lt;$button tooltip=&quot;get current local storage folder info&quot;&gt; $label$
-   &lt;$action-getfolders auto=&quot;true&quot;
-      root={{$:/config/LocalStorage##root}}
+   &lt;$action-getfolders auto=&quot;true&quot; root={{$:/config/LocalStorage##root}}
       limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
 \end
 
-\define showcontrols()
-root: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;root&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;5&quot; default=&quot;TW5/&quot; /&gt;
-max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;limit&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;2&quot; default=&quot;2&quot; /&gt;
-&lt;&lt;getfoldersbutton &quot;refresh&quot;&gt;&gt;
+\define clearcachebutton(label:&quot;clear&quot;)
 &lt;$button tooltip=&quot;clear tiddler cache (local storage is unchanged)&quot;&gt; reset
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
 &lt;/$button&gt;
 \end
 
-\define loadbutton()
-&lt;$button tooltip=&quot;copy FILE /$(fullname)$ from local storage to tiddler cache&quot;&gt;load file
-   &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt;
-      root={{$:/config/LocalStorage##root}}
+\define loadfilebutton()
+&lt;$button tooltip=&quot;copy FILE /$(fullname)$ from local storage to tiddler cache&quot;&gt;
+   +
+   &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt; root={{$:/config/LocalStorage##root}}
       parse=&quot;tiddlers&quot; /&gt;
 &lt;/$button&gt;
 \end
 
 \define loadfolderbutton()
-&lt;$button tooltip=&quot;copy contents of FOLDER /$(fullname)$ from local storage to tiddler cache&quot;&gt;load all&amp;nbsp;
-   &lt;$list filter=&quot;[all[current]list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;removeprefix[$:/LocalStorage/]]&quot; variable=&quot;fullname&quot;&gt;
-   &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt;
-      root={{$:/config/LocalStorage##root}}
+&lt;$set name=&quot;files&quot; filter=&quot;[all[current]list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;removeprefix[$:/LocalStorage/]]&quot;&gt;
+&lt;$button tooltip=&quot;copy contents of FOLDER /$(fullname)$ from local storage to tiddler cache&quot;&gt;
+   +
+   &lt;$list filter=&lt;&lt;files&gt;&gt; variable=&quot;fullname&quot;&gt;
+   &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt; root={{$:/config/LocalStorage##root}}
       parse=&quot;tiddlers&quot; /&gt;
    &lt;/$list&gt;
 &lt;/$button&gt;
+&lt;/$set&gt;
 \end
 
-\define unloadbutton()
-&lt;$button tooltip=&quot;remove FILE /$(fullname)$ from tiddler cache&quot;&gt;unload file
+\define unloadfilebutton()
+&lt;$button tooltip=&quot;remove FILE /$(fullname)$ from tiddler cache&quot;&gt;
+   &amp;ndash;
    &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
    &lt;&lt;msg &quot;removed tiddler $(tid)$&quot;&gt;&gt;
 &lt;/$button&gt;
 \end
 
 \define unloadfolderbutton()
-&lt;$button tooltip=&quot;remove contents of FOLDER /$(fullname)$ from tiddler cache&quot;&gt;unload all&amp;nbsp;
-   &lt;$action-deletetiddler $filter=&quot;[prefix&lt;currentTiddler&gt;!has[filelist]removeprefix&lt;currentTiddler&gt;removeprefix[/]splitbefore[/]!suffix[/]addprefix[/]addprefix&lt;currentTiddler&gt;]&quot; /&gt;
+&lt;$set name=&quot;files&quot; filter=&quot;[prefix&lt;currentTiddler&gt;!has[filelist]removeprefix&lt;currentTiddler&gt;removeprefix[/]splitbefore[/]!suffix[/]addprefix[/]addprefix&lt;currentTiddler&gt;]&quot;&gt;
+&lt;$button tooltip=&quot;remove contents of FOLDER /$(fullname)$ from tiddler cache&quot;&gt;
+   &amp;ndash;
+   &lt;$action-deletetiddler $filter=&lt;&lt;files&gt;&gt; /&gt;
    &lt;&lt;msg &quot;removed tiddlers from $(fullname)$&quot;&gt;&gt;
 &lt;/$button&gt;
+&lt;/$set&gt;
 \end
 
-\define deletebutton()
-&lt;$button tooltip=&quot;delete FILE /$(fullname)$ from local storage&quot;&gt;delete file
+\define deletefilebutton()
+&lt;$button tooltip=&quot;delete FILE /$(fullname)$ from local storage&quot;&gt;
+   X
    &lt;$action-removefile filename=&lt;&lt;fullname&gt;&gt;
       root={{$:/config/LocalStorage##root}} /&gt;
    &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
-   &lt;$action-getfolders
-      root={{$:/config/LocalStorage##root}}
+   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
       limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
 \end
 
 \define deletefolderbutton()
-&lt;$button tooltip=&quot;delete FOLDER /$(fullname)$ and all its contents from local storage&quot;&gt;delete all&amp;nbsp;
+&lt;$button tooltip=&quot;delete FOLDER /$(fullname)$ and all its contents from local storage&quot;&gt;
+   X
    &lt;$action-removefolder filename=&lt;&lt;fullname&gt;&gt;
       root={{$:/config/LocalStorage##root}} /&gt;
    &lt;$action-deletetiddler $filter=&quot;[prefix&lt;currentTiddler&gt;]&quot; /&gt;
@@ -7919,8 +7930,8 @@ variable=&quot;item&quot; emptyMessage=&quot;&quot;&quot;&lt;&lt;unloadfolderbut
 &lt;$set name=&quot;fullname&quot; filter=&quot;[title&lt;tid&gt;removeprefix[$:/LocalStorage/]]&quot;&gt;
 @@.smallest.floatright
 &lt;$list filter=&quot;[title&lt;tid&gt;is[missing]]&quot; variable=&quot;none&quot;
-   emptyMessage=&quot;&lt;&lt;unloadbutton&gt;&gt;&quot;&gt;&lt;&lt;loadbutton&gt;&gt;&lt;/$list&gt;
-&lt;&lt;deletebutton&gt;&gt;
+   emptyMessage=&quot;&lt;&lt;unloadfilebutton&gt;&gt;&quot;&gt;&lt;&lt;loadfilebutton&gt;&gt;&lt;/$list&gt;
+&lt;&lt;deletefilebutton&gt;&gt;
 @@
 &lt;$link to=&lt;&lt;tid&gt;&gt;&gt;
 @@.resize {{images/file.svg}}@@ ''/&lt;$text text=&lt;&lt;fullname&gt;&gt;/&gt;''
@@ -7933,7 +7944,9 @@ variable=&quot;item&quot; emptyMessage=&quot;&quot;&quot;&lt;&lt;unloadfolderbut
 
 &lt;$set name=&quot;emptylist&quot; value=&quot;[[]]&quot;&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
-@@.floatright.smaller.nowrap &lt;&lt;showcontrols&gt;&gt;@@
+@@.floatright.smaller.nowrap
+&lt;&lt;setroot&gt;&gt; &lt;&lt;setmaxdepth&gt;&gt; &lt;&lt;getfoldersbutton&gt;&gt; &lt;&lt;clearcachebutton&gt;&gt;
+@@
 &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;
 @@.clear.shadowbox.inset
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;
