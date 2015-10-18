@@ -41,8 +41,10 @@
 <gap:plugin name="org.apache.cordova.file" />
 <gap:plugin name="org.apache.cordova.camera" />
 <gap:plugin name="org.apache.cordova.geolocation" />
-<gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
 <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" />
+<!-- DISABLED FOR cli-5.2.0
+<gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
+-->
 
 <!-- ICON/SPLASH/LOADING MESSAGE -->
 <icon src="res/icon.png" />

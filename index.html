@@ -7085,7 +7085,7 @@ LOAD
 <div modified="20151018070522528" title="$:/temp/notify">
 <pre>removed tiddlers from a/b/c</pre>
 </div>
-<div created="20150705104045705" modified="20151017070424425" title="$:/temp/search">
+<div created="20150705104045705" modified="20151018225349783" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7286,8 +7286,19 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
 exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
 })();</pre>
 </div>
-<div created="20150212062530288" creator="EricShulman" modified="20150927204911831" modifier="EricShulman" module-type="startup" tags="" title="Cordova/pinchzoom.js" type="application/javascript">
-<pre>(function(){
+<div created="20150212062530288" creator="EricShulman" modified="20151018225439720" modifier="EricShulman" module-type="startup" tags="" title="Cordova/pinchzoom.js" type="application/javascript">
+<pre>/*\
+title: Cordova/pinchzoom.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.1
+
+enable pinch-zoom handling for PhoneGap/Cordova app
+
+\*/
+
+(function(){
 /*jslint node: true, browser: true */
 /*global $tw: false */
 &quot;use strict&quot;;
@@ -7298,16 +7309,18 @@ exports.platforms = [&quot;browser&quot;];
 exports.after = [&quot;startup&quot;];
 exports.synchronous = true;
 		
-// PhoneGap Pinch Zoom Init
+// Cordova PhoneGap Build Pinch Zoom Init
 exports.startup = function() {
    if (typeof cordova !== &quot;undefined&quot;){
       document.addEventListener('deviceready', function(){
-         // enabling zoom control
-         cordova.plugins.ZoomControl.ZoomControl(&quot;true&quot;);
-         // enabling built in zoom control
-         cordova.plugins.ZoomControl.setBuiltInZoomControls(&quot;true&quot;);
-         // enabling display zoom control
-         cordova.plugins.ZoomControl.setDisplayZoomControls(&quot;true&quot;);
+         if (cordova.plugins &amp;&amp; cordova.plugins.ZoomControl) {
+            // enabling zoom control
+            cordova.plugins.ZoomControl.ZoomControl(&quot;true&quot;);
+            // enabling built in zoom control
+            cordova.plugins.ZoomControl.setBuiltInZoomControls(&quot;true&quot;);
+            // enabling display zoom control
+            cordova.plugins.ZoomControl.setDisplayZoomControls(&quot;true&quot;);
+         }
      }, function(){
          alert('PinchZoomInit: error deviceready');
      });
