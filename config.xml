@@ -63,7 +63,7 @@
 
 <!-- CROSS DOMAIN ACCESS -->
 <access origin="*" />
-<allow-navigation origin="*" />
 <allow-intent origin="*" />
+<!-- <allow-navigation origin="*" /> -->
 
 </widget>
