@@ -134,6 +134,8 @@ Error message and password prompt
 
 <li>$:/core</li>
 
+<li>$:/core/modules/saver-handler.js</li>
+
 <li>$:/core/modules/widgets/edit-text.js</li>
 
 <li>$:/core/save/all</li>
@@ -6038,6 +6040,211 @@ Error message and password prompt
     }
 }</pre>
 </div>
+<div created="20151018211644204" modified="20151018211742281" module-type="global" title="$:/core/modules/saver-handler.js" type="application/javascript">
+<pre>/*\
+title: $:/core/modules/saver-handler.js
+type: application/javascript
+module-type: global
+
+The saver handler tracks changes to the store and handles saving the entire wiki via saver modules.
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+/*
+Instantiate the saver handler with the following options:
+wiki: wiki to be synced
+dirtyTracking: true if dirty tracking should be performed
+*/
+function SaverHandler(options) {
+	var self = this;
+	this.wiki = options.wiki;
+	this.dirtyTracking = options.dirtyTracking;
+	this.pendingAutoSave = false;
+	// Make a logger
+	this.logger = new $tw.utils.Logger(&quot;saver-handler&quot;);
+	// Initialise our savers
+	if($tw.browser) {
+		this.initSavers();
+	}
+	// Only do dirty tracking if required
+	if($tw.browser &amp;&amp; this.dirtyTracking) {
+		// Compile the dirty tiddler filter
+		this.filterFn = this.wiki.compileFilter(this.wiki.getTiddlerText(this.titleSyncFilter));
+		// Count of changes that have not yet been saved
+		this.numChanges = 0;
+		// Listen out for changes to tiddlers
+		this.wiki.addEventListener(&quot;change&quot;,function(changes) {
+			// Filter the changes so that we only count changes to tiddlers that we care about
+			var filteredChanges = self.filterFn.call(self.wiki,function(callback) {
+				$tw.utils.each(changes,function(change,title) {
+					var tiddler = self.wiki.getTiddler(title);
+					callback(tiddler,title);
+				});
+			});
+			// Adjust the number of changes
+			self.numChanges += filteredChanges.length;
+			self.updateDirtyStatus();
+			// Do any autosave if one is pending and there's no more change events
+			if(self.pendingAutoSave &amp;&amp; self.wiki.getSizeOfTiddlerEventQueue() === 0) {
+				// Check if we're dirty
+				if(self.numChanges &gt; 0) {
+					self.saveWiki({
+						method: &quot;autosave&quot;,
+						downloadType: &quot;text/plain&quot;
+					});
+				}
+				self.pendingAutoSave = false;
+			}
+		});
+		// Listen for the autosave event
+		$tw.rootWidget.addEventListener(&quot;tm-auto-save-wiki&quot;,function(event) {
+			// Do the autosave unless there are outstanding tiddler change events
+			if(self.wiki.getSizeOfTiddlerEventQueue() === 0) {
+				// Check if we're dirty
+				if(self.numChanges &gt; 0) {
+					self.saveWiki({
+						method: &quot;autosave&quot;,
+						downloadType: &quot;text/plain&quot;
+					});
+				}
+			} else {
+				// Otherwise put ourselves in the &quot;pending autosave&quot; state and wait for the change event before we do the autosave
+				self.pendingAutoSave = true;
+			}
+		});
+		// Set up our beforeunload handler
+		$tw.addUnloadTask(function(event) {
+			var confirmationMessage;
+			if(self.isDirty()) {
+				confirmationMessage = $tw.language.getString(&quot;UnsavedChangesWarning&quot;);
+// DISABLE FOR CORDOVA???
+//				event.returnValue = confirmationMessage; // Gecko
+//
+			}
+			return confirmationMessage;
+		});
+	}
+	// Install the save action handlers
+	if($tw.browser) {
+		$tw.rootWidget.addEventListener(&quot;tm-save-wiki&quot;,function(event) {
+			self.saveWiki({
+				template: event.param,
+				downloadType: &quot;text/plain&quot;,
+				variables: event.paramObject
+			});
+		});
+		$tw.rootWidget.addEventListener(&quot;tm-download-file&quot;,function(event) {
+			self.saveWiki({
+				method: &quot;download&quot;,
+				template: event.param,
+				downloadType: &quot;text/plain&quot;,
+				variables: event.paramObject
+			});
+		});
+	}
+}
+
+SaverHandler.prototype.titleSyncFilter = &quot;$:/config/SaverFilter&quot;;
+SaverHandler.prototype.titleAutoSave = &quot;$:/config/AutoSave&quot;;
+SaverHandler.prototype.titleSavedNotification = &quot;$:/language/Notifications/Save/Done&quot;;
+
+/*
+Select the appropriate saver modules and set them up
+*/
+SaverHandler.prototype.initSavers = function(moduleType) {
+	moduleType = moduleType || &quot;saver&quot;;
+	// Instantiate the available savers
+	this.savers = [];
+	var self = this;
+	$tw.modules.forEachModuleOfType(moduleType,function(title,module) {
+		if(module.canSave(self)) {
+			self.savers.push(module.create(self.wiki));
+		}
+	});
+	// Sort the savers into priority order
+	this.savers.sort(function(a,b) {
+		if(a.info.priority &lt; b.info.priority) {
+			return -1;
+		} else {
+			if(a.info.priority &gt; b.info.priority) {
+				return +1;
+			} else {
+				return 0;
+			}
+		}
+	});
+};
+
+/*
+Save the wiki contents. Options are:
+	method: &quot;save&quot;, &quot;autosave&quot; or &quot;download&quot;
+	template: the tiddler containing the template to save
+	downloadType: the content type for the saved file
+*/
+SaverHandler.prototype.saveWiki = function(options) {
+	options = options || {};
+	var self = this,
+		method = options.method || &quot;save&quot;,
+		variables = options.variables || {},
+		template = options.template || &quot;$:/core/save/all&quot;,
+		downloadType = options.downloadType || &quot;text/plain&quot;,
+		text = this.wiki.renderTiddler(downloadType,template,options),
+		callback = function(err) {
+			if(err) {
+				alert(&quot;Error while saving:\n\n&quot; + err);
+			} else {
+				// Clear the task queue if we're saving (rather than downloading)
+				if(method !== &quot;download&quot;) {
+					self.numChanges = 0;
+					self.updateDirtyStatus();
+				}
+				$tw.notifier.display(self.titleSavedNotification);
+				if(options.callback) {
+					options.callback();
+				}
+			}
+		};
+	// Ignore autosave if disabled
+	if(method === &quot;autosave&quot; &amp;&amp; this.wiki.getTiddlerText(this.titleAutoSave,&quot;yes&quot;) !== &quot;yes&quot;) {
+		return false;
+	}
+	// Call the highest priority saver that supports this method
+	for(var t=this.savers.length-1; t&gt;=0; t--) {
+		var saver = this.savers[t];
+		if(saver.info.capabilities.indexOf(method) !== -1 &amp;&amp; saver.save(text,method,callback,{variables: {filename: variables.filename}})) {
+			this.logger.log(&quot;Saving wiki with method&quot;,method,&quot;through saver&quot;,saver.info.name);
+			return true;
+		}
+	}
+	return false;
+};
+
+/*
+Checks whether the wiki is dirty (ie the window shouldn't be closed)
+*/
+SaverHandler.prototype.isDirty = function() {
+	return this.numChanges &gt; 0;
+};
+
+/*
+Update the document body with the class &quot;tc-dirty&quot; if the wiki has unsaved/unsynced changes
+*/
+SaverHandler.prototype.updateDirtyStatus = function() {
+	if($tw.browser) {
+		$tw.utils.toggleClass(document.body,&quot;tc-dirty&quot;,this.isDirty());
+	}
+};
+
+exports.SaverHandler = SaverHandler;
+
+})();
+</pre>
+</div>
 <div created="20150529222345632" creator="EricShulman" modified="20150601090815154" modifier="EricShulman" module-type="widget" title="$:/core/modules/widgets/edit-text.js" type="application/javascript">
 <pre>/*\
 title: $:/core/modules/widgets/edit-text.js
@@ -7053,11 +7260,11 @@ LOAD
 <div modified="20151017235326923" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Cordova/Spineless.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151017071629931" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20150706192244698" modified="20151018211626256" title="$:/temp/advancedsearch">
+<pre>unloadtask</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -7085,7 +7292,7 @@ LOAD
 <div modified="20151018070522528" title="$:/temp/notify">
 <pre>removed tiddlers from a/b/c</pre>
 </div>
-<div created="20150705104045705" modified="20151017070424425" title="$:/temp/search">
+<div created="20150705104045705" modified="20151018211626256" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7320,7 +7527,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20151017031322979" creator="EricShulman" modified="20151017063052234" modifier="EricShulman" module-type="startup" tags="" title="Cordova/Spineless.js" type="application/javascript">
+<div created="20151017031322979" creator="EricShulman" modified="20151018211850587" modifier="EricShulman" module-type="DISABLED_startup" tags="" title="Cordova/Spineless.js" type="application/javascript">
 <pre>/*\
 title: Cordova/Spineless.js
 type: application/javascript
