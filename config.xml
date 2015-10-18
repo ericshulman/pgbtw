@@ -23,28 +23,6 @@
 <gap:platform name="android" />
 <!-- <gap:platform name="ios"> -->
 
-<!-- ICON/SPLASH/LOADING MESSAGE -->
-<icon src="res/icon.png" />
-<preference name="LoadingDialog" value="CurbSide,loading... please wait..."/>
-<!-- <gap:splash src="splash.png" /> -->
-
-<!-- SCREEN RESOLUTION/ORIENTATION -->
-<preference name="orientation"      value="default" /> <!-- portrait, landscape -->
-<preference name="fullscreen"       value="true"    />
-
-<!-- KEYBOARD SCREEN ADJUST -->
-<preference name="android-windowSoftInputMode" value="adjustResize" />
-
-<!-- INSTALLATION LOCATION -->
-<preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
-
-<!-- CROSS DOMAIN ACCESS -->
-<access origin="*" />
-<access origin="https://*.google.com" />
-<access origin="https://*.googleapis.com" />
-<allow-navigation origin="https://*.google.com" />
-<allow-navigation origin="https://*.googleapis.com" />
-
 <!-- DEVICE PERMISSIONS -->
 <preference name="permissions" value="none"/>
 <feature name="http://api.phonegap.com/1.0/file" />
@@ -64,5 +42,26 @@
 <gap:plugin name="org.apache.cordova.camera" />
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
+<gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" />
+
+<!-- ICON/SPLASH/LOADING MESSAGE -->
+<icon src="res/icon.png" />
+<preference name="LoadingDialog" value="CurbSide,loading... please wait..."/>
+<!-- <gap:splash src="splash.png" /> -->
+
+<!-- SCREEN RESOLUTION/ORIENTATION -->
+<preference name="orientation"      value="default" /> <!-- portrait, landscape -->
+<preference name="fullscreen"       value="true"    />
+
+<!-- KEYBOARD SCREEN ADJUST -->
+<preference name="android-windowSoftInputMode" value="adjustResize" />
+
+<!-- INSTALLATION LOCATION -->
+<preference name="android-location" value="auto"    /> <!-- internalOnly, auto, preferSD -->
+
+<!-- CROSS DOMAIN ACCESS -->
+<access origin="*" />
+<allow-navigation origin="*" />
+<allow-intent origin="*" />
 
 </widget>
