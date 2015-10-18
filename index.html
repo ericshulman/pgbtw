@@ -222,13 +222,13 @@ Error message and password prompt
 
 <li>Camera/action-getpicture.js</li>
 
+<li>Cordova/noexit.js</li>
+
 <li>Cordova/nowarning.js</li>
 
 <li>Cordova/pinchzoom.js</li>
 
 <li>Cordova/pinchzoom.markup</li>
-
-<li>Cordova/spineless.js</li>
 
 <li>Dashboard</li>
 
@@ -7055,7 +7055,7 @@ LOAD
 <div modified="20151017235326923" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Cordova/nowarning.js Cordova/noexit.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151018230822048" title="$:/temp/advancedsearch">
@@ -7288,7 +7288,39 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
 exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
 })();</pre>
 </div>
-<div created="20151018231148548" creator="EricShulman" modified="20151018231819653" modifier="EricShulman" module-type="DISABLE-startup" tags="" title="Cordova/nowarning.js" type="application/javascript">
+<div created="20151017031322979" creator="EricShulman" modified="20151018235205402" modifier="EricShulman" module-type="DISABLE-startup" tags="" title="Cordova/noexit.js" type="application/javascript">
+<pre>/*\
+title: Cordova/noexit.js
+type: application/javascript
+module-type: widget
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+aka... &quot;SPINELESS&quot; (no back button)
+prevent back button from exiting for PhoneGap/Cordova app
+
+\*/
+(function(){
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+// Export name and synchronous status
+exports.name = &quot;spineless&quot;;
+exports.platforms = [&quot;browser&quot;];
+exports.after = [&quot;startup&quot;];
+exports.synchronous = true;
+exports.startup = function() {
+   if (typeof cordova !== &quot;undefined&quot;){
+      document.addEventListener(&quot;backbutton&quot;, function(e) {
+        e.preventDefault();
+        // SKIP THIS: navigator.app.exitApp();
+     }, false);
+   }
+};
+})();</pre>
+</div>
+<div created="20151018231148548" creator="EricShulman" modified="20151018234845240" modifier="EricShulman" module-type="startup" tags="" title="Cordova/nowarning.js" type="application/javascript">
 <pre>/*\
 title: Cordova/nowarning.js
 type: application/javascript
@@ -7364,40 +7396,6 @@ exports.startup = function() {
 <div created="20150212062340891" creator="EricShulman" modified="20150927204851529" modifier="EricShulman" tags="$:/tags/RawMarkup" title="Cordova/pinchzoom.markup">
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
-</div>
-<div created="20151017031322979" creator="EricShulman" modified="20151018231700728" modifier="EricShulman" module-type="DISABLE-startup" tags="" title="Cordova/spineless.js" type="application/javascript">
-<pre>/*\
-title: Cordova/spineless.js
-type: application/javascript
-module-type: widget
-author: Eric Shulman elsdesign@gmail.com
-revision: 1.0
-
-SPINELESS (&quot;NO BACK BUTTON&quot;):
-prevent back button from exiting for PhoneGap/Cordova app
-
-\*/
-(function(){
-/*jslint node: true, browser: true */
-/*global $tw: false */
-&quot;use strict&quot;;
-
-// Export name and synchronous status
-exports.name = &quot;spineless&quot;;
-exports.platforms = [&quot;browser&quot;];
-exports.after = [&quot;startup&quot;];
-exports.synchronous = true;
-exports.startup = function() {
-   if (typeof cordova !== &quot;undefined&quot;){
-      document.addEventListener(&quot;backbutton&quot;, function(e) {
-        e.preventDefault();
-        // navigator.app.exitApp();
-        // history.go(-1);
-        // navigator.app.backHistory();
-     }, false);
-   }
-};
-})();</pre>
 </div>
 <div created="20150623211607895" modified="20151018070459387" title="Dashboard">
 <pre>\define sliderbutton(tid)

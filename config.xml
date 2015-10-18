@@ -4,7 +4,7 @@
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id            = "com.elsdesign.CurbSide"
         versionCode   = "10" 
-        version       = "0.4.6" >
+        version       = "0.5.0" >
 
 <name>
     CurbSide Prototype
@@ -42,7 +42,8 @@
 <gap:plugin name="org.apache.cordova.camera" />
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" />
-<!-- DISABLED FOR cli-5.2.0
+
+<!-- DISABLED... INCOMPATIBLE WITH cli-5.2.0
 <gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
 -->
 
