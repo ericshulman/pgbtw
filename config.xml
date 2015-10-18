@@ -17,7 +17,7 @@
 </author>
 
 <!-- PHONEGAP VERSION -->
-<preference name="phonegap-version" value="CLI-5.2.0" />
+<preference name="phonegap-version" value="cli-5.2.0" />
 
 <!-- PLATFORMS -->
 <gap:platform name="android" />
