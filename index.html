@@ -7507,8 +7507,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151019093909571" tags="" title="Dashboard/Camera">
+<div caption="Camera" created="20151015065408822" modified="20151019095237666" tags="" title="Dashboard/Camera">
 <pre>\define gettarget() $(path)$$(name)$$(index)$.$(format)$
+\define getfilter() [title[$(name)$$(index)$.$(format)$]]
 
 \define getname()
 name:
@@ -7566,7 +7567,7 @@ image quality:&lt;br&gt; &amp;nbsp;
        format={{$:/config/Camera##format}}&gt;
    &lt;$button tooltip=&quot;save this photo to local storage&quot;&gt;
       {{$:/core/images/save-button}}
-      &lt;$action-savefile filename=&lt;&lt;gettarget&gt;&gt; filter=&lt;&lt;gettarget&gt;&gt; /&gt;
+      &lt;$action-savefile filename=&lt;&lt;gettarget&gt;&gt; filter=&lt;&lt;getfilter&gt;&gt; /&gt;
       &lt;$action-getfolders
          root={{$:/config/LocalStorage##root}}
          limit={{$:/config/LocalStorage##limit}}/&gt;
