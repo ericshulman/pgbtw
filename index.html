@@ -7009,17 +7009,17 @@ LOAD
 <div modified="20151017022209799" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151019035425265" title="$:/state/Dashboard/GeoLocation">
-<pre></pre>
-</div>
-<div modified="20151019035422731" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151019082229996" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151018070827165" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151019082215927" title="$:/state/Dashboard/LocalStorage">
+<pre></pre>
+</div>
+<div modified="20151019082133317" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151019035426002" title="$:/state/Dashboard/Maps">
-<pre></pre>
+<div modified="20151019082232571" title="$:/state/Dashboard/Maps">
+<pre>show</pre>
 </div>
 <div modified="20151016205856972" title="$:/state/Dashboard/StreetView">
 <pre></pre>
@@ -7861,7 +7861,7 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[$:/Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151019080410807" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151019082032298" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8001,9 +8001,11 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot
 &lt;$set name=&quot;emptylist&quot; value=&quot;[[]]&quot;&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-&lt;&lt;setroot&gt;&gt; &lt;&lt;setmaxdepth&gt;&gt; &amp;nbsp;
-&lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt; &amp;nbsp;
+&lt;&lt;setroot&gt;&gt; &lt;&lt;setmaxdepth&gt;&gt;
 &lt;&lt;clearcachebutton &quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
+@@
+@@.floatleft.smaller.nowrap
+&lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt; &amp;nbsp;
 @@
 &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;
 @@.clear.shadowbox.inset
