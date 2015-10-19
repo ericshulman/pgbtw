@@ -312,7 +312,7 @@ Error message and password prompt
     &quot;zoom&quot;: &quot;17&quot;
 }</pre>
 </div>
-<div created="20151017070437816" modified="20151018070516402" title="$:/config/LocalStorage" type="application/json">
+<div created="20151017070437816" modified="20151019080636954" title="$:/config/LocalStorage" type="application/json">
 <pre>{
     &quot;filename&quot;: &quot;locations.json&quot;,
     &quot;filter&quot;: &quot;[tag[location]]&quot;,
@@ -6968,8 +6968,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Dashboard/LocalStorage]]
-# [[Dashboard/LocalStorage/Viewer]]</pre>
+# [[check56.svg]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -7010,17 +7009,17 @@ LOAD
 <div modified="20151017022209799" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151018070504714" title="$:/state/Dashboard/GeoLocation">
-<pre>show</pre>
-</div>
-<div modified="20151018070830354" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151019035425265" title="$:/state/Dashboard/GeoLocation">
 <pre></pre>
+</div>
+<div modified="20151019035422731" title="$:/state/Dashboard/LocalStorage">
+<pre>show</pre>
 </div>
 <div modified="20151018070827165" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151018070505626" title="$:/state/Dashboard/Maps">
-<pre>show</pre>
+<div modified="20151019035426002" title="$:/state/Dashboard/Maps">
+<pre></pre>
 </div>
 <div modified="20151016205856972" title="$:/state/Dashboard/StreetView">
 <pre></pre>
@@ -7043,8 +7042,8 @@ LOAD
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
 <pre>Dashboard/AddressLookup</pre>
 </div>
-<div modified="20151018230832107" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div modified="20151019053714096" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -7052,14 +7051,14 @@ LOAD
 <div modified="20151011043242464" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151017235326923" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151019035457851" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151018230822048" title="$:/temp/advancedsearch">
-<pre>addunload</pre>
+<div created="20150706192244698" modified="20151019080631052" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -7084,10 +7083,10 @@ LOAD
 <div created="20150706215305238" modified="20151017190942722" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151018070522528" title="$:/temp/notify">
+<div modified="20151019075800255" title="$:/temp/notify">
 <pre>removed tiddlers from a/b/c</pre>
 </div>
-<div created="20150705104045705" modified="20151018230416711" title="$:/temp/search">
+<div created="20150705104045705" modified="20151019054708053" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7862,7 +7861,7 @@ filename:
 &lt;&lt;save &quot;address data&quot; address.json &quot;[prefix[$:/Geo/Data/Address]]&quot;&gt;&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151018070340003" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151019080410807" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -7879,30 +7878,32 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot
 \end
 
 \define getfoldersbutton(label:&quot;refresh&quot;)
-&lt;$button tooltip=&quot;get current local storage folder info&quot;&gt; $label$
+&lt;$button tooltip=&quot;REFRESH CACHE: get current local storage folder info&quot;&gt; $label$
    &lt;$action-getfolders auto=&quot;true&quot; root={{$:/config/LocalStorage##root}}
       limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
 \end
 
 \define clearcachebutton(label:&quot;clear&quot;)
-&lt;$button tooltip=&quot;clear tiddler cache (local storage is unchanged)&quot;&gt; reset
+&lt;$button tooltip=&quot;CLEAR CACHE: unload all files and folders from tiddler cache (local storage is unchanged)&quot;&gt; $label$
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
 &lt;/$button&gt;
 \end
 
-\define loadfilebutton()
-&lt;$button tooltip=&quot;copy FILE /$(fullname)$ from local storage to tiddler cache&quot;&gt;
-   +
+\define loadfilebutton(label:&quot;load file&quot;)
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;load file /$(fullname)$ into tiddler cache&quot;&gt;
+   $label$
    &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt; root={{$:/config/LocalStorage##root}}
       parse=&quot;tiddlers&quot; /&gt;
 &lt;/$button&gt;
 \end
 
-\define loadfolderbutton()
+\define loadfolderbutton(label:&quot;load all&amp;nbsp;&quot;)
 &lt;$set name=&quot;files&quot; filter=&quot;[all[current]list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;removeprefix[$:/LocalStorage/]]&quot;&gt;
-&lt;$button tooltip=&quot;copy contents of FOLDER /$(fullname)$ from local storage to tiddler cache&quot;&gt;
-   +
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;load contents of folder /$(fullname)$ into tiddler cache&quot;&gt;
+   $label$
    &lt;$list filter=&lt;&lt;files&gt;&gt; variable=&quot;fullname&quot;&gt;
    &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt; root={{$:/config/LocalStorage##root}}
       parse=&quot;tiddlers&quot; /&gt;
@@ -7911,27 +7912,30 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot
 &lt;/$set&gt;
 \end
 
-\define unloadfilebutton()
-&lt;$button tooltip=&quot;remove FILE /$(fullname)$ from tiddler cache&quot;&gt;
-   &amp;ndash;
+\define unloadfilebutton(label:&quot;unload file&quot;)
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;unload file /$(fullname)$ from tiddler cache&quot;&gt;
+   $label$
    &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
    &lt;&lt;msg &quot;removed tiddler $(tid)$&quot;&gt;&gt;
 &lt;/$button&gt;
 \end
 
-\define unloadfolderbutton()
+\define unloadfolderbutton(label:&quot;unload all&amp;nbsp;&quot;)
 &lt;$set name=&quot;files&quot; filter=&quot;[prefix&lt;currentTiddler&gt;!has[filelist]removeprefix&lt;currentTiddler&gt;removeprefix[/]splitbefore[/]!suffix[/]addprefix[/]addprefix&lt;currentTiddler&gt;]&quot;&gt;
-&lt;$button tooltip=&quot;remove contents of FOLDER /$(fullname)$ from tiddler cache&quot;&gt;
-   &amp;ndash;
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;unload contents of folder /$(fullname)$ from tiddler cache&quot;&gt;
+   $label$
    &lt;$action-deletetiddler $filter=&lt;&lt;files&gt;&gt; /&gt;
    &lt;&lt;msg &quot;removed tiddlers from $(fullname)$&quot;&gt;&gt;
 &lt;/$button&gt;
 &lt;/$set&gt;
 \end
 
-\define deletefilebutton()
-&lt;$button tooltip=&quot;delete FILE /$(fullname)$ from local storage&quot;&gt;
-   X
+\define deletefilebutton(label:&quot;delete file&quot;)
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;DELETE file /$(fullname)$ from local storage&quot;&gt;
+   $label$
    &lt;$action-removefile filename=&lt;&lt;fullname&gt;&gt;
       root={{$:/config/LocalStorage##root}} /&gt;
    &lt;$action-deletetiddler $tiddler=&lt;&lt;tid&gt;&gt; /&gt;
@@ -7940,9 +7944,10 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot
 &lt;/$button&gt;
 \end
 
-\define deletefolderbutton()
-&lt;$button tooltip=&quot;delete FOLDER /$(fullname)$ and all its contents from local storage&quot;&gt;
-   X
+\define deletefolderbutton(label:&quot;delete all&amp;nbsp;&quot;)
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;DELETE folder /$(fullname)$ AND all subfolders from local storage&quot;&gt;
+   $label$
    &lt;$action-removefolder filename=&lt;&lt;fullname&gt;&gt;
       root={{$:/config/LocalStorage##root}} /&gt;
    &lt;$action-deletetiddler $filter=&quot;[prefix&lt;currentTiddler&gt;]&quot; /&gt;
@@ -7951,17 +7956,22 @@ max depth: &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot
 
 \define showfolderitem()
 &lt;$set name=&quot;fullname&quot; filter=&quot;[all[current]removeprefix[$:/LocalStorage/]]&quot;&gt;
-@@.smallest.floatright
-&lt;$list filter=&quot;[all[current]!filelist&lt;emptylist&gt;]&quot; variable=&quot;folder-not-empty&quot;&gt;
-&lt;$list filter=&quot;[list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;is[missing]limit[1]]&quot; 
-variable=&quot;item&quot; emptyMessage=&quot;&quot;&quot;&lt;&lt;unloadfolderbutton&gt;&gt;&quot;&quot;&quot;&gt;
-&lt;&lt;loadfolderbutton&gt;&gt;
-&lt;/$list&gt;
-&lt;/$list&gt;
-&lt;&lt;deletefolderbutton&gt;&gt;
+@@.small.floatright
+&lt;&lt;deletefolderbutton &quot;@@.redsvg {{$:/core/images/close-all-button}}@@&quot;&gt;&gt;
 @@
-&lt;$link to={{!!title}}&gt;
+@@.small
+&lt;$list filter=&quot;[all[current]!filelist&lt;emptylist&gt;]&quot; variable=&quot;folder-not-empty&quot;
+   emptyMessage=&quot;&quot;&quot;&lt;input type='checkbox' checked='true' disabled='true'
+      title='there are no files in this folder'/&gt;&quot;&quot;&quot;&gt;
+&lt;$list filter=&quot;[list[!!filelist]addprefix[/]addprefix&lt;currentTiddler&gt;is[missing]limit[1]]&quot;
+   variable=&quot;item&quot; emptyMessage=
+   &quot;&quot;&quot;&lt;&lt;unloadfolderbutton &quot;&lt;input type='checkbox' checked='true'/&gt;&quot;&gt;&gt;&quot;&quot;&quot;&gt;
+   &lt;&lt;loadfolderbutton &quot;&lt;input type='checkbox'/&gt;&quot;&gt;&gt;
+&lt;/$list&gt;
+&lt;/$list&gt;
+@@
 @@.resize {{images/folder.svg}}@@
+&lt;$link to={{!!title}}&gt;
 ''/&lt;$text text=&lt;&lt;fullname&gt;&gt;/&gt;''&lt;$reveal text=&lt;&lt;fullname&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;''/''&lt;/$reveal&gt;
 &lt;/$link&gt;
 @@.clear @@
@@ -7971,24 +7981,29 @@ variable=&quot;item&quot; emptyMessage=&quot;&quot;&quot;&lt;&lt;unloadfolderbut
 \define showfileitem()
 &lt;$set name=&quot;tid&quot;      filter=&quot;[all[current]addsuffix[/]addsuffix&lt;filename&gt;]&quot;&gt;
 &lt;$set name=&quot;fullname&quot; filter=&quot;[title&lt;tid&gt;removeprefix[$:/LocalStorage/]]&quot;&gt;
-@@.smallest.floatright
-&lt;$list filter=&quot;[title&lt;tid&gt;is[missing]]&quot; variable=&quot;none&quot;
-   emptyMessage=&quot;&lt;&lt;unloadfilebutton&gt;&gt;&quot;&gt;&lt;&lt;loadfilebutton&gt;&gt;&lt;/$list&gt;
-&lt;&lt;deletefilebutton&gt;&gt;
+@@.small.floatright
+&lt;&lt;deletefilebutton &quot;@@.redsvg {{$:/core/images/close-button}}@@&quot;&gt;&gt;
 @@
-&lt;$link to=&lt;&lt;tid&gt;&gt;&gt;
-@@.resize {{images/file.svg}}@@ ''/&lt;$text text=&lt;&lt;fullname&gt;&gt;/&gt;''
-&lt;/$link&gt;
+@@.small
+&lt;$list filter=&quot;[title&lt;tid&gt;is[missing]]&quot; variable=&quot;none&quot;
+   emptyMessage=&quot;&quot;&quot;&lt;&lt;unloadfilebutton &quot;&lt;input type='checkbox' checked='true'/&gt;&quot;&gt;&gt;&quot;&quot;&quot;&gt;
+   &lt;&lt;loadfilebutton &quot;&lt;input type='checkbox'/&gt;&quot;&gt;&gt;
+&lt;/$list&gt;
+@@
+@@.resize {{images/file.svg}}@@
+&lt;$link to=&lt;&lt;tid&gt;&gt;&gt;''/&lt;$text text=&lt;&lt;fullname&gt;&gt;/&gt;''&lt;/$link&gt;
 &lt;br&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
 @@.clear @@
+&lt;/$set&gt;
+&lt;/$set&gt;
 \end
 
 &lt;$set name=&quot;emptylist&quot; value=&quot;[[]]&quot;&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-&lt;&lt;setroot&gt;&gt; &lt;&lt;setmaxdepth&gt;&gt; &lt;&lt;getfoldersbutton&gt;&gt; &lt;&lt;clearcachebutton&gt;&gt;
+&lt;&lt;setroot&gt;&gt; &lt;&lt;setmaxdepth&gt;&gt; &amp;nbsp;
+&lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt; &amp;nbsp;
+&lt;&lt;clearcachebutton &quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
 @@
 &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;
 @@.clear.shadowbox.inset
@@ -8342,13 +8357,13 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 &lt;/svg&gt;
 </pre>
 </div>
-<div created="20151015195512751" modified="20151015195527370" tags="image" title="images/folder.svg" type="image/svg+xml">
+<div created="20151015195512751" modified="20151019070131109" tags="image" title="images/folder.svg" type="image/svg+xml">
 <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;
 &lt;!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --&gt;
 &lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;
 &lt;svg version=&quot;1.1&quot; id=&quot;Capa_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot;
 	 viewBox=&quot;0 0 276.157 276.157&quot; style=&quot;enable-background:new 0 0 276.157 276.157;&quot; xml:space=&quot;preserve&quot;&gt;
-&lt;path style=&quot;fill:#000002;&quot; d=&quot;M273.081,101.378c-3.3-4.651-8.86-7.319-15.255-7.319h-24.34v-26.47c0-10.201-8.299-18.5-18.5-18.5
+&lt;path d=&quot;M273.081,101.378c-3.3-4.651-8.86-7.319-15.255-7.319h-24.34v-26.47c0-10.201-8.299-18.5-18.5-18.5
 	h-85.322c-3.63,0-9.295-2.876-11.436-5.806l-6.386-8.735c-4.982-6.814-15.104-11.954-23.546-11.954H58.731
 	c-9.293,0-18.639,6.608-21.738,15.372l-2.033,5.752c-0.958,2.71-4.721,5.371-7.596,5.371H18.5c-10.201,0-18.5,8.299-18.5,18.5
 	v167.07c0,0.885,0.161,1.73,0.443,2.519c0.152,3.306,1.18,6.424,3.053,9.064c3.3,4.652,8.86,7.319,15.255,7.319h188.486
@@ -8359,36 +8374,6 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 	c-1.674,4.781-7.812,9.135-12.877,9.135H18.751c-1.448,0-2.577-0.373-3.02-0.998c-0.443-0.625-0.423-1.814,0.056-3.181
 	l40.677-116.188c1.674-4.781,7.812-9.135,12.877-9.135h188.486c1.448,0,2.577,0.373,3.021,0.998
 	C261.29,110.682,261.27,111.871,260.791,113.238z&quot;/&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
-&lt;g&gt;
-&lt;/g&gt;
 &lt;/svg&gt;
 </pre>
 </div>
@@ -8630,7 +8615,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
 exports[&quot;action-loadfile&quot;] = LocalStorageLoadFileWidget;
 })();</pre>
 </div>
-<div created="20151007103210499" modified="20151014042026914" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
+<div created="20151007103210499" modified="20151019074646654" module-type="widget" tags="" title="LocalStorage/action-removefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefile.js
 type: application/javascript
@@ -8711,7 +8696,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 
   window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
     fs.root.getFile(root+filename, {}, function(fileEntry) {
-      var msg=&quot;OK to remove '&quot;+filename+&quot;' from LocalStorage?&quot;;
+      var msg=&quot;Are you sure you want to remove '&quot;+filename+&quot;' from LocalStorage?&quot;;
       if (force || confirm(msg)) {
         fileEntry.remove(function() {
           if (silent) return;
@@ -8729,7 +8714,7 @@ LocalStorageRemoveFileWidget.prototype.invokeAction = function(triggeringWidget,
 exports[&quot;action-removefile&quot;] = LocalStorageRemoveFileWidget;
 })();</pre>
 </div>
-<div created="20151013020324640" modified="20151015204542659" module-type="widget" tags="" title="LocalStorage/action-removefolder.js" type="application/javascript">
+<div created="20151013020324640" modified="20151019074805096" module-type="widget" tags="" title="LocalStorage/action-removefolder.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-removefolder.js
 type: application/javascript
@@ -8810,7 +8795,7 @@ LocalStorageRemoveFolderWidget.prototype.invokeAction = function(triggeringWidge
 
   window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
     fs.root.getDirectory(root+filename, {}, function(dirEntry) {
-      var msg=&quot;OK to remove folder '&quot;+filename+&quot;'&quot;
+      var msg=&quot;Are you sure you want to remove folder '&quot;+filename+&quot;'&quot;
         +&quot; and all it's contents from LocalStorage?&quot;;
       if (force || confirm(msg)) {
         dirEntry.removeRecursively(function() {
@@ -8829,7 +8814,7 @@ LocalStorageRemoveFolderWidget.prototype.invokeAction = function(triggeringWidge
 exports[&quot;action-removefolder&quot;] = LocalStorageRemoveFolderWidget;
 })();</pre>
 </div>
-<div created="20151009015741946" modified="20151014041621193" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
+<div created="20151009015741946" modified="20151019074541520" module-type="widget" tags="" title="LocalStorage/action-savefile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-savefile.js
 type: application/javascript
@@ -8972,7 +8957,7 @@ LocalStorageSaveFileWidget.prototype.invokeAction = function(triggeringWidget,ev
   function onInitFS(grantedSize) {
     window.requestFileSystem(window.PERSISTENT, grantedSize, function(fs) {
       fs.root.getFile(root+filename, {}, function(fileEntry) {
-        var msg=filename+&quot; already exists. OK to overwrite?&quot;;
+        var msg=filename+&quot; already exists. Do you want to replace it?&quot;;
         if (force || confirm(msg)) { saveFile(fs,filename,text); }
       }, function(err) { saveFile(fs,filename,text); });
     }, function(err) { errorHandler(filename,err); });
@@ -8998,16 +8983,24 @@ exports[&quot;action-savefile&quot;] = LocalStorageSaveFileWidget;
     &quot;longitude&quot;: &quot;-80.0045251&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20150722010902078" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20151019054256330" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
+/* SIDEBAR TEXT/LINK COLOR */
+.tc-sidebar-header                      { color: #000; }
+.tc-sidebar-lists a.tc-tiddlylink       { color: #999; }
+.tc-sidebar-lists a.tc-tiddlylink:hover { color: #000; }
+
+/* SMALLER FONT IN SIDEBAR */
+.tc-sidebar-scrollable { font-size:100%; line-height:110%; }
+
 /* MONO FONT FOR EDITING */
-.tc-edit-texteditor { font-family:monospace;  }
+.tc-edit-texteditor { font-family:monospace; font-size:90%;  }
 
 /* MIN WIDTH FOR DROP DOWNS */
 .tc-drop-down { min-width:100px; }
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150418111607835" creator="EricShulman" modified="20151017232546207" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
+<div created="20150418111607835" creator="EricShulman" modified="20151019072754692" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
 <pre>&lt;pre&gt;
 /* ---- FORMATTING SHORTCUTS ---- */
 
@@ -9066,8 +9059,11 @@ exports[&quot;action-savefile&quot;] = LocalStorageSaveFileWidget;
    { display:block;-webkit-column-count:4;-moz-column-count:4;column-count:4; }
 
 /* DECORATIVE LINES (like HR, but thin) */
-.thinline { display:block;height:1px;border-bottom:1px solid; }
-.bottomdots { display:block;border-bottom:1px dotted gray;margin-bottom:2px; }
+.thinline
+   { display:block;height:1px;border-bottom:1px solid; }
+.bottomdots
+   { display:block;border-bottom:1px dotted gray;
+     margin-bottom:2px;padding-bottom:2px; }
 
 /* SHADOWBOXES */
 .shadowbox {
@@ -9078,6 +9074,11 @@ background: #f8f8ff;
 .shadowbox.inset {
    box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5) inset; background: #f8f8f8;
 }
+
+/* SVG COLORS */
+.redsvg   { fill:#cc0000 !important; }
+.greensvg { fill:#00cc00 !important; }
+.bluesvg  { fill:#0000cc !important; }
 
 &lt;/pre&gt;</pre>
 </div>
