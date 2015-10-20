@@ -7013,13 +7013,13 @@ LOAD
 <div modified="20151019233411533" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151020030054968" title="$:/state/Dashboard/Camera">
+<div modified="20151020034254771" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
 <div modified="20151020005649028" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151020024750530" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151020034300435" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div modified="20151020010057077" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -7403,7 +7403,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151020032157855" title="Dashboard">
+<div created="20150623211607895" modified="20151020034250403" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -7546,10 +7546,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151020032141442" tags="" title="Dashboard/Camera">
+<div caption="Camera" created="20151015065408822" modified="20151020034238965" tags="" title="Dashboard/Camera">
 <pre>\define gettiddler() $(name)$$(counter)$.$(format)$
 \define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
-\define getfilter()  [title[$(name)$$(counter)$.$(format)$]]
 
 \define getoptions()
 &lt;$button popup=&quot;$:/temp/popup/CameraOptions&quot;
@@ -7584,7 +7583,8 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 \define savepicture()
 &lt;$button tooltip=&quot;save this photo to local storage&quot;&gt;
    {{$:/core/images/save-button}}
-   &lt;$action-savefile filename=&lt;&lt;gettarget&gt;&gt; filter=&lt;&lt;getfilter&gt;&gt; /&gt;
+   &lt;$action-savefile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;
+      filter=&quot;&quot;&quot;[title[$(path)$(name)$$(counter)$.$(format)$]]&quot;&quot;&quot; /&gt;
    &lt;$action-getfolders
       root={{$:/config/LocalStorage##root}}
       limit={{$:/config/LocalStorage##limit}}/&gt;
@@ -7594,7 +7594,8 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 \define loadpicture()
 &lt;$button tooltip=&quot;load this photo from local storage&quot;&gt;
    {{$:/core/images/download-button}}
-   &lt;$action-loadfile filename=&lt;&lt;gettarget&gt;&gt; parse=&quot;tiddlers&quot;/&gt;
+   &lt;$action-loadfile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;
+      parse=&quot;tiddlers&quot;/&gt;
 &lt;/$button&gt;
 \end
 
@@ -7602,7 +7603,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;$button tooltip=&quot;delete this photo&quot;&gt;
    @@.redsvg {{$:/core/images/close-button}}@@
    &lt;$action-deletetiddler tiddler=&lt;&lt;gettiddler&gt;&gt; /&gt;
-   &lt;$action-removefile filename=&lt;&lt;gettarget&gt;&gt; /&gt;
+   &lt;$action-removefile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;/&gt;
 &lt;/$button&gt;
 \end
 
