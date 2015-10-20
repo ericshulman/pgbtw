@@ -294,14 +294,16 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151017063232716" modified="20151020020643937" title="$:/config/Camera" type="application/json">
+<div created="20151017063232716" modified="20151020025939084" title="$:/config/Camera" type="application/json">
 <pre>{
     &quot;name&quot;: &quot;photo&quot;,
     &quot;format&quot;: &quot;jpg&quot;,
-    &quot;index&quot;: &quot;01&quot;,
+    &quot;index&quot;: &quot;00&quot;,
     &quot;width&quot;: &quot;1280&quot;,
     &quot;height&quot;: &quot;768&quot;,
-    &quot;quality&quot;: &quot;50&quot;
+    &quot;quality&quot;: &quot;50&quot;,
+    &quot;path&quot;: &quot;photos/&quot;,
+    &quot;counter&quot;: &quot;01&quot;
 }</pre>
 </div>
 <div accuracy="yes" created="20151017064839232" modified="20151017065427672" title="$:/config/Geo" type="application/json">
@@ -7012,13 +7014,13 @@ LOAD
 <div modified="20151019233411533" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151020020923097" title="$:/state/Dashboard/Camera">
+<div modified="20151020030054968" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
 <div modified="20151020005649028" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151020010101162" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151020024750530" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div modified="20151020010057077" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -7048,8 +7050,8 @@ LOAD
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
 <pre>Dashboard/AddressLookup</pre>
 </div>
-<div modified="20151020015526480" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Filter</pre>
+<div modified="20151020024653267" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -7063,8 +7065,8 @@ LOAD
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151020015643687" title="$:/temp/advancedsearch">
-<pre>00 01 02 03 04 05 06 07 08 09 10 +[after[10]]</pre>
+<div created="20150706192244698" modified="20151020024655003" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -7089,8 +7091,8 @@ LOAD
 <div created="20150706215305238" modified="20151020004103398" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151020014039535" title="$:/temp/notify">
-<pre>photos/photo00.jpg: Not Found</pre>
+<div modified="20151020023402451" title="$:/temp/notify">
+<pre>photos/photo99.jpg: Not Found</pre>
 </div>
 <div created="20150705104045705" modified="20151020012711018" title="$:/temp/search">
 <pre></pre>
@@ -7402,7 +7404,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151020020705255" title="Dashboard">
+<div created="20150623211607895" modified="20151020030100728" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -7545,10 +7547,89 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151020020636097" tags="" title="Dashboard/Camera">
-<pre>\define gettiddler() $(name)$$(index)$.$(format)$
-\define gettarget()  $(path)$$(name)$$(index)$.$(format)$
-\define getfilter()  [title[$(name)$$(index)$.$(format)$]]
+<div caption="Camera" created="20151015065408822" modified="20151020025956105" tags="" title="Dashboard/Camera">
+<pre>\define gettiddler() $(name)$$(counter)$.$(format)$
+\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
+\define getfilter()  [title[$(name)$$(counter)$.$(format)$]]
+
+\define getoptions()
+&lt;$button popup=&quot;$:/temp/popup/CameraOptions&quot;
+   tooltip=&quot;camera options&quot;&gt;
+   {{$:/core/images/options-button}}
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/CameraOptions&quot;
+   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
+''Camera options:''
+&lt;hr&gt;
+@@.nowrap
+size: //(width X height)//&lt;br&gt; &amp;nbsp;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;width&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;640&quot; size=&quot;3&quot; /&gt;
+x
+&lt;$edit-text tag=&quot;input&quot; index=&quot;height&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;384&quot; size=&quot;3&quot; /&gt;
+@@&lt;br&gt;
+@@.nowrap
+quality: //(0 - 100)//&lt;br&gt; &amp;nbsp;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;quality&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;50&quot;  size=&quot;13&quot; /&gt;
+@@&lt;br&gt;
+@@.nowrap
+path: //(name prefix)//&lt;br&gt; &amp;nbsp;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;path&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;photos/&quot;  size=&quot;13&quot; /&gt;
+@@
+&lt;/$reveal&gt;
+\end
+
+\define getname(label:&quot;name:&quot;)
+$label$
+&lt;$edit-text tag=&quot;input&quot; index=&quot;name&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;photo&quot; size=&quot;10&quot; /&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;counter&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;01&quot; size=&quot;2&quot; /&gt;
+&lt;$select index=&quot;format&quot;
+   tiddler=&quot;$:/config/Camera&quot; default=&quot;JPEG&quot;&gt;
+   &lt;option value=&quot;jpg&quot;&gt;jpg&lt;/option&gt;
+   &lt;option value=&quot;png&quot;&gt;png&lt;/option&gt;
+&lt;/$select&gt;
+\end
+
+\define getpicture()
+&lt;$vars name={{$:/config/Camera##name}}
+       counter={{$:/config/Camera##counter}}
+       format={{$:/config/Camera##format}}&gt;
+   &lt;$button tooltip=&quot;take a photo&quot;&gt; click!
+   &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
+      format={{$:/config/Camera##format}}
+      width={{$:/config/Camera##width}}
+      height={{$:/config/Camera##height}}
+      quality={{$:/config/Camera##quality}}
+   /&gt;
+   &lt;/$button&gt;
+&lt;/$vars&gt;
+\end
+
+\define numbers()
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99
+\end
+
+\define prevnext()
+&lt;$set name=&quot;curr&quot; value={{$:/config/Camera##counter}}&gt;
+&lt;$set name=&quot;prev&quot; filter=&quot;$(numbers)$ +[before&lt;curr&gt;]&quot; emptyValue=&quot;01&quot;&gt;
+&lt;$set name=&quot;next&quot; filter=&quot;$(numbers)$ +[after&lt;curr&gt;]&quot;  emptyValue=&quot;99&quot;&gt;
+&lt;$button tooltip=&quot;PREVIOUS PHOTO: decrement counter (01-99)&quot;&gt;
+   {{$:/core/images/left-arrow}}
+   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;prev&gt;&gt; /&gt;
+&lt;/$button&gt;
+&lt;$button tooltip=&quot;NEXT PHOTO: increment counter (01-99)&quot;&gt;
+   {{$:/core/images/right-arrow}}
+   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;next&gt;&gt; /&gt;
+&lt;/$button&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
 
 \define savepicture()
 &lt;$button tooltip=&quot;save this photo to local storage&quot;&gt;
@@ -7575,79 +7656,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/$button&gt;
 \end
 
-\define getoptions()
-&lt;$button popup=&quot;$:/temp/popup/CameraOptions&quot;
-   tooltip=&quot;camera options&quot;&gt;
-   {{$:/core/images/options-button}}
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/CameraOptions&quot;
-   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
-''Camera options:''
-&lt;hr&gt;
-image width:&lt;br&gt; &amp;nbsp;
-&lt;$edit-text tag=&quot;input&quot; index=&quot;width&quot;
-   tiddler=&quot;$:/config/Camera&quot; default=&quot;640&quot; size=&quot;10&quot; /&gt;
-&lt;br&gt;
-image height:&lt;br&gt; &amp;nbsp;
-&lt;$edit-text tag=&quot;input&quot; index=&quot;height&quot;
-   tiddler=&quot;$:/config/Camera&quot; default=&quot;384&quot; size=&quot;10&quot; /&gt;
-&lt;br&gt;
-image quality:&lt;br&gt; &amp;nbsp;
-&lt;$edit-text tag=&quot;input&quot; index=&quot;quality&quot;
-   tiddler=&quot;$:/config/Camera&quot; default=&quot;50&quot;  size=&quot;10&quot; /&gt;
-&lt;/$reveal&gt;
-\end
-
-\define getname(label:&quot;name:&quot;)
-$label$
-&lt;$edit-text tag=&quot;input&quot; index=&quot;name&quot; tiddler=&quot;$:/config/Camera&quot; default=&quot;photo&quot; size=&quot;10&quot; /&gt;
-&lt;$edit-text tag=&quot;input&quot; index=&quot;index&quot; tiddler=&quot;$:/config/Camera&quot; default=&quot;00&quot; size=&quot;2&quot; /&gt;
-&lt;$select index=&quot;format&quot;
-   tiddler=&quot;$:/config/Camera&quot; default=&quot;JPEG&quot;&gt;
-   &lt;option value=&quot;jpg&quot;&gt;jpg&lt;/option&gt;
-   &lt;option value=&quot;png&quot;&gt;png&lt;/option&gt;
-&lt;/$select&gt;
-\end
-
-\define getpicture()
-&lt;$vars name={{$:/config/Camera##name}}
-       index={{$:/config/Camera##index}}
-       format={{$:/config/Camera##format}}&gt;
-   &lt;$button tooltip=&quot;take a photo&quot;&gt; click!
-   &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
-      format={{$:/config/Camera##format}}
-      width={{$:/config/Camera##width}}
-      height={{$:/config/Camera##height}}
-      quality={{$:/config/Camera##quality}}
-   /&gt;
-   &lt;/$button&gt;
-&lt;/$vars&gt;
-\end
-
-\define numbers()
-01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99
-\end
-
-\define prevnext()
-&lt;$set name=&quot;curr&quot; value={{$:/config/Camera##index}}&gt;
-&lt;$set name=&quot;prev&quot; filter=&quot;$(numbers)$ +[before&lt;curr&gt;]&quot; emptyValue=&quot;01&quot;&gt;
-&lt;$set name=&quot;next&quot; filter=&quot;$(numbers)$ +[after&lt;curr&gt;]&quot;  emptyValue=&quot;99&quot;&gt;
-&lt;$button tooltip=&quot;PREVIOUS PHOTO: decrement counter (01-99)&quot;&gt;
-   {{$:/core/images/left-arrow}}
-   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;index&quot; $value=&lt;&lt;prev&gt;&gt; /&gt;
-&lt;/$button&gt;
-&lt;$button tooltip=&quot;NEXT PHOTO: increment counter (01-99)&quot;&gt;
-   {{$:/core/images/right-arrow}}
-   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;index&quot; $value=&lt;&lt;next&gt;&gt; /&gt;
-&lt;/$button&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-\end
-
 \define showpicture()
 &lt;$vars name={{$:/config/Camera##name}}
-       index={{$:/config/Camera##index}}
+       counter={{$:/config/Camera##counter}}
        format={{$:/config/Camera##format}}&gt;
    &lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;&gt;
    &lt;table class=&quot;borderless&quot; style=&quot;height:10em;width:100%;&quot;&gt;
@@ -7659,20 +7670,19 @@ $label$
 \end
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
-&lt;$vars path=&quot;photos/&quot;
+@@.floatright.smaller.nowrap
+&lt;$vars path={{$:/config/Camera##path}}
        name={{$:/config/Camera##name}}
-       index={{$:/config/Camera##index}}
+       counter={{$:/config/Camera##counter}}
        format={{$:/config/Camera##format}}&gt;
-   @@.floatright.smaller.nowrap
-      &lt;&lt;savepicture&gt;&gt; &amp;nbsp;
-      &lt;&lt;loadpicture&gt;&gt; &amp;nbsp;
-      &lt;&lt;deletepicture&gt;&gt; &amp;nbsp;
-      &lt;&lt;getoptions&gt;&gt; @@
+   &lt;&lt;savepicture&gt;&gt; &amp;nbsp;
+   &lt;&lt;loadpicture&gt;&gt; &amp;nbsp;
+   &lt;&lt;deletepicture&gt;&gt; &amp;nbsp;
 &lt;/$vars&gt;
+   &lt;&lt;getoptions&gt;&gt;
+@@
 @@.floatleft.nowrap &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;@@
-@@.floatleft.smaller.nowrap
-   &amp;nbsp;&lt;&lt;getname &quot;&amp;nbsp;&quot;&gt;&gt;
-   &lt;&lt;getpicture&gt;&gt;@@
+@@.floatleft.smaller.nowrap &amp;nbsp;&lt;&lt;getname &quot;&amp;nbsp;&quot;&gt;&gt; &lt;&lt;getpicture&gt;&gt;@@
 @@.center.smaller &lt;&lt;prevnext&gt;&gt;@@
 @@.center.clear.smaller.shadowbox.inset &lt;&lt;showpicture&gt;&gt;@@
 &lt;/div&gt;</pre>
