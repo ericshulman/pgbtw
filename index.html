@@ -282,6 +282,8 @@ Error message and password prompt
 
 <li>Sunnyvale</li>
 
+<li>test</li>
+
 <li>Toronto</li>
 
 </ul>
@@ -294,7 +296,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151017063232716" modified="20151020031622043" title="$:/config/Camera" type="application/json">
+<div created="20151017063232716" modified="20151021085440120" title="$:/config/Camera" type="application/json">
 <pre>{
     &quot;name&quot;: &quot;photo&quot;,
     &quot;format&quot;: &quot;jpg&quot;,
@@ -313,18 +315,21 @@ Error message and password prompt
     &quot;watch&quot;: &quot;off&quot;
 }</pre>
 </div>
-<div created="20151017064328706" modified="20151019233315215" title="$:/config/GoogleMaps" type="application/json">
+<div created="20151021074010415" modified="20151021074058791" title="$:/config/GoogleMaps" type="application/json">
 <pre>{
+    &quot;width&quot;: &quot;640&quot;,
+    &quot;height&quot;: &quot;384&quot;,
+    &quot;scale&quot;: &quot;2&quot;,
     &quot;maptype&quot;: &quot;hybrid&quot;,
     &quot;zoom&quot;: &quot;17&quot;
 }</pre>
 </div>
-<div created="20151017070437816" modified="20151020003132875" title="$:/config/LocalStorage" type="application/json">
+<div created="20151017070437816" modified="20151021091118994" title="$:/config/LocalStorage" type="application/json">
 <pre>{
     &quot;filename&quot;: &quot;locations.tids&quot;,
     &quot;filter&quot;: &quot;[tag[location]]&quot;,
     &quot;root&quot;: &quot;TW5/&quot;,
-    &quot;limit&quot;: &quot;3&quot;
+    &quot;limit&quot;: &quot;5&quot;
 }</pre>
 </div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
@@ -333,10 +338,12 @@ Error message and password prompt
 <div created="20150705120259221" modified="20151014133031997" title="$:/config/SaverFilter">
 <pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage]]</pre>
 </div>
-<div created="20151017064109083" modified="20151017064116997" title="$:/config/StreetView" type="application/json">
+<div created="20151017064109083" modified="20151021074954468" title="$:/config/StreetView" type="application/json">
 <pre>{
     &quot;heading&quot;: &quot;200&quot;,
-    &quot;fov&quot;: &quot;120&quot;
+    &quot;fov&quot;: &quot;120&quot;,
+    &quot;width&quot;: &quot;640&quot;,
+    &quot;height&quot;: &quot;384&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.9">
@@ -6347,7 +6354,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div modified="20151020055415991" title="$:/Geo/Data/Address" type="application/json">
+<div modified="20151021085149345" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -6945,37 +6952,37 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 }
 </pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/administrative_area_level_1">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/administrative_area_level_1">
 <pre>Ontario, Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/administrative_area_level_2">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/administrative_area_level_2">
 <pre>Toronto Division, ON, Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/bus_station">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/bus_station">
 <pre>College Park at University Ave., Toronto, ON M5G, Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/country">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/country">
 <pre>Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/locality">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/locality">
 <pre>Toronto, ON, Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/neighborhood">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/neighborhood">
 <pre>Downtown, Toronto, ON, Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/postal_code_prefix">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/postal_code_prefix">
 <pre>Toronto, ON M5G, Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/street_address">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/street_address">
 <pre>700 University Ave, Toronto, ON M5G, Canada</pre>
 </div>
-<div modified="20151020055415993" title="$:/Geo/Data/Address/sublocality_level_1">
+<div modified="20151021085149347" title="$:/Geo/Data/Address/sublocality_level_1">
 <pre>Old Toronto, Toronto, ON, Canada</pre>
 </div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[check56.svg]]</pre>
+# [[jeremy.jpg]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -7010,25 +7017,25 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151020055607003" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151021085152469" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151020055958257" title="$:/state/Dashboard/Camera">
+<div modified="20151021085642577" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151020005649028" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151021085644081" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151020060002786" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151021091234592" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151020010057077" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151021091232863" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>close</pre>
 </div>
-<div modified="20151020060007216" title="$:/state/Dashboard/Maps">
+<div modified="20151021085644776" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
-<div modified="20151020060009121" title="$:/state/Dashboard/StreetView">
+<div modified="20151021081219288" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
 <div created="20151017065317799" modified="20151017065317799" title="$:/state/GeoData" type="application/json">
@@ -7058,14 +7065,14 @@ LOAD
 <div modified="20151020004259013" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151020031626923" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151021074205494" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151020024655003" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20150706192244698" modified="20151020160218335" title="$:/temp/advancedsearch">
+<pre>base64</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -7090,10 +7097,10 @@ LOAD
 <div created="20150706215305238" modified="20151020004103398" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151020023402451" title="$:/temp/notify">
-<pre>photos/photo99.jpg: Not Found</pre>
+<div modified="20151021091058894" title="$:/temp/notify">
+<pre> removed from ~LocalStorage</pre>
 </div>
-<div created="20150705104045705" modified="20151020012711018" title="$:/temp/search">
+<div created="20150705104045705" modified="20151020150236485" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7403,7 +7410,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151020060110929" title="Dashboard">
+<div created="20150623211607895" modified="20151021091210346" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -7445,7 +7452,7 @@ exports.startup = function() {
 &lt;&lt;sliderpanel Dashboard/StreetView&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20151020055415304" tags="" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20151021071347366" tags="" title="Dashboard/AddressLookup">
 <pre>\define getoptions()
 &lt;$button popup=&quot;$:/temp/popup/AddressLookup&quot;
    tooltip=&quot;address lookup options&quot;&gt;
@@ -7459,9 +7466,10 @@ exports.startup = function() {
 &lt;/$reveal&gt;
 \end
 
-\define savedata()
-&lt;$button tooltip=&quot;COPY current address data to local storage&quot;&gt;
-   {{$:/core/images/save-button}}
+\define saveaddress()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;COPY address data to local storage&quot;&gt;
+   @@.largest {{$:/core/images/save-button}}@@ backup address data
    &lt;$action-savefile root={{$:/config/LocalStorage##root}}
       filename=&quot;address.tids&quot; filter=&quot;[prefix[$:/Geo/Data/Address]]&quot; /&gt;
    &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
@@ -7469,12 +7477,39 @@ exports.startup = function() {
 &lt;/$button&gt;
 \end
 
-\define loaddata()
-&lt;$button tooltip=&quot;RESTORE address data from local storage&quot;&gt;
-   {{$:/core/images/download-button}}
+\define loadaddress()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;RESTORE address data from local storage&quot;&gt;
+   @@.largest {{$:/core/images/download-button}}@@ restore address data
    &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
       filename=&quot;address.tids&quot; parse=&quot;tiddlers&quot;/&gt;
 &lt;/$button&gt;
+\end
+
+\define deleteaddress()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;REMOVE address data from local storage&quot;&gt;
+   @@.largest {{$:/core/images/close-button}}@@ delete backup
+   &lt;$action-removefile root={{$:/config/LocalStorage##root}}
+      filename=&quot;address.tids&quot;/&gt;
+   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
+&lt;/$button&gt;
+\end
+
+\define localstorage()
+&lt;$button popup=&quot;$:/temp/popup/Address/LocalStorage&quot;
+   tooltip=&quot;local storage&quot;&gt;
+   @@.resize {{images/folder.svg}}@@
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/Address/LocalStorage&quot;
+   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
+''~LocalStorage:~AddressLookup''
+&lt;hr&gt;
+&lt;&lt;saveaddress&gt;&gt;
+&lt;&lt;loadaddress&gt;&gt;
+&lt;&lt;deleteaddress&gt;&gt;
+&lt;/$reveal&gt;
 \end
 
 \define getdata()
@@ -7535,7 +7570,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
        longitude={{$:/Geo/Data##longitude}}&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-   &lt;&lt;savedata&gt;&gt;&amp;nbsp; &lt;&lt;loaddata&gt;&gt;&amp;nbsp; &lt;&lt;getoptions&gt;&gt;@@
+   &lt;&lt;localstorage&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
@@ -7549,9 +7586,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151020055839867" tags="" title="Dashboard/Camera">
-<pre>\define gettiddler() $(name)$$(counter)$.$(format)$
-\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
+<div caption="Camera" created="20151015065408822" modified="20151021085421819" tags="" title="Dashboard/Camera">
+<pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getoptions()
 &lt;$button popup=&quot;$:/temp/popup/CameraOptions&quot;
@@ -7583,9 +7619,9 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$reveal&gt;
 \end
 
-\define savepicture()
-&lt;$button tooltip=&quot;save this photo to local storage&quot;&gt;
-   {{$:/core/images/save-button}}
+\define savephoto()
+&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+   @@.largest {{$:/core/images/save-button}}@@ backup &lt;&lt;gettarget&gt;&gt;
    &lt;$action-savefile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;
       filter=&quot;&quot;&quot;[title[$(path)$$(name)$$(counter)$.$(format)$]]&quot;&quot;&quot; /&gt;
    &lt;$action-getfolders
@@ -7594,20 +7630,69 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$button&gt;
 \end
 
-\define loadpicture()
-&lt;$button tooltip=&quot;load this photo from local storage&quot;&gt;
-   {{$:/core/images/download-button}}
+\define loadphoto()
+&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+   @@.largest {{$:/core/images/download-button}}@@ restore &lt;&lt;gettarget&gt;&gt;
    &lt;$action-loadfile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;
       parse=&quot;tiddlers&quot;/&gt;
 &lt;/$button&gt;
 \end
 
-\define deletepicture()
-&lt;$button tooltip=&quot;delete this photo&quot;&gt;
-   @@.redsvg {{$:/core/images/close-button}}@@
-   &lt;$action-deletetiddler tiddler=&lt;&lt;gettiddler&gt;&gt; /&gt;
+\define deletephoto()
+&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+   @@.largest {{$:/core/images/close-button}}@@ delete &lt;&lt;gettarget&gt;&gt;
    &lt;$action-removefile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;/&gt;
 &lt;/$button&gt;
+\end
+
+\define saveall()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;COPY all photos to local storage&quot;&gt;
+   @@.largest {{$:/core/images/save-button}}@@ backup all photos
+   &lt;$action-savefile root={{$:/config/LocalStorage##root}}
+      filename=&quot;photos.tids&quot; filter=&quot;[tag[photo]]&quot; /&gt;
+   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
+&lt;/$button&gt;
+\end
+
+\define loadall()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;RESTORE all photos from local storage&quot;&gt;
+   @@.largest {{$:/core/images/download-button}}@@ restore all photos
+   &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
+      filename=&quot;photos.tids&quot; parse=&quot;tiddlers&quot;/&gt;
+&lt;/$button&gt;
+\end
+
+\define deleteall()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;REMOVE all photos from local storage&quot;&gt;
+   @@.largest {{$:/core/images/close-button}}@@ delete backup
+   &lt;$action-removefile root={{$:/config/LocalStorage##root}}
+      filename=&quot;photos.tids&quot;/&gt;
+   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
+&lt;/$button&gt;
+\end
+
+\define localstorage()
+&lt;$vars path={{$:/config/Camera##path}}
+       name={{$:/config/Camera##name}}
+       counter={{$:/config/Camera##counter}}
+       format={{$:/config/Camera##format}}&gt;
+&lt;$button popup=&quot;$:/temp/popup/Camera/LocalStorage&quot; tooltip=&quot;local storage&quot;&gt;
+   @@.resize {{images/folder.svg}}@@
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/Camera/LocalStorage&quot;
+   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
+''~LocalStorage:Camera''
+&lt;hr&gt;
+&lt;&lt;savephoto&gt;&gt; &lt;&lt;loadphoto&gt;&gt; &lt;&lt;deletephoto&gt;&gt;
+&lt;hr&gt;
+&lt;&lt;saveall&gt;&gt; &lt;&lt;loadall&gt;&gt; &lt;&lt;deleteall&gt;&gt;
+&lt;/$reveal&gt;
+&lt;/$vars&gt;
 \end
 
 \define getname(label:&quot;name:&quot;)
@@ -7623,78 +7708,99 @@ $label$
 &lt;/$select&gt;
 \end
 
-\define getpicture()
-&lt;$vars path={{$:/config/Camera##path}}
-       name={{$:/config/Camera##name}}
-       counter={{$:/config/Camera##counter}}
-       format={{$:/config/Camera##format}}&gt;
-   &lt;$button tooltip=&quot;take a photo&quot;&gt; click!
+\define numbers()
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99
+\end
+\define prevnext()
+&lt;$set name=&quot;curr&quot; value={{$:/config/Camera##counter}}&gt;
+&lt;$set name=&quot;first&quot; filter=&quot;$(numbers)$ +[first[]]&quot;      emptyValue=&quot;01&quot;&gt;
+&lt;$set name=&quot;prev&quot;  filter=&quot;$(numbers)$ +[before&lt;curr&gt;]&quot; emptyValue=&quot;01&quot;&gt;
+&lt;$set name=&quot;next&quot;  filter=&quot;$(numbers)$ +[after&lt;curr&gt;]&quot;  emptyValue=&quot;99&quot;&gt;
+&lt;$set name=&quot;last&quot;  filter=&quot;[removeprefix&lt;path&gt;removeprefix&lt;name&gt;removesuffix&lt;format&gt;removesuffix[.]last[]]&quot;  emptyValue=&quot;01&quot;&gt;
+&lt;$button tooltip=&quot;FIRST PHOTO: set counter to 01&quot;&gt;
+   {{$:/core/images/chevron-left}}
+   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;first&gt;&gt; /&gt;
+&lt;/$button&gt;
+&lt;$button tooltip=&quot;PREVIOUS PHOTO: decrement counter (01-99)&quot;&gt;
+   {{$:/core/images/left-arrow}}
+   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;prev&gt;&gt; /&gt;
+&lt;/$button&gt;
+&amp;nbsp;
+&lt;&lt;takepicture label:&quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
+&amp;nbsp;
+&lt;$button tooltip=&quot;NEXT PHOTO: increment counter (01-99)&quot;&gt;
+   {{$:/core/images/right-arrow}}
+   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;next&gt;&gt; /&gt;
+&lt;/$button&gt;
+&lt;$button tooltip=&quot;LAST PHOTO: set counter to last photo taken (01-99)&quot;&gt;
+   {{$:/core/images/chevron-right}}
+   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;last&gt;&gt; /&gt;
+&lt;/$button&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+\define takepicture(label:&quot;click!&quot;)
+&lt;$button tooltip=&quot;take a photo&quot;&gt; $label$
    &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
       format={{$:/config/Camera##format}}
       width={{$:/config/Camera##width}}
       height={{$:/config/Camera##height}}
       quality={{$:/config/Camera##quality}}
    /&gt;
+&lt;/$button&gt;
+\end
+
+\define deletepicture()
+&lt;$vars tooltip=&quot;delete $(path)$$(name)$$(counter)$.$(format)$&quot;&gt;
+&lt;$list filter=&quot;[title&lt;gettarget&gt;is[tiddler]]&quot;
+   emptyMessage=&quot;&quot;&quot;&lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt;
+      @@.graysvg {{$:/core/images/close-button}}@@&lt;/$button&gt;&quot;&quot;&quot;&gt;
+   &lt;$button tooltip=&lt;&lt;tooltip&gt;&gt;&gt;
+      @@.redsvg {{$:/core/images/close-button}}@@
+      &lt;$action-deletetiddler $tiddler=&lt;&lt;gettarget&gt;&gt; /&gt;
    &lt;/$button&gt;
+&lt;/$list&gt;
 &lt;/$vars&gt;
-\end
-
-\define numbers()
-01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99
-\end
-
-\define prevnext()
-&lt;$set name=&quot;curr&quot; value={{$:/config/Camera##counter}}&gt;
-&lt;$set name=&quot;prev&quot; filter=&quot;$(numbers)$ +[before&lt;curr&gt;]&quot; emptyValue=&quot;01&quot;&gt;
-&lt;$set name=&quot;next&quot; filter=&quot;$(numbers)$ +[after&lt;curr&gt;]&quot;  emptyValue=&quot;99&quot;&gt;
-&lt;$button tooltip=&quot;PREVIOUS PHOTO: decrement counter (01-99)&quot;&gt;
-   {{$:/core/images/left-arrow}}
-   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;prev&gt;&gt; /&gt;
-&lt;/$button&gt;
-&lt;$button tooltip=&quot;NEXT PHOTO: increment counter (01-99)&quot;&gt;
-   {{$:/core/images/right-arrow}}
-   &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;next&gt;&gt; /&gt;
-&lt;/$button&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
-&lt;/$set&gt;
 \end
 
 \define showpicture()
-&lt;$vars path={{$:/config/Camera##path}}
-       name={{$:/config/Camera##name}}
-       counter={{$:/config/Camera##counter}}
-       format={{$:/config/Camera##format}}&gt;
-   &lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;&gt;
-   &lt;table class=&quot;borderless&quot; style=&quot;height:10em;width:100%;&quot;&gt;
-   &lt;tr valign=&quot;center&quot;&gt;&lt;td align=&quot;center&quot;&gt;
-   @@font-size:300%;&lt;&lt;getpicture&gt;&gt;@@
-   &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-   &lt;/$transclude&gt;
-&lt;/$vars&gt;
+&lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;&gt;
+&lt;table class=&quot;borderless&quot; style=&quot;height:10em;width:100%;&quot;&gt;
+&lt;tr valign=&quot;center&quot;&gt;&lt;td align=&quot;center&quot;&gt;
+@@font-size:300%;
+&lt;&lt;takepicture label:&quot;{{$:/core/images/close-others-button}} CLICK!&quot;&gt;&gt;
+@@
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/$transclude&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
+&lt;div class=&quot;shadowbox left clear nowrap&quot;&gt;
 @@.floatright.smaller.nowrap
-&lt;$vars path={{$:/config/Camera##path}}
-       name={{$:/config/Camera##name}}
-       counter={{$:/config/Camera##counter}}
-       format={{$:/config/Camera##format}}&gt;
-   &lt;&lt;savepicture&gt;&gt; &amp;nbsp; &lt;&lt;loadpicture&gt;&gt; &amp;nbsp; &lt;&lt;deletepicture&gt;&gt; &amp;nbsp;
-&lt;/$vars&gt;
-   &lt;&lt;getoptions&gt;&gt;
-@@
+   &lt;&lt;localstorage&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
-   &lt;&lt;getname &quot;&amp;nbsp;&quot;&gt;&gt; &lt;&lt;getpicture&gt;&gt;@@
-@@.center.smaller
+   &lt;&lt;getname &quot;&amp;nbsp;&quot;&gt;&gt;@@
+&lt;$vars path={{$:/config/Camera##path}}
+       name={{$:/config/Camera##name}}
+       counter={{$:/config/Camera##counter}}
+       format={{$:/config/Camera##format}}&gt;
+@@.floatleft.smaller.nowrap
+   &amp;nbsp; &lt;&lt;deletepicture&gt;&gt;@@
+@@.center.smaller.nowrap
    &lt;&lt;prevnext&gt;&gt;@@
 @@.center.clear.smaller.shadowbox.inset
    &lt;&lt;showpicture&gt;&gt;@@
+&lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151020055558260" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151021071304061" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7729,9 +7835,10 @@ timeout:&lt;br&gt;
 &lt;/$reveal&gt;
 \end
 
-\define saveLocations()
-&lt;$button tooltip=&quot;COPY saved Geo data to local storage&quot;&gt;
-   {{$:/core/images/save-button}}
+\define savelocations()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;COPY saved locations to local storage&quot;&gt;
+   @@.largest {{$:/core/images/save-button}}@@ backup locations
    &lt;$action-savefile root={{$:/config/LocalStorage##root}}
       filename=&quot;locations.tids&quot; filter=&quot;[tag[location]]&quot; /&gt;
    &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
@@ -7739,12 +7846,39 @@ timeout:&lt;br&gt;
 &lt;/$button&gt;
 \end
 
-\define loadLocations()
-&lt;$button tooltip=&quot;RESTORE saved Geo data from local storage&quot;&gt;
-   {{$:/core/images/download-button}}
+\define loadlocations()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;RESTORE saved locations from local storage&quot;&gt;
+   @@.largest {{$:/core/images/download-button}}@@ restore locations
    &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
       filename=&quot;locations.tids&quot; parse=&quot;tiddlers&quot;/&gt;
 &lt;/$button&gt;
+\end
+
+\define deletelocations()
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;REMOVE saved locations from local storage&quot;&gt;
+   @@.largest {{$:/core/images/close-button}}@@ delete backup
+   &lt;$action-removefile root={{$:/config/LocalStorage##root}}
+      filename=&quot;locations.tids&quot;/&gt;
+   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
+&lt;/$button&gt;
+\end
+
+\define localstorage()
+&lt;$button popup=&quot;$:/temp/popup/Geo/LocalStorage&quot;
+   tooltip=&quot;local storage&quot;&gt;
+   @@.resize {{images/folder.svg}}@@
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/Geo/LocalStorage&quot;
+   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
+''~LocalStorage:~GeoLocation''
+&lt;hr&gt;
+&lt;&lt;savelocations&gt;&gt;
+&lt;&lt;loadlocations&gt;&gt;
+&lt;&lt;deletelocations&gt;&gt;
+&lt;/$reveal&gt;
 \end
 
 \define getGeo()
@@ -7804,7 +7938,9 @@ timeout:&lt;br&gt;
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-   &lt;&lt;saveLocations&gt;&gt;&amp;nbsp; &lt;&lt;loadLocations&gt;&gt;&amp;nbsp; &lt;&lt;getoptions&gt;&gt;@@
+   &lt;&lt;localstorage&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
@@ -7819,7 +7955,7 @@ timeout:&lt;br&gt;
       format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage" created="20151009192813110" modified="20151020055517386" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
+<div caption="LocalStorage" created="20151009192813110" modified="20151021075653893" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
 <pre>\define getoptions()
 &lt;$button popup=&quot;$:/temp/popup/LocalStorageOptions&quot; tooltip=&quot;Local Storage options&quot;&gt;
    {{$:/core/images/options-button}}
@@ -7885,7 +8021,7 @@ $label$
 \define setfilter()
 @@.nowrap
 &lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/temp/popup/filterInfoDropdown&quot;&gt;
-   {{$:/core/images/info-button}}
+    filter: {{$:/core/images/info-button}}
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowright&quot;
    state=&quot;$:/temp/popup/filterInfoDropdown&quot; class=&quot;tc-drop-down&quot;&gt;
@@ -7896,7 +8032,7 @@ $label$
       &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
    &lt;/$list&gt;
 &lt;/$reveal&gt;
-filter: &lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
+&lt;$edit-text tag=&quot;input&quot; size=&quot;12&quot;
    tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;filter&quot;   default=&quot;[tag[location]]&quot;/&gt;
 &lt;&lt;selectfilter&gt;&gt;
 @@
@@ -7947,7 +8083,7 @@ filter: &lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
 \define setfilename()
 @@.nowrap
 filename:
-&lt;$edit-text tag=&quot;input&quot; size=&quot;15&quot;
+&lt;$edit-text tag=&quot;input&quot; size=&quot;12&quot;
    tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;filename&quot; default=&quot;locations.json&quot;/&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;select a filename&quot;
    popup=&quot;$:/temp/popup/filenameDropdown&quot;&gt;
@@ -7981,21 +8117,28 @@ filename:
 \end
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
-&lt;$vars filter={{$:/config/LocalStorage##filter}}
+@@.floatright.smaller.nowrap
+   &lt;$vars filter={{$:/config/LocalStorage##filter}}
        filename={{$:/config/LocalStorage##filename}}
        root={{$:/config/LocalStorage##root}}
        limit={{$:/config/LocalStorage##limit}}&gt;
-@@.floatright.smaller.nowrap
+   &lt;&lt;savefile     label:&quot;{{$:/core/images/save-button}}&quot;&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;loadfile     label:&quot;{{$:/core/images/download-button}}&quot;&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;removefile   label:&quot;@@.redsvg {{$:/core/images/close-button}}@@&quot;&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;removefolder label:&quot;@@.redsvg {{$:/core/images/close-all-button}}@@&quot;&gt;&gt;
+   &lt;/$vars&gt;
+   &amp;nbsp;
    &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
-   &lt;&lt;loadfile&gt;&gt; &lt;&lt;savefile&gt;&gt; &lt;&lt;removefile&gt;&gt; &lt;&lt;removefolder&gt;&gt;@@
-@@.center.smaller
    &lt;&lt;toggleviewer&gt;&gt;@@
-&lt;/$vars&gt;
-@@.center.clear.shadowbox.inset
-&lt;&lt;setfilter&gt;&gt; &amp;nbsp; &lt;&lt;setfilename&gt;&gt;
+@@.center.clear.shadowbox.inset.nowrap
+   &lt;&lt;setfilter&gt;&gt;
+   &lt;&lt;setfilename&gt;&gt;
 @@
 &lt;/div&gt;
 &lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Viewer&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
@@ -8003,7 +8146,7 @@ filename:
    {{Dashboard/LocalStorage/Viewer}}
 &lt;/$reveal&gt;</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151020055533759" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151021090908968" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8040,8 +8183,8 @@ tiddler cache location:&lt;br&gt;
 &lt;/$button&gt;
 \end
 
-\define clearcachebutton(label:&quot;clear cache&quot;)
-&lt;$button tooltip=&quot;CLEAR CACHE: unload all files and folders from tiddler cache (local storage is unchanged)&quot;&gt; $label$
+\define resetcache(label:&quot;reset cache&quot;)
+&lt;$button tooltip=&quot;RESET CACHE: unload all files and folders from tiddler cache (local storage is unchanged)&quot;&gt; $label$
    &lt;$action-deletetiddler $filter=&quot;[prefix[$:/LocalStorage]]&quot; /&gt;
 &lt;/$button&gt;
 \end
@@ -8157,15 +8300,19 @@ tiddler cache location:&lt;br&gt;
 &lt;$set name=&quot;emptylist&quot; value=&quot;[[]]&quot;&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;resetcache &quot;{{$:/core/images/delete-button}}&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
-   &lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt;
-   &lt;&lt;clearcachebutton &quot;{{$:/core/images/export-button}}&quot;&gt;&gt;@@
+   &lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt;@@
 @@.clear.shadowbox.inset
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;
-   emptyMessage=&quot;&quot;&quot;@@visibility:hidden;&lt;&lt;getfoldersbutton&gt;&gt;@@&quot;&quot;&quot;&gt;
+   emptyMessage=&quot;&quot;&quot;
+      @@display:none;&lt;&lt;getfoldersbutton&gt;&gt;@@
+      @@.center ''//getting local storage folder info...//''@@
+   &quot;&quot;&quot;&gt;
    @@.bottomdots &lt;&lt;showfolderitem&gt;&gt;@@
    &lt;$list filter=&quot;[all[current]list[!!filelist]]&quot; variable=&quot;filename&quot;&gt;
       @@.bottomdots &lt;&lt;showfileitem&gt;&gt;@@
@@ -8175,9 +8322,9 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20151020060050670" tags="" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20151021075120181" tags="" title="Dashboard/Maps">
 <pre>\define ShowMap(w,h)
-[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$w$x$h$&amp;scale=1&amp;maptype=$(maptype)$&amp;format=jpg]]
+[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
 \end
 
 \define ShowLink()
@@ -8211,35 +8358,53 @@ source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$..
    class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
 ''~GoogleMaps options:''
 &lt;hr&gt;
-//no options available//
+@@.nowrap
+size: //(width X height)//&lt;br&gt; &amp;nbsp;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;width&quot;
+   tiddler=&quot;$:/config/GoogleMaps&quot; default=&quot;640&quot; size=&quot;3&quot; /&gt;
+x
+&lt;$edit-text tag=&quot;input&quot; index=&quot;height&quot;
+   tiddler=&quot;$:/config/GoogleMaps&quot; default=&quot;384&quot; size=&quot;3&quot; /&gt;
+@@&lt;br&gt;
+@@.nowrap
+quality:&lt;br&gt; &amp;nbsp;
+&lt;$select tiddler=&quot;$:/config/GoogleMaps&quot; index=&quot;scale&quot; default=&quot;1&quot;&gt;
+&lt;option value=&quot;1&quot;&gt;low&lt;/option&gt;
+&lt;option value=&quot;2&quot;&gt;high&lt;/option&gt;
+&lt;/$select&gt;
+@@&lt;br&gt;
 &lt;/$reveal&gt;
 \end
 
-&lt;$vars latitude={{$:/Geo/Data##latitude}}
-       longitude={{$:/Geo/Data##longitude}}
-       zoom={{$:/config/GoogleMaps##zoom}}
-       maptype={{$:/config/GoogleMaps##maptype}}&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$link&gt;''&lt;$text text={{!!caption}}/&gt;:''&lt;/$link&gt;@@
+&lt;$vars
+    latitude={{$:/Geo/Data##latitude}}
+    longitude={{$:/Geo/Data##longitude}}
+    zoom={{$:/config/GoogleMaps##zoom}}
+    width={{$:/config/GoogleMaps##width}}
+    height={{$:/config/GoogleMaps##height}}
+    scale={{$:/config/GoogleMaps##scale}}
+    maptype={{$:/config/GoogleMaps##maptype}}&gt;
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
 @@.clear.shadowbox.inset
-   &lt;&lt;ShowMap 600 300&gt;&gt;
+   &lt;&lt;ShowMap&gt;&gt;
    &lt;div class=&quot;smallest&quot;&gt;&lt;&lt;ShowLink&gt;&gt;&lt;/div&gt;
 @@
-&lt;/div&gt;
-&lt;/$vars&gt;</pre>
+&lt;/$vars&gt;
+&lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20151020055730723" tags="" title="Dashboard/StreetView">
-<pre>\define StreetView(w,h)
-[img[https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
+<div caption="StreetView" created="20151010205755347" modified="20151021074929030" tags="" title="Dashboard/StreetView">
+<pre>\define StreetView()
+[img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 \end
 
 \define ShowLink()
-source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$...|https://maps.googleapis.com/maps/api/streetview?size=$w$x$h$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
+source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$...|https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 \end
 
 \define showcontrols()
@@ -8265,14 +8430,17 @@ source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$.
    class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
 ''~StreetView options:''
 &lt;hr&gt;
-//no options available//
+@@.nowrap
+size: //(width X height)//&lt;br&gt; &amp;nbsp;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;width&quot;
+   tiddler=&quot;$:/config/StreetView&quot; default=&quot;640&quot; size=&quot;3&quot; /&gt;
+x
+&lt;$edit-text tag=&quot;input&quot; index=&quot;height&quot;
+   tiddler=&quot;$:/config/StreetView&quot; default=&quot;384&quot; size=&quot;3&quot; /&gt;
+@@&lt;br&gt;
 &lt;/$reveal&gt;
 \end
 
-&lt;$vars latitude={{$:/Geo/Data##latitude}}
-       longitude={{$:/Geo/Data##longitude}}
-       heading={{$:/config/StreetView##heading}}
-       fov={{$:/config/StreetView##fov}}&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;getoptions&gt;&gt;@@
@@ -8281,11 +8449,18 @@ source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$.
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
 @@.clear.shadowbox.inset
-   &lt;&lt;StreetView 600 300&gt;&gt;
+   &lt;$vars
+      latitude={{$:/Geo/Data##latitude}}
+      longitude={{$:/Geo/Data##longitude}}
+      width={{$:/config/StreetView##width}}
+      height={{$:/config/StreetView##height}}
+      heading={{$:/config/StreetView##heading}}
+      fov={{$:/config/StreetView##fov}}&gt;
+   &lt;&lt;StreetView&gt;&gt;
    &lt;div class=&quot;smallest&quot;&gt;&lt;&lt;ShowLink&gt;&gt;&lt;/div&gt;
+   &lt;/$vars&gt;
 @@
-&lt;/div&gt;
-&lt;/$vars&gt;</pre>
+&lt;/div&gt;</pre>
 </div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
 <pre>/*\
@@ -8387,7 +8562,7 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
     &quot;longitude&quot;: &quot;0&quot;
 }</pre>
 </div>
-<div created="20150728060155235" modified="20150817230702921" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
+<div created="20150728060155235" modified="20151020223222218" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
 <pre>/*\
 title: http/action-httprequest.js
 type: application/javascript
@@ -8401,7 +8576,7 @@ params (default):
 url         = source URL
 tiddler     = tiddler to store results
 tiddlertype = MIME type for target tiddler
-parse       = keywords: &quot;json&quot;, &quot;geo&quot; (default=no parsing)
+parse       = keywords: &quot;json&quot;, &quot;geo&quot;, &quot;base64&quot; (default=no parsing)
 autoload    = if defined, action is invoked when widget is rendered
 
 \*/
@@ -8475,22 +8650,110 @@ HttpRequestWidget.prototype.geo2tiddlers = function(tid,data) {
 	}
 };
 
+HttpRequestWidget.prototype.binary2tiddler = function(tid,data,url) {
+	function encodeBase64(str) {
+		if (!str) return null;
+		// encode as base64
+		var keyStr = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+			   + &quot;abcdefghijklmnopqrstuvwxyz&quot;
+			   + &quot;0123456789+/=&quot;;
+		var out=&quot;&quot;;
+		var chr1,chr2,chr3=&quot;&quot;;
+		var enc1,enc2,enc3,enc4=&quot;&quot;;
+		for (var count=0,i=0; i&lt;str.length; ) {
+//			chr1=str.charCodeAt(i++);
+//			chr2=str.charCodeAt(i++);
+//			chr3=str.charCodeAt(i++);
+			chr1=str[i++];
+			chr2=str[i++];
+			chr3=str[i++];
+			enc1=chr1 &gt;&gt; 2;
+			enc2=((chr1 &amp; 0x03) &lt;&lt; 4) | (chr2 &gt;&gt; 4);
+			enc3=((chr2 &amp; 0x0F) &lt;&lt; 2) | (chr3 &gt;&gt; 6);
+			enc4=chr3 &amp; 0x3F;
+			if (isNaN(chr2)) enc3=enc4=64;
+			else if (isNaN(chr3)) enc4=64;
+			out+=keyStr.charAt(enc1) + keyStr.charAt(enc2)
+			   + keyStr.charAt(enc3) + keyStr.charAt(enc4);
+			chr1=chr2=chr3=enc1=enc2=enc3=enc4=&quot;&quot;;
+		}
+		return out;
+	};
+
+	function toUTF8Array(str) {
+		var utf8 = [];
+		for (var i=0; i &lt; str.length; i++) {
+			var charcode = str.charCodeAt(i);
+			if (charcode &lt; 0x80)
+				utf8.push(charcode);
+			else if (charcode &lt; 0x800) {
+				utf8.push(0xc0 | (charcode &gt;&gt; 6),
+					0x80 | (charcode &amp; 0x3f));
+			}
+			else if (charcode &lt; 0xd800 || charcode &gt;= 0xe000) {
+				utf8.push(0xe0 | (charcode &gt;&gt; 12), 
+					0x80 | ((charcode&gt;&gt;6) &amp; 0x3f), 
+					0x80 | (charcode &amp; 0x3f));
+			}
+			// surrogate pair
+			else {
+				i++;
+				// UTF-16 encodes 0x10000-0x10FFFF by
+				// subtracting 0x10000 and splitting the
+				// 20 bits of 0x0-0xFFFFF into two halves
+				charcode = 0x10000 + (((charcode &amp; 0x3ff)&lt;&lt;10)
+					| (str.charCodeAt(i) &amp; 0x3ff))
+				utf8.push(0xf0 | (charcode &gt;&gt;18), 
+					0x80 | ((charcode&gt;&gt;12) &amp; 0x3f), 
+					0x80 | ((charcode&gt;&gt;6) &amp; 0x3f), 
+					0x80 | (charcode &amp; 0x3f));
+			}
+		}
+		return utf8.join();
+	}
+
+	function toUint8Array(str) {
+		var ui8Data = new Uint8Array(str.length);
+		for (var i=0; i&lt;str.length; i++)
+			ui8Data[i]=str.charCodeAt(i) &amp; 0xff;
+		return ui8Data;
+	}
+
+        var base64=data;
+	// var base64=encodeBase64(data)
+	// var base64=encodeBase64(toUTF8Array(data));
+	// var base64=encodeBase64(toUint8Array(data));
+	// var base64=encodeBase64(unescape(encodeURIComponent(data)));
+	// var base64=btoa(data);
+	// var base64=btoa(toUTF8Array(data));
+	// var base64=btoa(toUint8Array(data));
+	// var base64=btoa(unescape(encodeURIComponent(data)));
+	// var base64=btoa(encodeURIComponent(data).replace(/%([0-9A-F]{2})/g,
+	//	function(match, p1) { return String.fromCharCode('0x' + p1); }));
+
+	$tw.wiki.setText(tid,&quot;text&quot;,null,base64);
+	$tw.wiki.setText(tid,&quot;source&quot;,null,url);
+};
+
 HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var self=this;
 	var url=this.getAttribute(&quot;url&quot;,&quot;&quot;);
+	var requesttype=this.getAttribute(&quot;requesttype&quot;,&quot;GET&quot;);
 	var tid=this.getAttribute(&quot;tiddler&quot;,url);
 	var tiddlertype=this.getAttribute(&quot;tiddlertype&quot;,&quot;application/json&quot;);
 	var parse=this.getAttribute(&quot;parse&quot;,&quot;&quot;);
 	var callback=function(err,data,xhr) {
 		$tw.wiki.setText(tid,&quot;text&quot;,null,data||err);
 		$tw.wiki.setText(tid,&quot;type&quot;,null,tiddlertype);
-		if (data &amp;&amp; parse==&quot;geo&quot;)
+		if (data &amp;&amp; parse==&quot;geo&quot;) // unpack Google reverse-geo data
 			self.geo2tiddlers(tid,data);
-		else if (data &amp;&amp; parse==&quot;json&quot;)
+		else if (data &amp;&amp; parse==&quot;json&quot;) // unpack any JSON data
 			self.json2tiddlers(tid,data);
+		else if (data &amp;&amp; parse==&quot;binary&quot;) // encode binary as base64
+			self.binary2tiddler(tid,data,url);
 	};
-	if (url.length)
-		$tw.utils.httpRequest({ url:url, type:&quot;GET&quot;, callback:callback });
+	if (url.length) $tw.utils.httpRequest(
+		{ url:url, type:requesttype, callback:callback });
 	return true; // Action was invoked
 };
 
@@ -9257,7 +9520,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 .tc-drop-down { min-width:100px; }
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150418111607835" creator="EricShulman" modified="20151019072754692" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
+<div created="20150418111607835" creator="EricShulman" modified="20151021084747406" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
 <pre>&lt;pre&gt;
 /* ---- FORMATTING SHORTCUTS ---- */
 
@@ -9336,6 +9599,7 @@ background: #f8f8ff;
 .redsvg   { fill:#cc0000 !important; }
 .greensvg { fill:#00cc00 !important; }
 .bluesvg  { fill:#0000cc !important; }
+.graysvg  { fill:#cccccc !important; }
 
 &lt;/pre&gt;</pre>
 </div>
@@ -9344,6 +9608,11 @@ background: #f8f8ff;
     &quot;latitude&quot;: &quot;37.36798&quot;,
     &quot;longitude&quot;: &quot;-122.0199&quot;
 }</pre>
+</div>
+<div created="20151020145845624" modified="20151020154347458" tags="" title="test">
+<pre>&lt;$button&gt; get image
+&lt;$action-httpRequest url=&quot;https://avatars0.githubusercontent.com/u/174761?v=3&amp;s=460&quot; tiddler=&quot;jeremy.jpg&quot; requesttype=&quot;GET&quot; tiddlertype=&quot;image/jpeg&quot; parse=&quot;binary&quot; /&gt;
+&lt;/$button&gt;</pre>
 </div>
 <div created="20150706215050370" modified="20150722011948835" tags="location" title="Toronto" type="application/json">
 <pre>{
