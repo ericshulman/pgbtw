@@ -6374,16 +6374,16 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151021211626181" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151021221553463" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151021211608697" title="$:/state/Dashboard/Camera">
+<div modified="20151021221449076" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
 <div modified="20151021085644081" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151021211607592" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151021220437491" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div modified="20151021211512845" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -6428,8 +6428,8 @@ LOAD
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151020160218335" title="$:/temp/advancedsearch">
-<pre>base64</pre>
+<div created="20150706192244698" modified="20151021221458260" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6767,7 +6767,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151021211605226" title="Dashboard">
+<div created="20150623211607895" modified="20151021221350588" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -6809,7 +6809,7 @@ exports.startup = function() {
 &lt;&lt;sliderpanel Dashboard/StreetView&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20151021211444205" tags="" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20151021221249596" tags="" title="Dashboard/AddressLookup">
 <pre>\define getoptions()
 &lt;$button popup=&quot;$:/temp/popup/AddressLookup&quot;
    tooltip=&quot;address lookup options&quot;&gt;
@@ -6824,17 +6824,18 @@ exports.startup = function() {
 \end
 
 \define localstoragepopup()
-&lt;$button tooltip=&quot;local storage&quot; popup=&quot;$:/temp/popup/LocalStorage/Address&quot;&gt;
+&lt;$button tooltip=&quot;local storage&quot; popup=&quot;$:/temp/popup/LocalStorage/AddressLookup&quot;&gt;
    @@.resize {{images/folder.svg}}@@
 &lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/LocalStorage/Address&quot;
+&lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/LocalStorage/AddressLookup&quot;
    position=&quot;belowleft&quot; class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
-''~LocalStorage:Address''
-&lt;hr&gt;
+''~LocalStorage for ~AddressLookup''
+&lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
 &lt;$macrocall $name=&quot;localstoragebuttons&quot;
-   text=&quot;current address data&quot;
+   text=&quot;current address&quot;
    target=&quot;address.tids&quot;
    filter=&quot;[prefix[$:/Geo/Data/Address]]&quot;/&gt;
+&lt;/div&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -6912,7 +6913,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151021211045168" tags="" title="Dashboard/Camera">
+<div caption="Camera" created="20151015065408822" modified="20151021221326305" tags="" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getoptions()
@@ -6951,17 +6952,17 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/LocalStorage/Camera&quot;
    position=&quot;belowleft&quot; class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
-''~LocalStorage:Camera''
-&lt;hr&gt;
+''~LocalStorage for Camera''
+&lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
 &lt;$macrocall $name=&quot;localstoragebuttons&quot;
-   text=&quot;current photo ($(path)$$(name)$$(counter)$.$(format)$)&quot;
+   text=&quot;current photo&quot;
    target=&lt;&lt;gettarget&gt;&gt;
    filter=&quot;[title&lt;gettarget&gt;]&quot;/&gt;
-&lt;br&gt;
 &lt;$macrocall $name=&quot;localstoragebuttons&quot;
    text=&quot;all photos&quot;
    target=&quot;photos.tids&quot;
    filter=&quot;[tag[photo]]&quot;/&gt;
+&lt;/div&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -7075,7 +7076,7 @@ $label$
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151021211400581" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151021221302675" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7089,12 +7090,13 @@ $label$
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/LocalStorage/Geo&quot;
    class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
-''~LocalStorage:~GeoLocation''
-&lt;hr&gt;
+''~LocalStorage for ~GeoLocation''
+&lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
 &lt;$macrocall $name=&quot;localstoragebuttons&quot;
    text=&quot;saved locations&quot;
    target=&quot;locations.tids&quot;
    filter=&quot;[tag[location]]&quot;/&gt;
+&lt;/div&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -7199,7 +7201,7 @@ timeout:&lt;br&gt;
       format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage" created="20151009192813110" modified="20151021075653893" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
+<div caption="LocalStorage" created="20151009192813110" modified="20151021215048404" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
 <pre>\define getoptions()
 &lt;$button popup=&quot;$:/temp/popup/LocalStorageOptions&quot; tooltip=&quot;Local Storage options&quot;&gt;
    {{$:/core/images/options-button}}
@@ -8741,31 +8743,50 @@ filter: [tag[photo]]</pre>
 filename: settings.tids
 filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</pre>
 </div>
-<div created="20151021203705648" modified="20151021204613973" tags="$:/tags/Macro" title="LocalStorage/Macros">
+<div created="20151021203705648" modified="20151021220614045" tags="$:/tags/Macro" title="LocalStorage/Macros">
 <pre>\define localstoragebuttons(text,target,filter)
-$text$:&lt;br&gt;
+@@.floatright
 &lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;COPY $text$ to local storage&quot;&gt;
+   tooltip=&quot;COPY $text$ ($target$) to local storage&quot;&gt;
    @@.larger {{$:/core/images/save-button}}@@ backup
    &lt;$action-savefile root={{$:/config/LocalStorage##root}}
       filename=&quot;$target$&quot; filter=&quot;$filter$&quot; /&gt;
    &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
       limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
+&lt;br&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;RESTORE $text$ from local storage&quot;&gt;
+   tooltip=&quot;RESTORE $text$ ($target$) from local storage&quot;&gt;
    @@.larger {{$:/core/images/download-button}}@@ restore
    &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
       filename=&quot;$target$&quot; parse=&quot;tiddlers&quot;/&gt;
 &lt;/$button&gt;
+&lt;br&gt;
 &lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;REMOVE $text$ from local storage&quot;&gt;
+   tooltip=&quot;REMOVE $text$ ($target$) from local storage&quot;&gt;
    @@.larger {{$:/core/images/close-button}}@@ remove
    &lt;$action-removefile root={{$:/config/LocalStorage##root}}
       filename=&quot;$target$&quot;/&gt;
    &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
       limit={{$:/config/LocalStorage##limit}}/&gt;
 &lt;/$button&gt;
+@@
+@@.floatleft 
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;&gt;
+    {{$:/core/images/info-button}} ''$text$:''&amp;nbsp;
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowright&quot;
+   state=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot; class=&quot;tc-drop-down&quot;&gt;
+   &amp;nbsp; This filter matches these tiddlers: &amp;nbsp;
+   @@.thinline @@
+   &lt;$list filter=&quot;&quot;&quot;$filter$&quot;&quot;&quot;
+      emptyMessage=&quot;@@.center //(no matching tiddlers)//@@&quot;&gt;
+      &lt;$link&gt;&lt;$text text={{!!title}}/&gt;&lt;/$link&gt;
+   &lt;/$list&gt;
+&lt;/$reveal&gt;
+^^&lt;br&gt;$target$&amp;nbsp;^^
+@@
+@@.clear.bottomdots @@
 \end</pre>
 </div>
 <div created="20151007100857611" modified="20151007100906585" tags="location" title="Pittsburgh" type="application/json">
@@ -8774,7 +8795,7 @@ $text$:&lt;br&gt;
     &quot;longitude&quot;: &quot;-80.0045251&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20151021143508236" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20151021214337184" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
@@ -8792,7 +8813,7 @@ $text$:&lt;br&gt;
 
 /* REGULAR BUTTONS WITHIN STICKY POPUPS */
 .tc-drop-down.tc-popup-keep button
-   { display:inline; width:auto; padding:auto 0.25em; margin:0; }
+   { display:inline; width:auto; padding:0; margin:0; }
 
 &lt;/pre&gt;</pre>
 </div>
