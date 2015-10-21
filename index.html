@@ -142,26 +142,6 @@ Error message and password prompt
 
 <li>$:/Geo/Data</li>
 
-<li>$:/Geo/Data/Address</li>
-
-<li>$:/Geo/Data/Address/administrative_area_level_1</li>
-
-<li>$:/Geo/Data/Address/administrative_area_level_2</li>
-
-<li>$:/Geo/Data/Address/bus_station</li>
-
-<li>$:/Geo/Data/Address/country</li>
-
-<li>$:/Geo/Data/Address/locality</li>
-
-<li>$:/Geo/Data/Address/neighborhood</li>
-
-<li>$:/Geo/Data/Address/postal_code_prefix</li>
-
-<li>$:/Geo/Data/Address/street_address</li>
-
-<li>$:/Geo/Data/Address/sublocality_level_1</li>
-
 <li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
@@ -274,6 +254,8 @@ Error message and password prompt
 
 <li>LocalStorage/Filters/settings</li>
 
+<li>LocalStorage/Macros</li>
+
 <li>Pittsburgh</li>
 
 <li>StyleSheet/Adjustments</li>
@@ -296,7 +278,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151017063232716" modified="20151021103928950" title="$:/config/Camera" type="application/json">
+<div created="20151017063232716" modified="20151021133537494" title="$:/config/Camera" type="application/json">
 <pre>{
     &quot;name&quot;: &quot;photo&quot;,
     &quot;format&quot;: &quot;jpg&quot;,
@@ -6354,631 +6336,6 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div modified="20151021085149345" title="$:/Geo/Data/Address" type="application/json">
-<pre>{
-   &quot;results&quot; : [
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;700&quot;,
-               &quot;short_name&quot; : &quot;700&quot;,
-               &quot;types&quot; : [ &quot;street_number&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University Avenue&quot;,
-               &quot;short_name&quot; : &quot;University Ave&quot;,
-               &quot;types&quot; : [ &quot;route&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;700 University Ave, Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.659829,
-                  &quot;lng&quot; : -79.39033049999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6592045,
-                  &quot;lng&quot; : -79.39059999999999
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.659793,
-               &quot;lng&quot; : -79.39060379999999
-            },
-            &quot;location_type&quot; : &quot;RANGE_INTERPOLATED&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6608657302915,
-                  &quot;lng&quot; : -79.3891162697085
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.65816776970851,
-                  &quot;lng&quot; : -79.3918142302915
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;Eis3MDAgVW5pdmVyc2l0eSBBdmUsIFRvcm9udG8sIE9OIE01RywgQ2FuYWRh&quot;,
-         &quot;types&quot; : [ &quot;street_address&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;College Park at University Ave.&quot;,
-               &quot;short_name&quot; : &quot;College Park at University Ave.&quot;,
-               &quot;types&quot; : [ &quot;point_of_interest&quot;, &quot;establishment&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University&quot;,
-               &quot;short_name&quot; : &quot;University&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;College Park at University Ave., Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.659852,
-               &quot;lng&quot; : -79.39048199999999
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6612009802915,
-                  &quot;lng&quot; : -79.3891330197085
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6585030197085,
-                  &quot;lng&quot; : -79.3918309802915
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJgRuM5rc0K4gRYtSUSGWh3EE&quot;,
-         &quot;types&quot; : [
-            &quot;bus_station&quot;,
-            &quot;transit_station&quot;,
-            &quot;point_of_interest&quot;,
-            &quot;establishment&quot;
-         ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Discovery District&quot;,
-               &quot;short_name&quot; : &quot;Discovery District&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Discovery District, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6630908,
-                  &quot;lng&quot; : -79.3843102
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6557481,
-                  &quot;lng&quot; : -79.40053210000001
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6603242,
-               &quot;lng&quot; : -79.3937162
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6630908,
-                  &quot;lng&quot; : -79.3843102
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6557481,
-                  &quot;lng&quot; : -79.40053210000001
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJY9gBJ8g0K4gRwfKR3nQauiI&quot;,
-         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Downtown, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6755833,
-                  &quot;lng&quot; : -79.3470176
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6339328,
-                  &quot;lng&quot; : -79.41131710000001
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.654262,
-               &quot;lng&quot; : -79.385975
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6755833,
-                  &quot;lng&quot; : -79.3470176
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6339328,
-                  &quot;lng&quot; : -79.41131710000001
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJvRBz0jTL1IkRkwMHIgbSFbo&quot;,
-         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Old Toronto, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.75373099999999,
-                  &quot;lng&quot; : -79.27971699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6118399,
-                  &quot;lng&quot; : -79.491969
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6486795,
-               &quot;lng&quot; : -79.3803231
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.75373099999999,
-                  &quot;lng&quot; : -79.27971699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6118399,
-                  &quot;lng&quot; : -79.491969
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ2YVS1Po0K4gR8_c5_bvmDW4&quot;,
-         &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.653226,
-               &quot;lng&quot; : -79.3831843
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJpTvG15DL1IkRd8S0KlBVNTI&quot;,
-         &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.662463,
-                  &quot;lng&quot; : -79.380601
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6511301,
-                  &quot;lng&quot; : -79.39171899999999
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6579524,
-               &quot;lng&quot; : -79.3873826
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.662463,
-                  &quot;lng&quot; : -79.380601
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6511301,
-                  &quot;lng&quot; : -79.39171899999999
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJQ4yqgck0K4gR1f-j38zDpt0&quot;,
-         &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto Division, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6689775,
-               &quot;lng&quot; : -79.29021329999999
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ5b2RG4_L1IkRDtQ2gFEjLv4&quot;,
-         &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Ontario, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 56.8565279,
-                  &quot;lng&quot; : -74.34388229999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.68134879999999,
-                  &quot;lng&quot; : -95.1562271
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 51.253775,
-               &quot;lng&quot; : -85.3232139
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 56.8565279,
-                  &quot;lng&quot; : -74.34388229999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.6813554,
-                  &quot;lng&quot; : -95.15480099999999
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJrxNRX7IFzkwRCR5iKVZC-HA&quot;,
-         &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 83.09565619999999,
-                  &quot;lng&quot; : -52.6205957
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.6765559,
-                  &quot;lng&quot; : -141.00187
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 56.130366,
-               &quot;lng&quot; : -106.346771
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 70,
-                  &quot;lng&quot; : -50
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 42,
-                  &quot;lng&quot; : -142
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ2WrMN9MDDUsRpY9Doiq3aJk&quot;,
-         &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-      }
-   ],
-   &quot;status&quot; : &quot;OK&quot;
-}
-</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/administrative_area_level_1">
-<pre>Ontario, Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/administrative_area_level_2">
-<pre>Toronto Division, ON, Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/bus_station">
-<pre>College Park at University Ave., Toronto, ON M5G, Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/country">
-<pre>Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/locality">
-<pre>Toronto, ON, Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/neighborhood">
-<pre>Downtown, Toronto, ON, Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/postal_code_prefix">
-<pre>Toronto, ON M5G, Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/street_address">
-<pre>700 University Ave, Toronto, ON M5G, Canada</pre>
-</div>
-<div modified="20151021085149347" title="$:/Geo/Data/Address/sublocality_level_1">
-<pre>Old Toronto, Toronto, ON, Canada</pre>
-</div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
@@ -7017,22 +6374,22 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151021085152469" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151021211626181" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151021103938700" title="$:/state/Dashboard/Camera">
+<div modified="20151021211608697" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
 <div modified="20151021085644081" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151021103944491" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151021211607592" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151021091232863" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151021211512845" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>close</pre>
 </div>
-<div modified="20151021085644776" title="$:/state/Dashboard/Maps">
+<div modified="20151021211609689" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
 <div modified="20151021081219288" title="$:/state/Dashboard/StreetView">
@@ -7094,7 +6451,7 @@ LOAD
 <div created="20151017030710912" modified="20151017031616178" title="$:/temp/newfieldvalue">
 <pre></pre>
 </div>
-<div created="20150706215305238" modified="20151020004103398" title="$:/temp/NewTagName">
+<div created="20150706215305238" modified="20151021203725836" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div modified="20151021102557447" title="$:/temp/notify">
@@ -7410,7 +6767,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151021102614726" title="Dashboard">
+<div created="20150623211607895" modified="20151021211605226" title="Dashboard">
 <pre>\define sliderbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
@@ -7452,7 +6809,7 @@ exports.startup = function() {
 &lt;&lt;sliderpanel Dashboard/StreetView&gt;&gt;
 &lt;&lt;sliderpanel Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20151021071347366" tags="" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20151021211444205" tags="" title="Dashboard/AddressLookup">
 <pre>\define getoptions()
 &lt;$button popup=&quot;$:/temp/popup/AddressLookup&quot;
    tooltip=&quot;address lookup options&quot;&gt;
@@ -7466,49 +6823,18 @@ exports.startup = function() {
 &lt;/$reveal&gt;
 \end
 
-\define saveaddress()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;COPY address data to local storage&quot;&gt;
-   @@.largest {{$:/core/images/save-button}}@@ backup address data
-   &lt;$action-savefile root={{$:/config/LocalStorage##root}}
-      filename=&quot;address.tids&quot; filter=&quot;[prefix[$:/Geo/Data/Address]]&quot; /&gt;
-   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
-      limit={{$:/config/LocalStorage##limit}}/&gt;
-&lt;/$button&gt;
-\end
-
-\define loadaddress()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;RESTORE address data from local storage&quot;&gt;
-   @@.largest {{$:/core/images/download-button}}@@ restore address data
-   &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
-      filename=&quot;address.tids&quot; parse=&quot;tiddlers&quot;/&gt;
-&lt;/$button&gt;
-\end
-
-\define deleteaddress()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;REMOVE address data from local storage&quot;&gt;
-   @@.largest {{$:/core/images/close-button}}@@ delete backup
-   &lt;$action-removefile root={{$:/config/LocalStorage##root}}
-      filename=&quot;address.tids&quot;/&gt;
-   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
-      limit={{$:/config/LocalStorage##limit}}/&gt;
-&lt;/$button&gt;
-\end
-
-\define localstorage()
-&lt;$button popup=&quot;$:/temp/popup/Address/LocalStorage&quot;
-   tooltip=&quot;local storage&quot;&gt;
+\define localstoragepopup()
+&lt;$button tooltip=&quot;local storage&quot; popup=&quot;$:/temp/popup/LocalStorage/Address&quot;&gt;
    @@.resize {{images/folder.svg}}@@
 &lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/Address/LocalStorage&quot;
-   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
-''~LocalStorage:~AddressLookup''
+&lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/LocalStorage/Address&quot;
+   position=&quot;belowleft&quot; class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
+''~LocalStorage:Address''
 &lt;hr&gt;
-&lt;&lt;saveaddress&gt;&gt;
-&lt;&lt;loadaddress&gt;&gt;
-&lt;&lt;deleteaddress&gt;&gt;
+&lt;$macrocall $name=&quot;localstoragebuttons&quot;
+   text=&quot;current address data&quot;
+   target=&quot;address.tids&quot;
+   filter=&quot;[prefix[$:/Geo/Data/Address]]&quot;/&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -7570,7 +6896,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
        longitude={{$:/Geo/Data##longitude}}&gt;
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-   &lt;&lt;localstorage&gt;&gt;
+   &lt;&lt;localstoragepopup&gt;&gt;
    &amp;nbsp;
    &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
@@ -7586,7 +6912,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151021102507557" tags="" title="Dashboard/Camera">
+<div caption="Camera" created="20151015065408822" modified="20151021211045168" tags="" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getoptions()
@@ -7619,74 +6945,23 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$reveal&gt;
 \end
 
-\define savephoto()
-&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-   @@.largest {{$:/core/images/save-button}}@@ backup &lt;&lt;gettarget&gt;&gt;
-   &lt;$action-savefile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;
-      filter=&quot;&quot;&quot;[title[$(path)$$(name)$$(counter)$.$(format)$]]&quot;&quot;&quot; /&gt;
-   &lt;$action-getfolders
-      root={{$:/config/LocalStorage##root}}
-      limit={{$:/config/LocalStorage##limit}}/&gt;
-&lt;/$button&gt;
-\end
-
-\define loadphoto()
-&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-   @@.largest {{$:/core/images/download-button}}@@ restore &lt;&lt;gettarget&gt;&gt;
-   &lt;$action-loadfile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;
-      parse=&quot;tiddlers&quot;/&gt;
-&lt;/$button&gt;
-\end
-
-\define deletephoto()
-&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-   @@.largest {{$:/core/images/close-button}}@@ delete &lt;&lt;gettarget&gt;&gt;
-   &lt;$action-removefile root={{$:/config/LocalStorage##root}} filename=&lt;&lt;gettarget&gt;&gt;/&gt;
-&lt;/$button&gt;
-\end
-
-\define saveall()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;COPY all photos to local storage&quot;&gt;
-   @@.largest {{$:/core/images/save-button}}@@ backup all photos
-   &lt;$action-savefile root={{$:/config/LocalStorage##root}}
-      filename=&quot;photos.tids&quot; filter=&quot;[tag[photo]]&quot; /&gt;
-   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
-      limit={{$:/config/LocalStorage##limit}}/&gt;
-&lt;/$button&gt;
-\end
-
-\define loadall()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;RESTORE all photos from local storage&quot;&gt;
-   @@.largest {{$:/core/images/download-button}}@@ restore all photos
-   &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
-      filename=&quot;photos.tids&quot; parse=&quot;tiddlers&quot;/&gt;
-&lt;/$button&gt;
-\end
-
-\define deleteall()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;REMOVE all photos from local storage&quot;&gt;
-   @@.largest {{$:/core/images/close-button}}@@ delete backup
-   &lt;$action-removefile root={{$:/config/LocalStorage##root}}
-      filename=&quot;photos.tids&quot;/&gt;
-   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
-      limit={{$:/config/LocalStorage##limit}}/&gt;
-&lt;/$button&gt;
-\end
-
-\define localstorage()
-&lt;$button popup=&quot;$:/temp/popup/Camera/LocalStorage&quot; tooltip=&quot;local storage&quot;&gt;
+\define localstoragepopup()
+&lt;$button tooltip=&quot;local storage&quot; popup=&quot;$:/temp/popup/LocalStorage/Camera&quot;&gt;
    @@.resize {{images/folder.svg}}@@
 &lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/Camera/LocalStorage&quot;
-   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
+&lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/LocalStorage/Camera&quot;
+   position=&quot;belowleft&quot; class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
 ''~LocalStorage:Camera''
 &lt;hr&gt;
-&lt;&lt;savephoto&gt;&gt; &lt;&lt;loadphoto&gt;&gt; &lt;&lt;deletephoto&gt;&gt;
-&lt;hr&gt;
-&lt;&lt;saveall&gt;&gt; &lt;&lt;loadall&gt;&gt; &lt;&lt;deleteall&gt;&gt;
+&lt;$macrocall $name=&quot;localstoragebuttons&quot;
+   text=&quot;current photo ($(path)$$(name)$$(counter)$.$(format)$)&quot;
+   target=&lt;&lt;gettarget&gt;&gt;
+   filter=&quot;[title&lt;gettarget&gt;]&quot;/&gt;
+&lt;br&gt;
+&lt;$macrocall $name=&quot;localstoragebuttons&quot;
+   text=&quot;all photos&quot;
+   target=&quot;photos.tids&quot;
+   filter=&quot;[tag[photo]]&quot;/&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -7741,7 +7016,8 @@ $label$
 
 \define takepicture(label:&quot;click!&quot;)
 &lt;$list filter=&quot;[title&lt;gettarget&gt;is[missing]]&quot;&gt;
-   &lt;$button tooltip=&quot;take a photo&quot;&gt; $label$
+   &lt;$button tooltip=&quot;take a photo&quot;&gt;
+      @@.greensvg $label$@@
       &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
          format=&lt;&lt;format&gt;&gt; width=&lt;&lt;width&gt;&gt; height=&lt;&lt;height&gt;&gt; quality=&lt;&lt;quality&gt;&gt; /&gt;
    &lt;/$button&gt;
@@ -7774,7 +7050,7 @@ $label$
           name={{$:/config/Camera##name}}
           counter={{$:/config/Camera##counter}}
           format={{$:/config/Camera##format}}&gt;
-   &lt;&lt;localstorage&gt;&gt;
+   &lt;&lt;localstoragepopup&gt;&gt;
    &lt;/$vars&gt;
    &amp;nbsp; &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
@@ -7789,7 +7065,8 @@ $label$
        height={{$:/config/Camera##height}}
        quality={{$:/config/Camera##quality}}&gt;
 @@.floatleft.smaller.nowrap
-   &amp;nbsp;&lt;&lt;takepicture   label:&quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;takepicture   label:&quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
    &lt;&lt;deletepicture label:&quot;{{$:/core/images/close-button}}&quot;&gt;&gt;@@
 @@.center.smaller.nowrap
    &lt;&lt;selectpicture&gt;&gt;@@
@@ -7798,12 +7075,27 @@ $label$
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151021071304061" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151021211400581" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
+\end
+
+\define localstoragepopup()
+&lt;$button tooltip=&quot;local storage&quot; popup=&quot;$:/temp/popup/LocalStorage/Geo&quot;&gt;
+   @@.resize {{images/folder.svg}}@@
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/LocalStorage/Geo&quot;
+   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
+''~LocalStorage:~GeoLocation''
+&lt;hr&gt;
+&lt;$macrocall $name=&quot;localstoragebuttons&quot;
+   text=&quot;saved locations&quot;
+   target=&quot;locations.tids&quot;
+   filter=&quot;[tag[location]]&quot;/&gt;
+&lt;/$reveal&gt;
 \end
 
 \define getoptions()
@@ -7830,52 +7122,6 @@ timeout:&lt;br&gt;
 @@display:block;height:0.5em;@@
 &lt;$checkbox tiddler=&quot;$:/config/Geo&quot; field=&quot;accuracy&quot;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; use high accuracy &lt;/$checkbox&gt;
-&lt;/$reveal&gt;
-\end
-
-\define savelocations()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;COPY saved locations to local storage&quot;&gt;
-   @@.largest {{$:/core/images/save-button}}@@ backup locations
-   &lt;$action-savefile root={{$:/config/LocalStorage##root}}
-      filename=&quot;locations.tids&quot; filter=&quot;[tag[location]]&quot; /&gt;
-   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
-      limit={{$:/config/LocalStorage##limit}}/&gt;
-&lt;/$button&gt;
-\end
-
-\define loadlocations()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;RESTORE saved locations from local storage&quot;&gt;
-   @@.largest {{$:/core/images/download-button}}@@ restore locations
-   &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
-      filename=&quot;locations.tids&quot; parse=&quot;tiddlers&quot;/&gt;
-&lt;/$button&gt;
-\end
-
-\define deletelocations()
-&lt;$button class=&quot;tc-btn-invisible&quot;
-   tooltip=&quot;REMOVE saved locations from local storage&quot;&gt;
-   @@.largest {{$:/core/images/close-button}}@@ delete backup
-   &lt;$action-removefile root={{$:/config/LocalStorage##root}}
-      filename=&quot;locations.tids&quot;/&gt;
-   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
-      limit={{$:/config/LocalStorage##limit}}/&gt;
-&lt;/$button&gt;
-\end
-
-\define localstorage()
-&lt;$button popup=&quot;$:/temp/popup/Geo/LocalStorage&quot;
-   tooltip=&quot;local storage&quot;&gt;
-   @@.resize {{images/folder.svg}}@@
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/Geo/LocalStorage&quot;
-   class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
-''~LocalStorage:~GeoLocation''
-&lt;hr&gt;
-&lt;&lt;savelocations&gt;&gt;
-&lt;&lt;loadlocations&gt;&gt;
-&lt;&lt;deletelocations&gt;&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -7936,7 +7182,7 @@ timeout:&lt;br&gt;
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-   &lt;&lt;localstorage&gt;&gt;
+   &lt;&lt;localstoragepopup&gt;&gt;
    &amp;nbsp;
    &lt;&lt;getoptions&gt;&gt;@@
 @@.floatleft.nowrap
@@ -9495,13 +8741,40 @@ filter: [tag[photo]]</pre>
 filename: settings.tids
 filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</pre>
 </div>
+<div created="20151021203705648" modified="20151021204613973" tags="$:/tags/Macro" title="LocalStorage/Macros">
+<pre>\define localstoragebuttons(text,target,filter)
+$text$:&lt;br&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;COPY $text$ to local storage&quot;&gt;
+   @@.larger {{$:/core/images/save-button}}@@ backup
+   &lt;$action-savefile root={{$:/config/LocalStorage##root}}
+      filename=&quot;$target$&quot; filter=&quot;$filter$&quot; /&gt;
+   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
+&lt;/$button&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;RESTORE $text$ from local storage&quot;&gt;
+   @@.larger {{$:/core/images/download-button}}@@ restore
+   &lt;$action-loadfile root={{$:/config/LocalStorage##root}}
+      filename=&quot;$target$&quot; parse=&quot;tiddlers&quot;/&gt;
+&lt;/$button&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot;
+   tooltip=&quot;REMOVE $text$ from local storage&quot;&gt;
+   @@.larger {{$:/core/images/close-button}}@@ remove
+   &lt;$action-removefile root={{$:/config/LocalStorage##root}}
+      filename=&quot;$target$&quot;/&gt;
+   &lt;$action-getfolders root={{$:/config/LocalStorage##root}}
+      limit={{$:/config/LocalStorage##limit}}/&gt;
+&lt;/$button&gt;
+\end</pre>
+</div>
 <div created="20151007100857611" modified="20151007100906585" tags="location" title="Pittsburgh" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;40.3543957&quot;,
     &quot;longitude&quot;: &quot;-80.0045251&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20151019054256330" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20151021143508236" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
@@ -9516,6 +8789,11 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 
 /* MIN WIDTH FOR DROP DOWNS */
 .tc-drop-down { min-width:100px; }
+
+/* REGULAR BUTTONS WITHIN STICKY POPUPS */
+.tc-drop-down.tc-popup-keep button
+   { display:inline; width:auto; padding:auto 0.25em; margin:0; }
+
 &lt;/pre&gt;</pre>
 </div>
 <div created="20150418111607835" creator="EricShulman" modified="20151021084747406" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
