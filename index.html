@@ -280,7 +280,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151017063232716" modified="20151021133537494" title="$:/config/Camera" type="application/json">
+<div created="20151017063232716" modified="20151025014958402" title="$:/config/Camera" type="application/json">
 <pre>{
     &quot;name&quot;: &quot;photo&quot;,
     &quot;format&quot;: &quot;jpg&quot;,
@@ -6447,16 +6447,16 @@ LOAD
 <div modified="20151024170436561" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151023022940869" title="$:/state/Dashboard/Camera">
+<div modified="20151025015220409" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
 <div modified="20151023022432125" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151025002721925" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151025014226732" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151023022702436" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151025014224880" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre></pre>
 </div>
 <div modified="20151023022942141" title="$:/state/Dashboard/Maps">
@@ -6498,8 +6498,8 @@ LOAD
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151024170134194" title="$:/temp/advancedsearch">
-<pre>saverf</pre>
+<div created="20150706192244698" modified="20151025015309811" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6524,8 +6524,8 @@ LOAD
 <div created="20150706215305238" modified="20151021203725836" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151023020153257" title="$:/temp/notify">
-<pre>Geolocation scan stopped</pre>
+<div modified="20151025014951989" title="$:/temp/notify">
+<pre>camera access not supported on this device</pre>
 </div>
 <div created="20150705104045705" modified="20151024170134195" title="$:/temp/search">
 <pre></pre>
@@ -6837,7 +6837,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151023022627135" title="Dashboard">
+<div created="20150623211607895" modified="20151025015229366" title="Dashboard">
 <pre>@@.center 
 &lt;&lt;dashboardbutton Dashboard/GeoLocation&gt;&gt;
 &lt;&lt;dashboardbutton Dashboard/LocalStorage&gt;&gt;
@@ -6856,7 +6856,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel Dashboard/StreetView&gt;&gt;
 &lt;&lt;dashboardpanel Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20151023022330193" tags="" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20151025014249743" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;get summary&quot;)
 &lt;$button tooltip=&quot;get summary address data from GeoLocation&quot;&gt; $label$
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -6942,7 +6942,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20151015065408822" modified="20151023022613570" tags="" title="Dashboard/Camera">
+<div caption="Camera" created="20151015065408822" modified="20151025014945948" tags="" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname(label:&quot;name:&quot;)
@@ -6996,6 +6996,9 @@ $label$
    {{$:/core/images/left-arrow}}
    &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;prev&gt;&gt; /&gt;
 &lt;/$button&gt;
+&amp;nbsp;
+&lt;&lt;takepicture   label:&quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
+&lt;&lt;deletepicture label:&quot;{{$:/core/images/close-button}}&quot;&gt;&gt;
 &amp;nbsp;
 &lt;$button tooltip=&quot;NEXT PHOTO: increment counter (01-99)&quot;&gt;
    {{$:/core/images/right-arrow}}
@@ -7068,8 +7071,6 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
    &lt;&lt;optionspopup id:&quot;Camera&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.nowrap
-   &lt;&lt;getname &quot;&amp;nbsp;&quot;&gt;&gt;@@
 &lt;$vars path={{$:/config/Camera##path}}
        name={{$:/config/Camera##name}}
        counter={{$:/config/Camera##counter}}
@@ -7077,18 +7078,21 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
        width={{$:/config/Camera##width}}
        height={{$:/config/Camera##height}}
        quality={{$:/config/Camera##quality}}&gt;
-@@.floatleft.smaller.nowrap
-   &amp;nbsp;
-   &lt;&lt;takepicture   label:&quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
-   &lt;&lt;deletepicture label:&quot;{{$:/core/images/close-button}}&quot;&gt;&gt;@@
-@@.center.smaller.nowrap
-   &lt;&lt;selectpicture&gt;&gt;@@
-@@.center.clear.smaller.shadowbox.inset
-   &lt;&lt;showpicture&gt;&gt;@@
+@@.floatleft.smaller.nowrap &lt;&lt;selectpicture&gt;&gt;@@
+&lt;/$vars&gt;
+@@.center.smaller.nowrap &lt;&lt;getname &quot;&amp;nbsp;&quot;&gt;&gt;@@
+&lt;$vars path={{$:/config/Camera##path}}
+       name={{$:/config/Camera##name}}
+       counter={{$:/config/Camera##counter}}
+       format={{$:/config/Camera##format}}
+       width={{$:/config/Camera##width}}
+       height={{$:/config/Camera##height}}
+       quality={{$:/config/Camera##quality}}&gt;
+@@.center.clear.smaller.shadowbox.inset &lt;&lt;showpicture&gt;&gt;@@
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151025002546934" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151025014325594" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7174,11 +7178,23 @@ timeout:&lt;br&gt;
    checked=&quot;yes&quot; unchecked=&quot;no&quot;&gt; use high accuracy &lt;/$checkbox&gt;
 \end
 
+\define getfullname() locations/$(currentTiddler)$.tids
+\define getfilter()   [title[$(currentTiddler)$]]
 \define localstorage()
 &lt;$macrocall $name=&quot;localstoragebuttons&quot;
-   text=&quot;saved locations&quot;
+   text=&quot;all locations&quot;
    target=&quot;locations.tids&quot;
    filter=&quot;[tag[location]]&quot;/&gt;
+&lt;$macrocall $name=&quot;localstoragebuttons&quot;
+   text=&quot;current location&quot;
+   target=&quot;locations/current.tids&quot;
+   filter=&quot;[prefix[$:/Geo/Data]]&quot;/&gt;
+&lt;$list filter=&quot;[tag[location]]&quot;&gt;
+&lt;$macrocall $name=&quot;localstoragebuttons&quot;
+   text=&lt;&lt;currentTiddler&gt;&gt;
+   target=&lt;&lt;getfullname&gt;&gt;
+   filter=&lt;&lt;getfilter&gt;&gt;/&gt;
+&lt;/$list&gt;
 \end
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
@@ -7200,7 +7216,7 @@ timeout:&lt;br&gt;
       format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
 @@</pre>
 </div>
-<div caption="LocalStorage" created="20151009192813110" modified="20151025002001698" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
+<div caption="LocalStorage" created="20151009192813110" modified="20151025014305804" tags="$:/tags/ControlPanel" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
@@ -7393,7 +7409,7 @@ tiddler cache location:&lt;br&gt;
    {{Dashboard/LocalStorage/Viewer}}
 &lt;/$reveal&gt;</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151023021836396" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151025014159047" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -7539,7 +7555,7 @@ tiddler cache location:&lt;br&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;resetcache &quot;{{$:/core/images/delete-button}}&quot;&gt;&gt;
    &amp;nbsp;
-   &lt;&lt;optionspopup id:&quot;LocalStorageViewer&quot; label:&quot;LocalStorage&quot;&gt;&gt;@@
+   &lt;&lt;optionspopup id:&quot;LocalStorageViewer&quot; label:&quot;LocalStorage settings&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
@@ -7559,7 +7575,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20151023021653745" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20151025015200477" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define dashboardbutton(tid)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button tooltip=&quot;show $tid$&quot;
@@ -7585,57 +7601,45 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end
 
-\define optionspopup(id,label)
-&lt;$button popup=&quot;$:/temp/popup/$id$&quot;
+\define optionspopup(id,label,content:&quot;options&quot;)
+&lt;$button popup=&quot;$:/temp/popup/options/$id$&quot;
    tooltip=&quot;$id$ options&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/$id$&quot;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/options/$id$&quot;
    class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
-''
-&lt;$reveal text=&quot;$label$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;&lt;$text text=&quot;$label$&quot;/&gt;&lt;/$reveal&gt;
-&lt;$reveal text=&quot;$label$&quot; type=&quot;match&quot;   default=&quot;&quot;&gt;&lt;$text text=&quot;$id$&quot;/&gt;&lt;/$reveal&gt;
-options:
-''
-&lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
-&lt;&lt;options&gt;&gt;
-&lt;/div&gt;
+   &lt;$button class=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/cancel-button}}
+      &lt;$action-deletetiddler $tiddler=&quot;$:/temp/popup/options/$id$&quot; /&gt;
+   &lt;/$button&gt;
+   &lt;$reveal text=&quot;$label$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      ''&lt;$text text=&quot;$label$&quot;/&gt;''
+   &lt;/$reveal&gt;
+   &lt;$reveal text=&quot;$label$&quot; type=&quot;match&quot;   default=&quot;&quot;&gt;
+      ''&lt;$text text=&quot;$id$&quot;/&gt; settings''
+   &lt;/$reveal&gt;
+   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;&lt;&lt;$content$&gt;&gt;&lt;/div&gt;
 &lt;/$reveal&gt;
 \end
 
-\define localstoragepopup(id)
-&lt;$button tooltip=&quot;local storage for $id$&quot; popup=&quot;$:/temp/popup/LocalStorage/$id$&quot;&gt;
+\define localstoragepopup(id,label,content:&quot;localstorage&quot;)
+&lt;$button popup=&quot;$:/temp/popup/localstorage/$id$&quot;
+   tooltip=&quot;local storage for $id$&quot; &gt;
    @@.resize {{images/folder.svg}}@@
 &lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/LocalStorage/$id$&quot;
+&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/localstorage/$id$&quot;
    class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em;&quot;&gt;
-''~LocalStorage for &lt;$text text=&quot;&quot;&quot;$id$&quot;&quot;&quot;/&gt;''
-&lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
-&lt;&lt;localstorage&gt;&gt;
-&lt;/div&gt;
-&lt;/$reveal&gt;
-\end
-
-\define filterinfopopup(text,target,filter)
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;&gt;
-    {{$:/core/images/info-button}} ''$text$:''&amp;nbsp;
-&lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; state=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;
-   position=&quot;belowright&quot; class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
-   &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close&quot;&gt;
-      {{$:/core/images/cancel-button}}
-      &lt;$action-deletetiddler $tiddler=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;/&gt;
+   &lt;$button class=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/cancel-button}}
+      &lt;$action-deletetiddler $tiddler=&quot;$:/temp/popup/localstorage/$id$&quot; /&gt;
    &lt;/$button&gt;
-   @@.smallest //filter by:// @@''&lt;$text text=&quot;&quot;&quot;$filter$&quot;&quot;&quot;/&gt;''&amp;nbsp;
-   &lt;div class=&quot;clear shadowbox inset&quot;&gt;&lt;div class=&quot;scroll-y&quot; style=&quot;max-height:20em;&quot;&gt;
-   &lt;$list filter=&quot;&quot;&quot;$filter$&quot;&quot;&quot;
-      emptyMessage=&quot;@@.center //&amp;nbsp;(no matching tiddlers)&amp;nbsp;//@@&quot;&gt;
-      &lt;$link&gt;&lt;$text text={{!!title}}/&gt; &amp;nbsp;&lt;/$link&gt;
-   &lt;/$list&gt;
-   &lt;/div&gt;&lt;/div&gt;
+   &lt;$reveal text=&quot;$label$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+      ''&lt;$text text=&quot;$label$&quot;/&gt;''
+   &lt;/$reveal&gt;
+   &lt;$reveal text=&quot;$label$&quot; type=&quot;match&quot;   default=&quot;&quot;&gt;
+      ''~LocalStorage for &lt;$text text=&quot;&quot;&quot;$id$&quot;&quot;&quot;/&gt;''
+   &lt;/$reveal&gt;
+   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;&lt;&lt;$content$&gt;&gt;&lt;/div&gt;
 &lt;/$reveal&gt;
 \end
-
 
 \define localstoragebuttons(text,target,filter)
 @@.floatright
@@ -7669,9 +7673,29 @@ options:
    ^^&lt;br&gt;$target$&amp;nbsp;^^
 @@
 @@.clear.bottomdots @@
+\end
+
+\define filterinfopopup(text,target,filter)
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;&gt;
+    {{$:/core/images/info-button}} ''$text$:''&amp;nbsp;
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; state=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;
+   position=&quot;belowright&quot; class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
+   &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close&quot;&gt;
+      {{$:/core/images/cancel-button}}
+      &lt;$action-deletetiddler $tiddler=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;/&gt;
+   &lt;/$button&gt;
+   @@.smallest //filter by:// @@''&lt;$text text=&quot;&quot;&quot;$filter$&quot;&quot;&quot;/&gt;''&amp;nbsp;
+   &lt;div class=&quot;clear shadowbox inset&quot;&gt;&lt;div class=&quot;scroll-y&quot; style=&quot;max-height:20em;&quot;&gt;
+   &lt;$list filter=&quot;&quot;&quot;$filter$&quot;&quot;&quot;
+      emptyMessage=&quot;@@.center //&amp;nbsp;(no matching tiddlers)&amp;nbsp;//@@&quot;&gt;
+      &lt;$link&gt;&lt;$text text={{!!title}}/&gt; &amp;nbsp;&lt;/$link&gt;
+   &lt;/$list&gt;
+   &lt;/div&gt;&lt;/div&gt;
+&lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20151023022620247" tags="" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20151025015211907" tags="" title="Dashboard/Maps">
 <pre>\define ShowMap(w,h)
 [img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
 \end
@@ -7738,7 +7762,7 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20151023022603418" tags="" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20151025014331945" tags="" title="Dashboard/StreetView">
 <pre>\define StreetView()
 [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 \end
