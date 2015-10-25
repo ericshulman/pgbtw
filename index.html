@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151023022108130" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Dashboard/GeoLocation Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -7105,7 +7105,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151025043547835" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151025110945599" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7151,14 +7151,14 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 \define saveGeo()
 &lt;$button tooltip=&quot;save current geolocation data&quot;
    message=&quot;tm-new-tiddler&quot; param=&lt;&lt;target&gt;&gt;&gt;
-   save location
+   {{$:/core/images/save-button}}
 &lt;/$button&gt;
 \end
 
 \define loadGeo()
 &lt;$button tooltip=&quot;reload saved geolocation data&quot;
    popup=&quot;$:/temp/popup/loadGeo&quot;&gt;
-   load location
+   {{$:/core/images/download-button}}
 &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/loadGeo&quot; class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
    &amp;nbsp; ''select a saved location:'' &amp;nbsp;
@@ -7167,6 +7167,24 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
       &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
          &lt;$view field=&quot;title&quot;/&gt;
          &lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
+      &lt;/$button&gt;
+   &lt;/$list&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;
+\end
+
+\define deleteGeo()
+&lt;$button tooltip=&quot;delete saved geolocation data&quot;
+   popup=&quot;$:/temp/popup/deleteGeo&quot;&gt;
+   @@.redsvg {{$:/core/images/close-button}}@@
+&lt;/$button&gt;
+&lt;$reveal type=&quot;popup&quot; state=&quot;$:/temp/popup/deleteGeo&quot; class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
+   &amp;nbsp; ''delete a saved location:'' &amp;nbsp;
+   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
+   &lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
+      &lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+         &lt;$view field=&quot;title&quot;/&gt;
+         &lt;$action-deletetiddler $tiddler={{!!title}}/&gt;
       &lt;/$button&gt;
    &lt;/$list&gt;
    &lt;/div&gt;
@@ -7217,6 +7235,17 @@ timeout:&lt;br&gt;
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;dashboardpopup id:&quot;GeoLocation/Notes&quot;
+      label:&quot;{{$:/core/images/edit-button}}&quot;
+      title:&quot;Notes about this location&quot;
+      content:&quot;notes&quot;&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;saveGeo&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;loadGeo&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;deleteGeo&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
       title:&quot;LocalStorage for GeoLocation&quot;
@@ -7229,16 +7258,12 @@ timeout:&lt;br&gt;
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
-   &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;@@
+   &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt;@@
 @@.center.clear.shadowbox.inset
    latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
       tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
    longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
       tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
-   &lt;&lt;dashboardpopup id:&quot;GeoLocation/Notes&quot;
-      label:&quot;{{$:/core/images/edit-button}}&quot;
-      title:&quot;Notes about this location&quot;
-      content:&quot;notes&quot;&gt;&gt;
    &amp;nbsp;
    &lt;$view tiddler=&lt;&lt;target&gt;&gt; field=&quot;modified&quot;
       format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
