@@ -6400,10 +6400,11 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623224550947" modified="20150724070415663" title="$:/DefaultTiddlers">
 <pre>Dashboard</pre>
 </div>
-<div created="20151016012736156" modified="20151025002500706" title="$:/Geo/Data" type="application/json">
+<div created="20151016012736156" modified="20151025042748673" title="$:/Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
-    &quot;longitude&quot;: &quot;-79.390586&quot;
+    &quot;longitude&quot;: &quot;-79.390586&quot;,
+    &quot;notes&quot;: &quot;Downtown Toronto&quot;
 }</pre>
 </div>
 <div status="complete" title="$:/Import">
@@ -6444,10 +6445,10 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151025041240900" title="$:/state/Dashboard/AddressLookup">
-<pre>show</pre>
+<div modified="20151025042723335" title="$:/state/Dashboard/AddressLookup">
+<pre></pre>
 </div>
-<div modified="20151025015220409" title="$:/state/Dashboard/Camera">
+<div modified="20151025042724328" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
 <div modified="20151023022432125" title="$:/state/Dashboard/GeoLocation">
@@ -6498,7 +6499,7 @@ LOAD
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151025015309811" title="$:/temp/advancedsearch">
+<div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6527,7 +6528,7 @@ LOAD
 <div modified="20151025014951989" title="$:/temp/notify">
 <pre>camera access not supported on this device</pre>
 </div>
-<div created="20150705104045705" modified="20151024170134195" title="$:/temp/search">
+<div created="20150705104045705" modified="20151025043102037" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7104,7 +7105,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151025035735693" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151025043547835" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7209,6 +7210,11 @@ timeout:&lt;br&gt;
 &lt;/$list&gt;
 \end
 
+\define notes()
+&lt;$edit-text tag=&quot;textarea&quot; class=&quot;tc-edit-texteditor&quot;
+   tiddler=&lt;&lt;target&gt;&gt; index=&quot;notes&quot; default=&quot;enter notes about this location&quot;/&gt;
+\end
+
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
@@ -7229,6 +7235,10 @@ timeout:&lt;br&gt;
       tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
    longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
       tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+   &lt;&lt;dashboardpopup id:&quot;GeoLocation/Notes&quot;
+      label:&quot;{{$:/core/images/edit-button}}&quot;
+      title:&quot;Notes about this location&quot;
+      content:&quot;notes&quot;&gt;&gt;
    &amp;nbsp;
    &lt;$view tiddler=&lt;&lt;target&gt;&gt; field=&quot;modified&quot;
       format=&quot;date&quot; template=&quot;DD MMM YYYY 0hh:0mm:0ss&quot;/&gt;
