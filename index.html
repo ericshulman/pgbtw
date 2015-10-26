@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151023022108130" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="LocalStorage/action-savefile.js Dashboard" title="$:/StoryList">
+<div list="LocalStorage/action-getfolders.js LocalStorage/action-savefile.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -8198,7 +8198,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 &lt;/svg&gt;
 </pre>
 </div>
-<div created="20151009070709830" modified="20151017231549738" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
+<div created="20151009070709830" modified="20151026105257181" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getfolders.js
 type: application/javascript
@@ -8312,7 +8312,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
     function(fs) {
       fs.root.getDirectory(root, {},
         function(dirEntry) { getFolder(dirEntry,&quot;&quot;,0); },
-        function(err)      { getFolder(fs.root,&quot;&quot;,0); });
+        function(err)      { makeFolderTiddler(&quot;&quot;,[],0); });
     },
     function(err) { errorHandler(&quot;requestFileSystem&quot;,err); }
   );
