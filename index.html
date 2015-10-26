@@ -6445,25 +6445,25 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151025204141524" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151026220538332" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div modified="20151025204147012" title="$:/state/Dashboard/Camera">
+<div modified="20151026220521615" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151025203957483" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151026210231912" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151026092334149" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151026220510882" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151026092331541" title="$:/state/Dashboard/LocalStorage/Viewer">
-<pre></pre>
+<div modified="20151026220448892" title="$:/state/Dashboard/LocalStorage/Viewer">
+<pre>open</pre>
 </div>
-<div modified="20151025204150209" title="$:/state/Dashboard/Maps">
+<div modified="20151026220539978" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
 </div>
-<div modified="20151025204134886" title="$:/state/Dashboard/StreetView">
+<div modified="20151026220533011" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
 <div created="20151017065317799" modified="20151017065317799" title="$:/state/GeoData" type="application/json">
@@ -6478,7 +6478,7 @@ LOAD
     &quot;timestamp&quot;: 1445064797656
 }</pre>
 </div>
-<div modified="20151021095651438" title="$:/state/sidebar">
+<div modified="20151026220214868" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151023022108130" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="LocalStorage/action-getfolders.js LocalStorage/action-savefile.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -6528,7 +6528,7 @@ LOAD
 <div modified="20151026103126833" title="$:/temp/notify">
 <pre>requestFileSystem: Security Error</pre>
 </div>
-<div created="20150705104045705" modified="20151025043102037" title="$:/temp/search">
+<div created="20150705104045705" modified="20151026214151038" title="$:/temp/search">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -6838,24 +6838,25 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151025204023414" title="Dashboard">
-<pre>@@.center 
-&lt;&lt;dashboardbutton Dashboard/GeoLocation&gt;&gt;
-&lt;&lt;dashboardbutton Dashboard/LocalStorage&gt;&gt;
-&lt;&lt;dashboardbutton Dashboard/Camera&gt;&gt;
-&lt;br&gt;
-&lt;&lt;dashboardbutton Dashboard/Maps&gt;&gt;
-&lt;&lt;dashboardbutton Dashboard/StreetView&gt;&gt;
-&lt;&lt;dashboardbutton Dashboard/AddressLookup&gt;&gt;
-&lt;br&gt;
+<div created="20150623211607895" modified="20151026220416443" title="Dashboard">
+<pre>@@.center.larger 
+&lt;&lt;dashboardbutton tid:Dashboard/GeoLocation class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/LocalStorage class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/Camera class:width30&gt;&gt;
+@@
+@@display:block;height:0.25em;@@
+@@.center.larger 
+&lt;&lt;dashboardbutton tid:Dashboard/Maps class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/StreetView class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/AddressLookup class:width30&gt;&gt;
 @@
 
-&lt;&lt;dashboardpanel Dashboard/GeoLocation&gt;&gt;
-&lt;&lt;dashboardpanel Dashboard/LocalStorage&gt;&gt;
-&lt;&lt;dashboardpanel Dashboard/Camera&gt;&gt;
-&lt;&lt;dashboardpanel Dashboard/Maps&gt;&gt;
-&lt;&lt;dashboardpanel Dashboard/StreetView&gt;&gt;
-&lt;&lt;dashboardpanel Dashboard/AddressLookup&gt;&gt;</pre>
+&lt;&lt;dashboardpanel tid:Dashboard/GeoLocation&gt;&gt;
+&lt;&lt;dashboardpanel tid:Dashboard/LocalStorage&gt;&gt;
+&lt;&lt;dashboardpanel tid:Dashboard/Camera&gt;&gt;
+&lt;&lt;dashboardpanel tid:Dashboard/Maps&gt;&gt;
+&lt;&lt;dashboardpanel tid:Dashboard/StreetView&gt;&gt;
+&lt;&lt;dashboardpanel tid:Dashboard/AddressLookup&gt;&gt;</pre>
 </div>
 <div caption="AddressLookup" created="20151010193622207" modified="20151025035611043" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;get summary&quot;)
@@ -7105,7 +7106,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151025194358015" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151026220019556" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7249,9 +7250,7 @@ timeout:&lt;br&gt;
       label:&quot;{{$:/core/images/edit-button}}&quot;
       title:&quot;Notes about this location&quot;
       content:&quot;notes&quot;&gt;&gt;
-   &amp;nbsp;
-   &lt;&lt;saveGeo&gt;&gt; &amp;nbsp; &lt;&lt;loadGeo&gt;&gt; &amp;nbsp; &lt;&lt;deleteGeo&gt;&gt;
-   &amp;nbsp;
+   &amp;nbsp; &lt;&lt;saveGeo&gt;&gt; &amp;nbsp; &lt;&lt;loadGeo&gt;&gt; &amp;nbsp; &lt;&lt;deleteGeo&gt;&gt; &amp;nbsp; 
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
       title:&quot;LocalStorage for GeoLocation&quot;
@@ -7634,20 +7633,16 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20151025203926641" tags="$:/tags/Macro" title="Dashboard/Macros">
-<pre>\define dashboardbutton(tid)
+<div created="20151021203705648" modified="20151026215051958" tags="$:/tags/Macro" title="Dashboard/Macros">
+<pre>\define dashboardbutton(tid,class:&quot;tc-btn-invisible&quot;)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
-&lt;$button tooltip=&quot;show $tid$&quot;
-   set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot;
-   class=&quot;tc-btn-invisible&quot;&gt;
+&lt;$button tooltip=&quot;show $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot; class=&quot;$class$&quot;&gt;
    &lt;input type=&quot;checkbox&quot;&gt;
    ''&lt;$text text={{$tid$!!caption}}/&gt;''
 &lt;/$button&gt;
 &lt;/$reveal&gt;
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
-&lt;$button tooltip=&quot;hide $tid$&quot;
-   set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;&quot;
-   class=&quot;tc-btn-invisible&quot;&gt;
+&lt;$button tooltip=&quot;hide $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;&quot; class=&quot;$class$&quot;&gt;
    &lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;&gt;
    ''&lt;$text text={{$tid$!!caption}}/&gt;''
 &lt;/$button&gt;
@@ -8198,7 +8193,7 @@ exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 &lt;/svg&gt;
 </pre>
 </div>
-<div created="20151009070709830" modified="20151026105257181" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
+<div created="20151009070709830" modified="20151026215511724" module-type="widget" tags="" title="LocalStorage/action-getfolders.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-getfolders.js
 type: application/javascript
@@ -8210,6 +8205,7 @@ widget to read folder information from LocalStorage into a tiddler
 
 params (default):
 root    = root path for Local Storage (TW5/)
+cache   = root 'path' to tiddler cache ($:/LocalStorage/)
 limit   = maximum depth for sub-folders traversal (20)
 auto    = true/false.  Set to true to invokeAction when widget is rendered
 
@@ -8232,7 +8228,9 @@ LocalStorageFoldersWidget.prototype.render = function(parent,nextSibling) {
 
 LocalStorageFoldersWidget.prototype.refresh = function(changedTiddlers) {
 	var changedAttributes = this.computeAttributes();
-	if( changedAttributes[&quot;root&quot;] || changedAttributes[&quot;limit&quot;]) {
+	if( changedAttributes[&quot;root&quot;]
+           || changedAttributes[&quot;cache&quot;]
+           || changedAttributes[&quot;limit&quot;]) {
 		this.refreshSelf();
 		return true;
 	}
@@ -8269,6 +8267,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
   }
 
   var root    = this.getAttribute(&quot;root&quot;,&quot;TW5/&quot;);
+  var cache   = this.getAttribute(&quot;cache&quot;,&quot;$:/LocalStorage/&quot;);
   var limit   = this.getAttribute(&quot;limit&quot;,2);
   var quota   = 1024*1024*5;
 
@@ -8283,7 +8282,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
     });
     // save folder info in tiddler
     $tw.wiki.addTiddler(new $tw.Tiddler({ 
-        title: &quot;$:/LocalStorage&quot;+(path.length?&quot;/&quot;:&quot;&quot;)+path,
+        title: (cache+path).replace(/\/$/,&quot;&quot;),
         text: &quot;&quot;,
         filelist: &quot;[[&quot;+filelist.sort().join(&quot;]] [[&quot;)+&quot;]]&quot;
       },null,{},$tw.wiki.getModificationFields()));
@@ -8323,7 +8322,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151026092243658" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151026213952177" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -8335,11 +8334,11 @@ widget to load a file in LocalStorage into a tiddler and optionally parse the re
 
 params (default):
 root        = root folder for Local Storage (TW5/)
-cache       = root 'path' to tiddler cache ($:/LocalStorage)
+cache       = root 'path' to tiddler cache ($:/LocalStorage/)
 filename    = source filename in local storage (application/json)
 type        = MIME type for target tiddler
-parse       = tiddlers, json, binary, auto
-		&quot;&quot; or &quot;raw&quot; = no parsing, just create a tiddler (default)
+parse       = tiddlers, json, binary, auto (default=no parsing)
+		&quot;&quot; or &quot;raw&quot; = no parsing, just create a tiddler
 		&quot;tiddlers&quot;  = unpack JSON-encoded fields into tiddlers
 		&quot;json&quot;      = unpack all JSON fields as tiddlers
 		&quot;binary&quot;    = encode binary as base64 tiddler
@@ -8932,7 +8931,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150418111607835" creator="EricShulman" modified="20151021084747406" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
+<div created="20150418111607835" creator="EricShulman" modified="20151026214526882" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
 <pre>&lt;pre&gt;
 /* ---- FORMATTING SHORTCUTS ---- */
 
@@ -8943,6 +8942,14 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 .larger   { font-size:120%;line-height:100%; }
 .largest  { font-size:150%;line-height:100%; }
 .huge     { font-size:300%;line-height:100%; }
+
+/* PERCENTAGE WIDTHS */
+.width20  { width:20%; }
+.width25  { width:25%; }
+.width30  { width:30%; }
+.width33  { width:33%; }
+.width50  { width:50%; }
+.width100 { width:100%; }
 
 /* ADJUST IMAGES TO FIT WITH TEXT */
 .resize img { height:1em; width:1em; }
