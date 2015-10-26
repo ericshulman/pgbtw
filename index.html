@@ -6454,7 +6454,7 @@ LOAD
 <div modified="20151025203957483" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151025204124000" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151026074338110" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div modified="20151025204122155" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151023022108130" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="http/action-httprequest.js http/action-httprequest.js LocalStorage/action-loadfile.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -7465,7 +7465,7 @@ tiddler cache location:&lt;br&gt;
    {{Dashboard/LocalStorage/Viewer}}
 &lt;/$reveal&gt;</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151025040639855" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151026082413889" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -7489,7 +7489,7 @@ tiddler cache location:&lt;br&gt;
    tooltip=&quot;LOAD FILE: copy /$(fullname)$ into tiddler cache&quot;&gt;
    $label$
    &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt; root={{$:/config/LocalStorage##root}}
-      parse=&quot;tiddlers&quot; /&gt;
+      parse=&quot;auto&quot; /&gt;
 &lt;/$button&gt;
 \end
 
@@ -7500,7 +7500,7 @@ tiddler cache location:&lt;br&gt;
    $label$
    &lt;$list filter=&lt;&lt;files&gt;&gt; variable=&quot;fullname&quot;&gt;
    &lt;$action-loadfile filename=&lt;&lt;fullname&gt;&gt; root={{$:/config/LocalStorage##root}}
-      parse=&quot;tiddlers&quot; /&gt;
+      parse=&quot;auto&quot; /&gt;
    &lt;/$list&gt;
 &lt;/$button&gt;
 &lt;/$set&gt;
@@ -8323,7 +8323,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151026073500481" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151026082250079" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -8456,19 +8456,19 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
   if (!filename.length) return;
 
   if (parse==&quot;auto&quot;) {
-    if (filename.indexOf(&quot;.tids&quot;))
+    if (filename.indexOf(&quot;.tids&quot;)!=-1)
       { parse=&quot;tiddlers&quot;; type=&quot;application/json&quot;; }
-    if (filename.indexOf(&quot;.json&quot;))
+    if (filename.indexOf(&quot;.json&quot;)!=-1)
       { parse=&quot;json&quot;;     type=&quot;application/json&quot;; }
-    if (filename.indexOf(&quot;.jpg&quot;))
+    if (filename.indexOf(&quot;.jpg&quot;)!=-1)
       { parse=&quot;binary&quot;;   type=&quot;image/jpeg&quot;; }
-    if (filename.indexOf(&quot;.gif&quot;))
+    if (filename.indexOf(&quot;.gif&quot;)!=-1)
       { parse=&quot;binary&quot;;   type=&quot;image/gif&quot;; }
-    if (filename.indexOf(&quot;.png&quot;))
+    if (filename.indexOf(&quot;.png&quot;)!=-1)
       { parse=&quot;binary&quot;;   type=&quot;image/png&quot;; }
-    if (filename.indexOf(&quot;.txt&quot;))
+    if (filename.indexOf(&quot;.txt&quot;)!=-1)
       { parse=&quot;&quot;;         type=&quot;text/plain&quot;; }
-    if (filename.indexOf(&quot;.html&quot;))
+    if (filename.indexOf(&quot;.html&quot;)!=-1)
       { parse=&quot;&quot;;         type=&quot;text/html&quot;; }
   }
 
@@ -8480,6 +8480,7 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
           if (!this.result.length) return;
           var title=cache+filename;
           // save tiddler
+          if (parse==&quot;binary&quot;) this.result.split(&quot;,&quot;)[1]; // trim off data URI
           $tw.wiki.addTiddler(new $tw.Tiddler(
             { title:title, text:this.result, type:type },
             null,{},$tw.wiki.getModificationFields()));
