@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151023022108130" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="LocalStorage/action-loadfile.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -8323,7 +8323,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151026083212035" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151026084018660" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -8480,10 +8480,11 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
           if (!this.result.length) return;
           var title=cache+filename;
           // save tiddler
-          if (parse==&quot;binary&quot;)
-            this.result=this.result.split(&quot;,&quot;)[1]; // trim off data URI
+          var out=this.result;
+          if (parse==&quot;binary&quot;) alert(out.split(&quot;,&quot;)[0]); // debug
+          if (parse==&quot;binary&quot;) out=out.split(&quot;,&quot;)[1]; // trim off data URI
           $tw.wiki.addTiddler(new $tw.Tiddler(
-            { title:title, text:this.result, type:type },
+            { title:title, text:out, type:type },
             null,{},$tw.wiki.getModificationFields()));
           var msg=&quot;loaded /&quot;+filename+&quot;&lt;br&gt;&quot;;
           if (parse==&quot;tiddlers&quot;) {
