@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151023022108130" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="http/action-httprequest.js http/action-httprequest.js LocalStorage/action-loadfile.js Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -7962,7 +7962,7 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
     &quot;longitude&quot;: &quot;0&quot;
 }</pre>
 </div>
-<div created="20150728060155235" modified="20151024152903593" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
+<div created="20150728060155235" modified="20151026073331584" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
 <pre>/*\
 title: http/action-httprequest.js
 type: application/javascript
@@ -7976,7 +7976,12 @@ params (default):
 url         = source URL
 tiddler     = tiddler to store results
 tiddlertype = MIME type for target tiddler
-parse       = keywords: &quot;json&quot;, &quot;geo&quot;, &quot;binary&quot; (default=no parsing)
+parse       = keywords (default=no parsing)
+		&quot;&quot; or &quot;raw&quot; = no parsing, just create a tiddler (default)
+		&quot;tiddlers&quot;  = unpack JSON-encoded fields into tiddlers
+		&quot;json&quot;      = unpack all JSON fields as tiddlers
+		&quot;geo&quot;       = unpack GoogleMaps JSON geo data
+		&quot;binary&quot;    = encode binary as base64 tiddler
 autoload    = if defined, action is invoked when widget is rendered
 
 \*/
@@ -8004,6 +8009,13 @@ HttpRequestWidget.prototype.refresh = function(changedTiddlers) {
 		return true;
 	}
 	return this.refreshChildren(changedTiddlers);
+};
+
+HttpRequestWidget.prototype.fields2tiddlers = function(tid,data) {
+	var tids=JSON.parse(data);
+	$tw.utils.each(tids,function(tiddlerFields) {
+		$tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
+	});
 };
 
 HttpRequestWidget.prototype.json2tiddlers = function(tid,data) {
@@ -8066,8 +8078,10 @@ HttpRequestWidget.prototype.binary2tiddler = function(tid,data,url) {
 			enc4=chr3 &amp; 0x3F;
 			if (isNaN(chr2)) enc3=enc4=64;
 			else if (isNaN(chr3)) enc4=64;
-			out+=charMap.charAt(enc1) + charMap.charAt(enc2)
-			   + charMap.charAt(enc3) + charMap.charAt(enc4);
+			out+=charMap.charAt(enc1)
+			   + charMap.charAt(enc2)
+			   + charMap.charAt(enc3)
+			   + charMap.charAt(enc4);
 		}
 		return out;
 	};
@@ -8086,13 +8100,18 @@ HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var callback=function(err,data,xhr) {
 		$tw.wiki.setText(tid,&quot;text&quot;,null,data||err);
 		$tw.wiki.setText(tid,&quot;type&quot;,null,tiddlertype);
-		if (data &amp;&amp; parse==&quot;geo&quot;) // unpack Google reverse-geo data
+		if (data &amp;&amp; parse==&quot;tiddlers&quot;)
+			// unpack tiddler field data
+			self.fields2tiddlers(tid,data);
+		else if (data &amp;&amp; parse==&quot;geo&quot;)
+			// unpack Google reverse-geo data
 			self.geo2tiddlers(tid,data);
-		else if (data &amp;&amp; parse==&quot;json&quot;) // unpack any JSON data
+		else if (data &amp;&amp; parse==&quot;json&quot;)
+			// unpack any JSON data
 			self.json2tiddlers(tid,data);
-		else if (data &amp;&amp; parse==&quot;binary&quot;) { // encode binary as base64
+		else if (data &amp;&amp; parse==&quot;binary&quot;)
+			// encode binary as base64
 			self.binary2tiddler(tid,data,url);
-		}
 	};
 	if (url.length) {
 		var xhr=$tw.utils.httpRequest(
@@ -8304,7 +8323,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151022005217050" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151026073500481" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -8319,7 +8338,12 @@ root        = root folder for Local Storage (TW5/)
 cache       = root 'path' to tiddler cache ($:/LocalStorage)
 filename    = source filename in local storage (application/json)
 type        = MIME type for target tiddler
-parse       = tiddlers, json
+parse       = tiddlers, json, binary, auto
+		&quot;&quot; or &quot;raw&quot; = no parsing, just create a tiddler (default)
+		&quot;tiddlers&quot;  = unpack JSON-encoded fields into tiddlers
+		&quot;json&quot;      = unpack all JSON fields as tiddlers
+		&quot;binary&quot;    = encode binary as base64 tiddler
+		&quot;auto&quot;      = detect type and parse from filename
 silent      = true/false.  Set to true to skip notifications
 
 \*/
@@ -8352,6 +8376,14 @@ LocalStorageLoadFileWidget.prototype.refresh = function(changedTiddlers) {
 	return this.refreshChildren(changedTiddlers);
 };
 
+LocalStorageLoadFileWidget.prototype.fields2tiddlers = function(tid,data) {
+	var tids=JSON.parse(data);
+	$tw.utils.each(tids,function(tiddlerFields) {
+		$tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
+	});
+	return tids;
+};
+
 LocalStorageLoadFileWidget.prototype.json2tiddlers = function(tid,data) {
 	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+tid+&quot;/]]&quot;);
 	for(var t=0; t&lt;tiddlers.length; t++)
@@ -8382,6 +8414,7 @@ LocalStorageLoadFileWidget.prototype.json2tiddlers = function(tid,data) {
 	walk(obj,tid,0);
 	return tids;
 };
+
 LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,event) {
 
   // if LocalStorage is supported
@@ -8414,11 +8447,30 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
   var self     = this;
   var root     = this.getAttribute(&quot;root&quot;,&quot;TW5/&quot;);
   var cache    = this.getAttribute(&quot;cache&quot;,&quot;$:/LocalStorage/&quot;);
-  var filename = this.getAttribute(&quot;filename&quot;,&quot;tiddlers.tids&quot;);
-  var type     = this.getAttribute(&quot;type&quot;,&quot;application/json&quot;);
+  var filename = this.getAttribute(&quot;filename&quot;,&quot;&quot;);
+  var type     = this.getAttribute(&quot;type&quot;,&quot;&quot;);
   var parse    = this.getAttribute(&quot;parse&quot;,&quot;&quot;);
   var silent   = this.getAttribute(&quot;silent&quot;,&quot;false&quot;)==&quot;true&quot;;
   var quota    = 1024*1024*5;
+
+  if (!filename.length) return;
+
+  if (parse==&quot;auto&quot;) {
+    if (filename.indexOf(&quot;.tids&quot;))
+      { parse=&quot;tiddlers&quot;; type=&quot;application/json&quot;; }
+    if (filename.indexOf(&quot;.json&quot;))
+      { parse=&quot;json&quot;;     type=&quot;application/json&quot;; }
+    if (filename.indexOf(&quot;.jpg&quot;))
+      { parse=&quot;binary&quot;;   type=&quot;image/jpeg&quot;; }
+    if (filename.indexOf(&quot;.gif&quot;))
+      { parse=&quot;binary&quot;;   type=&quot;image/gif&quot;; }
+    if (filename.indexOf(&quot;.png&quot;))
+      { parse=&quot;binary&quot;;   type=&quot;image/png&quot;; }
+    if (filename.indexOf(&quot;.txt&quot;))
+      { parse=&quot;&quot;;         type=&quot;text/plain&quot;; }
+    if (filename.indexOf(&quot;.html&quot;))
+      { parse=&quot;&quot;;         type=&quot;text/html&quot;; }
+  }
 
   window.requestFileSystem(window.PERSISTENT, quota, function(fs) {
     fs.root.getFile(root+filename, {}, function(fileEntry) {
@@ -8432,14 +8484,13 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
             { title:title, text:this.result, type:type },
             null,{},$tw.wiki.getModificationFields()));
           var msg=&quot;loaded /&quot;+filename+&quot;&lt;br&gt;&quot;;
-          if (parse==&quot;tiddlers&quot;) { // add separate tiddlers
-            var tids=JSON.parse(this.result);
-            $tw.utils.each(tids,function(tiddlerFields) {
-              $tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
-            });
+          if (parse==&quot;tiddlers&quot;) {
+            // add separate tiddlers
+            var tids=self.fields2tiddlers(title,this.result)
             msg+=tids.length+&quot; tiddlers, &quot;;
           }
-          if (parse==&quot;json&quot;) { // add separate tiddlers for each JSON field
+          if (parse==&quot;json&quot;) {
+            // add separate tiddlers for each JSON field
             var tids=self.json2tiddlers(title,this.result)
             msg+=tids.length+&quot; tiddlers, &quot;;
           }
@@ -8448,7 +8499,8 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
         };
-        reader.readAsText(file);
+        if (parse=&quot;binary&quot;) reader.readAsDataURL(file);
+        else                reader.readAsText(file);
       }, function(err) { errorHandler(filename,err); });
     }, function(err) { errorHandler(filename,err); });
   }, function(err) { errorHandler(filename,err); });
