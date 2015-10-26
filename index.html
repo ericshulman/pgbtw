@@ -6454,10 +6454,10 @@ LOAD
 <div modified="20151025203957483" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
-<div modified="20151026074338110" title="$:/state/Dashboard/LocalStorage">
+<div modified="20151026092334149" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div modified="20151025204122155" title="$:/state/Dashboard/LocalStorage/Viewer">
+<div modified="20151026092331541" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre></pre>
 </div>
 <div modified="20151025204150209" title="$:/state/Dashboard/Maps">
@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151023022108130" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="LocalStorage/action-loadfile.js Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -6525,8 +6525,8 @@ LOAD
 <div created="20150706215305238" modified="20151025203613867" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div modified="20151025014951989" title="$:/temp/notify">
-<pre>camera access not supported on this device</pre>
+<div modified="20151026091959035" title="$:/temp/notify">
+<pre>loaded /locations/Pittsburgh.tids&lt;br&gt;393 bytes</pre>
 </div>
 <div created="20150705104045705" modified="20151025043102037" title="$:/temp/search">
 <pre></pre>
@@ -7465,7 +7465,7 @@ tiddler cache location:&lt;br&gt;
    {{Dashboard/LocalStorage/Viewer}}
 &lt;/$reveal&gt;</pre>
 </div>
-<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151026082413889" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="LocalStorage Viewer" created="20151014083917209" modified="20151026092319182" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8323,7 +8323,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151026085925719" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151026092243658" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -8504,8 +8504,8 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
           $tw.wiki.setText(&quot;$:/temp/notify&quot;,&quot;text&quot;,null,msg);
           $tw.notifier.display(&quot;$:/temp/notify&quot;);
         };
-        if (parse=&quot;binary&quot;) reader.readAsDataURL(file);
-        else                reader.readAsText(file);
+        if (parse==&quot;binary&quot;) reader.readAsDataURL(file);
+        else                 reader.readAsText(file);
       }, function(err) { errorHandler(filename,err); });
     }, function(err) { errorHandler(filename,err); });
   }, function(err) { errorHandler(filename,err); });
