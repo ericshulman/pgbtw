@@ -8323,7 +8323,7 @@ LocalStorageFoldersWidget.prototype.invokeAction = function(triggeringWidget,eve
 exports[&quot;action-getfolders&quot;] = LocalStorageFoldersWidget ;
 })();</pre>
 </div>
-<div created="20151007080142500" modified="20151026082250079" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
+<div created="20151007080142500" modified="20151026083212035" module-type="widget" tags="" title="LocalStorage/action-loadfile.js" type="application/javascript">
 <pre>/*\
 title: LocalStorage/action-loadfile.js
 type: application/javascript
@@ -8480,7 +8480,8 @@ LocalStorageLoadFileWidget.prototype.invokeAction = function(triggeringWidget,ev
           if (!this.result.length) return;
           var title=cache+filename;
           // save tiddler
-          if (parse==&quot;binary&quot;) this.result.split(&quot;,&quot;)[1]; // trim off data URI
+          if (parse==&quot;binary&quot;)
+            this.result=this.result.split(&quot;,&quot;)[1]; // trim off data URI
           $tw.wiki.addTiddler(new $tw.Tiddler(
             { title:title, text:this.result, type:type },
             null,{},$tw.wiki.getModificationFields()));
