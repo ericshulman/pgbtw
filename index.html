@@ -6496,7 +6496,7 @@ LOAD
 <div modified="20151027203227350" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="LocalStorage/action-loadfile.js Dashboard" title="$:/StoryList">
+<div list="http/action-httprequest.js test Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
@@ -7966,7 +7966,7 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
     &quot;longitude&quot;: &quot;0&quot;
 }</pre>
 </div>
-<div created="20150728060155235" modified="20151028015916487" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
+<div created="20150728060155235" modified="20151028024101208" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
 <pre>/*\
 title: http/action-httprequest.js
 type: application/javascript
@@ -8104,7 +8104,7 @@ HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	if (!url.length) return true; // no URL, do nothing
 	var callback=function(err,data,xhr) {
 		if (xhr &amp;&amp; !tiddlertype.length)
-			tiddlertype=xhr.getResponseHeader(&quot;Content-Type&quot;)||&quot;&quot;;
+			tiddlertype=(xhr.getResponseHeader(&quot;Content-Type&quot;)||&quot;&quot;).split(&quot;;&quot;)[0];
 		$tw.wiki.setText(tid,&quot;text&quot;,null,data||err);
 		$tw.wiki.setText(tid,&quot;type&quot;,null,data?tiddlertype:&quot;text/plain&quot;);
 		if (!data) return;
@@ -9031,10 +9031,10 @@ background: #f8f8ff;
     &quot;longitude&quot;: &quot;-122.0199&quot;
 }</pre>
 </div>
-<div created="20151020145845624" modified="20151028015308125" tags="" title="test">
-<pre>\define getimage(tid,url)
+<div created="20151020145845624" modified="20151028023809962" tags="" title="test">
+<pre>\define get(tid,url,parse:&quot;binary&quot;)
 &lt;$button&gt; get $tid$
-&lt;$action-httpRequest url=&quot;$url$&quot; tiddler=&quot;$tid$&quot; requesttype=&quot;GET&quot; parse=&quot;binary&quot; /&gt;
+&lt;$action-httpRequest url=&quot;$url$&quot; tiddler=&quot;$tid$&quot; requesttype=&quot;GET&quot; parse=&quot;$parse$&quot; /&gt;
 &lt;/$button&gt;
 &lt;$button&gt; remove $tid$
 &lt;$action-deletetiddler $tiddler=&quot;$tid$&quot; /&gt;
@@ -9043,10 +9043,11 @@ background: #f8f8ff;
 {{$tid$}}
 \end
 
-&lt;&lt;getimage jeremy &quot;https://avatars0.githubusercontent.com/u/174761?v=3&amp;s=460&quot;&gt;&gt;
-&lt;&lt;getimage wow &quot;http://i.imgur.com/QYEHt4v.jpg&quot;&gt;&gt;
-&lt;&lt;getimage smile &quot;https://avatars0.githubusercontent.com/u/58688&quot;&gt;&gt;
-&lt;&lt;getimage cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;</pre>
+&lt;&lt;get jeremy &quot;https://avatars0.githubusercontent.com/u/174761?v=3&amp;s=460&quot;&gt;&gt;
+&lt;&lt;get wow &quot;http://i.imgur.com/QYEHt4v.jpg&quot;&gt;&gt;
+&lt;&lt;get smile &quot;https://avatars0.githubusercontent.com/u/58688&quot;&gt;&gt;
+&lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
+&lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
 </div>
 <div created="20150706215050370" modified="20150722011948835" tags="location" title="Toronto" type="application/json">
 <pre>{
