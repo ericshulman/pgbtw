@@ -6476,7 +6476,7 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151105133507197" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151105214830605" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
 <div modified="20151027222133170" title="$:/state/Dashboard/Camera">
@@ -6494,7 +6494,7 @@ LOAD
 <div modified="20151105121024090" title="$:/state/Dashboard/Maps">
 <pre></pre>
 </div>
-<div modified="20151105133509459" title="$:/state/Dashboard/MPAC">
+<div modified="20151105214831877" title="$:/state/Dashboard/MPAC">
 <pre></pre>
 </div>
 <div modified="20151105101416345" title="$:/state/Dashboard/MPAC/Comps">
@@ -6503,7 +6503,7 @@ LOAD
 <div modified="20151027232218423" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151105133133714" title="$:/state/Dashboard/TeraNet">
+<div modified="20151105213350131" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
 <div created="20151017065317799" modified="20151017065317799" title="$:/state/GeoData" type="application/json">
@@ -6524,8 +6524,8 @@ LOAD
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
 <pre>Dashboard/AddressLookup</pre>
 </div>
-<div modified="20151105132610322" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Standard</pre>
+<div modified="20151105214101465" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -6533,13 +6533,13 @@ LOAD
 <div modified="20151020004259013" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151105132954468" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151105214837331" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151105132605102" title="$:/temp/advancedsearch">
+<div created="20150706192244698" modified="20151105214216931" title="$:/temp/advancedsearch">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -6905,7 +6905,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/MPAC&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20151105114157118" tags="" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20151105214027179" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;get summary&quot;)
 &lt;$button tooltip=&quot;get summary address data from GeoLocation&quot;&gt; $label$
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -6947,10 +6947,11 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 \define showdata()
 &lt;table class=&quot;borderless&quot;&gt;
    &lt;$list filter=&quot;[prefix[$:/Geo/Data/Address/]]&quot;&gt;
-   &lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[$:/Geo/Data/Address/]]&quot;&gt;
+   &lt;$set name=&quot;item&quot;
+      filter=&quot;[is[current]removeprefix[$:/Geo/Data/Address/]]&quot;&gt;
    &lt;tr&gt;
-      &lt;td style=&quot;text-align:left&quot;&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&amp;nbsp;&lt;/td&gt;
-      &lt;td&gt;''&lt;$view field=&quot;text&quot;/&gt;''&lt;/td&gt;
+      &lt;td style=&quot;text-align:left&quot;&gt;&lt;$link&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&lt;/$link&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;td&gt;''&lt;$text text={{!!text}}/&gt;''&lt;/td&gt;
    &lt;/tr&gt;
    &lt;/$set&gt;
    &lt;/$list&gt;
@@ -8132,7 +8133,7 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
     &quot;longitude&quot;: &quot;0&quot;
 }</pre>
 </div>
-<div created="20150728060155235" modified="20151105130841665" module-type="widget" tags="" title="Http/action-httprequest.js" type="application/javascript">
+<div created="20150728060155235" modified="20151105213155213" module-type="widget" tags="" title="Http/action-httprequest.js" type="application/javascript">
 <pre>/*\
 title: http/action-httprequest.js
 type: application/javascript
@@ -8203,9 +8204,9 @@ HttpRequestWidget.prototype.obj2tiddlers = function(path,obj) {
 		if (typeof obj=='object') {
 			for(var p in obj) {
 				if (p==&quot;_text&quot;)
-					set(target,obj[p]||&quot;&quot;);
+					set(target,obj[p]);
 				else if (p==&quot;_value&quot;)
-					set(target,obj[p]||&quot;0&quot;);
+					set(target,obj[p].toString());
 				else
 					walk(obj[p],target+'/'+p,level+1);
 			}
