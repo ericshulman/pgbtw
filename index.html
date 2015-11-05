@@ -144,6 +144,26 @@ Error message and password prompt
 
 <li>$:/Geo/Data</li>
 
+<li>$:/Geo/Data/Address</li>
+
+<li>$:/Geo/Data/Address/administrative_area_level_1</li>
+
+<li>$:/Geo/Data/Address/administrative_area_level_2</li>
+
+<li>$:/Geo/Data/Address/bus_station</li>
+
+<li>$:/Geo/Data/Address/country</li>
+
+<li>$:/Geo/Data/Address/locality</li>
+
+<li>$:/Geo/Data/Address/neighborhood</li>
+
+<li>$:/Geo/Data/Address/postal_code_prefix</li>
+
+<li>$:/Geo/Data/Address/street_address</li>
+
+<li>$:/Geo/Data/Address/sublocality_level_1</li>
+
 <li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
@@ -166,6 +186,8 @@ Error message and password prompt
 
 <li>$:/state/Dashboard/Maps</li>
 
+<li>$:/state/Dashboard/MPAC/Comps</li>
+
 <li>$:/state/Dashboard/StreetView</li>
 
 <li>$:/state/GeoData</li>
@@ -187,10 +209,6 @@ Error message and password prompt
 <li>$:/temp/advancedsearch</li>
 
 <li>$:/temp/info-plugin</li>
-
-<li>$:/temp/newfieldname</li>
-
-<li>$:/temp/newfieldvalue</li>
 
 <li>$:/temp/NewTagName</li>
 
@@ -228,13 +246,19 @@ Error message and password prompt
 
 <li>Dashboard/Maps</li>
 
+<li>Dashboard/MPAC/Comps</li>
+
 <li>Dashboard/StreetView</li>
 
 <li>Geo/action-getGeoData.js</li>
 
 <li>Greenwich Observatory</li>
 
-<li>http/action-httprequest.js</li>
+<li>Http/action-httprequest.js</li>
+
+<li>Http/xmlToJSON.js</li>
+
+<li>Http/xmlToJSON.README.md</li>
 
 <li>images/file.svg</li>
 
@@ -269,6 +293,8 @@ Error message and password prompt
 <li>test</li>
 
 <li>Toronto</li>
+
+<li>xml/12ClarkSecor.xml</li>
 
 </ul>
 </p>
@@ -6407,10 +6433,635 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
+<div modified="20151105100838389" title="$:/Geo/Data/Address" type="application/json">
+<pre>{
+   &quot;results&quot; : [
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;700&quot;,
+               &quot;short_name&quot; : &quot;700&quot;,
+               &quot;types&quot; : [ &quot;street_number&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;University Avenue&quot;,
+               &quot;short_name&quot; : &quot;University Ave&quot;,
+               &quot;types&quot; : [ &quot;route&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;700 University Ave, Toronto, ON M5G, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.659829,
+                  &quot;lng&quot; : -79.39033049999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6592045,
+                  &quot;lng&quot; : -79.39059999999999
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6597929,
+               &quot;lng&quot; : -79.39060409999999
+            },
+            &quot;location_type&quot; : &quot;RANGE_INTERPOLATED&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6608657302915,
+                  &quot;lng&quot; : -79.3891162697085
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.65816776970851,
+                  &quot;lng&quot; : -79.3918142302915
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;Eis3MDAgVW5pdmVyc2l0eSBBdmUsIFRvcm9udG8sIE9OIE01RywgQ2FuYWRh&quot;,
+         &quot;types&quot; : [ &quot;street_address&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;College Park at University Ave.&quot;,
+               &quot;short_name&quot; : &quot;College Park at University Ave.&quot;,
+               &quot;types&quot; : [ &quot;point_of_interest&quot;, &quot;establishment&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;University&quot;,
+               &quot;short_name&quot; : &quot;University&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;College Park at University Ave., Toronto, ON M5G, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.659852,
+               &quot;lng&quot; : -79.39048199999999
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6612009802915,
+                  &quot;lng&quot; : -79.3891330197085
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6585030197085,
+                  &quot;lng&quot; : -79.3918309802915
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJgRuM5rc0K4gRYtSUSGWh3EE&quot;,
+         &quot;types&quot; : [
+            &quot;bus_station&quot;,
+            &quot;transit_station&quot;,
+            &quot;point_of_interest&quot;,
+            &quot;establishment&quot;
+         ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Discovery District&quot;,
+               &quot;short_name&quot; : &quot;Discovery District&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Discovery District, Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6630908,
+                  &quot;lng&quot; : -79.3843102
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6557481,
+                  &quot;lng&quot; : -79.40053210000001
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6603242,
+               &quot;lng&quot; : -79.3937162
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6630908,
+                  &quot;lng&quot; : -79.3843102
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6557481,
+                  &quot;lng&quot; : -79.40053210000001
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJY9gBJ8g0K4gRwfKR3nQauiI&quot;,
+         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Downtown, Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6755833,
+                  &quot;lng&quot; : -79.3470176
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6339328,
+                  &quot;lng&quot; : -79.41131710000001
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.654262,
+               &quot;lng&quot; : -79.385975
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6755833,
+                  &quot;lng&quot; : -79.3470176
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6339328,
+                  &quot;lng&quot; : -79.41131710000001
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJvRBz0jTL1IkRkwMHIgbSFbo&quot;,
+         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Old Toronto, Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.75373099999999,
+                  &quot;lng&quot; : -79.27971699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6118399,
+                  &quot;lng&quot; : -79.491969
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6486795,
+               &quot;lng&quot; : -79.3803231
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.75373099999999,
+                  &quot;lng&quot; : -79.27971699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6118399,
+                  &quot;lng&quot; : -79.491969
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ2YVS1Po0K4gR8_c5_bvmDW4&quot;,
+         &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.653226,
+               &quot;lng&quot; : -79.3831843
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJpTvG15DL1IkRd8S0KlBVNTI&quot;,
+         &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Toronto, ON M5G, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.662463,
+                  &quot;lng&quot; : -79.380601
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6511301,
+                  &quot;lng&quot; : -79.39171899999999
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6579524,
+               &quot;lng&quot; : -79.3873826
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.662463,
+                  &quot;lng&quot; : -79.380601
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6511301,
+                  &quot;lng&quot; : -79.39171899999999
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJQ4yqgck0K4gR1f-j38zDpt0&quot;,
+         &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Toronto Division, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6689775,
+               &quot;lng&quot; : -79.29021329999999
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ5b2RG4_L1IkRDtQ2gFEjLv4&quot;,
+         &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Ontario, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 56.8565279,
+                  &quot;lng&quot; : -74.34388229999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 41.68134879999999,
+                  &quot;lng&quot; : -95.1562271
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 51.253775,
+               &quot;lng&quot; : -85.3232139
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 56.8565279,
+                  &quot;lng&quot; : -74.34388229999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 41.6813554,
+                  &quot;lng&quot; : -95.15480099999999
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJrxNRX7IFzkwRCR5iKVZC-HA&quot;,
+         &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 83.09565619999999,
+                  &quot;lng&quot; : -52.6205957
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 41.6765559,
+                  &quot;lng&quot; : -141.00187
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 56.130366,
+               &quot;lng&quot; : -106.346771
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 70,
+                  &quot;lng&quot; : -50
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 42,
+                  &quot;lng&quot; : -142
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ2WrMN9MDDUsRpY9Doiq3aJk&quot;,
+         &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+      }
+   ],
+   &quot;status&quot; : &quot;OK&quot;
+}
+</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/administrative_area_level_1">
+<pre>Ontario, Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/administrative_area_level_2">
+<pre>Toronto Division, ON, Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/bus_station">
+<pre>College Park at University Ave., Toronto, ON M5G, Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/country">
+<pre>Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/locality">
+<pre>Toronto, ON, Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/neighborhood">
+<pre>Downtown, Toronto, ON, Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/postal_code_prefix">
+<pre>Toronto, ON M5G, Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/street_address">
+<pre>700 University Ave, Toronto, ON M5G, Canada</pre>
+</div>
+<div modified="20151105100838391" title="$:/Geo/Data/Address/sublocality_level_1">
+<pre>Old Toronto, Toronto, ON, Canada</pre>
+</div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[jeremy.jpg]]</pre>
+# [[xmlToJSON.README.md]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -6445,13 +7096,13 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151028020616211" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151105100954609" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
 <div modified="20151027222133170" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151027204559087" title="$:/state/Dashboard/GeoLocation">
+<div modified="20151105101418948" title="$:/state/Dashboard/GeoLocation">
 <pre>show</pre>
 </div>
 <div modified="20151027205201332" title="$:/state/Dashboard/LocalStorage">
@@ -6460,8 +7111,11 @@ LOAD
 <div modified="20151026220448892" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151027224715449" title="$:/state/Dashboard/Maps">
+<div modified="20151105101417841" title="$:/state/Dashboard/Maps">
 <pre>show</pre>
+</div>
+<div modified="20151105101416345" title="$:/state/Dashboard/MPAC/Comps">
+<pre></pre>
 </div>
 <div modified="20151027232218423" title="$:/state/Dashboard/StreetView">
 <pre></pre>
@@ -6493,14 +7147,14 @@ LOAD
 <div modified="20151020004259013" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151027203227350" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151105043611777" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div list="http/action-httprequest.js test Dashboard" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151025043122112" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20150706192244698" modified="20151105040917110" title="$:/temp/advancedsearch">
+<pre>gettextreference</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6515,12 +7169,6 @@ LOAD
         }
     }
 }</pre>
-</div>
-<div created="20151017030705765" modified="20151017031614580" title="$:/temp/newfieldname">
-<pre></pre>
-</div>
-<div created="20151017030710912" modified="20151017031616178" title="$:/temp/newfieldvalue">
-<pre></pre>
 </div>
 <div created="20150706215305238" modified="20151025203613867" title="$:/temp/NewTagName">
 <pre></pre>
@@ -6729,11 +7377,11 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
 exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
 })();</pre>
 </div>
-<div created="20151017031322979" creator="EricShulman" modified="20151018235205402" modifier="EricShulman" module-type="DISABLE-startup" tags="" title="Cordova/noexit.js" type="application/javascript">
+<div created="20151017031322979" creator="EricShulman" modified="20151103202719921" modifier="EricShulman" module-type="DISABLED-startup" tags="" title="Cordova/noexit.js" type="application/javascript">
 <pre>/*\
 title: Cordova/noexit.js
 type: application/javascript
-module-type: widget
+module-type: startup
 author: Eric Shulman elsdesign@gmail.com
 revision: 1.0
 
@@ -6761,11 +7409,11 @@ exports.startup = function() {
 };
 })();</pre>
 </div>
-<div created="20151018231148548" creator="EricShulman" modified="20151018234845240" modifier="EricShulman" module-type="startup" tags="" title="Cordova/nowarning.js" type="application/javascript">
+<div created="20151018231148548" creator="EricShulman" modified="20151103202645135" modifier="EricShulman" module-type="startup" tags="" title="Cordova/nowarning.js" type="application/javascript">
 <pre>/*\
 title: Cordova/nowarning.js
 type: application/javascript
-module-type: widget
+module-type: startup
 author: Eric Shulman elsdesign@gmail.com
 revision: 1.0
 
@@ -6838,17 +7486,18 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20151026220416443" title="Dashboard">
+<div created="20150623211607895" modified="20151105085426913" title="Dashboard">
 <pre>@@.center.larger 
 &lt;&lt;dashboardbutton tid:Dashboard/GeoLocation class:width30&gt;&gt;
 &lt;&lt;dashboardbutton tid:Dashboard/LocalStorage class:width30&gt;&gt;
 &lt;&lt;dashboardbutton tid:Dashboard/Camera class:width30&gt;&gt;
 @@
 @@display:block;height:0.25em;@@
-@@.center.larger 
-&lt;&lt;dashboardbutton tid:Dashboard/Maps class:width30&gt;&gt;
-&lt;&lt;dashboardbutton tid:Dashboard/StreetView class:width30&gt;&gt;
-&lt;&lt;dashboardbutton tid:Dashboard/AddressLookup class:width30&gt;&gt;
+@@.center.nowrap 
+&lt;&lt;dashboardbutton tid:Dashboard/Maps class:width25&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/StreetView class:width25&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/AddressLookup class:width25&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/MPAC/Comps class:width25&gt;&gt;
 @@
 
 &lt;&lt;dashboardpanel tid:Dashboard/GeoLocation&gt;&gt;
@@ -6856,7 +7505,8 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/Camera&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Maps&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/StreetView&gt;&gt;
-&lt;&lt;dashboardpanel tid:Dashboard/AddressLookup&gt;&gt;</pre>
+&lt;&lt;dashboardpanel tid:Dashboard/AddressLookup&gt;&gt;
+&lt;&lt;dashboardpanel tid:Dashboard/MPAC/Comps&gt;&gt;</pre>
 </div>
 <div caption="AddressLookup" created="20151010193622207" modified="20151025035611043" tags="" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;get summary&quot;)
@@ -7633,18 +8283,18 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20151027224914769" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20151105085346973" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define dashboardbutton(tid,class:&quot;tc-btn-invisible&quot;)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button tooltip=&quot;show $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot; class=&quot;$class$&quot;&gt;
-   &lt;input type=&quot;checkbox&quot;&gt;
-   ''&lt;$text text={{$tid$!!caption}}/&gt;''
+   @@.nowrap &lt;input type=&quot;checkbox&quot;&gt;
+   ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
 &lt;/$button&gt;
 &lt;/$reveal&gt;
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
 &lt;$button tooltip=&quot;hide $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;&quot; class=&quot;$class$&quot;&gt;
-   &lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;&gt;
-   ''&lt;$text text={{$tid$!!caption}}/&gt;''
+   @@.nowrap &lt;input type=&quot;checkbox&quot; checked=&quot;true&quot;&gt;
+   ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
 &lt;/$button&gt;
 &lt;/$reveal&gt;
 \end
@@ -7808,6 +8458,57 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
+<div caption="MPAC Comps" created="20151105083541233" modified="20151105101306835" tags="" title="Dashboard/MPAC/Comps">
+<pre>\define source()        xml/12ClarkSecor.xml
+\define mpac_info()     $(source)$/B2B/header/mpac_info/
+\define security_info() $(source)$/B2B/header/security_info/
+\define request()       $(source)$/B2B/body/request/
+\define response()      $(source)$/B2B/body/response/property/
+
+\define showdata(pre)
+&lt;$list filter=&quot;[prefix[$pre$]sort[]]&quot;&gt;
+   &lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[$pre$]]&quot;&gt;
+   &lt;tr&gt;
+      &lt;td style=&quot;text-align:right;&quot;&gt;&lt;$link&gt;&lt;&lt;item&gt;&gt;:&lt;/$link&gt;&amp;nbsp;&lt;/td&gt;
+      &lt;td&gt;''&lt;$text text={{!!text}}/&gt;''&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;/$set&gt;
+&lt;/$list&gt;
+\end
+
+\define options()
+//none//
+\end
+
+&lt;div class=&quot;shadowbox left clear&quot;&gt;
+@@.floatright.smaller.nowrap
+   &lt;&lt;dashboardpopup id:&quot;MPAC/Comparables/Options&quot;
+      label:&quot;{{$:/core/images/options-button}}&quot;
+      title:&quot;Comparables settings&quot;
+      content:&quot;options&quot;&gt;&gt;@@
+@@.floatleft.nowrap
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+@@.floatleft.smaller.nowrap
+   &lt;$button&gt; parse XML
+      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt; parse=&quot;xml&quot; autoload=&quot;true&quot;/&gt;
+   &lt;/$button&gt;
+   &lt;$button&gt; clear data
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;source&gt;] -[&lt;source&gt;]&quot;/&gt;
+   &lt;/$button&gt;
+@@
+@@.clear.shadowbox.inset
+   &lt;div class=&quot;center smallest bottomdots&quot;&gt;
+      source: &lt;$link to=&lt;&lt;source&gt;&gt;&gt;&lt;&lt;source&gt;&gt;&lt;/$link&gt;
+   &lt;/div&gt;
+   &lt;table class=&quot;borderless smaller&quot;&gt;
+      &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;mpac_info&gt;&gt;/&gt;
+      &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;security_info&gt;&gt;/&gt;
+      &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;request&gt;&gt;/&gt;
+      &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;response&gt;&gt;/&gt;
+   &lt;/table&gt;
+@@
+&lt;/div&gt;</pre>
+</div>
 <div caption="StreetView" created="20151010205755347" modified="20151025035924207" tags="" title="Dashboard/StreetView">
 <pre>\define StreetView()
 [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -7966,15 +8667,15 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
     &quot;longitude&quot;: &quot;0&quot;
 }</pre>
 </div>
-<div created="20150728060155235" modified="20151028024101208" module-type="widget" tags="" title="http/action-httprequest.js" type="application/javascript">
+<div created="20150728060155235" modified="20151105095545581" module-type="widget" tags="" title="Http/action-httprequest.js" type="application/javascript">
 <pre>/*\
 title: http/action-httprequest.js
 type: application/javascript
 module-type: widget
 author: Eric Shulman elsdesign@gmail.com
-revision: 1.4
+revision: 1.5
 
-widget to request data from a URL and store it in a tiddler and then optionally parse it as JSON data and write individual tiddlers
+widget to request data from a URL and store it in a tiddler and then optionally parse the data and write individual tiddlers.  If url is blank, request is skipped and existing tiddler data (if any) is parsed as specified.
 
 params (default):
 url         = source URL
@@ -7983,7 +8684,8 @@ tiddlertype = MIME type for target tiddler
 parse       = keywords (default=no parsing)
 		&quot;&quot; or &quot;raw&quot; = no parsing, just create a tiddler
 		&quot;tiddlers&quot;  = unpack JSON-encoded fields into tiddlers
-		&quot;json&quot;      = unpack all JSON fields as tiddlers
+		&quot;xml&quot;       = unpack all XML object as tiddlers
+		&quot;json&quot;      = unpack all JSON object as tiddlers
 		&quot;geo&quot;       = unpack GoogleMaps JSON geo data
 		&quot;binary&quot;    = encode binary as base64 tiddler
 autoload    = if defined, action is invoked when widget is rendered
@@ -8015,24 +8717,16 @@ HttpRequestWidget.prototype.refresh = function(changedTiddlers) {
 	return this.refreshChildren(changedTiddlers);
 };
 
-HttpRequestWidget.prototype.fields2tiddlers = function(tid,data) {
-	var tids=JSON.parse(data);
-	$tw.utils.each(tids,function(tiddlerFields) {
-		$tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
-	});
-};
-
-HttpRequestWidget.prototype.json2tiddlers = function(tid,data) {
+HttpRequestWidget.prototype.obj2tiddlers = function(tid,obj) {
 	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+tid+&quot;/]]&quot;);
 	for(var t=0; t&lt;tiddlers.length; t++)
 		$tw.wiki.deleteTiddler(tiddlers[t]);
-	var obj=JSON.parse(data);
 	function set(target,value) {
 		$tw.wiki.setText(target,&quot;text&quot;,null,value);
 		return value;
 	}
 	function walk(obj,target,level) {
-		if (level&gt;10)
+		if (level&gt;20)
 			return set(target,'...');
 		if (obj &amp;&amp; obj.exec!==undefined)
 			return set(target,obj.toString());
@@ -8041,13 +8735,45 @@ HttpRequestWidget.prototype.json2tiddlers = function(tid,data) {
 		if (typeof obj=='string')
 			return set(target,obj);
 		if (typeof obj=='object') {
-			for(var p in obj)
-				walk(obj[p],target+'/'+p,level+1);
+			for(var p in obj) {
+				if (p==&quot;_text&quot;)
+					set(target,obj[p]||&quot;&quot;);
+				else if (p==&quot;_value&quot;)
+					set(target,obj[p]||&quot;0&quot;);
+				else
+					walk(obj[p],target+'/'+p,level+1);
+			}
 			return;
 		}
 		return set(target,obj.toString());
 	}
 	walk(obj,tid,0);
+};
+
+HttpRequestWidget.prototype.xml2tiddlers = function(tid,data) {
+	var opts = {
+		xmlns: false,	        // exclude namespaces as attributes
+		childrenAsArray: false,	// don't force children into arrays
+		attrKey: '',	 	// tag for attr groups
+		attrsAsObject: false 	// merge children and attrs.
+	};
+	var env = xmlToJSON.parseString(data,opts);
+	var xml = env.Envelope.Body.processResponse.processReturn._text;
+	var obj = xmlToJSON.parseString(xml,opts);
+	this.obj2tiddlers(tid,obj);
+};
+
+
+HttpRequestWidget.prototype.json2tiddlers = function(tid,data) {
+	var obj = JSON.parse(data);
+	this.obj2tiddlers(tid,obj);
+};
+
+HttpRequestWidget.prototype.fields2tiddlers = function(tid,data) {
+	var tids = JSON.parse(data);
+	$tw.utils.each(tids,function(tiddlerFields) {
+		$tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
+	});
 };
 
 HttpRequestWidget.prototype.geo2tiddlers = function(tid,data) {
@@ -8094,6 +8820,15 @@ HttpRequestWidget.prototype.binary2tiddler = function(tid,data,url) {
 	$tw.wiki.setText(tid,&quot;source&quot;,null,url);
 };
 
+HttpRequestWidget.prototype.data2tiddlers = function(parse,tid,data,url) {
+	if (!data) return;
+	if (parse==&quot;tiddlers&quot;) this.fields2tiddlers(tid,data);
+	if (parse==&quot;geo&quot;)      this.geo2tiddlers(tid,data);
+	if (parse==&quot;xml&quot;)      this.xml2tiddlers(tid,data);
+	if (parse==&quot;json&quot;)     this.json2tiddlers(tid,data);
+	if (parse==&quot;binary&quot;)   this.binary2tiddler(tid,data,url);
+}
+
 HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var self=this;
 	var url=this.getAttribute(&quot;url&quot;,&quot;&quot;);
@@ -8101,21 +8836,24 @@ HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var tid=this.getAttribute(&quot;tiddler&quot;,url);
 	var tiddlertype=this.getAttribute(&quot;tiddlertype&quot;,&quot;&quot;);
 	var parse=this.getAttribute(&quot;parse&quot;,&quot;raw&quot;);
-	if (!url.length) return true; // no URL, do nothing
 	var callback=function(err,data,xhr) {
 		if (xhr &amp;&amp; !tiddlertype.length)
 			tiddlertype=(xhr.getResponseHeader(&quot;Content-Type&quot;)||&quot;&quot;).split(&quot;;&quot;)[0];
 		$tw.wiki.setText(tid,&quot;text&quot;,null,data||err);
 		$tw.wiki.setText(tid,&quot;type&quot;,null,data?tiddlertype:&quot;text/plain&quot;);
-		if (!data) return;
-		if (parse==&quot;tiddlers&quot;) self.fields2tiddlers(tid,data);
-		if (parse==&quot;geo&quot;)      self.geo2tiddlers(tid,data);
-		if (parse==&quot;json&quot;)     self.json2tiddlers(tid,data);
-		if (parse==&quot;binary&quot;)   self.binary2tiddler(tid,data,url);
+		self.data2tiddlers(parse,tid,data,url);
 	};
-	var xhr=$tw.utils.httpRequest(
-		{ url:url, type:requesttype, callback:callback });
-	if (parse==&quot;binary&quot;) xhr.responseType = 'arraybuffer';
+	if (url.length) {
+		var xhr=$tw.utils.httpRequest(
+			{ url:url, type:requesttype, callback:callback });
+		if (parse==&quot;binary&quot;) xhr.responseType = 'arraybuffer';
+	} else if (tid.length) { // no URL, just parse existing tiddler (if any)
+		var data=$tw.wiki.getTextReference(tid);
+		var url =$tw.wiki.getTextReference(tid+&quot;!!source&quot;,&quot;&quot;);
+		if (!tiddlertype.length)
+			tiddlertype=$tw.wiki.getTextReference(tid+&quot;!!type&quot;,&quot;&quot;);
+		this.data2tiddlers(parse,tid,data,url);
+	}
 	return true; // Action was invoked
 };
 
@@ -8123,6 +8861,410 @@ exports[&quot;action-httpRequest&quot;] = HttpRequestWidget;
 exports[&quot;httpRequest&quot;] = HttpRequestWidget;
 
 })();</pre>
+</div>
+<div created="20151103192815306" modified="20151103203506679" module-type="startup" source="https://github.com/metatribal/xmlToJSON" title="Http/xmlToJSON.js" type="application/javascript">
+<pre>/*\
+title: Http/xmlToJSON.js
+type: application/javascript
+module-type: startup
+author: Eric Shulman elsdesign@gmail.com
+revision: 1.0
+
+define XML to JSON converter
+
+\*/
+(function(){
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+// Export name and synchronous status
+exports.name = &quot;xmlToJSON&quot;;
+exports.platforms = [&quot;browser&quot;];
+exports.after = [&quot;startup&quot;];
+exports.synchronous = true;
+exports.startup = function() {
+
+// ----- BEGIN LICENSED SOURCE -----
+
+/* Copyright 2015 William Summers, MetaTribal LLC
+ * adapted from https://developer.mozilla.org/en-US/docs/JXON
+ *
+ * Licensed under the MIT License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://opensource.org/licenses/MIT
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * @author William Summers
+ *
+ */
+ 
+var xmlToJSON = (function () {
+
+    this.version = &quot;1.3&quot;;
+
+    var options = { // set up the default options
+        mergeCDATA: true, // extract cdata and merge with text
+        grokAttr: true, // convert truthy attributes to boolean, etc
+        grokText: true, // convert truthy text/attr to boolean, etc
+        normalize: true, // collapse multiple spaces to single space
+        xmlns: true, // include namespaces as attribute in output
+        namespaceKey: '_ns', // tag name for namespace objects
+        textKey: '_text', // tag name for text nodes
+        valueKey: '_value', // tag name for attribute values
+        attrKey: '_attr', // tag for attr groups
+        cdataKey: '_cdata', // tag for cdata nodes (ignored if mergeCDATA is true)
+        attrsAsObject: true, // if false, key is used as prefix to name, set prefix to '' to merge children and attrs.
+        stripAttrPrefix: true, // remove namespace prefixes from attributes
+        stripElemPrefix: true, // for elements of same name in diff namespaces, you can enable namespaces and access the nskey property
+        childrenAsArray: true // force children into arrays
+    };
+
+    var prefixMatch = new RegExp(/(?!xmlns)^.*:/);
+    var trimMatch = new RegExp(/^\s+|\s+$/g);
+
+    this.grokType = function (sValue) {
+        if (/^\s*$/.test(sValue)) {
+            return null;
+        }
+        if (/^(?:true|false)$/i.test(sValue)) {
+            return sValue.toLowerCase() === &quot;true&quot;;
+        }
+        if (isFinite(sValue)) {
+            return parseFloat(sValue);
+        }
+        return sValue;
+    };
+
+    this.parseString = function (xmlString, opt) {
+        return this.parseXML(this.stringToXML(xmlString), opt);
+    }
+
+    this.parseXML = function (oXMLParent, opt) {
+
+        // initialize options
+        for (var key in opt) {
+            options[key] = opt[key];
+        }
+
+        var vResult = {},
+            nLength = 0,
+            sCollectedTxt = &quot;&quot;;
+
+        // parse namespace information
+        if (options.xmlns &amp;&amp; oXMLParent.namespaceURI) {
+            vResult[options.namespaceKey] = oXMLParent.namespaceURI;
+        }
+
+        // parse attributes
+        // using attributes property instead of hasAttributes method to support older browsers
+        if (oXMLParent.attributes &amp;&amp; oXMLParent.attributes.length &gt; 0) {
+            var vAttribs = {};
+
+            for (nLength; nLength &lt; oXMLParent.attributes.length; nLength++) {
+                var oAttrib = oXMLParent.attributes.item(nLength);
+                vContent = {};
+                var attribName = '';
+
+                if (options.stripAttrPrefix) {
+                    attribName = oAttrib.name.replace(prefixMatch, '');
+
+                } else {
+                    attribName = oAttrib.name;
+                }
+
+                if (options.grokAttr) {
+                    vContent[options.valueKey] = this.grokType(oAttrib.value.replace(trimMatch, ''));
+                } else {
+                    vContent[options.valueKey] = oAttrib.value.replace(trimMatch, '');
+                }
+
+                if (options.xmlns &amp;&amp; oAttrib.namespaceURI) {
+                    vContent[options.namespaceKey] = oAttrib.namespaceURI;
+                }
+
+                if (options.attrsAsObject) { // attributes with same local name must enable prefixes
+                    vAttribs[attribName] = vContent;
+                } else {
+                    vResult[options.attrKey + attribName] = vContent;
+                }
+            }
+
+            if (options.attrsAsObject) {
+                vResult[options.attrKey] = vAttribs;
+            } else {}
+        }
+
+        // iterate over the children
+        if (oXMLParent.hasChildNodes()) {
+            for (var oNode, sProp, vContent, nItem = 0; nItem &lt; oXMLParent.childNodes.length; nItem++) {
+                oNode = oXMLParent.childNodes.item(nItem);
+
+                if (oNode.nodeType === 4) {
+                    if (options.mergeCDATA) {
+                        sCollectedTxt += oNode.nodeValue;
+                    } else {
+                        if (vResult.hasOwnProperty(options.cdataKey)) {
+                            if (vResult[options.cdataKey].constructor !== Array) {
+                                vResult[options.cdataKey] = [vResult[options.cdataKey]];
+                            }
+                            vResult[options.cdataKey].push(oNode.nodeValue);
+
+                        } else {
+                            if (options.childrenAsArray) {
+                                vResult[options.cdataKey] = [];
+                                vResult[options.cdataKey].push(oNode.nodeValue);
+                            } else {
+                                vResult[options.cdataKey] = oNode.nodeValue;
+                            }
+                        }
+                    }
+                } /* nodeType is &quot;CDATASection&quot; (4) */
+                else if (oNode.nodeType === 3) {
+                    sCollectedTxt += oNode.nodeValue;
+                } /* nodeType is &quot;Text&quot; (3) */
+                else if (oNode.nodeType === 1) { /* nodeType is &quot;Element&quot; (1) */
+
+                    if (nLength === 0) {
+                        vResult = {};
+                    }
+
+                    // using nodeName to support browser (IE) implementation with no 'localName' property
+                    if (options.stripElemPrefix) {
+                        sProp = oNode.nodeName.replace(prefixMatch, '');
+                    } else {
+                        sProp = oNode.nodeName;
+                    }
+
+                    vContent = xmlToJSON.parseXML(oNode);
+
+                    if (vResult.hasOwnProperty(sProp)) {
+                        if (vResult[sProp].constructor !== Array) {
+                            vResult[sProp] = [vResult[sProp]];
+                        }
+                        vResult[sProp].push(vContent);
+
+                    } else {
+                        if (options.childrenAsArray) {
+                            vResult[sProp] = [];
+                            vResult[sProp].push(vContent);
+                        } else {
+                            vResult[sProp] = vContent;
+                        }
+                        nLength++;
+                    }
+                }
+            }
+        } else if (!sCollectedTxt) { // no children and no text, return null
+            if (options.childrenAsArray) {
+                vResult[options.textKey] = [];
+                vResult[options.textKey].push(null);
+            } else {
+                vResult[options.textKey] = null;
+            }
+        }
+
+        if (sCollectedTxt) {
+            if (options.grokText) {
+                var value = this.grokType(sCollectedTxt.replace(trimMatch, ''));
+                if (value !== null &amp;&amp; value !== undefined) {
+                    vResult[options.textKey] = value;
+                }
+            } else if (options.normalize) {
+                vResult[options.textKey] = sCollectedTxt.replace(trimMatch, '').replace(/\s+/g, &quot; &quot;);
+            } else {
+                vResult[options.textKey] = sCollectedTxt.replace(trimMatch, '');
+            }
+        }
+
+        return vResult;
+    }
+
+
+    // Convert xmlDocument to a string
+    // Returns null on failure
+    this.xmlToString = function (xmlDoc) {
+        try {
+            var xmlString = xmlDoc.xml ? xmlDoc.xml : (new XMLSerializer()).serializeToString(xmlDoc);
+            return xmlString;
+        } catch (err) {
+            return null;
+        }
+    }
+
+    // Convert a string to XML Node Structure
+    // Returns null on failure
+    this.stringToXML = function (xmlString) {
+        try {
+            var xmlDoc = null;
+
+            if (window.DOMParser) {
+
+                var parser = new DOMParser();
+                xmlDoc = parser.parseFromString(xmlString, &quot;text/xml&quot;);
+
+                return xmlDoc;
+            } else {
+                xmlDoc = new ActiveXObject(&quot;Microsoft.XMLDOM&quot;);
+                xmlDoc.async = false;
+                xmlDoc.loadXML(xmlString);
+
+                return xmlDoc;
+            }
+        } catch (e) {
+            return null;
+        }
+    }
+
+    return this;
+}).call({});
+
+if (typeof module != &quot;undefined&quot; &amp;&amp; module !== null &amp;&amp; module.exports) module.exports = xmlToJSON;
+else if (typeof define === &quot;function&quot; &amp;&amp; define.amd) define(function() {return xmlToJSON});
+
+// ----- END LICENSED SOURCE -----
+
+window.xmlToJSON = xmlToJSON;
+};
+})();</pre>
+</div>
+<div created="20151103192936582" modified="20151103203204518" title="Http/xmlToJSON.README.md" type="text/x-markdown">
+<pre>xmlToJSON
+=========
+
+A simple javascript module for converting XML into JSON within the browser.
+
+Features
+* no external dependencies
+* small (~3kb minified)
+* simple parsing.  pass either a string or xml node and get back a javascipt object ( use JSON.stringify(obj) to get the string representation )
+* supports atrributes, text, cdata, namespaces, default namespaces, attributes with namespaces... you get the idea
+* lots of rendering of options
+* consistent, predictable output
+* browser support - it works on IE 9+, and nearly every version of Chrome, Safari, and Firefox as well as iOS, Android, and Blackberry.  (xmlToJSON will work for IE 7/8 as well if you set the xmlns option to false)
+
+Parsing XML (esp. with namespaces) with javascript remains one of the great frustrations of writing web applications.
+Most methods are limited by such things as poor browser support, poor or non-existent namespace support, poor attribute handling, incomplete representation, and bloated dependencies.
+
+xmlToJSON may not solve all of your woes, but it solved some of mine :)
+
+Usage
+-----
+Include the src
+```
+&lt;script type=&quot;text/javascript&quot; src=&quot;path/xmlToJSON.js&quot;&gt;&lt;/script&gt;
+ ```
+and enjoy!  xmlToJSON is packaged as a simple module, so use it like this
+ ```javascript
+  testString = '&lt;xml&gt;&lt;a&gt;It Works!&lt;/a&gt;&lt;/xml&gt;';  	// get some xml (string or document/node)
+  result = xmlToJSON.parseString(testString);	// parse
+ ```
+ The (prettified) result of the above code is
+ ```javascript
+{
+    &quot;xml&quot;: {
+        &quot;a&quot;: [
+            {
+                &quot;text&quot;: &quot;It Works!&quot;
+            }
+        ]
+    }
+}
+```
+
+Options
+-------
+```javascript
+// These are the option defaults
+var options = { 
+	mergeCDATA: true,	// extract cdata and merge with text nodes
+	grokAttr: true,		// convert truthy attributes to boolean, etc
+	grokText: true,		// convert truthy text/attr to boolean, etc
+	normalize: true,	// collapse multiple spaces to single space
+	xmlns: true, 		// include namespaces as attributes in output
+	namespaceKey: '_ns', 	// tag name for namespace objects
+	textKey: '_text', 	// tag name for text nodes
+	valueKey: '_value', 	// tag name for attribute values
+	attrKey: '_attr', 	// tag for attr groups
+	cdataKey: '_cdata'	// tag for cdata nodes (ignored if mergeCDATA is true)
+	attrsAsObject: true, 	// if false, key is used as prefix to name, set prefix to '' to merge children and attrs.
+	stripAttrPrefix: true, 	// remove namespace prefixes from attributes
+	stripElemPrefix: true, 	// for elements of same name in diff namespaces, you can enable namespaces and access the nskey property
+	childrenAsArray: true 	// force children into arrays
+};	
+
+// you can change the defaults by passing the parser an options object of your own
+var myOptions = {
+	mergeCDATA: false,
+	xmlns: false,
+	attrsAsObject: false
+}
+
+result = xmlToJSON.parseString(xmlString, myOptions);
+```
+
+A more complicated example (with xmlns: true)
+```xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;xml xmlns=&quot;http://default.namespace.uri&quot;&gt;
+    &lt;a&gt;
+        &lt;b id=&quot;1&quot;&gt;one&lt;/b&gt;
+        &lt;b id=&quot;2&quot;&gt;&lt;![CDATA[some &lt;cdata&gt;]]&gt;two&lt;/b&gt;
+        &lt;ns:c xmlns:ns=&quot;http://another.namespace&quot; ns:id=&quot;3&quot;&gt;three&lt;/ns:c&gt;
+    &lt;/a&gt;
+&lt;/xml&gt;
+```
+
+results in
+```javascript
+{
+        &quot;xml&quot;: [{
+                &quot;attr&quot;: {
+                        &quot;xmlns&quot;: {
+                                &quot;value&quot;: &quot;http://default.namespace.uri&quot;
+                        }
+                },
+                &quot;a&quot;: [{
+                        &quot;b&quot;: [{
+                                &quot;attr&quot;: {
+                                        &quot;id&quot;: {
+                                                &quot;value&quot;: 1
+                                        }
+                                },
+                                &quot;text&quot;: &quot;one&quot;
+                        }, {
+                                &quot;attr&quot;: {
+                                        &quot;id&quot;: {
+                                                &quot;value&quot;: 2
+                                        }
+                                },
+                                &quot;text&quot;: &quot;some &lt;cdata&gt;two&quot;
+                        }],
+                        &quot;c&quot;: [{
+                                &quot;attr&quot;: {
+                                        &quot;xmlns:ns&quot;: {
+                                                &quot;value&quot;: &quot;http://another.namespace&quot;
+                                        },
+                                        &quot;id&quot;: {
+                                                &quot;value&quot;: 3
+                                        }
+                                },
+                                &quot;text&quot;: &quot;three&quot;
+                        }]
+                }]
+        }]
+}
+```
+ 
+</pre>
 </div>
 <div created="20151015195413636" modified="20151015195426363" tags="image" title="images/file.svg" type="image/svg+xml">
 <pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;
@@ -9054,6 +10196,147 @@ background: #f8f8ff;
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
+</div>
+<div created="20151105070234645" modified="20151105095853792" tags="" title="xml/12ClarkSecor.xml" type="text/plain">
+<pre>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ns1:processResponse soapenv:encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot; xmlns:ns1=&quot;http://webreceiver/&quot;&gt;
+         &lt;processReturn xsi:type=&quot;soapenc:string&quot; xmlns:soapenc=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;B2B&gt;
+	&lt;header&gt;
+		&lt;security_info&gt;
+			&lt;user_id&gt;TEMPUSER&lt;/user_id&gt;
+			&lt;password&gt;TMP0715&lt;/password&gt;
+		&lt;/security_info&gt;
+		&lt;client_info/&gt;
+	&lt;mpac_info&gt;
+&lt;address_count&gt;1&lt;/address_count&gt;
+&lt;query_result code=&quot;00&quot; desc=&quot;Some addresses found&quot;/&gt;
+&lt;/mpac_info&gt;
+&lt;/header&gt;
+	&lt;body&gt;
+		&lt;request&gt;
+			&lt;report_type&gt;COMPARABLE&lt;/report_type&gt;
+			&lt;street_number&gt;12&lt;/street_number&gt;
+			&lt;street_name&gt;CLARK SECOR&lt;/street_name&gt;
+			&lt;street_type/&gt;
+			&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+			&lt;municipality&gt;TORONTO&lt;/municipality&gt;
+			&lt;province&gt;ON&lt;/province&gt;
+		&lt;/request&gt;
+	&lt;response&gt;
+&lt;property&gt;
+&lt;matched_by&gt;ADDRESS&lt;/matched_by&gt;
+&lt;roll&gt;190109665006400&lt;/roll&gt;
+&lt;unit_designator/&gt;
+&lt;unit_number/&gt;
+&lt;street_number&gt;12&lt;/street_number&gt;
+&lt;street_number_suffix/&gt;
+&lt;street_name&gt;CLARK SECOR&lt;/street_name&gt;
+&lt;street_type&gt;PL&lt;/street_type&gt;
+&lt;street_direction/&gt;
+&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;avm_value&gt;809000&lt;/avm_value&gt;
+&lt;avm_date&gt;20151001&lt;/avm_date&gt;
+&lt;confidence_rating&gt;M&lt;/confidence_rating&gt;
+&lt;lower_confidence_limit&gt;747000&lt;/lower_confidence_limit&gt;
+&lt;upper_confidence_limit&gt;869000&lt;/upper_confidence_limit&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;12  CLARK SECOR PL   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;0&lt;/basement_finish_area&gt;
+&lt;compsaledate/&gt;
+&lt;compsaleamount&gt;0&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;0&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;0&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;40.78&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109665006400&lt;/comp_roll&gt;
+&lt;lot_area&gt;0&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;A&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2734&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;18  CLARK SECOR PL   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;670&lt;/basement_finish_area&gt;
+&lt;compsaledate&gt;2015-07-01 00:00:00&lt;/compsaledate&gt;
+&lt;compsaleamount&gt;830000&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;1&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;0&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;53.21&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109665006700&lt;/comp_roll&gt;
+&lt;lot_area&gt;0&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;A&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2173&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;38  BROADBRIDGE DR   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;324&lt;/basement_finish_area&gt;
+&lt;compsaledate&gt;2015-06-01 00:00:00&lt;/compsaledate&gt;
+&lt;compsaleamount&gt;667100&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;2&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;110&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;45&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3J9&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109664001900&lt;/comp_roll&gt;
+&lt;lot_area&gt;4791.6&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;F&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2072&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;1  HARTSVILLE AVE   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;0&lt;/basement_finish_area&gt;
+&lt;compsaledate&gt;2015-09-01 00:00:00&lt;/compsaledate&gt;
+&lt;compsaleamount&gt;810500&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;3&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;110&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;50&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3K3&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109663000100&lt;/comp_roll&gt;
+&lt;lot_area&gt;5227.2&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;F&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2062&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;/property&gt;
+&lt;/response&gt;
+&lt;/body&gt;
+&lt;/B2B&gt;]]&gt;&lt;/processReturn&gt;
+      &lt;/ns1:processResponse&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>
 </div>
 
 </div>
