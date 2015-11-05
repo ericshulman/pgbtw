@@ -6417,9 +6417,9 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 })();
 </pre>
 </div>
-<div created="20151014222704726" modified="20151014222757964" title="$:/core/save/all">
+<div created="20151014222704726" modified="20151105132544711" title="$:/core/save/all">
 <pre>\define saveTiddlerFilter()
-[is[tiddler]] -[prefix[$:/state/popup/]] -[[$:/HistoryList]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] -[prefix[$:/LocalStorage]] +[sort[title]]
+[is[tiddler]] -[prefix[$:/state/popup/]] -[[$:/HistoryList]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] -[prefix[$:/LocalStorage]] -[prefix[$:/Geo/Data/Address/]] -[prefix[$:/xml/]] +[sort[title]]
 \end
 {{$:/core/templates/tiddlywiki5.html}}
 </pre>
@@ -6476,7 +6476,7 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div modified="20151105114252758" title="$:/state/Dashboard/AddressLookup">
+<div modified="20151105133507197" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
 <div modified="20151027222133170" title="$:/state/Dashboard/Camera">
@@ -6494,8 +6494,8 @@ LOAD
 <div modified="20151105121024090" title="$:/state/Dashboard/Maps">
 <pre></pre>
 </div>
-<div modified="20151105121021098" title="$:/state/Dashboard/MPAC">
-<pre>show</pre>
+<div modified="20151105133509459" title="$:/state/Dashboard/MPAC">
+<pre></pre>
 </div>
 <div modified="20151105101416345" title="$:/state/Dashboard/MPAC/Comps">
 <pre></pre>
@@ -6503,8 +6503,8 @@ LOAD
 <div modified="20151027232218423" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151105121102410" title="$:/state/Dashboard/TeraNet">
-<pre>show</pre>
+<div modified="20151105133133714" title="$:/state/Dashboard/TeraNet">
+<pre></pre>
 </div>
 <div created="20151017065317799" modified="20151017065317799" title="$:/state/GeoData" type="application/json">
 <pre>{
@@ -6524,8 +6524,8 @@ LOAD
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
 <pre>Dashboard/AddressLookup</pre>
 </div>
-<div modified="20151024170138004" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+<div modified="20151105132610322" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Standard</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -6533,14 +6533,14 @@ LOAD
 <div modified="20151020004259013" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151105043611777" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151105132954468" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151105040917110" title="$:/temp/advancedsearch">
-<pre>gettextreference</pre>
+<div created="20150706192244698" modified="20151105132605102" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -6568,7 +6568,7 @@ LOAD
 <div created="20150705104045705" modified="20151026214151038" title="$:/temp/search">
 <pre></pre>
 </div>
-<div modified="20151105121800182" title="$:/temp/TeraNet/source">
+<div modified="20151105133046001" title="$:/temp/TeraNet/source">
 <pre>m1c3l3_12CLARK_ter_output.xml</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
@@ -7854,9 +7854,10 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20151105122357899" tags="" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20151105133337395" tags="" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
-\define xml()           $(source)$/Envelope/Body/processResponse/processReturn
+\define path()          $:/xml/$(source)$
+\define xml()           $(path)$/Envelope/Body/processResponse/processReturn
 \define mpac_info()     $(xml)$/B2B/header/mpac_info/
 \define security_info() $(xml)$/B2B/header/security_info/
 \define request()       $(xml)$/B2B/body/request/
@@ -7893,11 +7894,11 @@ quality:&lt;br&gt; &amp;nbsp;
    &lt;/$select&gt;
    &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
    &lt;$button&gt; parse
-      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt; parse=&quot;xml&quot;/&gt;
+      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt; parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt;/&gt;
       &lt;$action-httpRequest tiddler=&lt;&lt;xml&gt;&gt; parse=&quot;xml&quot;/&gt;
    &lt;/$button&gt;
    &lt;$button&gt; reset
-      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;source&gt;] -[&lt;source&gt;]&quot;/&gt;
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot;/&gt;
    &lt;/$button&gt;
    &lt;/$set&gt;
 @@
@@ -7974,10 +7975,11 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20151105122317746" tags="" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20151105133357506" tags="" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
-\define header()  $(source)$/Envelope/Body/DirectReportResponse/Header/
-\define report()  $(source)$/Envelope/Body/DirectReportResponse/ReportDetail/
+\define path()    $:/xml/$(source)$
+\define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
+\define report()  $(path)$/Envelope/Body/DirectReportResponse/ReportDetail/
 
 \define showdata(pre)
 &lt;$list filter=&quot;[prefix[$pre$]sort[]]&quot;&gt;
@@ -8010,11 +8012,10 @@ x
    &lt;/$select&gt;
    &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
    &lt;$button&gt; parse
-      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt; parse=&quot;xml&quot;/&gt;
-      &lt;$action-httpRequest tiddler=&lt;&lt;xml&gt;&gt; parse=&quot;xml&quot;/&gt;
+      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt; parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; /&gt;
    &lt;/$button&gt;
    &lt;$button&gt; reset
-      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;source&gt;] -[&lt;source&gt;]&quot;/&gt;
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot;/&gt;
    &lt;/$button&gt;
    &lt;/$set&gt;
 @@
@@ -8131,7 +8132,7 @@ exports[&quot;action-getGeoData&quot;] = GeoWidget;
     &quot;longitude&quot;: &quot;0&quot;
 }</pre>
 </div>
-<div created="20150728060155235" modified="20151105111611734" module-type="widget" tags="" title="Http/action-httprequest.js" type="application/javascript">
+<div created="20150728060155235" modified="20151105130841665" module-type="widget" tags="" title="Http/action-httprequest.js" type="application/javascript">
 <pre>/*\
 title: http/action-httprequest.js
 type: application/javascript
@@ -8152,6 +8153,7 @@ parse       = keywords (default=no parsing)
 		&quot;json&quot;      = unpack all JSON object as tiddlers
 		&quot;geo&quot;       = unpack GoogleMaps JSON geo data
 		&quot;binary&quot;    = encode binary as base64 tiddler
+path        = target prefix for unpacking tiddlers (defaults to tiddlername)
 autoload    = if defined, action is invoked when widget is rendered
 
 \*/
@@ -8181,8 +8183,8 @@ HttpRequestWidget.prototype.refresh = function(changedTiddlers) {
 	return this.refreshChildren(changedTiddlers);
 };
 
-HttpRequestWidget.prototype.obj2tiddlers = function(tid,obj) {
-	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+tid+&quot;/]]&quot;);
+HttpRequestWidget.prototype.obj2tiddlers = function(path,obj) {
+	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+path+&quot;/]]&quot;);
 	for(var t=0; t&lt;tiddlers.length; t++)
 		$tw.wiki.deleteTiddler(tiddlers[t]);
 	function set(target,value) {
@@ -8211,10 +8213,10 @@ HttpRequestWidget.prototype.obj2tiddlers = function(tid,obj) {
 		}
 		return set(target,obj.toString());
 	}
-	walk(obj,tid,0);
+	walk(obj,path,0);
 };
 
-HttpRequestWidget.prototype.xml2tiddlers = function(tid,data) {
+HttpRequestWidget.prototype.xml2tiddlers = function(path,data) {
 	var opts = {
 		xmlns: false,	        // exclude namespaces as attributes
 		childrenAsArray: false,	// don't force children into arrays
@@ -8222,39 +8224,35 @@ HttpRequestWidget.prototype.xml2tiddlers = function(tid,data) {
 		attrsAsObject: false 	// merge children and attrs.
 	};
 	var obj = xmlToJSON.parseString(data,opts);
-	this.obj2tiddlers(tid,obj);
+	this.obj2tiddlers(path,obj);
 };
 
 
-HttpRequestWidget.prototype.json2tiddlers = function(tid,data) {
+HttpRequestWidget.prototype.json2tiddlers = function(path,data) {
 	var obj = JSON.parse(data);
-	this.obj2tiddlers(tid,obj);
+	this.obj2tiddlers(path,obj);
 };
 
-HttpRequestWidget.prototype.fields2tiddlers = function(tid,data) {
+HttpRequestWidget.prototype.fields2tiddlers = function(data) {
 	var tids = JSON.parse(data);
 	$tw.utils.each(tids,function(tiddlerFields) {
 		$tw.wiki.addTiddler(new $tw.Tiddler(tiddlerFields));
 	});
 };
 
-HttpRequestWidget.prototype.geo2tiddlers = function(tid,data) {
-	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+tid+&quot;/]]&quot;);
+HttpRequestWidget.prototype.geo2tiddlers = function(path,data) {
+	var tiddlers = $tw.wiki.filterTiddlers(&quot;[prefix[&quot;+path+&quot;/]]&quot;);
 	for(var t=0; t&lt;tiddlers.length; t++)
 		$tw.wiki.deleteTiddler(tiddlers[t]);
 	var obj=JSON.parse(data);
-	function set(target,value) {
-		$tw.wiki.setText(target,&quot;text&quot;,null,value);
-		return value;
-	}
 	for (var i=0; i&lt;obj.results.length; i++) {
 		var r=obj.results[i];
-		var target=tid+&quot;/&quot;+r.types[0];
-		set(target,r.formatted_address);
+		$tw.wiki.setText(path+&quot;/&quot;+r.types[0],
+			&quot;text&quot;,null,r.formatted_address);
 	}
 };
 
-HttpRequestWidget.prototype.binary2tiddler = function(tid,data,url) {
+HttpRequestWidget.prototype.binary2tiddler = function(path,data,url) {
 	function encodeBase64(d) {
 		if (!d) return null;
 		var charMap = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
@@ -8278,17 +8276,17 @@ HttpRequestWidget.prototype.binary2tiddler = function(tid,data,url) {
 		return out;
 	};
         var base64=encodeBase64(new Uint8Array(data));
-	$tw.wiki.setText(tid,&quot;text&quot;,null,base64);
-	$tw.wiki.setText(tid,&quot;source&quot;,null,url);
+	$tw.wiki.setText(path,&quot;text&quot;,null,base64);
+	$tw.wiki.setText(path,&quot;source&quot;,null,url);
 };
 
-HttpRequestWidget.prototype.data2tiddlers = function(parse,tid,data,url) {
+HttpRequestWidget.prototype.data2tiddlers = function(parse,path,data,url) {
 	if (!data) return;
-	if (parse==&quot;tiddlers&quot;) this.fields2tiddlers(tid,data);
-	if (parse==&quot;geo&quot;)      this.geo2tiddlers(tid,data);
-	if (parse==&quot;xml&quot;)      this.xml2tiddlers(tid,data);
-	if (parse==&quot;json&quot;)     this.json2tiddlers(tid,data);
-	if (parse==&quot;binary&quot;)   this.binary2tiddler(tid,data,url);
+	if (parse==&quot;tiddlers&quot;) this.fields2tiddlers(data);
+	if (parse==&quot;geo&quot;)      this.geo2tiddlers(path,data);
+	if (parse==&quot;xml&quot;)      this.xml2tiddlers(path,data);
+	if (parse==&quot;json&quot;)     this.json2tiddlers(path,data);
+	if (parse==&quot;binary&quot;)   this.binary2tiddler(path,data,url);
 }
 
 HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
@@ -8298,12 +8296,13 @@ HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	var tid=this.getAttribute(&quot;tiddler&quot;,url);
 	var tiddlertype=this.getAttribute(&quot;tiddlertype&quot;,&quot;&quot;);
 	var parse=this.getAttribute(&quot;parse&quot;,&quot;raw&quot;);
+        var path=this.getAttribute(&quot;path&quot;,tid);
 	var callback=function(err,data,xhr) {
 		if (xhr &amp;&amp; !tiddlertype.length)
 			tiddlertype=(xhr.getResponseHeader(&quot;Content-Type&quot;)||&quot;&quot;).split(&quot;;&quot;)[0];
 		$tw.wiki.setText(tid,&quot;text&quot;,null,data||err);
 		$tw.wiki.setText(tid,&quot;type&quot;,null,data?tiddlertype:&quot;text/plain&quot;);
-		self.data2tiddlers(parse,tid,data,url);
+		self.data2tiddlers(parse,path,data,url);
 	};
 	if (url.length) {
 		var xhr=$tw.utils.httpRequest(
@@ -8314,7 +8313,7 @@ HttpRequestWidget.prototype.invokeAction = function(triggeringWidget,event) {
 		var url =$tw.wiki.getTextReference(tid+&quot;!!source&quot;,&quot;&quot;);
 		if (!tiddlertype.length)
 			tiddlertype=$tw.wiki.getTextReference(tid+&quot;!!type&quot;,&quot;&quot;);
-		this.data2tiddlers(parse,tid,data,url);
+		this.data2tiddlers(parse,path,data,url);
 	}
 	return true; // Action was invoked
 };
