@@ -194,11 +194,15 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/MPAC/source</li>
+
 <li>$:/temp/NewTagName</li>
 
 <li>$:/temp/notify</li>
 
 <li>$:/temp/search</li>
+
+<li>$:/temp/TeraNet/source</li>
 
 <li>$:/themes/tiddlywiki/snowwhite</li>
 
@@ -268,6 +272,18 @@ Error message and password prompt
 
 <li>LocalStorage/Filters/settings</li>
 
+<li>m1c3J8_1HARTSVILLE_ter_output.xml</li>
+
+<li>m1c3J8_6BROADBRIDGE_ter_output.xml</li>
+
+<li>m1c3J9_38BROADBRIDGE_ter_output.xml</li>
+
+<li>m1c3l3_12CLARK_ter_output.xml</li>
+
+<li>m1c3l3_18CLARK_ter_output.xml</li>
+
+<li>MPAC_AVM_12ClarkSecorOutput.xml</li>
+
 <li>Pittsburgh</li>
 
 <li>StyleSheet/Adjustments</li>
@@ -279,10 +295,6 @@ Error message and password prompt
 <li>test</li>
 
 <li>Toronto</li>
-
-<li>xml/MPAC/12Clark.xml</li>
-
-<li>xml/TeraNet/12Clark.xml</li>
 
 </ul>
 </p>
@@ -6424,7 +6436,12 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[xmlToJSON.README.md]]</pre>
+# [[MPAC_AVM_12ClarkSecorOutput.xml]]
+# [[m1c3J8_1HARTSVILLE_ter_output.xml]]
+# [[m1c3J8_6BROADBRIDGE_ter_output.xml]]
+# [[m1c3J9_38BROADBRIDGE_ter_output.xml]]
+# [[m1c3l3_12CLARK_ter_output.xml]]
+# [[m1c3l3_18CLARK_ter_output.xml]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -6465,8 +6482,8 @@ LOAD
 <div modified="20151027222133170" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151105114326640" title="$:/state/Dashboard/GeoLocation">
-<pre>show</pre>
+<div modified="20151105121024512" title="$:/state/Dashboard/GeoLocation">
+<pre></pre>
 </div>
 <div modified="20151027205201332" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
@@ -6474,11 +6491,11 @@ LOAD
 <div modified="20151026220448892" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151105114326118" title="$:/state/Dashboard/Maps">
-<pre>show</pre>
-</div>
-<div modified="20151105114325053" title="$:/state/Dashboard/MPAC">
+<div modified="20151105121024090" title="$:/state/Dashboard/Maps">
 <pre></pre>
+</div>
+<div modified="20151105121021098" title="$:/state/Dashboard/MPAC">
+<pre>show</pre>
 </div>
 <div modified="20151105101416345" title="$:/state/Dashboard/MPAC/Comps">
 <pre></pre>
@@ -6486,8 +6503,8 @@ LOAD
 <div modified="20151027232218423" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151105114252131" title="$:/state/Dashboard/TeraNet">
-<pre></pre>
+<div modified="20151105121102410" title="$:/state/Dashboard/TeraNet">
+<pre>show</pre>
 </div>
 <div created="20151017065317799" modified="20151017065317799" title="$:/state/GeoData" type="application/json">
 <pre>{
@@ -6539,6 +6556,9 @@ LOAD
     }
 }</pre>
 </div>
+<div modified="20151105122116720" title="$:/temp/MPAC/source">
+<pre>MPAC_AVM_12ClarkSecorOutput.xml</pre>
+</div>
 <div created="20150706215305238" modified="20151025203613867" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
@@ -6547,6 +6567,9 @@ LOAD
 </div>
 <div created="20150705104045705" modified="20151026214151038" title="$:/temp/search">
 <pre></pre>
+</div>
+<div modified="20151105121800182" title="$:/temp/TeraNet/source">
+<pre>m1c3l3_12CLARK_ter_output.xml</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
 <pre>{
@@ -7831,8 +7854,8 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC Comps" created="20151105083541233" modified="20151105113830791" tags="" title="Dashboard/MPAC">
-<pre>\define source()        xml/MPAC/12Clark.xml
+<div caption="MPAC" created="20151105083541233" modified="20151105122357899" tags="" title="Dashboard/MPAC">
+<pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define xml()           $(source)$/Envelope/Body/processResponse/processReturn
 \define mpac_info()     $(xml)$/B2B/header/mpac_info/
 \define security_info() $(xml)$/B2B/header/security_info/
@@ -7856,23 +7879,31 @@ quality:&lt;br&gt; &amp;nbsp;
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
-   &lt;&lt;dashboardpopup id:&quot;MPAC/Comparables/Options&quot;
+   &lt;&lt;dashboardpopup id:&quot;MPAC/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
-      title:&quot;Comparables settings&quot;
+      title:&quot;MPAC settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
-   &lt;$button&gt; parse XML
+   &lt;$select tiddler=&quot;$:/temp/MPAC/source&quot; field=&quot;text&quot;&gt;
+      &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
+      &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
+      &lt;/$list&gt;
+   &lt;/$select&gt;
+   &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
+   &lt;$button&gt; parse
       &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt; parse=&quot;xml&quot;/&gt;
       &lt;$action-httpRequest tiddler=&lt;&lt;xml&gt;&gt; parse=&quot;xml&quot;/&gt;
    &lt;/$button&gt;
-   &lt;$button&gt; clear data
+   &lt;$button&gt; reset
       &lt;$action-deletetiddler $filter=&quot;[prefix&lt;source&gt;] -[&lt;source&gt;]&quot;/&gt;
    &lt;/$button&gt;
+   &lt;/$set&gt;
 @@
 @@.clear.shadowbox.inset
-   &lt;div class=&quot;center smallest bottomdots&quot;&gt;
+&lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
+    &lt;div class=&quot;center smallest bottomdots&quot;&gt;
       source: &lt;$link to=&lt;&lt;source&gt;&gt;&gt;&lt;&lt;source&gt;&gt;&lt;/$link&gt;
    &lt;/div&gt;
    &lt;table class=&quot;borderless smaller&quot;&gt;
@@ -7881,6 +7912,7 @@ quality:&lt;br&gt; &amp;nbsp;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;request&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;response&gt;&gt;/&gt;
    &lt;/table&gt;
+&lt;/$set&gt;
 @@
 &lt;/div&gt;</pre>
 </div>
@@ -7942,10 +7974,10 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20151105112832216" tags="" title="Dashboard/TeraNet">
-<pre>\define source() xml/TeraNet/12Clark.xml
-\define header() $(source)$/Envelope/Body/DirectReportResponse/Header/
-\define report() $(source)$/Envelope/Body/DirectReportResponse/ReportDetail/
+<div caption="TeraNet" created="20151105112106480" modified="20151105122317746" tags="" title="Dashboard/TeraNet">
+<pre>\define sources() [suffix[ter_output.xml]]
+\define header()  $(source)$/Envelope/Body/DirectReportResponse/Header/
+\define report()  $(source)$/Envelope/Body/DirectReportResponse/ReportDetail/
 
 \define showdata(pre)
 &lt;$list filter=&quot;[prefix[$pre$]sort[]]&quot;&gt;
@@ -7971,15 +8003,23 @@ x
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
-   &lt;$button&gt; parse XML
+   &lt;$select tiddler=&quot;$:/temp/TeraNet/source&quot; field=&quot;text&quot;&gt;
+      &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
+      &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
+      &lt;/$list&gt;
+   &lt;/$select&gt;
+   &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
+   &lt;$button&gt; parse
       &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt; parse=&quot;xml&quot;/&gt;
       &lt;$action-httpRequest tiddler=&lt;&lt;xml&gt;&gt; parse=&quot;xml&quot;/&gt;
    &lt;/$button&gt;
-   &lt;$button&gt; clear data
+   &lt;$button&gt; reset
       &lt;$action-deletetiddler $filter=&quot;[prefix&lt;source&gt;] -[&lt;source&gt;]&quot;/&gt;
    &lt;/$button&gt;
+   &lt;/$set&gt;
 @@
 @@.clear.shadowbox.inset
+&lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
    &lt;div class=&quot;center smallest bottomdots&quot;&gt;
       source: &lt;$link to=&lt;&lt;source&gt;&gt;&gt;&lt;&lt;source&gt;&gt;&lt;/$link&gt;
    &lt;/div&gt;
@@ -7987,6 +8027,7 @@ x
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;header&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;report&gt;&gt;/&gt;
    &lt;/table&gt;
+&lt;/$set&gt;
 @@
 &lt;/div&gt;</pre>
 </div>
@@ -9469,6 +9510,570 @@ filter: [tag[photo]]</pre>
 filename: settings.tids
 filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</pre>
 </div>
+<div title="m1c3J8_1HARTSVILLE_ter_output.xml" type="text/xml">
+<pre>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;SOAP-ENV:Header/&gt;
+   &lt;SOAP-ENV:Body&gt;
+      &lt;ns2:DirectReportResponse xmlns:ns2=&quot;http://direct.purview.ca/&quot;&gt;
+         &lt;ns2:Header&gt;
+            &lt;ns2:ReportID&gt;59082&lt;/ns2:ReportID&gt;
+            &lt;ns2:ReportDate&gt;2015-10-21T15:14:35&lt;/ns2:ReportDate&gt;
+            &lt;ns2:ValuationDate&gt;2015-10-21&lt;/ns2:ValuationDate&gt;
+            &lt;ns2:AVMModel&gt;Teranet reavs Model&lt;/ns2:AVMModel&gt;
+            &lt;ns2:AVMModelType&gt;REAVS&lt;/ns2:AVMModelType&gt;
+         &lt;/ns2:Header&gt;
+         &lt;ns2:ReportDetail&gt;
+            &lt;ns2:PropertyDetail&gt;
+               &lt;ns2:PropertyAddress&gt;
+                  &lt;ns2:StreetNumber&gt;1&lt;/ns2:StreetNumber&gt;
+                  &lt;ns2:StreetName&gt;HARTSVILLE AVE&lt;/ns2:StreetName&gt;
+                  &lt;ns2:Suite/&gt;
+                  &lt;ns2:Municipality&gt;TORONTO&lt;/ns2:Municipality&gt;
+                  &lt;ns2:PostalCode&gt;M1C3K3&lt;/ns2:PostalCode&gt;
+                  &lt;ns2:LRO&gt;80&lt;/ns2:LRO&gt;
+               &lt;/ns2:PropertyAddress&gt;
+               &lt;ns2:Owners&gt;
+                  &lt;ns2:Name&gt;TEAGUE, JOANNE&lt;/ns2:Name&gt;
+               &lt;/ns2:Owners&gt;
+               &lt;ns2:LegalDescription&gt;PCL 28-1, SEC M1983 ; LT 28, PL M1983 , S/T A967722 ; SCARBOROUGH , CITY OF TORONTO&lt;/ns2:LegalDescription&gt;
+               &lt;ns2:Perimeter&gt;95&lt;/ns2:Perimeter&gt;
+               &lt;ns2:PerimeterUnit&gt;m&lt;/ns2:PerimeterUnit&gt;
+               &lt;ns2:Area&gt;506&lt;/ns2:Area&gt;
+               &lt;ns2:AreaUnit&gt;m2&lt;/ns2:AreaUnit&gt;
+               &lt;ns2:Pin&gt;065020123&lt;/ns2:Pin&gt;
+               &lt;ns2:RegistrationType&gt;L&lt;/ns2:RegistrationType&gt;
+               &lt;ns2:AerialViewOfSubjectPropertyUrl&gt;&lt;![CDATA[http://maps.googleapis.com/maps/api/staticmap?center=43.78643175628234,-79.13267552035296&amp;maptype=hybrid&amp;zoom=19&amp;size=275x275&amp;path=color:0xD8B511FF%7Cweight:3%7Cfillcolor:0xD8B51111%7Cenc:%7B%60gjGhs~aNRF@?@?@A@C@AJeAYIOnA&amp;sensor=false&amp;client=gme-teranetinc&amp;signature=us9LMeDQsVt_6wLdPWq2tDMiunc=]]&gt;&lt;/ns2:AerialViewOfSubjectPropertyUrl&gt;
+               &lt;ns2:StreetViewOfSubjectPropertyUrl&gt;http://maps.googleapis.com/maps/api/streetview?sensor=false&amp;amp;fov=60&amp;amp;size=275x275&amp;amp;location=43.786458172591914,-79.13287323814625&amp;amp;client=gme-teranetinc&amp;amp;signature=rgkbut3YvLr8Goi6GpKPPFdzUds=&lt;/ns2:StreetViewOfSubjectPropertyUrl&gt;
+            &lt;/ns2:PropertyDetail&gt;
+            &lt;ns2:SalesHistories&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;TEAGUE, ERNEST BARRY&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;TEAGUE, JOANNE&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;1983-03-31&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;0&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+            &lt;/ns2:SalesHistories&gt;
+            &lt;ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValue&gt;665700&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValueLow&gt;590000&lt;/ns2:EstimatedValueLow&gt;
+               &lt;ns2:EstimatedValueHigh&gt;730000&lt;/ns2:EstimatedValueHigh&gt;
+               &lt;ns2:MinimumSaleValue&gt;435000&lt;/ns2:MinimumSaleValue&gt;
+               &lt;ns2:MaximumSaleValue&gt;1140000&lt;/ns2:MaximumSaleValue&gt;
+               &lt;ns2:AverageSaleValue&gt;643011&lt;/ns2:AverageSaleValue&gt;
+               &lt;ns2:MedianSaleValue&gt;617500&lt;/ns2:MedianSaleValue&gt;
+               &lt;ns2:SalesInLast6Months&gt;28&lt;/ns2:SalesInLast6Months&gt;
+               &lt;ns2:MarketShift&gt;0.152964&lt;/ns2:MarketShift&gt;
+            &lt;/ns2:EstimatedValue&gt;
+            &lt;ns2:EquityAndMortgages&gt;
+               &lt;ns2:EquityEstimate&gt;455700&lt;/ns2:EquityEstimate&gt;
+               &lt;ns2:EstimatedValue&gt;665700&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:RegisteredMortgages&gt;210000&lt;/ns2:RegisteredMortgages&gt;
+               &lt;ns2:MortgageDetails&gt;
+                  &lt;ns2:ConsiderationValue&gt;210000&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:Institution&gt;BANK OF MONTREAL&lt;/ns2:Institution&gt;
+                  &lt;ns2:DateIssued&gt;2012-03-29&lt;/ns2:DateIssued&gt;
+               &lt;/ns2:MortgageDetails&gt;
+            &lt;/ns2:EquityAndMortgages&gt;
+         &lt;/ns2:ReportDetail&gt;
+      &lt;/ns2:DirectReportResponse&gt;
+   &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+</div>
+<div title="m1c3J8_6BROADBRIDGE_ter_output.xml" type="text/xml">
+<pre>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;SOAP-ENV:Header/&gt;
+   &lt;SOAP-ENV:Body&gt;
+      &lt;ns2:DirectReportResponse xmlns:ns2=&quot;http://direct.purview.ca/&quot;&gt;
+         &lt;ns2:Header&gt;
+            &lt;ns2:ReportID&gt;59064&lt;/ns2:ReportID&gt;
+            &lt;ns2:ReportDate&gt;2015-10-19T11:26:02&lt;/ns2:ReportDate&gt;
+            &lt;ns2:ValuationDate&gt;2015-10-19&lt;/ns2:ValuationDate&gt;
+            &lt;ns2:AVMModel&gt;Teranet reavs Model&lt;/ns2:AVMModel&gt;
+            &lt;ns2:AVMModelType&gt;REAVS&lt;/ns2:AVMModelType&gt;
+         &lt;/ns2:Header&gt;
+         &lt;ns2:ReportDetail&gt;
+            &lt;ns2:PropertyDetail&gt;
+               &lt;ns2:PropertyAddress&gt;
+                  &lt;ns2:StreetNumber&gt;6&lt;/ns2:StreetNumber&gt;
+                  &lt;ns2:StreetName&gt;BROADBRIDGE DR&lt;/ns2:StreetName&gt;
+                  &lt;ns2:Suite/&gt;
+                  &lt;ns2:Municipality&gt;TORONTO&lt;/ns2:Municipality&gt;
+                  &lt;ns2:PostalCode&gt;M1C3J8&lt;/ns2:PostalCode&gt;
+                  &lt;ns2:LRO&gt;80&lt;/ns2:LRO&gt;
+               &lt;/ns2:PropertyAddress&gt;
+               &lt;ns2:Owners&gt;
+                  &lt;ns2:Name&gt;THIRU, ROHAN&lt;/ns2:Name&gt;
+                  &lt;ns2:Name&gt;THIRU, NIRUSHA&lt;/ns2:Name&gt;
+               &lt;/ns2:Owners&gt;
+               &lt;ns2:LegalDescription&gt;PCL 43-1, SEC M1983 ; LT 43, PL M1983 , S/T A897223 ; SCARBOROUGH , CITY OF TORONTO&lt;/ns2:LegalDescription&gt;
+               &lt;ns2:Perimeter&gt;103&lt;/ns2:Perimeter&gt;
+               &lt;ns2:PerimeterUnit&gt;m&lt;/ns2:PerimeterUnit&gt;
+               &lt;ns2:Area&gt;571&lt;/ns2:Area&gt;
+               &lt;ns2:AreaUnit&gt;m2&lt;/ns2:AreaUnit&gt;
+               &lt;ns2:Pin&gt;065020131&lt;/ns2:Pin&gt;
+               &lt;ns2:RegistrationType&gt;L&lt;/ns2:RegistrationType&gt;
+               &lt;ns2:AerialViewOfSubjectPropertyUrl&gt;&lt;![CDATA[http://maps.googleapis.com/maps/api/staticmap?center=43.78686569086007,-79.13097471562862&amp;maptype=hybrid&amp;zoom=19&amp;size=275x275&amp;path=color:0xD8B511FF%7Cweight:3%7Cfillcolor:0xD8B51111%7Cenc:%7DcgjG%60g~aNp@%60AHOWkAIBGBEBEDEF&amp;sensor=false&amp;client=gme-teranetinc&amp;signature=-sU3JuWblkeD797Cia1is3Qr-ZA=]]&gt;&lt;/ns2:AerialViewOfSubjectPropertyUrl&gt;
+               &lt;ns2:StreetViewOfSubjectPropertyUrl&gt;http://maps.googleapis.com/maps/api/streetview?sensor=false&amp;amp;fov=60&amp;amp;size=275x275&amp;amp;location=43.786948712563564,-79.13081614260989&amp;amp;client=gme-teranetinc&amp;amp;signature=NtcT8sSmgHjiQOfIBGY7DQcvZSk=&lt;/ns2:StreetViewOfSubjectPropertyUrl&gt;
+            &lt;/ns2:PropertyDetail&gt;
+            &lt;ns2:SalesHistories&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;THIRU, NIRUSHA&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;THIRU, ROHAN&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;2014-12-17&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;771000&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;STEGNAR, FRANCIS JOSEPH&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;WALKER, LEAH CAROLINE&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;2013-06-14&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;601500&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;COOPER, JAMES MARTIN&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;COOPER, NOEL DENISE&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;2008-08-07&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;455000&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;BARRETT, DAVID BRONSON&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;BARRETT, LINDA BERYL&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;1987-04-30&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;0&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+            &lt;/ns2:SalesHistories&gt;
+            &lt;ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValue&gt;854400&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValueLow&gt;762000&lt;/ns2:EstimatedValueLow&gt;
+               &lt;ns2:EstimatedValueHigh&gt;933000&lt;/ns2:EstimatedValueHigh&gt;
+               &lt;ns2:MinimumSaleValue&gt;435000&lt;/ns2:MinimumSaleValue&gt;
+               &lt;ns2:MaximumSaleValue&gt;1140000&lt;/ns2:MaximumSaleValue&gt;
+               &lt;ns2:AverageSaleValue&gt;643011&lt;/ns2:AverageSaleValue&gt;
+               &lt;ns2:MedianSaleValue&gt;617500&lt;/ns2:MedianSaleValue&gt;
+               &lt;ns2:SalesInLast6Months&gt;28&lt;/ns2:SalesInLast6Months&gt;
+               &lt;ns2:MarketShift&gt;0.156652&lt;/ns2:MarketShift&gt;
+            &lt;/ns2:EstimatedValue&gt;
+            &lt;ns2:EquityAndMortgages&gt;
+               &lt;ns2:EquityEstimate&gt;100374&lt;/ns2:EquityEstimate&gt;
+               &lt;ns2:EstimatedValue&gt;854400&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:RegisteredMortgages&gt;754026&lt;/ns2:RegisteredMortgages&gt;
+               &lt;ns2:MortgageDetails&gt;
+                  &lt;ns2:ConsiderationValue&gt;754026&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:Institution&gt;ROYAL BANK OF CANADA&lt;/ns2:Institution&gt;
+                  &lt;ns2:DateIssued&gt;2014-12-17&lt;/ns2:DateIssued&gt;
+               &lt;/ns2:MortgageDetails&gt;
+            &lt;/ns2:EquityAndMortgages&gt;
+         &lt;/ns2:ReportDetail&gt;
+      &lt;/ns2:DirectReportResponse&gt;
+   &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+</div>
+<div title="m1c3J9_38BROADBRIDGE_ter_output.xml" type="text/xml">
+<pre>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;SOAP-ENV:Header/&gt;
+   &lt;SOAP-ENV:Body&gt;
+      &lt;ns2:DirectReportResponse xmlns:ns2=&quot;http://direct.purview.ca/&quot;&gt;
+         &lt;ns2:Header&gt;
+            &lt;ns2:ReportID&gt;59061&lt;/ns2:ReportID&gt;
+            &lt;ns2:ReportDate&gt;2015-10-19T10:27:29&lt;/ns2:ReportDate&gt;
+            &lt;ns2:ValuationDate&gt;2015-10-19&lt;/ns2:ValuationDate&gt;
+            &lt;ns2:AVMModel&gt;Teranet reavs Model&lt;/ns2:AVMModel&gt;
+            &lt;ns2:AVMModelType&gt;REAVS&lt;/ns2:AVMModelType&gt;
+         &lt;/ns2:Header&gt;
+         &lt;ns2:ReportDetail&gt;
+            &lt;ns2:PropertyDetail&gt;
+               &lt;ns2:PropertyAddress&gt;
+                  &lt;ns2:StreetNumber&gt;38&lt;/ns2:StreetNumber&gt;
+                  &lt;ns2:StreetName&gt;BROADBRIDGE DR&lt;/ns2:StreetName&gt;
+                  &lt;ns2:Suite/&gt;
+                  &lt;ns2:Municipality&gt;TORONTO&lt;/ns2:Municipality&gt;
+                  &lt;ns2:PostalCode&gt;M1C3J9&lt;/ns2:PostalCode&gt;
+                  &lt;ns2:LRO&gt;80&lt;/ns2:LRO&gt;
+               &lt;/ns2:PropertyAddress&gt;
+               &lt;ns2:Owners&gt;
+                  &lt;ns2:Name&gt;COWAN, EDWARD&lt;/ns2:Name&gt;
+                  &lt;ns2:Name&gt;COWAN, LINDA LEE&lt;/ns2:Name&gt;
+               &lt;/ns2:Owners&gt;
+               &lt;ns2:LegalDescription&gt;PCL 57-1, SEC M1983 ; LT 57, PL M1983 , S/T A897235 ; SCARBOROUGH , CITY OF TORONTO&lt;/ns2:LegalDescription&gt;
+               &lt;ns2:Perimeter&gt;94&lt;/ns2:Perimeter&gt;
+               &lt;ns2:PerimeterUnit&gt;m&lt;/ns2:PerimeterUnit&gt;
+               &lt;ns2:Area&gt;461&lt;/ns2:Area&gt;
+               &lt;ns2:AreaUnit&gt;m2&lt;/ns2:AreaUnit&gt;
+               &lt;ns2:Pin&gt;065020076&lt;/ns2:Pin&gt;
+               &lt;ns2:RegistrationType&gt;L&lt;/ns2:RegistrationType&gt;
+               &lt;ns2:AerialViewOfSubjectPropertyUrl&gt;&lt;![CDATA[http://maps.googleapis.com/maps/api/staticmap?center=43.78819750374948,-79.13297234192761&amp;maptype=hybrid&amp;zoom=19&amp;size=275x275&amp;path=color:0xD8B511FF%7Cweight:3%7Cfillcolor:0xD8B51111%7Cenc:elgjGps~aNj@x@??DIJO??m@w@OV&amp;sensor=false&amp;client=gme-teranetinc&amp;signature=EhY99cASIwZ55l5IISGy30dvVso=]]&gt;&lt;/ns2:AerialViewOfSubjectPropertyUrl&gt;
+               &lt;ns2:StreetViewOfSubjectPropertyUrl&gt;http://maps.googleapis.com/maps/api/streetview?sensor=false&amp;amp;fov=60&amp;amp;size=275x275&amp;amp;location=43.78830920010765,-79.13283196093656&amp;amp;client=gme-teranetinc&amp;amp;signature=iaA2yU4iLhFUE0tVn4Bc-1K12Bw=&lt;/ns2:StreetViewOfSubjectPropertyUrl&gt;
+            &lt;/ns2:PropertyDetail&gt;
+            &lt;ns2:SalesHistories&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;COWAN, EDWARD&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;COWAN, LINDA LEE&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;1996-06-14&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;246000&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;BOYKO, STEPHEN&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;BROWN-BOYKO, NANCY&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;1991-12-18&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;295000&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+            &lt;/ns2:SalesHistories&gt;
+            &lt;ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValue&gt;658800&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValueLow&gt;586000&lt;/ns2:EstimatedValueLow&gt;
+               &lt;ns2:EstimatedValueHigh&gt;721000&lt;/ns2:EstimatedValueHigh&gt;
+               &lt;ns2:MinimumSaleValue&gt;435000&lt;/ns2:MinimumSaleValue&gt;
+               &lt;ns2:MaximumSaleValue&gt;1140000&lt;/ns2:MaximumSaleValue&gt;
+               &lt;ns2:AverageSaleValue&gt;643011&lt;/ns2:AverageSaleValue&gt;
+               &lt;ns2:MedianSaleValue&gt;617500&lt;/ns2:MedianSaleValue&gt;
+               &lt;ns2:SalesInLast6Months&gt;28&lt;/ns2:SalesInLast6Months&gt;
+               &lt;ns2:MarketShift&gt;0.152881&lt;/ns2:MarketShift&gt;
+            &lt;/ns2:EstimatedValue&gt;
+            &lt;ns2:EquityAndMortgages&gt;
+               &lt;ns2:EquityEstimate&gt;-98300&lt;/ns2:EquityEstimate&gt;
+               &lt;ns2:EstimatedValue&gt;658800&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:RegisteredMortgages&gt;757100&lt;/ns2:RegisteredMortgages&gt;
+               &lt;ns2:MortgageDetails&gt;
+                  &lt;ns2:ConsiderationValue&gt;667100&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:Institution&gt;ROYAL BANK OF CANADA&lt;/ns2:Institution&gt;
+                  &lt;ns2:DateIssued&gt;2015-06-15&lt;/ns2:DateIssued&gt;
+               &lt;/ns2:MortgageDetails&gt;
+               &lt;ns2:MortgageDetails&gt;
+                  &lt;ns2:ConsiderationValue&gt;90000&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:Institution&gt;CANADA TRUSTCO MORTGAGE COMPANY&lt;/ns2:Institution&gt;
+                  &lt;ns2:DateIssued&gt;1997-07-18&lt;/ns2:DateIssued&gt;
+               &lt;/ns2:MortgageDetails&gt;
+            &lt;/ns2:EquityAndMortgages&gt;
+         &lt;/ns2:ReportDetail&gt;
+      &lt;/ns2:DirectReportResponse&gt;
+   &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+</div>
+<div title="m1c3l3_12CLARK_ter_output.xml" type="text/xml">
+<pre>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;SOAP-ENV:Header/&gt;
+   &lt;SOAP-ENV:Body&gt;
+      &lt;ns2:DirectReportResponse xmlns:ns2=&quot;http://direct.purview.ca/&quot;&gt;
+         &lt;ns2:Header&gt;
+            &lt;ns2:ReportID&gt;58115&lt;/ns2:ReportID&gt;
+            &lt;ns2:ReportDate&gt;2015-09-23T12:04:17&lt;/ns2:ReportDate&gt;
+            &lt;ns2:CustomerReference/&gt;
+            &lt;ns2:ValuationDate&gt;2015-09-23&lt;/ns2:ValuationDate&gt;
+            &lt;ns2:AVMModel&gt;Teranet AVM Model&lt;/ns2:AVMModel&gt;
+            &lt;ns2:AVMModelType&gt;NEIGHBOURHOOD_POINT_MODEL&lt;/ns2:AVMModelType&gt;
+         &lt;/ns2:Header&gt;
+         &lt;ns2:ReportDetail&gt;
+            &lt;ns2:PropertyDetail&gt;
+               &lt;ns2:PropertyAddress&gt;
+                  &lt;ns2:StreetNumber&gt;12&lt;/ns2:StreetNumber&gt;
+                  &lt;ns2:StreetName&gt;CLARK SECOR PL&lt;/ns2:StreetName&gt;
+                  &lt;ns2:Suite/&gt;
+                  &lt;ns2:Municipality&gt;SCARBOROUGH&lt;/ns2:Municipality&gt;
+                  &lt;ns2:PostalCode&gt;M1C3L3&lt;/ns2:PostalCode&gt;
+                  &lt;ns2:LRO&gt;80&lt;/ns2:LRO&gt;
+               &lt;/ns2:PropertyAddress&gt;
+               &lt;ns2:Owners&gt;
+                  &lt;ns2:Name&gt;WOBBE, HANS-WERNER&lt;/ns2:Name&gt;
+                  &lt;ns2:Name&gt;WOBBE, DONNA GAYLE&lt;/ns2:Name&gt;
+               &lt;/ns2:Owners&gt;
+               &lt;ns2:LegalDescription&gt;PCL 4-1, SEC M1979 ; LT 4, PL M1979 ; SCARBOROUGH , CITY OF TORONTO&lt;/ns2:LegalDescription&gt;
+               &lt;ns2:Perimeter&gt;105&lt;/ns2:Perimeter&gt;
+               &lt;ns2:PerimeterUnit&gt;m&lt;/ns2:PerimeterUnit&gt;
+               &lt;ns2:Area&gt;615&lt;/ns2:Area&gt;
+               &lt;ns2:AreaUnit&gt;m2&lt;/ns2:AreaUnit&gt;
+               &lt;ns2:Pin&gt;065020114&lt;/ns2:Pin&gt;
+               &lt;ns2:RegistrationType&gt;L&lt;/ns2:RegistrationType&gt;
+               &lt;ns2:AerialViewOfSubjectPropertyUrl&gt;&lt;![CDATA[http://maps.googleapis.com/maps/api/staticmap?center=43.790080746838726,-79.13458951271843&amp;maptype=hybrid&amp;zoom=19&amp;size=275x275&amp;path=color:0xD8B511FF%7Cweight:3%7Cfillcolor:0xD8B51111%7Cenc:gxgjGr~~aN~@N@E@G@EBEe@m@OXQZA@&amp;sensor=false&amp;client=gme-teranetinc&amp;signature=xwsHYKhZExXnKRLmLfA3dQD2bEA=]]&gt;&lt;/ns2:AerialViewOfSubjectPropertyUrl&gt;
+               &lt;ns2:StreetViewOfSubjectPropertyUrl&gt;http://maps.googleapis.com/maps/api/streetview?sensor=false&amp;amp;fov=60&amp;amp;size=275x275&amp;amp;location=43.789939726504684,-79.13467338816439&amp;amp;client=gme-teranetinc&amp;amp;signature=oAh3eszvJG9rGpsrZY3NIXbTmEk=&lt;/ns2:StreetViewOfSubjectPropertyUrl&gt;
+            &lt;/ns2:PropertyDetail&gt;
+            &lt;ns2:SalesHistories&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;WOBBE, DONNA GAYLE&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;WOBBE, HANS-WERNER&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;1981-09-18&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;0&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+            &lt;/ns2:SalesHistories&gt;
+            &lt;ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValue&gt;593000&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValueLow&gt;593000&lt;/ns2:EstimatedValueLow&gt;
+               &lt;ns2:EstimatedValueHigh&gt;593000&lt;/ns2:EstimatedValueHigh&gt;
+               &lt;ns2:MinimumSaleValue&gt;90000&lt;/ns2:MinimumSaleValue&gt;
+               &lt;ns2:MaximumSaleValue&gt;749900&lt;/ns2:MaximumSaleValue&gt;
+               &lt;ns2:AverageSaleValue&gt;523780&lt;/ns2:AverageSaleValue&gt;
+               &lt;ns2:MedianSaleValue&gt;579000&lt;/ns2:MedianSaleValue&gt;
+            &lt;/ns2:EstimatedValue&gt;
+            &lt;ns2:EquityAndMortgages&gt;
+               &lt;ns2:EquityEstimate&gt;259750&lt;/ns2:EquityEstimate&gt;
+               &lt;ns2:EstimatedValue&gt;593000&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:RegisteredMortgages&gt;333250&lt;/ns2:RegisteredMortgages&gt;
+               &lt;ns2:MortgageDetails&gt;
+                  &lt;ns2:ConsiderationValue&gt;333250&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:Institution&gt;BANK OF MONTREAL&lt;/ns2:Institution&gt;
+                  &lt;ns2:DateIssued&gt;2005-02-22&lt;/ns2:DateIssued&gt;
+               &lt;/ns2:MortgageDetails&gt;
+            &lt;/ns2:EquityAndMortgages&gt;
+         &lt;/ns2:ReportDetail&gt;
+      &lt;/ns2:DirectReportResponse&gt;
+   &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+</pre>
+</div>
+<div title="m1c3l3_18CLARK_ter_output.xml" type="text/xml">
+<pre>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;SOAP-ENV:Header/&gt;
+   &lt;SOAP-ENV:Body&gt;
+      &lt;ns2:DirectReportResponse xmlns:ns2=&quot;http://direct.purview.ca/&quot;&gt;
+         &lt;ns2:Header&gt;
+            &lt;ns2:ReportID&gt;58117&lt;/ns2:ReportID&gt;
+            &lt;ns2:ReportDate&gt;2015-09-23T13:30:44&lt;/ns2:ReportDate&gt;
+            &lt;ns2:CustomerReference/&gt;
+            &lt;ns2:ValuationDate&gt;2015-09-23&lt;/ns2:ValuationDate&gt;
+            &lt;ns2:AVMModel&gt;Teranet reavs Model&lt;/ns2:AVMModel&gt;
+            &lt;ns2:AVMModelType&gt;REAVS&lt;/ns2:AVMModelType&gt;
+         &lt;/ns2:Header&gt;
+         &lt;ns2:ReportDetail&gt;
+            &lt;ns2:PropertyDetail&gt;
+               &lt;ns2:PropertyAddress&gt;
+                  &lt;ns2:StreetNumber&gt;18&lt;/ns2:StreetNumber&gt;
+                  &lt;ns2:StreetName&gt;CLARK SECOR PL&lt;/ns2:StreetName&gt;
+                  &lt;ns2:Suite/&gt;
+                  &lt;ns2:Municipality&gt;TORONTO&lt;/ns2:Municipality&gt;
+                  &lt;ns2:PostalCode&gt;M1C3L3&lt;/ns2:PostalCode&gt;
+                  &lt;ns2:LRO&gt;80&lt;/ns2:LRO&gt;
+               &lt;/ns2:PropertyAddress&gt;
+               &lt;ns2:Owners&gt;
+                  &lt;ns2:Name&gt;CRUZ-CLARKE, CHRISTINE&lt;/ns2:Name&gt;
+                  &lt;ns2:Name&gt;CLARKE, JEFFREY&lt;/ns2:Name&gt;
+               &lt;/ns2:Owners&gt;
+               &lt;ns2:LegalDescription&gt;PCL 1-1, SEC M1979 ; LT 1, PL M1979 , S/T C25803 ; SCARBOROUGH , CITY OF TORONTO&lt;/ns2:LegalDescription&gt;
+               &lt;ns2:Perimeter&gt;108&lt;/ns2:Perimeter&gt;
+               &lt;ns2:PerimeterUnit&gt;m&lt;/ns2:PerimeterUnit&gt;
+               &lt;ns2:Area&gt;627&lt;/ns2:Area&gt;
+               &lt;ns2:AreaUnit&gt;m2&lt;/ns2:AreaUnit&gt;
+               &lt;ns2:Pin&gt;065020117&lt;/ns2:Pin&gt;
+               &lt;ns2:RegistrationType&gt;L&lt;/ns2:RegistrationType&gt;
+               &lt;ns2:AerialViewOfSubjectPropertyUrl&gt;&lt;![CDATA[http://maps.googleapis.com/maps/api/staticmap?center=43.79004182361515,-79.13522349437159&amp;maptype=hybrid&amp;zoom=19&amp;size=275x275&amp;path=color:0xD8B511FF%7Cweight:3%7Cfillcolor:0xD8B51111%7Cenc:exgjGxa_bN%60@h@b@O??BA@A@C@E?C?EESiAP&amp;sensor=false&amp;client=gme-teranetinc&amp;signature=W87bsjQCEXpbXazUaUQP7KG9uUM=]]&gt;&lt;/ns2:AerialViewOfSubjectPropertyUrl&gt;
+               &lt;ns2:StreetViewOfSubjectPropertyUrl&gt;http://maps.googleapis.com/maps/api/streetview?sensor=false&amp;amp;fov=60&amp;amp;size=275x275&amp;amp;location=43.78988495505123,-79.1351984119936&amp;amp;client=gme-teranetinc&amp;amp;signature=IBJStsitP4GNrPHmK6WDA5KSBJw=&lt;/ns2:StreetViewOfSubjectPropertyUrl&gt;
+            &lt;/ns2:PropertyDetail&gt;
+            &lt;ns2:SalesHistories&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;CLARKE, JEFFREY&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;CRUZ-CLARKE, CHRISTINE&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;2010-06-25&lt;/ns2:RegistrationDate&gt; &lt;!-- comment by CMP: This is the same as 'SoldDate' --&gt; 
+                  &lt;ns2:ConsiderationValue&gt;480000&lt;/ns2:ConsiderationValue&gt; &lt;!-- comment by CMP: This is the same as 'SoldAmount' --&gt; 
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;GUERRA, DONNA MAE-MICHELLE&lt;/ns2:Name&gt;
+                     &lt;ns2:Name&gt;KHAN, MUHAMMAD CHAUDHRY&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;1999-05-31&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;269000&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+               &lt;ns2:SalesHistory&gt;
+                  &lt;ns2:PartyTo&gt;
+                     &lt;ns2:Name&gt;WEST, SUSAN MARGARET&lt;/ns2:Name&gt;
+                  &lt;/ns2:PartyTo&gt;
+                  &lt;ns2:RegistrationDate&gt;1989-12-19&lt;/ns2:RegistrationDate&gt;
+                  &lt;ns2:ConsiderationValue&gt;0&lt;/ns2:ConsiderationValue&gt;
+                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
+               &lt;/ns2:SalesHistory&gt;
+            &lt;/ns2:SalesHistories&gt;
+            &lt;ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValue&gt;830000&lt;/ns2:EstimatedValue&gt;
+               &lt;ns2:EstimatedValueLow&gt;734000&lt;/ns2:EstimatedValueLow&gt;
+               &lt;ns2:EstimatedValueHigh&gt;912000&lt;/ns2:EstimatedValueHigh&gt;
+               &lt;ns2:MinimumSaleValue&gt;435000&lt;/ns2:MinimumSaleValue&gt;
+               &lt;ns2:MaximumSaleValue&gt;1140000&lt;/ns2:MaximumSaleValue&gt;
+               &lt;ns2:AverageSaleValue&gt;642727&lt;/ns2:AverageSaleValue&gt;
+               &lt;ns2:MedianSaleValue&gt;605000&lt;/ns2:MedianSaleValue&gt;
+               &lt;ns2:SalesInLast6Months&gt;25&lt;/ns2:SalesInLast6Months&gt;
+               &lt;ns2:MarketShift&gt;0.16268000000000002&lt;/ns2:MarketShift&gt;
+            &lt;/ns2:EstimatedValue&gt;
+            &lt;ns2:EquityAndMortgages&gt;
+               &lt;ns2:EquityEstimate&gt;446000&lt;/ns2:EquityEstimate&gt; &lt;!-- comment by CMP: Teranet has estimated the equity, but they are not using current account balance --&gt;  
+               &lt;ns2:EstimatedValue&gt;830000&lt;/ns2:EstimatedValue&gt; &lt;!-- comment by CMP: Teranet has estimated for market value --&gt;
+               &lt;ns2:RegisteredMortgages&gt;384000&lt;/ns2:RegisteredMortgages&gt; &lt;!-- comment by CMP: Teranet has initial mortgage amount, BUT NOT CURRENT BALANCE --&gt;
+               &lt;ns2:MortgageDetails&gt;
+                  &lt;ns2:ConsiderationValue&gt;384000&lt;/ns2:ConsiderationValue&gt; &lt;!-- comment by CMP: Same as above 'RegisteredMortgages' --&gt;
+                  &lt;ns2:Institution&gt;BANK OF MONTREAL&lt;/ns2:Institution&gt; &lt;!-- comment by CMP: lender for the above --&gt;
+                  &lt;ns2:DateIssued&gt;2010-06-25&lt;/ns2:DateIssued&gt; &lt;!-- comment by CMP: closing date of mortgage transaction for the amount of $384000 --&gt;
+               &lt;/ns2:MortgageDetails&gt;
+            &lt;/ns2:EquityAndMortgages&gt;
+         &lt;/ns2:ReportDetail&gt;
+      &lt;/ns2:DirectReportResponse&gt;
+   &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;</pre>
+</div>
+<div title="MPAC_AVM_12ClarkSecorOutput.xml" type="text/xml">
+<pre>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ns1:processResponse soapenv:encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot; xmlns:ns1=&quot;http://webreceiver/&quot;&gt;
+         &lt;processReturn xsi:type=&quot;soapenc:string&quot; xmlns:soapenc=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;B2B&gt;
+	&lt;header&gt;
+		&lt;security_info&gt;
+			&lt;user_id&gt;TEMPUSER&lt;/user_id&gt;
+			&lt;password&gt;TMP0715&lt;/password&gt;
+		&lt;/security_info&gt;
+		&lt;client_info/&gt;
+	&lt;mpac_info&gt;
+&lt;address_count&gt;1&lt;/address_count&gt;
+&lt;query_result code=&quot;00&quot; desc=&quot;Some addresses found&quot;/&gt;
+&lt;/mpac_info&gt;
+&lt;/header&gt;
+	&lt;body&gt;
+		&lt;request&gt;
+			&lt;report_type&gt;COMPARABLE&lt;/report_type&gt;
+			&lt;street_number&gt;12&lt;/street_number&gt;
+			&lt;street_name&gt;CLARK SECOR&lt;/street_name&gt;
+			&lt;street_type/&gt;
+			&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+			&lt;municipality&gt;TORONTO&lt;/municipality&gt;
+			&lt;province&gt;ON&lt;/province&gt;
+		&lt;/request&gt;
+	&lt;response&gt;
+&lt;property&gt;
+&lt;matched_by&gt;ADDRESS&lt;/matched_by&gt;
+&lt;roll&gt;190109665006400&lt;/roll&gt;
+&lt;unit_designator/&gt;
+&lt;unit_number/&gt;
+&lt;street_number&gt;12&lt;/street_number&gt;
+&lt;street_number_suffix/&gt;
+&lt;street_name&gt;CLARK SECOR&lt;/street_name&gt;
+&lt;street_type&gt;PL&lt;/street_type&gt;
+&lt;street_direction/&gt;
+&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;avm_value&gt;809000&lt;/avm_value&gt;
+&lt;avm_date&gt;20151001&lt;/avm_date&gt;
+&lt;confidence_rating&gt;M&lt;/confidence_rating&gt;
+&lt;lower_confidence_limit&gt;747000&lt;/lower_confidence_limit&gt;
+&lt;upper_confidence_limit&gt;869000&lt;/upper_confidence_limit&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;12  CLARK SECOR PL   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;0&lt;/basement_finish_area&gt;
+&lt;compsaledate/&gt;
+&lt;compsaleamount&gt;0&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;0&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;0&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;40.78&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109665006400&lt;/comp_roll&gt;
+&lt;lot_area&gt;0&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;A&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2734&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;18  CLARK SECOR PL   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;670&lt;/basement_finish_area&gt;
+&lt;compsaledate&gt;2015-07-01 00:00:00&lt;/compsaledate&gt;
+&lt;compsaleamount&gt;830000&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;1&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;0&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;53.21&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109665006700&lt;/comp_roll&gt;
+&lt;lot_area&gt;0&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;A&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2173&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;38  BROADBRIDGE DR   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;324&lt;/basement_finish_area&gt;
+&lt;compsaledate&gt;2015-06-01 00:00:00&lt;/compsaledate&gt;
+&lt;compsaleamount&gt;667100&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;2&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;110&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;45&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3J9&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109664001900&lt;/comp_roll&gt;
+&lt;lot_area&gt;4791.6&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;F&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2072&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;comparable&gt;
+&lt;property_location&gt;1  HARTSVILLE AVE   &lt;/property_location&gt;
+&lt;basement_finish_area&gt;0&lt;/basement_finish_area&gt;
+&lt;compsaledate&gt;2015-09-01 00:00:00&lt;/compsaledate&gt;
+&lt;compsaleamount&gt;810500&lt;/compsaleamount&gt;
+&lt;comparablesequence&gt;3&lt;/comparablesequence&gt;
+&lt;lot_depth&gt;110&lt;/lot_depth&gt;
+&lt;lot_frontage&gt;50&lt;/lot_frontage&gt;
+&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
+&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
+&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
+&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
+&lt;postal_code&gt;M1C 3K3&lt;/postal_code&gt;
+&lt;property_type_style&gt;001&lt;/property_type_style&gt;
+&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
+&lt;province&gt;ON&lt;/province&gt;
+&lt;comp_roll&gt;190109663000100&lt;/comp_roll&gt;
+&lt;lot_area&gt;5227.2&lt;/lot_area&gt;
+&lt;unit_of_measure_of_lot_area&gt;F&lt;/unit_of_measure_of_lot_area&gt;
+&lt;primary_struc_area_above_grd&gt;2062&lt;/primary_struc_area_above_grd&gt;
+&lt;year_built&gt;1981&lt;/year_built&gt;
+&lt;/comparable&gt;
+&lt;/property&gt;
+&lt;/response&gt;
+&lt;/body&gt;
+&lt;/B2B&gt;]]&gt;&lt;/processReturn&gt;
+      &lt;/ns1:processResponse&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>
+</div>
 <div created="20151007100857611" modified="20151007100906585" tags="location" title="Pittsburgh" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;40.3543957&quot;,
@@ -9625,220 +10230,6 @@ background: #f8f8ff;
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
-</div>
-<div created="20151105070234645" modified="20151105105640706" tags="" title="xml/MPAC/12Clark.xml" type="text/plain">
-<pre>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-   &lt;soapenv:Body&gt;
-      &lt;ns1:processResponse soapenv:encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot; xmlns:ns1=&quot;http://webreceiver/&quot;&gt;
-         &lt;processReturn xsi:type=&quot;soapenc:string&quot; xmlns:soapenc=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;&gt;&lt;![CDATA[&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;B2B&gt;
-	&lt;header&gt;
-		&lt;security_info&gt;
-			&lt;user_id&gt;TEMPUSER&lt;/user_id&gt;
-			&lt;password&gt;TMP0715&lt;/password&gt;
-		&lt;/security_info&gt;
-		&lt;client_info/&gt;
-	&lt;mpac_info&gt;
-&lt;address_count&gt;1&lt;/address_count&gt;
-&lt;query_result code=&quot;00&quot; desc=&quot;Some addresses found&quot;/&gt;
-&lt;/mpac_info&gt;
-&lt;/header&gt;
-	&lt;body&gt;
-		&lt;request&gt;
-			&lt;report_type&gt;COMPARABLE&lt;/report_type&gt;
-			&lt;street_number&gt;12&lt;/street_number&gt;
-			&lt;street_name&gt;CLARK SECOR&lt;/street_name&gt;
-			&lt;street_type/&gt;
-			&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
-			&lt;municipality&gt;TORONTO&lt;/municipality&gt;
-			&lt;province&gt;ON&lt;/province&gt;
-		&lt;/request&gt;
-	&lt;response&gt;
-&lt;property&gt;
-&lt;matched_by&gt;ADDRESS&lt;/matched_by&gt;
-&lt;roll&gt;190109665006400&lt;/roll&gt;
-&lt;unit_designator/&gt;
-&lt;unit_number/&gt;
-&lt;street_number&gt;12&lt;/street_number&gt;
-&lt;street_number_suffix/&gt;
-&lt;street_name&gt;CLARK SECOR&lt;/street_name&gt;
-&lt;street_type&gt;PL&lt;/street_type&gt;
-&lt;street_direction/&gt;
-&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
-&lt;province&gt;ON&lt;/province&gt;
-&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
-&lt;avm_value&gt;809000&lt;/avm_value&gt;
-&lt;avm_date&gt;20151001&lt;/avm_date&gt;
-&lt;confidence_rating&gt;M&lt;/confidence_rating&gt;
-&lt;lower_confidence_limit&gt;747000&lt;/lower_confidence_limit&gt;
-&lt;upper_confidence_limit&gt;869000&lt;/upper_confidence_limit&gt;
-&lt;comparable&gt;
-&lt;property_location&gt;12  CLARK SECOR PL   &lt;/property_location&gt;
-&lt;basement_finish_area&gt;0&lt;/basement_finish_area&gt;
-&lt;compsaledate/&gt;
-&lt;compsaleamount&gt;0&lt;/compsaleamount&gt;
-&lt;comparablesequence&gt;0&lt;/comparablesequence&gt;
-&lt;lot_depth&gt;0&lt;/lot_depth&gt;
-&lt;lot_frontage&gt;40.78&lt;/lot_frontage&gt;
-&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
-&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
-&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
-&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
-&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
-&lt;property_type_style&gt;001&lt;/property_type_style&gt;
-&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
-&lt;province&gt;ON&lt;/province&gt;
-&lt;comp_roll&gt;190109665006400&lt;/comp_roll&gt;
-&lt;lot_area&gt;0&lt;/lot_area&gt;
-&lt;unit_of_measure_of_lot_area&gt;A&lt;/unit_of_measure_of_lot_area&gt;
-&lt;primary_struc_area_above_grd&gt;2734&lt;/primary_struc_area_above_grd&gt;
-&lt;year_built&gt;1981&lt;/year_built&gt;
-&lt;/comparable&gt;
-&lt;comparable&gt;
-&lt;property_location&gt;18  CLARK SECOR PL   &lt;/property_location&gt;
-&lt;basement_finish_area&gt;670&lt;/basement_finish_area&gt;
-&lt;compsaledate&gt;2015-07-01 00:00:00&lt;/compsaledate&gt;
-&lt;compsaleamount&gt;830000&lt;/compsaleamount&gt;
-&lt;comparablesequence&gt;1&lt;/comparablesequence&gt;
-&lt;lot_depth&gt;0&lt;/lot_depth&gt;
-&lt;lot_frontage&gt;53.21&lt;/lot_frontage&gt;
-&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
-&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
-&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
-&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
-&lt;postal_code&gt;M1C 3L3&lt;/postal_code&gt;
-&lt;property_type_style&gt;001&lt;/property_type_style&gt;
-&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
-&lt;province&gt;ON&lt;/province&gt;
-&lt;comp_roll&gt;190109665006700&lt;/comp_roll&gt;
-&lt;lot_area&gt;0&lt;/lot_area&gt;
-&lt;unit_of_measure_of_lot_area&gt;A&lt;/unit_of_measure_of_lot_area&gt;
-&lt;primary_struc_area_above_grd&gt;2173&lt;/primary_struc_area_above_grd&gt;
-&lt;year_built&gt;1981&lt;/year_built&gt;
-&lt;/comparable&gt;
-&lt;comparable&gt;
-&lt;property_location&gt;38  BROADBRIDGE DR   &lt;/property_location&gt;
-&lt;basement_finish_area&gt;324&lt;/basement_finish_area&gt;
-&lt;compsaledate&gt;2015-06-01 00:00:00&lt;/compsaledate&gt;
-&lt;compsaleamount&gt;667100&lt;/compsaleamount&gt;
-&lt;comparablesequence&gt;2&lt;/comparablesequence&gt;
-&lt;lot_depth&gt;110&lt;/lot_depth&gt;
-&lt;lot_frontage&gt;45&lt;/lot_frontage&gt;
-&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
-&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
-&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
-&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
-&lt;postal_code&gt;M1C 3J9&lt;/postal_code&gt;
-&lt;property_type_style&gt;001&lt;/property_type_style&gt;
-&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
-&lt;province&gt;ON&lt;/province&gt;
-&lt;comp_roll&gt;190109664001900&lt;/comp_roll&gt;
-&lt;lot_area&gt;4791.6&lt;/lot_area&gt;
-&lt;unit_of_measure_of_lot_area&gt;F&lt;/unit_of_measure_of_lot_area&gt;
-&lt;primary_struc_area_above_grd&gt;2072&lt;/primary_struc_area_above_grd&gt;
-&lt;year_built&gt;1981&lt;/year_built&gt;
-&lt;/comparable&gt;
-&lt;comparable&gt;
-&lt;property_location&gt;1  HARTSVILLE AVE   &lt;/property_location&gt;
-&lt;basement_finish_area&gt;0&lt;/basement_finish_area&gt;
-&lt;compsaledate&gt;2015-09-01 00:00:00&lt;/compsaledate&gt;
-&lt;compsaleamount&gt;810500&lt;/compsaleamount&gt;
-&lt;comparablesequence&gt;3&lt;/comparablesequence&gt;
-&lt;lot_depth&gt;110&lt;/lot_depth&gt;
-&lt;lot_frontage&gt;50&lt;/lot_frontage&gt;
-&lt;municipality&gt;SCARBOROUGH&lt;/municipality&gt;
-&lt;number_of_bedrooms&gt;4&lt;/number_of_bedrooms&gt;
-&lt;number_of_full_bathrooms&gt;2&lt;/number_of_full_bathrooms&gt;
-&lt;number_of_half_bathrooms&gt;1&lt;/number_of_half_bathrooms&gt;
-&lt;postal_code&gt;M1C 3K3&lt;/postal_code&gt;
-&lt;property_type_style&gt;001&lt;/property_type_style&gt;
-&lt;property_type_description&gt;Detached&lt;/property_type_description&gt;
-&lt;province&gt;ON&lt;/province&gt;
-&lt;comp_roll&gt;190109663000100&lt;/comp_roll&gt;
-&lt;lot_area&gt;5227.2&lt;/lot_area&gt;
-&lt;unit_of_measure_of_lot_area&gt;F&lt;/unit_of_measure_of_lot_area&gt;
-&lt;primary_struc_area_above_grd&gt;2062&lt;/primary_struc_area_above_grd&gt;
-&lt;year_built&gt;1981&lt;/year_built&gt;
-&lt;/comparable&gt;
-&lt;/property&gt;
-&lt;/response&gt;
-&lt;/body&gt;
-&lt;/B2B&gt;]]&gt;&lt;/processReturn&gt;
-      &lt;/ns1:processResponse&gt;
-   &lt;/soapenv:Body&gt;
-&lt;/soapenv:Envelope&gt;</pre>
-</div>
-<div created="20151105105317753" modified="20151105105851117" tags="" title="xml/TeraNet/12Clark.xml" type="text/plain">
-<pre>&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
-   &lt;SOAP-ENV:Header/&gt;
-   &lt;SOAP-ENV:Body&gt;
-      &lt;ns2:DirectReportResponse xmlns:ns2=&quot;http://direct.purview.ca/&quot;&gt;
-         &lt;ns2:Header&gt;
-            &lt;ns2:ReportID&gt;58115&lt;/ns2:ReportID&gt;
-            &lt;ns2:ReportDate&gt;2015-09-23T12:04:17&lt;/ns2:ReportDate&gt;
-            &lt;ns2:CustomerReference/&gt;
-            &lt;ns2:ValuationDate&gt;2015-09-23&lt;/ns2:ValuationDate&gt;
-            &lt;ns2:AVMModel&gt;Teranet AVM Model&lt;/ns2:AVMModel&gt;
-            &lt;ns2:AVMModelType&gt;NEIGHBOURHOOD_POINT_MODEL&lt;/ns2:AVMModelType&gt;
-         &lt;/ns2:Header&gt;
-         &lt;ns2:ReportDetail&gt;
-            &lt;ns2:PropertyDetail&gt;
-               &lt;ns2:PropertyAddress&gt;
-                  &lt;ns2:StreetNumber&gt;12&lt;/ns2:StreetNumber&gt;
-                  &lt;ns2:StreetName&gt;CLARK SECOR PL&lt;/ns2:StreetName&gt;
-                  &lt;ns2:Suite/&gt;
-                  &lt;ns2:Municipality&gt;SCARBOROUGH&lt;/ns2:Municipality&gt;
-                  &lt;ns2:PostalCode&gt;M1C3L3&lt;/ns2:PostalCode&gt;
-                  &lt;ns2:LRO&gt;80&lt;/ns2:LRO&gt;
-               &lt;/ns2:PropertyAddress&gt;
-               &lt;ns2:Owners&gt;
-                  &lt;ns2:Name&gt;WOBBE, HANS-WERNER&lt;/ns2:Name&gt;
-                  &lt;ns2:Name&gt;WOBBE, DONNA GAYLE&lt;/ns2:Name&gt;
-               &lt;/ns2:Owners&gt;
-               &lt;ns2:LegalDescription&gt;PCL 4-1, SEC M1979 ; LT 4, PL M1979 ; SCARBOROUGH , CITY OF TORONTO&lt;/ns2:LegalDescription&gt;
-               &lt;ns2:Perimeter&gt;105&lt;/ns2:Perimeter&gt;
-               &lt;ns2:PerimeterUnit&gt;m&lt;/ns2:PerimeterUnit&gt;
-               &lt;ns2:Area&gt;615&lt;/ns2:Area&gt;
-               &lt;ns2:AreaUnit&gt;m2&lt;/ns2:AreaUnit&gt;
-               &lt;ns2:Pin&gt;065020114&lt;/ns2:Pin&gt;
-               &lt;ns2:RegistrationType&gt;L&lt;/ns2:RegistrationType&gt;
-               &lt;ns2:AerialViewOfSubjectPropertyUrl&gt;&lt;![CDATA[http://maps.googleapis.com/maps/api/staticmap?center=43.790080746838726,-79.13458951271843&amp;maptype=hybrid&amp;zoom=19&amp;size=275x275&amp;path=color:0xD8B511FF%7Cweight:3%7Cfillcolor:0xD8B51111%7Cenc:gxgjGr~~aN~@N@E@G@EBEe@m@OXQZA@&amp;sensor=false&amp;client=gme-teranetinc&amp;signature=xwsHYKhZExXnKRLmLfA3dQD2bEA=]]&gt;&lt;/ns2:AerialViewOfSubjectPropertyUrl&gt;
-               &lt;ns2:StreetViewOfSubjectPropertyUrl&gt;http://maps.googleapis.com/maps/api/streetview?sensor=false&amp;amp;fov=60&amp;amp;size=275x275&amp;amp;location=43.789939726504684,-79.13467338816439&amp;amp;client=gme-teranetinc&amp;amp;signature=oAh3eszvJG9rGpsrZY3NIXbTmEk=&lt;/ns2:StreetViewOfSubjectPropertyUrl&gt;
-            &lt;/ns2:PropertyDetail&gt;
-            &lt;ns2:SalesHistories&gt;
-               &lt;ns2:SalesHistory&gt;
-                  &lt;ns2:PartyTo&gt;
-                     &lt;ns2:Name&gt;WOBBE, DONNA GAYLE&lt;/ns2:Name&gt;
-                     &lt;ns2:Name&gt;WOBBE, HANS-WERNER&lt;/ns2:Name&gt;
-                  &lt;/ns2:PartyTo&gt;
-                  &lt;ns2:RegistrationDate&gt;1981-09-18&lt;/ns2:RegistrationDate&gt;
-                  &lt;ns2:ConsiderationValue&gt;0&lt;/ns2:ConsiderationValue&gt;
-                  &lt;ns2:InstrumentType&gt;Transfer&lt;/ns2:InstrumentType&gt;
-               &lt;/ns2:SalesHistory&gt;
-            &lt;/ns2:SalesHistories&gt;
-            &lt;ns2:EstimatedValue&gt;
-               &lt;ns2:EstimatedValue&gt;593000&lt;/ns2:EstimatedValue&gt;
-               &lt;ns2:EstimatedValueLow&gt;593000&lt;/ns2:EstimatedValueLow&gt;
-               &lt;ns2:EstimatedValueHigh&gt;593000&lt;/ns2:EstimatedValueHigh&gt;
-               &lt;ns2:MinimumSaleValue&gt;90000&lt;/ns2:MinimumSaleValue&gt;
-               &lt;ns2:MaximumSaleValue&gt;749900&lt;/ns2:MaximumSaleValue&gt;
-               &lt;ns2:AverageSaleValue&gt;523780&lt;/ns2:AverageSaleValue&gt;
-               &lt;ns2:MedianSaleValue&gt;579000&lt;/ns2:MedianSaleValue&gt;
-            &lt;/ns2:EstimatedValue&gt;
-            &lt;ns2:EquityAndMortgages&gt;
-               &lt;ns2:EquityEstimate&gt;259750&lt;/ns2:EquityEstimate&gt;
-               &lt;ns2:EstimatedValue&gt;593000&lt;/ns2:EstimatedValue&gt;
-               &lt;ns2:RegisteredMortgages&gt;333250&lt;/ns2:RegisteredMortgages&gt;
-               &lt;ns2:MortgageDetails&gt;
-                  &lt;ns2:ConsiderationValue&gt;333250&lt;/ns2:ConsiderationValue&gt;
-                  &lt;ns2:Institution&gt;BANK OF MONTREAL&lt;/ns2:Institution&gt;
-                  &lt;ns2:DateIssued&gt;2005-02-22&lt;/ns2:DateIssued&gt;
-               &lt;/ns2:MortgageDetails&gt;
-            &lt;/ns2:EquityAndMortgages&gt;
-         &lt;/ns2:ReportDetail&gt;
-      &lt;/ns2:DirectReportResponse&gt;
-   &lt;/SOAP-ENV:Body&gt;
-&lt;/SOAP-ENV:Envelope&gt;
-</pre>
 </div>
 
 </div>
