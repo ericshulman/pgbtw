@@ -6489,19 +6489,19 @@ LOAD
 <div modified="20151026220448892" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151107022234968" title="$:/state/Dashboard/Maps">
-<pre></pre>
+<div modified="20151107023157582" title="$:/state/Dashboard/Maps">
+<pre>show</pre>
 </div>
 <div modified="20151107014326454" title="$:/state/Dashboard/MPAC">
 <pre></pre>
 </div>
-<div modified="20151107022231168" title="$:/state/Dashboard/StreetView">
-<pre>show</pre>
+<div modified="20151107023156804" title="$:/state/Dashboard/StreetView">
+<pre></pre>
 </div>
 <div modified="20151107014407990" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
-<div modified="20151028004832412" title="$:/state/sidebar">
+<div modified="20151107023135485" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
@@ -7136,7 +7136,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151107020656181" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151107023051364" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7291,16 +7291,19 @@ timeout:&lt;br&gt;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &amp;nbsp; &lt;&lt;showTimestamp&gt;&gt;@@
-@@.clear.shadowbox.inset.center.smaller.nowrap
+@@.clear.shadowbox.inset.center.smaller
    &lt;&lt;showGeo&gt;&gt;
+   &amp;nbsp;
+   &lt;span class=&quot;nowrap&quot;&gt;
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Notes&quot;
       label:&quot;{{$:/core/images/edit-button}}&quot;
       title:&quot;Notes about this location&quot;
       content:&quot;notes&quot;&gt;&gt;
-   &amp;nbsp; &amp;nbsp; &amp;nbsp;
+   &amp;nbsp;
    &lt;&lt;saveGeo x:&quot;{{$:/core/images/save-button}}&quot;&gt;&gt;
    &lt;&lt;loadGeo x:&quot;{{$:/core/images/download-button}}&quot;&gt;&gt;
    &lt;&lt;deleteGeo x:&quot;@@.redsvg {{$:/core/images/close-button}}@@&quot;&gt;&gt; 
+   &lt;/span&gt;
 @@
 &lt;/div&gt;</pre>
 </div>
