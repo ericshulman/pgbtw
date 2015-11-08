@@ -126,11 +126,15 @@ Error message and password prompt
 
 <li>$:/config/LocalStorage</li>
 
+<li>$:/config/MPAC</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/config/SaverFilter</li>
 
 <li>$:/config/StreetView</li>
+
+<li>$:/config/TeraNet</li>
 
 <li>$:/core</li>
 
@@ -232,9 +236,13 @@ Error message and password prompt
 
 <li>Dashboard/MPAC</li>
 
+<li>Dashboard/MPAC/RequestTemplate</li>
+
 <li>Dashboard/StreetView</li>
 
 <li>Dashboard/TeraNet</li>
+
+<li>Dashboard/Teranet/RequestTemplate</li>
 
 <li>Geo/action-getGeoData.js</li>
 
@@ -341,6 +349,11 @@ Error message and password prompt
     &quot;limit&quot;: &quot;5&quot;
 }</pre>
 </div>
+<div created="20151108184213025" modified="20151108184213025" title="$:/config/MPAC" type="application/json">
+<pre>{
+    &quot;report_type&quot;: &quot;comparable&quot;
+}</pre>
+</div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
 </div>
@@ -353,6 +366,11 @@ Error message and password prompt
     &quot;fov&quot;: &quot;120&quot;,
     &quot;width&quot;: &quot;640&quot;,
     &quot;height&quot;: &quot;384&quot;
+}</pre>
+</div>
+<div created="20151108215219915" modified="20151108215219915" title="$:/config/TeraNet" type="application/json">
+<pre>{
+    &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.9">
@@ -6480,8 +6498,8 @@ LOAD
 <div modified="20151027222133170" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div modified="20151106052531136" title="$:/state/Dashboard/GeoLocation">
-<pre>show</pre>
+<div modified="20151108015639749" title="$:/state/Dashboard/GeoLocation">
+<pre></pre>
 </div>
 <div modified="20151027205201332" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
@@ -6489,16 +6507,16 @@ LOAD
 <div modified="20151026220448892" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151107023157582" title="$:/state/Dashboard/Maps">
-<pre>show</pre>
+<div modified="20151108015639189" title="$:/state/Dashboard/Maps">
+<pre></pre>
 </div>
-<div modified="20151107014326454" title="$:/state/Dashboard/MPAC">
+<div modified="20151108214754860" title="$:/state/Dashboard/MPAC">
 <pre></pre>
 </div>
 <div modified="20151107023156804" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151107014407990" title="$:/state/Dashboard/TeraNet">
+<div modified="20151108210532909" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
 <div modified="20151107023135485" title="$:/state/sidebar">
@@ -6516,7 +6534,7 @@ LOAD
 <div modified="20151107020803871" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151107020836746" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151108215230536" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
@@ -6551,8 +6569,8 @@ LOAD
 <div created="20150705104045705" modified="20151026214151038" title="$:/temp/search">
 <pre></pre>
 </div>
-<div modified="20151107014330692" title="$:/temp/TeraNet/source">
-<pre>m1c3l3_12CLARK_ter_output.xml</pre>
+<div modified="20151108212113645" title="$:/temp/TeraNet/source">
+<pre>m1c3J8_1HARTSVILLE_ter_output.xml</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.9">
 <pre>{
@@ -7672,7 +7690,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20151105085346973" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20151108205203600" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define dashboardbutton(tid,class:&quot;tc-btn-invisible&quot;)
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
 &lt;$button tooltip=&quot;show $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot; class=&quot;$class$&quot;&gt;
@@ -7702,9 +7720,9 @@ tiddler cache location:&lt;br&gt;
 --&gt;
 \end
 
-\define dashboardpopup(id,label,title,content)
+\define dashboardpopup(id,label,title,content,position:&quot;belowleft&quot;)
 &lt;$button popup=&quot;$:/temp/popup/$id$&quot; tooltip=&quot;$title$&quot;&gt; $label$ &lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&quot;$:/temp/popup/$id$&quot;
+&lt;$reveal type=&quot;popup&quot; position=&quot;$position$&quot; state=&quot;$:/temp/popup/$id$&quot;
    class=&quot;tc-drop-down tc-popup-keep&quot; style=&quot;padding:0.5em&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/cancel-button}}
       &lt;$action-deletetiddler $tiddler=&quot;$:/temp/popup/$id$&quot; /&gt;
@@ -7850,7 +7868,7 @@ quality:&lt;br&gt; &amp;nbsp;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20151106045535388" tags="" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20151108214932660" tags="" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -7872,8 +7890,72 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/$list&gt;
 \end
 
+\define toolbar()
+   report type:
+   &lt;$select tiddler=&quot;$:/config/MPAC&quot; index=&quot;report_type&quot;&gt;
+      &lt;option value=&quot;comparable&quot;&gt;comparable&lt;/option&gt;
+   &lt;/$select&gt;
+   &lt;&lt;dashboardpopup id:&quot;MPAC/SearchBy&quot;
+      label:&quot;search by...&quot;
+      title:&quot;MPAC Search Criteria&quot;
+      content:&quot;search&quot;
+      position:&quot;belowright&quot;&gt;&gt;
+  &lt;$button&gt;get data&lt;/$button&gt;
+\end
+
+\define search()
+   @@.nowrap 
+   &lt;&lt;edit roll &quot;roll (15-digits)&quot;&gt;&gt;
+   &lt;&lt;edit first_name &quot;first name&quot;&gt;&gt;
+   &lt;&lt;edit last_name &quot;last name&quot;&gt;&gt;
+   &lt;br&gt;
+   &lt;&lt;edit street_number &quot;#&quot; 5&gt;&gt;&lt;&lt;edit street_number_suffix &quot;suffix&quot; 5&gt;&gt;
+   &lt;&lt;edit street_name &quot;street name&quot;&gt;&gt;
+   &lt;&lt;edit street_type &quot;type&quot; 5&gt;&gt;&lt;&lt;edit street_direction &quot;direction&quot; 5&gt;&gt;
+   &lt;br&gt;
+   &lt;&lt;edit unit_designator &quot;unit designator&quot;&gt;&gt;
+   &lt;&lt;edit unit_number &quot;unit number&quot;&gt;&gt;
+   &lt;br&gt;
+   &lt;&lt;edit municipality &quot;municipality&quot;&gt;&gt;
+   &lt;&lt;edit postal_code &quot;postal code&quot;&gt;&gt;
+   &lt;&lt;edit province &quot;province&quot;&gt;&gt;
+   @@
+\end
+
+\define edit(index,prompt,size:&quot;15&quot;)
+   &lt;$edit-text tag=&quot;input&quot; index=&quot;$index$&quot;
+      tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;$prompt$&quot; size=&quot;$size$&quot; /&gt;
+\end
+
+\define parseXML()
+   &lt;$select tiddler=&quot;$:/temp/MPAC/source&quot; field=&quot;text&quot;&gt;
+      &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
+      &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
+      &lt;/$list&gt;
+   &lt;/$select&gt;
+   &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
+   &lt;$button&gt; parse
+      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt;
+         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
+      &lt;$action-httpRequest tiddler=&lt;&lt;xml&gt;&gt;
+         parse=&quot;xml&quot; autoload=&quot;true&quot; /&gt;
+   &lt;/$button&gt;
+   &lt;$button&gt; clear
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot; /&gt;
+   &lt;/$button&gt;
+   &lt;/$set&gt;
+\end
+
 \define options()
-//none//
+MPAC Server:&lt;br&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;url&quot;
+   tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;enter URL&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
+~UserID:&lt;br&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;userid&quot;
+   tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;enter userid&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
+Password:&lt;br&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;password&quot;
+   tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
@@ -7884,40 +7966,51 @@ quality:&lt;br&gt; &amp;nbsp;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.nowrap
-   &lt;$select tiddler=&quot;$:/temp/MPAC/source&quot; field=&quot;text&quot;&gt;
-      &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
-      &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
-      &lt;/$list&gt;
-   &lt;/$select&gt;
+@@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
+&lt;div class=&quot;clear shadowbox inset&quot;&gt;
+   @@.smaller.nowrap &lt;&lt;parseXML&gt;&gt;@@
    &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
-   &lt;$button&gt; parse
-      &lt;$action-httpRequest
-         tiddler=&lt;&lt;source&gt;&gt;
-         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
-      &lt;$action-httpRequest
-         tiddler=&lt;&lt;xml&gt;&gt;
-         parse=&quot;xml&quot; autoload=&quot;true&quot; /&gt;
-   &lt;/$button&gt;
-   &lt;$button&gt; reset
-      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot;/&gt;
-   &lt;/$button&gt;
-   &lt;/$set&gt;
-@@
-@@.clear.shadowbox.inset
-&lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
-    &lt;div class=&quot;center smallest bottomdots&quot;&gt;
-      source: &lt;$link to=&lt;&lt;source&gt;&gt;&gt;&lt;&lt;source&gt;&gt;&lt;/$link&gt;
-   &lt;/div&gt;
    &lt;table class=&quot;borderless smaller&quot; style=&quot;width:100%&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;mpac_info&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;security_info&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;request&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;response&gt;&gt;/&gt;
    &lt;/table&gt;
-&lt;/$set&gt;
-@@
+   &lt;/$set&gt;
+&lt;/div&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20151108015539161" modified="20151108210809118" tags="" title="Dashboard/MPAC/RequestTemplate" type="text/plain">
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;B2B&gt;
+ &lt;header&gt;
+  &lt;security_info&gt;
+   &lt;user_id&gt;userid&lt;/user_id&gt;
+   &lt;password&gt;password&lt;/password&gt;
+  &lt;/security_info&gt;
+  &lt;client_info&gt;
+   ... any client specific elements and data ... 
+  &lt;/client_info&gt;
+ &lt;/header&gt;
+ &lt;body&gt;
+  &lt;request&gt;
+   &lt;report_type&gt;...&lt;/report_type&gt;
+   &lt;roll&gt;...&lt;/roll&gt;
+   &lt;last_name&gt;...&lt;/last_name&gt;
+   &lt;first_name&gt;...&lt;/first_name&gt;
+   &lt;street_number&gt;...&lt;/street_number&gt;
+   &lt;street_number_suffix&gt;...&lt;/street_number_suffix&gt;
+   &lt;street_name&gt;...&lt;/steet_name&gt;
+   &lt;street_type&gt;...&lt;/street_type&gt;
+   &lt;street_direction&gt;...&lt;/street_direction&gt;
+   &lt;unit_designator&gt;...&lt;/unit_designator&gt;
+   &lt;unit_number&gt;...&lt;/unit_number&gt;
+   &lt;municipality&gt;...&lt;/municipality&gt;
+   &lt;postal_code&gt;...&lt;/postal_code&gt;
+   &lt;province&gt;...&lt;/province&gt;
+  &lt;/request&gt;
+ &lt;/body&gt;
+&lt;/B2B&gt;</pre>
 </div>
 <div caption="StreetView" created="20151010205755347" modified="20151025035924207" tags="" title="Dashboard/StreetView">
 <pre>\define StreetView()
@@ -7977,7 +8070,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20151106045403009" tags="" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20151108215153832" tags="" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -7996,8 +8089,76 @@ x
 &lt;/$list&gt;
 \end
 
+\define toolbar()
+   report type:
+   &lt;$select tiddler=&quot;$:/config/TeraNet&quot; index=&quot;ReportType&quot;&gt;
+      &lt;option value=&quot;BASICREPORT&quot;&gt;Basic report&lt;/option&gt;
+      &lt;option value=&quot;FULLREPORT&quot;&gt;Full report&lt;/option&gt;
+   &lt;/$select&gt;
+   &lt;&lt;dashboardpopup id:&quot;TeraNet/SearchBy&quot;
+      label:&quot;search by...&quot;
+      title:&quot;TeraNet Search Criteria&quot;
+      content:&quot;search&quot;
+      position:&quot;belowright&quot;&gt;&gt;
+  &lt;$button&gt;get data&lt;/$button&gt;
+\end
+
+\define search()
+   @@.nowrap 
+   &lt;&lt;edit StreetNumber StreetNumber&gt;&gt;
+   &lt;&lt;edit StreetName StreetName&gt;&gt;
+   &lt;&lt;edit Suite Suite&gt;&gt;
+   &lt;br&gt;
+   &lt;&lt;edit Municipality Municipality&gt;&gt;
+   &lt;&lt;edit PostalCode PostalCode&gt;&gt;
+   &lt;&lt;edit LRO LRO&gt;&gt;
+   &lt;&lt;edit ProvinceCode ProvinceCode&gt;&gt;
+   &lt;br&gt;
+   &lt;&lt;edit OwnerName OwnerName&gt;&gt;
+   &lt;&lt;edit Pin Pin&gt;&gt;
+   &lt;br&gt;
+   &lt;&lt;edit PurchasePrice PurchasePrice&gt;&gt;
+   &lt;&lt;edit LoanValue LoanValue&gt;&gt;
+   &lt;&lt;edit PurchaserName PurchaserName&gt;&gt;
+   &lt;&lt;edit ValuationDate ValuationDate&gt;&gt;
+   &lt;br&gt;
+   &lt;&lt;edit AVMModelID AVMModelID&gt;&gt;
+   &lt;&lt;edit FraudCheckID FraudCheckID&gt;&gt;
+   @@
+\end
+
+\define edit(index,prompt,size:&quot;15&quot;)
+   &lt;$edit-text tag=&quot;input&quot; index=&quot;$index$&quot;
+      tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;$prompt$&quot; size=&quot;$size$&quot; /&gt;
+\end
+
+\define parseXML()
+   &lt;$select tiddler=&quot;$:/temp/TeraNet/source&quot; field=&quot;text&quot;&gt;
+      &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
+      &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
+      &lt;/$list&gt;
+   &lt;/$select&gt;
+   &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
+   &lt;$button&gt; parse
+      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt;
+         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
+   &lt;/$button&gt;
+   &lt;$button&gt; clear
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot;/&gt;
+   &lt;/$button&gt;
+   &lt;/$set&gt;
+\end
+
 \define options()
-//none//
+MPAC Server:&lt;br&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;url&quot;
+   tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;enter URL&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
+~UserID:&lt;br&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;userid&quot;
+   tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;enter userid&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
+Password:&lt;br&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;password&quot;
+   tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
 &lt;div class=&quot;shadowbox left clear&quot;&gt;
@@ -8008,35 +8169,61 @@ x
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.nowrap
-   &lt;$select tiddler=&quot;$:/temp/TeraNet/source&quot; field=&quot;text&quot;&gt;
-      &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
-      &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
-      &lt;/$list&gt;
-   &lt;/$select&gt;
+@@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
+&lt;div class=&quot;clear shadowbox inset&quot;&gt;
+   @@.smaller.nowrap &lt;&lt;parseXML&gt;&gt;@@
    &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
-   &lt;$button&gt; parse
-      &lt;$action-httpRequest
-         tiddler=&lt;&lt;source&gt;&gt;
-         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
-   &lt;/$button&gt;
-   &lt;$button&gt; reset
-      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot;/&gt;
-   &lt;/$button&gt;
-   &lt;/$set&gt;
-@@
-@@.clear.shadowbox.inset
-&lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
-   &lt;div class=&quot;center smallest bottomdots&quot;&gt;
-      source: &lt;$link to=&lt;&lt;source&gt;&gt;&gt;&lt;&lt;source&gt;&gt;&lt;/$link&gt;
-   &lt;/div&gt;
    &lt;table class=&quot;borderless smaller&quot; style=&quot;width:100%;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;header&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;report&gt;&gt;/&gt;
    &lt;/table&gt;
-&lt;/$set&gt;
-@@
+   &lt;/$set&gt;
+&lt;/div&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20151108212500136" modified="20151108213100980" tags="" title="Dashboard/Teranet/RequestTemplate" type="text/plain">
+<pre>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:dir=&quot;http://direct.purview.ca/&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;dir:DirectReportRequest&gt;
+         &lt;dir:ReportRequest&gt;
+            &lt;dir:ReportType&gt;...&lt;/dir:ReportType&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:CustomerReference&gt;...&lt;/dir:CustomerReference&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:Address&gt;
+               &lt;dir:StreetNumber&gt;...&lt;/dir:StreetNumber&gt;
+               &lt;dir:StreetName&gt;...&lt;/dir:StreetName&gt;
+               &lt;!--Optional:--&gt;
+               &lt;dir:Suite&gt;...&lt;/dir:Suite&gt;
+               &lt;!--Optional:--&gt;
+               &lt;dir:Municipality&gt;...&lt;/dir:Municipality&gt;
+               &lt;!--Optional:--&gt;
+               &lt;dir:PostalCode&gt;...&lt;/dir:PostalCode&gt;
+               &lt;!--Optional:--&gt;
+               &lt;dir:LRO&gt;...&lt;/dir:LRO&gt;
+               &lt;dir:ProvinceCode&gt;...&lt;/dir:ProvinceCode&gt;
+            &lt;/dir:Address&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:OwnerName&gt;...&lt;/dir:OwnerName&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:Pin&gt;...&lt;/dir:Pin&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:PurchasePrice&gt;...&lt;/dir:PurchasePrice&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:LoanValue&gt;...&lt;/dir:LoanValue&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:PurchaserName&gt;...&lt;/dir:PurchaserName&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:ValuationDate&gt;...&lt;/dir:ValuationDate&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:AVMModelID&gt;...&lt;/dir:AVMModelID&gt;
+            &lt;!--Optional:--&gt;
+            &lt;dir:FraudCheckID&gt;...&lt;/dir:FraudCheckID&gt;
+         &lt;/dir:ReportRequest&gt;
+      &lt;/dir:DirectReportRequest&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;&lt;/soapenv:Envelope&gt;</pre>
 </div>
 <div created="20150705202151779" modified="20150724070450334" module-type="widget" tags="" title="Geo/action-getGeoData.js" type="application/javascript">
 <pre>/*\
