@@ -6507,7 +6507,7 @@ LOAD
 <div modified="20151026220448892" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div modified="20151109054319768" title="$:/state/Dashboard/Maps">
+<div modified="20151109061224386" title="$:/state/Dashboard/Maps">
 <pre></pre>
 </div>
 <div modified="20151109045718266" title="$:/state/Dashboard/MPAC">
@@ -6519,7 +6519,7 @@ LOAD
 <div modified="20151109045733925" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
-<div modified="20151109055217228" title="$:/state/sidebar">
+<div modified="20151109061228202" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
@@ -7154,7 +7154,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20151109054232486" tags="" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20151109061147875" tags="" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7275,14 +7275,14 @@ timeout:&lt;br&gt;
 @@.floatleft.smaller 
    &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; &lt;&lt;showTimestamp&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset center smaller&quot;&gt;
-   @@.floatleft 
-      &lt;nobr&gt;latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-         tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;&lt;/nobr&gt;
-      &lt;nobr&gt;longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-         tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;&lt;/nobr&gt;
-      &lt;nobr&gt;&lt;$view tiddler=&lt;&lt;target&gt;&gt; field=&quot;modified&quot;
-         format=&quot;date&quot; template=&quot;YYYY.0MM.0DD 0hh:0mm:0ss&quot;/&gt;&lt;/nobr&gt;@@
-   @@.floatright
+   @@.floatleft.nowrap 
+      latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+         tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
+      longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+         tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+      ,,&lt;$view tiddler=&lt;&lt;target&gt;&gt; field=&quot;modified&quot;
+         format=&quot;date&quot; template=&quot;YYYY.0MM.0DD 0hh:0mm:0ss&quot;/&gt;,,@@
+   @@.floatright.nowrap
       &lt;&lt;saveGeo&gt;&gt;
       &lt;&lt;dashboardpopup id:&quot;GeoLocation/Load&quot;
          label:&quot;load&quot;
