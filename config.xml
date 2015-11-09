@@ -4,7 +4,7 @@
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id            = "com.elsdesign.CurbSide"
         versionCode   = "10" 
-        version       = "0.5.8" >
+        version       = "0.6.0" >
 
 <name>
     CurbSide Prototype
