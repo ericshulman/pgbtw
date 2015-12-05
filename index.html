@@ -6546,7 +6546,7 @@ LOAD
 <div modified="20151107020803871" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151109053547814" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151205100729993" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
@@ -10175,31 +10175,81 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
    &lt;/SOAP-ENV:Body&gt;
 &lt;/SOAP-ENV:Envelope&gt;</pre>
 </div>
-<div created="20151203215640514" modified="20151204045740328" tags="$:/tags/Macro" title="macros/more">
-<pre>\define more-body(list,size,level)
-&lt;$set name=&quot;id&quot; value=&quot;$:/state/popup/more/$level$+&quot;&gt;
+<div created="20151203215640514" modified="20151205100817803" tags="$:/tags/Macro" title="macros/more">
+<pre>\define more-text()   &lt;div&gt;&lt;/div&gt;&lt;$text text=&lt;&lt;currentTiddler&gt;&gt;/&gt;
+\define more-link()   &lt;div&gt;&lt;/div&gt;&lt;$link&gt;&lt;$text text=&lt;&lt;currentTiddler&gt;&gt;/&gt;&lt;/$link&gt;
+\define more-bullet() &lt;li&gt;&lt;$link&gt;&lt;$text text=&lt;&lt;currentTiddler&gt;&gt;/&gt;&lt;/$link&gt;&lt;/li&gt;
+
+\define more-body(list,size,template,id,level:&quot;+&quot;)
+&lt;$set name=&quot;id&quot;   value=&lt;&lt;qualify &quot;$:/state/popup/more/$id$$level$&quot;&gt;&gt;&gt;
 &lt;$set name=&quot;rest&quot; filter=&quot;&quot;&quot;$list$ +[rest[$size$]]&quot;&quot;&quot;&gt;
-&lt;$list filter=&quot;&quot;&quot;$list$ +[limit[$size$]]&quot;&quot;&quot;&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;br&gt;&lt;/$list&gt;
+&lt;!-- SHOW THIS PAGE OF ITEMS --&gt;
+&lt;$list filter=&quot;&quot;&quot;$list$ +[limit[$size$]]&quot;&quot;&quot;&gt;&lt;&lt;$template$&gt;&gt;&lt;/$list&gt;
+&lt;!-- IF MORE ITEMS TO BE SHOWN --&gt;
 &lt;$reveal text=&lt;&lt;rest&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+   &lt;!-- IF NEXT PAGE NOT ALREADY SHOWN --&gt;
    &lt;$reveal state=&lt;&lt;id&gt;&gt; type=&quot;match&quot; text=&quot;&quot;&gt;
-   &lt;$button set=&lt;&lt;id&gt;&gt; setTo=&quot;show&quot;&gt; show $size$ more items... &lt;/$button&gt;
+      &lt;!-- TOGGLE NEXT PAGE VIEW --&gt;
+      &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;show $size$ additional items&quot;&gt;
+         {{$:/core/images/down-arrow}}
+         &lt;$count filter=&lt;&lt;rest&gt;&gt;/&gt; more...
+         &lt;$action-setfield $tiddler=&lt;&lt;id&gt;&gt; text=&quot;show&quot;/&gt;
+      &lt;/$button&gt;
    &lt;/$reveal&gt;
+   &lt;!-- IF NEXT PAGE IS ALREADY SHOWN --&gt;
    &lt;$reveal state=&lt;&lt;id&gt;&gt; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
-   &lt;$button&gt; less... &lt;$action-deletetiddler $tiddler=&lt;&lt;id&gt;&gt;/&gt;&lt;/$button&gt;
-   &lt;br&gt;&lt;$macrocall $name=&quot;more-body&quot; list=&lt;&lt;rest&gt;&gt; size=&quot;$size$&quot; level=&quot;$level$+&quot;/&gt;
+      &lt;!-- HIDE ALL PAGES AFTER THIS ONE --&gt;
+      &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;hide additional items&quot;&gt;
+         {{$:/core/images/up-arrow}}
+         &lt;$action-deletetiddler
+            $filter=&quot;[prefix[$:/state/popup/more/$id$$level$]suffix&lt;qualify&gt;]&quot;/&gt;
+      &lt;/$button&gt;
+      &lt;!-- SHOW NEXT PAGE CONTENT --&gt;
+      &lt;$macrocall $name=&quot;more-body&quot;
+         list=&lt;&lt;rest&gt;&gt; size=&quot;$size$&quot; template=&quot;$template$&quot; level=&quot;$level$+&quot;/&gt;
    &lt;/$reveal&gt;
 &lt;/$reveal&gt;
 &lt;/$set&gt;
 &lt;/$set&gt;
 \end
 
-\define more(filt,size:&quot;10&quot;)
-&lt;$set name=&quot;results&quot; filter=&quot;&quot;&quot;$filt$&quot;&quot;&quot;&gt;
-&lt;$macrocall $name=&quot;more-body&quot; list=&lt;&lt;results&gt;&gt; size=&quot;$size$&quot; /&gt;
-&lt;/$set&gt;
+\define more-help()
+//Usage://&lt;br&gt;
+&lt;blockquote&gt;
+``&lt;&lt;more filter:&quot;...&quot; size:&quot;...&quot; template:&quot;...&quot; id:&quot;...&quot;&gt;&gt;``
+&lt;ul&gt;
+&lt;li&gt;''filter'' (required)&lt;br&gt;
+Generates the list of items to display&lt;/li&gt;
+&lt;li&gt;''size'' (default:10)&lt;br&gt;
+Number of items to show per 'page'&lt;/li&gt;
+&lt;li&gt;''template'' (default:more-bullet)&lt;br&gt;
+Format for displaying one item.  Pre-defined template values are:&lt;br&gt;&amp;nbsp; ``more-text``, ``more-link``, and ``more-bullet``&lt;br&gt; Define a custom macro to create your own output template.  Use the macro name as the template parameter value&lt;/li&gt;
+&lt;li&gt;''id'' (optional)&lt;br&gt;
+Ensures each ``&lt;&lt;more&gt;&gt;`` is uniquely tracked if multiple instances are embedded in the same tiddler content&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+//Examples://&lt;br&gt;
+&lt;blockquote&gt;
+``&lt;ol&gt;&lt;&lt;more &quot;[all[tiddlers]]&quot;&gt;&gt;&lt;/ol&gt;``&lt;br&gt;
+&lt;ol&gt;&lt;&lt;more &quot;[all[tiddlers]]&quot;&gt;&gt;&lt;/ol&gt;
+``&lt;&lt;more &quot;[all[tiddlers]]&quot; size:15 template:more-link id:foo&gt;&gt;``&lt;br&gt;
+&lt;&lt;more &quot;[all[tiddlers]]&quot; size:15 template:more-link id:foo&gt;&gt;
+&lt;/blockquote&gt;
+//code://&lt;br&gt;
+&lt;pre class=&quot;smaller&quot;&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/pre&gt;
 \end
 
-&lt;&lt;more &quot;[all[tiddlers]limit[37]]&quot;&gt;&gt;</pre>
+\define more(filter,size:&quot;10&quot;,template:&quot;more-bullet&quot;,id)
+&lt;$reveal text=&quot;&quot;&quot;$filter$&quot;&quot;&quot; type=&quot;match&quot; default=&quot;&quot;&gt;&lt;&lt;more-help&gt;&gt;&lt;/$reveal&gt;
+&lt;$reveal text=&quot;&quot;&quot;$filter$&quot;&quot;&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+&lt;$set name=&quot;results&quot; filter=&quot;&quot;&quot;$filter$ -[prefix[$:/state/popup/more/]]&quot;&quot;&quot;&gt;
+&lt;$macrocall $name=&quot;more-body&quot;
+   list=&lt;&lt;results&gt;&gt; size=&quot;$size$&quot; template=&quot;$template$&quot; id=&quot;$id$&quot; /&gt;
+&lt;/$set&gt;
+&lt;/$reveal&gt;
+\end
+
+&lt;&lt;more&gt;&gt;</pre>
 </div>
 <div title="MPAC_AVM_12ClarkSecorOutput.xml" type="text/xml">
 <pre>&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
