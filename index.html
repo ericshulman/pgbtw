@@ -371,8 +371,8 @@ Error message and password prompt
     &quot;height&quot;: &quot;600&quot;
 }</pre>
 </div>
-<div created="20150705120259221" modified="20151024170346342" title="$:/config/SaverFilter">
-<pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[$:/Geo/Data]] -[tag[location]] -[prefix[$:/LocalStorage]]</pre>
+<div created="20150705120259221" modified="20151205101909213" title="$:/config/SaverFilter">
+<pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[$:/Geo/Data]] -[prefix[$:/LocalStorage]] -[prefix[$:/xml]] -[tag[location]]</pre>
 </div>
 <div created="20151017064109083" modified="20151109072842362" title="$:/config/StreetView" type="application/json">
 <pre>{
@@ -6447,9 +6447,9 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 })();
 </pre>
 </div>
-<div created="20151014222704726" modified="20151105132544711" title="$:/core/save/all">
+<div created="20151014222704726" modified="20151205102049610" title="$:/core/save/all">
 <pre>\define saveTiddlerFilter()
-[is[tiddler]] -[prefix[$:/state/popup/]] -[[$:/HistoryList]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] -[prefix[$:/LocalStorage]] -[prefix[$:/Geo/Data/Address/]] -[prefix[$:/xml/]] +[sort[title]]
+[is[tiddler]] -[prefix[$:/state/popup/]] -[[$:/HistoryList]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] -[prefix[$:/LocalStorage]] -[prefix[$:/xml]] -[prefix[$:/Geo/Data/Address/]] -[prefix[$:/xml/]] +[sort[title]]
 \end
 {{$:/core/templates/tiddlywiki5.html}}
 </pre>
@@ -6528,7 +6528,7 @@ LOAD
 <div modified="20151109072852473" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151109065937747" title="$:/state/Dashboard/TeraNet">
+<div modified="20151205102134570" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
 <div modified="20151204011812969" title="$:/state/sidebar">
@@ -6537,8 +6537,8 @@ LOAD
 <div modified="20151012040634334" title="$:/state/tab--1119925701">
 <pre>Dashboard/AddressLookup</pre>
 </div>
-<div modified="20151105232800903" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+<div modified="20151205101724914" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
 <div modified="20150724054920957" title="$:/state/tab--238403861">
 <pre>Geo/Map</pre>
@@ -6546,13 +6546,13 @@ LOAD
 <div modified="20151107020803871" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151205100729993" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151205102144857" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20150706192244698" modified="20151105214216931" title="$:/temp/advancedsearch">
+<div created="20150706192244698" modified="20151205102110694" title="$:/temp/advancedsearch">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
