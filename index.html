@@ -367,10 +367,28 @@ Error message and password prompt
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
 </div>
-<div created="20151204010731373" modified="20151204010737605" title="$:/config/Realtor.ca" type="application/json">
+<div created="20151204010731373" modified="20151215185635367" title="$:/config/Realtor.ca" type="application/json">
 <pre>{
     &quot;width&quot;: &quot;100%&quot;,
-    &quot;height&quot;: &quot;600&quot;
+    &quot;height&quot;: &quot;600&quot;,
+    &quot;CultureId&quot;: &quot;1&quot;,
+    &quot;ApplicationId&quot;: &quot;1&quot;,
+    &quot;RecordsPerPage&quot;: &quot;9&quot;,
+    &quot;MaximumResults&quot;: &quot;9&quot;,
+    &quot;PropertyTypeId&quot;: &quot;300&quot;,
+    &quot;TransactionTypeId&quot;: &quot;2&quot;,
+    &quot;StoreyRange&quot;: &quot;0-0&quot;,
+    &quot;BuildingTypeId&quot;: &quot;1&quot;,
+    &quot;ConstructionStyleId&quot;: &quot;3&quot;,
+    &quot;BedRange&quot;: &quot;4-4&quot;,
+    &quot;BathRange&quot;: &quot;2-0&quot;,
+    &quot;SortOrder&quot;: &quot;A&quot;,
+    &quot;SortBy&quot;: &quot;1&quot;,
+    &quot;viewState&quot;: &quot;m&quot;,
+    &quot;LongitudeMin&quot;: &quot;-79.16777873039248&quot;,
+    &quot;LongitudeMax&quot;: &quot;-79.0944793224335&quot;,
+    &quot;LatitudeMin&quot;: &quot;43.74280230664921&quot;,
+    &quot;LatitudeMax&quot;: &quot;43.84335742928289&quot;
 }</pre>
 </div>
 <div created="20150705120259221" modified="20151205101909213" title="$:/config/SaverFilter">
@@ -6521,16 +6539,16 @@ LOAD
 <div modified="20151109072823072" title="$:/state/Dashboard/Maps">
 <pre></pre>
 </div>
-<div modified="20151109072752877" title="$:/state/Dashboard/MPAC">
+<div modified="20151215185755788" title="$:/state/Dashboard/MPAC">
 <pre></pre>
 </div>
-<div modified="20151204050208988" title="$:/state/Dashboard/Realtor.ca">
+<div modified="20151215185749397" title="$:/state/Dashboard/Realtor.ca">
 <pre></pre>
 </div>
 <div modified="20151109072852473" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div modified="20151205102134570" title="$:/state/Dashboard/TeraNet">
+<div modified="20151215185750701" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
 <div modified="20151204011812969" title="$:/state/sidebar">
@@ -6548,7 +6566,7 @@ LOAD
 <div modified="20151107020803871" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div modified="20151205135254758" title="$:/state/tab/sidebar--1835078512">
+<div modified="20151215185801857" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div list="Dashboard" title="$:/StoryList">
@@ -7855,7 +7873,7 @@ quality:&lt;br&gt; &amp;nbsp;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20151109041302306" tags="" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20151214043253427" tags="" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -7916,8 +7934,11 @@ quality:&lt;br&gt; &amp;nbsp;
 \end
 
 \define edit(index,prompt,size:&quot;15&quot;)
+&lt;div style=&quot;display:inline-block&quot;&gt;
+   &lt;div style=&quot;font-size:80%&quot;&gt;&lt;$text text=&quot;&quot;&quot;$prompt$&quot;&quot;&quot;/&gt;:&lt;/div&gt;
    &lt;$edit-text tag=&quot;input&quot; index=&quot;$index$&quot;
       tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;$prompt$&quot; size=&quot;$size$&quot; /&gt;
+&lt;/div&gt;
 \end
 
 \define parseXML()
@@ -8007,20 +8028,64 @@ Password:&lt;br&gt;
  &lt;/body&gt;
 &lt;/B2B&gt;</pre>
 </div>
-<div caption="Realtor.ca" created="20151204010130352" modified="20151204011402572" tags="" title="Dashboard/Realtor.ca">
+<div caption="Realtor.ca" created="20151204010130352" modified="20151215185354009" tags="" title="Dashboard/Realtor.ca">
 <pre>\define ShowMap()
-&lt;iframe src=&quot;https://www.realtor.ca/Residential/Map.aspx#CultureId=1&amp;ApplicationId=1&amp;RecordsPerPage=9&amp;MaximumResults=9&amp;PropertySearchTypeId=1&amp;TransactionTypeId=2&amp;StoreyRange=0-0&amp;BuildingTypeId=1&amp;ConstructionStyleId=3&amp;BedRange=4-4&amp;BathRange=2-0&amp;SortOrder=A&amp;SortBy=1&amp;viewState=m&amp;Longitude=$(longitude)$&amp;Latitude=$(latitude)$&amp;CurrentPage=1&quot; width=&quot;$(width)$&quot; height=&quot;$(height)$&quot;&gt;&lt;/iframe&gt;
+&lt;iframe src=&quot;http://www.realtor.ca/Residential/Map.aspx#CultureId=$(CultureId)$&amp;ApplicationId=$(ApplicationId)$&amp;RecordsPerPage=$(RecordsPerPage)$&amp;MaximumResults=$(MaximumResults)$&amp;PropertyTypeId=$(PropertyTypeId)$&amp;TransactionTypeId=$(TransactionTypeId)$&amp;StoreyRange=$(StoreyRange)$&amp;BuildingTypeId=$(BuildingTypeId)$&amp;ConstructionStyleId=$(ConstructionStyleId)$&amp;BedRange=$(BedRange)$&amp;BathRange=$(BathRange)$&amp;LongitudeMin=$(LongitudeMin)$&amp;LongitudeMax=$(LongitudeMax)$&amp;LatitudeMin=$(LatitudeMin)$&amp;LatitudeMax=$(LatitudeMax)$&amp;SortOrder=$(SortOrder)$&amp;SortBy=$(SortBy)$&amp;viewState=$(viewState)$Longitude=$(longitude)$&amp;Latitude=$(latitude)$&quot; width=&quot;$(width)$&quot; height=&quot;$(height)$&quot;&gt;&lt;/iframe&gt;
 \end
 
 \define ShowLink()
-source: [ext[https://www.realtor.ca/Residential/Map.aspx#CultureId=1&amp;ApplicationId=1&amp;RecordsPerPage=9&amp;MaximumResults=9&amp;PropertySearchTypeId=1&amp;TransactionTypeId=2&amp;StoreyRange=0-0&amp;BuildingTypeId=1&amp;ConstructionStyleId=3&amp;BedRange=4-4&amp;BathRange=2-0&amp;SortOrder=A&amp;SortBy=1&amp;viewState=m&amp;Longitude=$(longitude)$&amp;Latitude=$(latitude)$&amp;CurrentPage=1]]
+source: 
+[ext[http://www.realtor.ca/Residential/Map.aspx#CultureId=$(CultureId)$&amp;ApplicationId=$(ApplicationId)$&amp;RecordsPerPage=$(RecordsPerPage)$&amp;MaximumResults=$(MaximumResults)$&amp;PropertyTypeId=$(PropertyTypeId)$&amp;TransactionTypeId=$(TransactionTypeId)$&amp;StoreyRange=$(StoreyRange)$&amp;BuildingTypeId=$(BuildingTypeId)$&amp;ConstructionStyleId=$(ConstructionStyleId)$&amp;BedRange=$(BedRange)$&amp;BathRange=$(BathRange)$&amp;LongitudeMin=$(LongitudeMin)$&amp;LongitudeMax=$(LongitudeMax)$&amp;LatitudeMin=$(LatitudeMin)$&amp;LatitudeMax=$(LatitudeMax)$&amp;SortOrder=$(SortOrder)$&amp;SortBy=$(SortBy)$&amp;viewState=$(viewState)$Longitude=$(longitude)$&amp;Latitude=$(latitude)$]]
 \end
 
-\define showcontrols()
-latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-   tiddler=&quot;$:/Geo/Data&quot; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
-longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-   tiddler=&quot;$:/Geo/Data&quot; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+\define toolbar()
+location:
+&lt;$edit-text tag=&quot;input&quot; index=&quot;latitude&quot;  tiddler=&quot;$:/Geo/Data&quot; size=&quot;8&quot; /&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;longitude&quot; tiddler=&quot;$:/Geo/Data&quot; size=&quot;8&quot; /&gt;
+&lt;&lt;dashboardpopup id:&quot;Realtor.ca/SearchBy&quot;
+   label:&quot;search by...&quot;
+   title:&quot;Realtor.ca Search Criteria&quot;
+   content:&quot;search&quot;
+   position:&quot;belowleft&quot;&gt;&gt;
+\end
+
+\define search()
+&lt;div style=&quot;white-space:nowrap&quot;&gt;
+Viewport:&lt;br&gt;
+&lt;&lt;edit LongitudeMin LongitudeMin&gt;&gt;
+&lt;&lt;edit LongitudeMax LongitudeMax&gt;&gt;
+&lt;br&gt;
+&lt;&lt;edit LatitudeMin LatitudeMin&gt;&gt;
+&lt;&lt;edit LatitudeMax LatitudeMax&gt;&gt;
+&lt;hr&gt;
+&lt;&lt;edit CultureId CultureId&gt;&gt;
+&lt;&lt;edit ApplicationId ApplicationId&gt;&gt;
+&lt;br&gt;
+&lt;&lt;edit RecordsPerPage RecordsPerPage&gt;&gt;
+&lt;&lt;edit MaximumResults MaximumResults&gt;&gt;
+&lt;br&gt;
+&lt;&lt;edit PropertyTypeId PropertyTypeId&gt;&gt;
+&lt;&lt;edit TransactionTypeId TransactionTypeId&gt;&gt;
+&lt;br&gt;
+&lt;&lt;edit BuildingTypeId BuildingTypeId&gt;&gt;
+&lt;&lt;edit ConstructionStyleId ConstructionStyleId&gt;&gt;
+&lt;br&gt;
+&lt;&lt;edit StoreyRange StoreyRange&gt;&gt;
+&lt;&lt;edit BedRange BedRange&gt;&gt;
+&lt;&lt;edit BathRange BathRange&gt;&gt;
+&lt;br&gt;
+&lt;&lt;edit SortOrder SortOrder&gt;&gt;
+&lt;&lt;edit SortBy SortBy&gt;&gt;
+&lt;&lt;edit viewState viewState&gt;&gt;
+&lt;/div&gt;
+\end
+
+\define edit(index,prompt,size:&quot;15&quot;,tid:&quot;$:/config/Realtor.ca&quot;)
+&lt;div style=&quot;display:inline-block&quot;&gt;
+&lt;div style=&quot;font-size:80%&quot;&gt;&lt;$text text=&quot;&quot;&quot;$prompt$&quot;&quot;&quot;/&gt;:&lt;/div&gt;
+&lt;$edit-text tag=&quot;input&quot; index=&quot;$index$&quot;
+   tiddler=&quot;$tid$&quot; default=&quot;&quot; placeholder=&quot;$prompt$&quot; size=&quot;$size$&quot; /&gt;
+&lt;/div&gt;
 \end
 
 \define options()
@@ -8043,13 +8108,32 @@ x
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
-   &lt;&lt;showcontrols&gt;&gt;@@
+   &lt;&lt;toolbar&gt;&gt;@@
 @@.clear.shadowbox.inset
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
     longitude={{$:/Geo/Data##longitude}}
     width={{$:/config/Realtor.ca##width}}
-    height={{$:/config/Realtor.ca##height}}&gt;
+    height={{$:/config/Realtor.ca##height}}
+    CultureId={{$:/config/Realtor.ca##CultureId}}
+    ApplicationId={{$:/config/Realtor.ca##ApplicationId}}
+    RecordsPerPage={{$:/config/Realtor.ca##RecordsPerPage}}
+    MaximumResults={{$:/config/Realtor.ca##MaximumResults}}
+    PropertySearchTypeId={{$:/config/Realtor.ca##PropertySearchTypeId}}
+    TransactionTypeId={{$:/config/Realtor.ca##TransactionTypeId}}
+    BuildingTypeId={{$:/config/Realtor.ca##BuildingTypeId}}
+    ConstructionStyleId={{$:/config/Realtor.ca##ConstructionStyleId}}
+    StoreyRange={{$:/config/Realtor.ca##StoreyRange}}
+    BedRange={{$:/config/Realtor.ca##BedRange}}
+    BathRange={{$:/config/Realtor.ca##BathRange}}
+    SortOrder={{$:/config/Realtor.ca##SortOrder}}
+    SortBy={{$:/config/Realtor.ca##SortBy}}
+    viewState={{$:/config/Realtor.ca##viewState}}
+    LongitudeMin={{$:/config/Realtor.ca##LongitudeMin}}
+    LongitudeMax={{$:/config/Realtor.ca##LongitudeMax}}
+    LatitudeMin={{$:/config/Realtor.ca##LatitudeMin}}
+    LatitudeMax={{$:/config/Realtor.ca##LatitudeMax}}
+   &gt;
    &lt;&lt;ShowMap&gt;&gt;
    &lt;div class=&quot;smallest&quot;&gt;&lt;&lt;ShowLink&gt;&gt;&lt;/div&gt;
    &lt;/$vars&gt;
@@ -8114,7 +8198,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20151109041159066" tags="" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20151214043238156" tags="" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -8178,8 +8262,11 @@ x
 \end
 
 \define edit(index,prompt,size:&quot;15&quot;)
+&lt;div style=&quot;display:inline-block&quot;&gt;
+   &lt;div style=&quot;font-size:80%&quot;&gt;&lt;$text text=&quot;&quot;&quot;$prompt$&quot;&quot;&quot;/&gt;:&lt;/div&gt;
    &lt;$edit-text tag=&quot;input&quot; index=&quot;$index$&quot;
       tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;$prompt$&quot; size=&quot;$size$&quot; /&gt;
+&lt;/div&gt;
 \end
 
 \define parseXML()
@@ -8202,7 +8289,7 @@ x
 \end
 
 \define options()
-MPAC Server:&lt;br&gt;
+TeraNet Server:&lt;br&gt;
 &lt;$edit-text tag=&quot;input&quot; index=&quot;url&quot;
    tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;enter URL&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 ~UserID:&lt;br&gt;
