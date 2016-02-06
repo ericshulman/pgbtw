@@ -394,11 +394,11 @@ Error message and password prompt
     &quot;address&quot;: &quot;111 Wellesley St W, Toronto, ON M7A 1A5, Canada&quot;
 }</pre>
 </div>
-<div created="20151021074010415" modified="20160206034345851" title="$:/config/GoogleMaps" type="application/json">
+<div created="20151021074010415" modified="20160206193916938" title="$:/config/GoogleMaps" type="application/json">
 <pre>{
     &quot;width&quot;: &quot;640&quot;,
     &quot;height&quot;: &quot;384&quot;,
-    &quot;scale&quot;: &quot;1&quot;,
+    &quot;scale&quot;: &quot;2&quot;,
     &quot;maptype&quot;: &quot;hybrid&quot;,
     &quot;zoom&quot;: &quot;17&quot;
 }</pre>
@@ -459,7 +459,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160206190129332" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160206195051151" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
@@ -6910,7 +6910,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160206051622299" modified="20160206185849133" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160206051622299" modified="20160206192838799" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7575,7 +7575,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/config/TiddlyTools]]</pre>
+# [[Dashboard/StreetView]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -7628,7 +7628,7 @@ LOAD
 <div created="20160206050630095" modified="20160206050654495" title="$:/state/Dashboard/Realtor.ca">
 <pre></pre>
 </div>
-<div created="20160205232056994" modified="20160205232058618" title="$:/state/Dashboard/StreetView">
+<div created="20160205232056994" modified="20160206195011560" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
 <div created="20160205060325015" modified="20160206163002457" title="$:/state/sidebar">
@@ -7676,7 +7676,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="TiddlyTools/SlideBars/Transitions/Debug $:/config/TiddlyTools" title="$:/StoryList">
+<div list="Dashboard/Maps" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160206051131662" title="$:/temp/advancedsearch">
@@ -8436,8 +8436,11 @@ timeout:&lt;br&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160206050933894" modified="20160206051107942" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
-<pre>&lt;$button to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/home-button}}&lt;/$button&gt;</pre>
+<div created="20160206050933894" modified="20160206194458722" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
+<pre>&lt;$button to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot;&gt;
+   {{$:/core/images/home-button}}
+   &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
+&lt;/$button&gt;</pre>
 </div>
 <div caption="Storage" created="20151009192813110" modified="20160206161715829" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
@@ -8915,10 +8918,10 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160206161813620" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20160206195105224" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
 <pre>\define ShowMap()
 &lt;$reveal state=&quot;$:/config/TiddlyTools##LeftBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
-[img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
+[img width=$(width)$ height=$(height)$ [https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
 &lt;/$reveal&gt;
 &lt;$reveal state=&quot;$:/config/TiddlyTools##LeftBar&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
    &lt;$button set=&quot;$:/config/TiddlyTools##LeftBar&quot; setTo=&quot;yes&quot;
@@ -8980,7 +8983,7 @@ quality:&lt;br&gt; &amp;nbsp;
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
+&lt;div class=&quot;shadowbox left clear&quot; style=&quot;width:max-content&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -8990,7 +8993,7 @@ quality:&lt;br&gt; &amp;nbsp;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;LeftBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
-@@.clear.shadowbox.inset
+&lt;div class=&quot;clear shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
     longitude={{$:/Geo/Data##longitude}}
@@ -9002,7 +9005,7 @@ quality:&lt;br&gt; &amp;nbsp;
    &lt;&lt;ShowMap&gt;&gt;
    &lt;div class=&quot;smallest&quot;&gt;&lt;&lt;ShowLink&gt;&gt;&lt;/div&gt;
    &lt;/$vars&gt;
-@@
+&lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
 <div caption="MPAC" created="20151105083541233" modified="20160206162501955" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
@@ -9272,7 +9275,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160206161848043" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20160206194954336" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define StreetView()
 &lt;$reveal state=&quot;$:/config/TiddlyTools##RightBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
    [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -9314,7 +9317,7 @@ x
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
+&lt;div class=&quot;shadowbox left clear&quot; style=&quot;position:absolute;right:0;width:calc(max-content + 1em)&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;StreetView/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9324,7 +9327,7 @@ x
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;RightBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
-@@.clear.shadowbox.inset
+&lt;div class=&quot;clear shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
    &lt;$vars
       latitude={{$:/Geo/Data##latitude}}
       longitude={{$:/Geo/Data##longitude}}
@@ -9335,7 +9338,7 @@ x
    &lt;&lt;StreetView&gt;&gt;
    &lt;div class=&quot;smallest&quot;&gt;&lt;&lt;ShowLink&gt;&gt;&lt;/div&gt;
    &lt;/$vars&gt;
-@@
+&lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
 <div caption="TeraNet" created="20151105112106480" modified="20160206162752334" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
