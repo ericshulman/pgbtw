@@ -374,12 +374,12 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151017063232716" modified="20151027205333387" title="$:/config/Camera" type="application/json">
+<div created="20151017063232716" modified="20160206201922087" title="$:/config/Camera" type="application/json">
 <pre>{
     &quot;name&quot;: &quot;photo&quot;,
     &quot;format&quot;: &quot;jpg&quot;,
-    &quot;width&quot;: &quot;1280&quot;,
-    &quot;height&quot;: &quot;768&quot;,
+    &quot;width&quot;: &quot;640&quot;,
+    &quot;height&quot;: &quot;384&quot;,
     &quot;quality&quot;: &quot;50&quot;,
     &quot;path&quot;: &quot;photos/&quot;,
     &quot;counter&quot;: &quot;04&quot;
@@ -459,7 +459,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160206195745598" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160206203659492" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
@@ -7702,8 +7702,8 @@ LOAD
 <div created="20160205082821981" modified="20160206051422077" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160206161323050" title="$:/temp/search">
-<pre>dashboard</pre>
+<div created="20160205232823187" modified="20160206203709908" title="$:/temp/search">
+<pre></pre>
 </div>
 <div created="20160205231132173" modified="20160206190135875" title="$:/temp/slidebars/debug">
 <pre>no</pre>
@@ -8131,7 +8131,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160206161950332" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160206202349008" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname(label:&quot;name:&quot;)
@@ -8207,7 +8207,7 @@ $label$
 
 \define showpicture()
 &lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;&gt;
-&lt;table class=&quot;borderless&quot; style=&quot;height:10em;width:100%;&quot;&gt;
+&lt;table class=&quot;borderless&quot; style=&quot;height:$(height)$px;min-width:$(width)$;width:100%;background:#666;border-radius:0.5em;&quot;&gt;
 &lt;tr valign=&quot;center&quot;&gt;&lt;td align=&quot;center&quot;&gt;
 @@font-size:300%;
 &lt;&lt;takepicture&gt;&gt;
@@ -11641,7 +11641,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160206024359623" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160206203133839" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
@@ -11661,11 +11661,8 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 .tc-drop-down.tc-popup-keep button
    { display:inline; width:auto; padding:0; margin:0; }
 
-/* adjust position of topbars to fit into corner and scale up the icon */
-.tc-topbar-left  { left:0; top:0; font-size:150%; opacity:0.15; }
-.tc-topbar-left:hover  { opacity:0.5; }
-.tc-topbar-right { top:0; font-size:150%; margin-right:1em; opacity:0.15; }
-.tc-topbar-right:hover { opacity:0.5; }
+/* adjust topleftbar to put scaled home button into corner */
+.tc-topbar-left        { left:0; top:0; font-size:200%; }
 &lt;/pre&gt;</pre>
 </div>
 <div created="20150418111607835" creator="EricShulman" modified="20160206002005726" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
@@ -11798,7 +11795,7 @@ background: #f8f8ff;
 &lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
 &lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
 </div>
-<div created="20160206045629259" creator="EricShulman" modified="20160206150159519" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
+<div created="20160206045629259" creator="EricShulman" modified="20160206203645397" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -11806,8 +11803,8 @@ background: #f8f8ff;
 \define barname()      AuthorToolBar
 \define barclass()     tt-authortools-slidebar
 \define bartag()       $:/tags/AuthorToolsSlideBar
-\define barpin()       ''@@font-size:150%;👷&lt;!--&amp;#x1F477;--&gt;@@''
-\define barunpin()     ''@@font-size:150%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+\define barpin()       ''@@font-size:200%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+\define barunpin()     ''@@font-size:200%;👷&lt;!--&amp;#x1F477;--&gt;@@''
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12092,7 +12089,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202222243119" creator="EricShulman" modified="20160203200124545" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
+<div created="20160202222243119" creator="EricShulman" modified="20160206202552014" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
 <pre>&lt;pre&gt;/* SLIDEBAR */
 .&lt;&lt;barclass&gt;&gt;
    { position:fixed; z-index:999;
@@ -12107,9 +12104,9 @@ background: #f8f8ff;
 
 /* PIN BUTTON */
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-button
-   { z-index:-1; height:100%; width:100%; opacity:0.15; }
+   { z-index:-1; height:100%; width:100%; opacity:0.3; }
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-button:hover
-   { opacity:0.5; }
+   { opacity:0.6; }
 
 /* SHADOWBOX STYLES */
 .&lt;&lt;barclass&gt;&gt; .tt-shadowbox:not(.inset) { font-size:calc(&lt;&lt;barfontsize&gt;&gt;); &lt;&lt;autofit&gt;&gt; }
