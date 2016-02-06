@@ -459,24 +459,24 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160206172233021" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160206173819096" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
-    &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
+    &quot;TopLeftBar/Size&quot;: &quot;30%&quot;,
     &quot;TopBar&quot;: &quot;no&quot;,
-    &quot;TopBar/Size&quot;: &quot;40%&quot;,
+    &quot;TopBar/Size&quot;: &quot;35%&quot;,
     &quot;TopRightBar&quot;: &quot;no&quot;,
-    &quot;TopRightBar/Size&quot;: &quot;25%&quot;,
+    &quot;TopRightBar/Size&quot;: &quot;30%&quot;,
     &quot;LeftBar&quot;: &quot;no&quot;,
     &quot;LeftBar/Size&quot;: &quot;50vh&quot;,
     &quot;RightBar&quot;: &quot;no&quot;,
     &quot;RightBar/Size&quot;: &quot;50vh&quot;,
     &quot;BottomLeftBar&quot;: &quot;no&quot;,
-    &quot;BottomLeftBar/Size&quot;: &quot;25%&quot;,
+    &quot;BottomLeftBar/Size&quot;: &quot;30%&quot;,
     &quot;BottomBar&quot;: &quot;no&quot;,
     &quot;BottomBar/Size&quot;: &quot;40%&quot;,
     &quot;BottomRightBar&quot;: &quot;no&quot;,
-    &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
+    &quot;BottomRightBar/Size&quot;: &quot;30%&quot;,
     &quot;AuthorToolBar&quot;: &quot;no&quot;
 }</pre>
 </div>
@@ -6906,7 +6906,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160206171715423" modified="20160206171715423" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160206051622299" modified="20160206173538672" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7651,7 +7651,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160206172112420" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160206173441600" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
 <div created="20160205055200642" modified="20160206161513372" title="$:/state/tab/sidebar--1835078512">
@@ -7698,10 +7698,10 @@ LOAD
 <div created="20160205082821981" modified="20160206051422077" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160206171720766" title="$:/temp/search">
-<pre></pre>
+<div created="20160205232823187" modified="20160206161323050" title="$:/temp/search">
+<pre>dashboard</pre>
 </div>
-<div created="20160205231132173" modified="20160206171347590" title="$:/temp/slidebars/debug">
+<div created="20160205231132173" modified="20160206050709750" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160206043737678" title="$:/temp/TeraNet/source">
@@ -11836,7 +11836,7 @@ background: #f8f8ff;
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160206170402392" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160206164942076" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -11863,8 +11863,8 @@ background: #f8f8ff;
 \define barheight()    $(Vmargin)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
-\define barzhover()    1000
+\define barz()         999
+\define barzhover()    1005
 
 \define traytop()      auto
 \define trayleft()     0em
@@ -12166,7 +12166,7 @@ background: #f8f8ff;
    */
 &lt;/pre&gt;</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160206170352096" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160206164951228" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12194,7 +12194,7 @@ background: #f8f8ff;
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
 \define barz()         0
-\define barzhover()    1000
+\define barzhover()    1005
 
 \define traytop()      calc($(bartop)$ + $(barheight)$)
 \define trayleft()     0em
@@ -12211,7 +12211,7 @@ background: #f8f8ff;
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160206170151562" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160206164733445" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12238,7 +12238,7 @@ background: #f8f8ff;
 \define barheight()    $(Vmargin)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
+\define barz()         999
 \define barzhover()    999
 
 \define traytop()      $(Vmargin)$
@@ -12256,7 +12256,7 @@ background: #f8f8ff;
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160206170159097" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160206164742388" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12283,7 +12283,7 @@ background: #f8f8ff;
 \define barheight()    $(Vmargin)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
+\define barz()         999
 \define barzhover()    999
 
 \define traytop()      $(Vmargin)$
