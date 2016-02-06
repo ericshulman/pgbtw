@@ -459,7 +459,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160206203659492" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160206210035254" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
@@ -481,7 +481,7 @@ Error message and password prompt
     &quot;BottomRightBar&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Hover&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
-    &quot;AuthorToolBar&quot;: &quot;no&quot;
+    &quot;AuthorToolBar&quot;: &quot;yes&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -7676,7 +7676,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160206051131662" title="$:/temp/advancedsearch">
@@ -8131,11 +8131,10 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160206202349008" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160206205944288" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
-\define getname(label:&quot;name:&quot;)
-$label$
+\define getname()
 &lt;$edit-text tag=&quot;input&quot; index=&quot;name&quot;
    tiddler=&quot;$:/config/Camera&quot; default=&quot;photo&quot; size=&quot;10&quot; /&gt;
 &lt;$edit-text tag=&quot;input&quot; index=&quot;counter&quot;
@@ -8207,11 +8206,9 @@ $label$
 
 \define showpicture()
 &lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;&gt;
-&lt;table class=&quot;borderless&quot; style=&quot;height:$(height)$px;min-width:$(width)$;width:100%;background:#666;border-radius:0.5em;&quot;&gt;
+&lt;table class=&quot;borderless&quot; style=&quot;height:$(height)$px;min-width:fit-content;width:100%;background:#666;border-radius:0.5em;&quot;&gt;
 &lt;tr valign=&quot;center&quot;&gt;&lt;td align=&quot;center&quot;&gt;
-@@font-size:300%;
-&lt;&lt;takepicture&gt;&gt;
-@@
+@@font-size:400%;&lt;&lt;takepicture&gt;&gt;@@
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/$transclude&gt;
 \end
@@ -8248,7 +8245,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 @@
 \end
 
-&lt;div class=&quot;shadowbox left clear nowrap&quot; style=&quot;max-width:calc(80vw);margin:0 auto;&quot;&gt;
+&lt;div class=&quot;shadowbox left clear nowrap&quot; style=&quot;min-width:calc(max-content + 1em);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;$vars path={{$:/config/Camera##path}}
           name={{$:/config/Camera##name}}
@@ -8273,7 +8270,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
        width={{$:/config/Camera##width}}
        height={{$:/config/Camera##height}}
        quality={{$:/config/Camera##quality}}&gt;
-@@.floatleft.smaller.nowrap &lt;&lt;selectpicture&gt;&gt; &amp;nbsp; &amp;nbsp;@@
+   @@.floatleft.smaller.nowrap &lt;&lt;selectpicture&gt;&gt; &amp;nbsp; &amp;nbsp;@@
 &lt;/$vars&gt;
 @@.floatleft.smaller.nowrap &lt;&lt;getname &quot;////&quot;&gt;&gt;@@
 &lt;$vars path={{$:/config/Camera##path}}
@@ -8283,7 +8280,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
        width={{$:/config/Camera##width}}
        height={{$:/config/Camera##height}}
        quality={{$:/config/Camera##quality}}&gt;
-&lt;div class=&quot;center clear smaller shadowbox inset&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;&lt;&lt;showpicture&gt;&gt;&lt;/div&gt;
+&lt;div class=&quot;center clear smaller shadowbox inset&quot; style=&quot;min-width:max-content&quot;&gt;&lt;&lt;showpicture&gt;&gt;&lt;/div&gt;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
