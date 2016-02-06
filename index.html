@@ -192,6 +192,8 @@ Error message and password prompt
 
 <li>$:/state/tab/moresidebar-419835164</li>
 
+<li>$:/state/tab/sidebar--1269925866</li>
+
 <li>$:/state/tab/sidebar--1835078512</li>
 
 <li>$:/state/tab/sidebar--1860112234</li>
@@ -455,10 +457,10 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160206051635061" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160206153632101" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
-    &quot;TopBar&quot;: &quot;yes&quot;,
+    &quot;TopBar&quot;: &quot;no&quot;,
     &quot;TopBar/Size&quot;: &quot;35vw&quot;,
     &quot;TopRightBar&quot;: &quot;no&quot;,
     &quot;LeftBar&quot;: &quot;no&quot;,
@@ -6900,7 +6902,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160206051622299" modified="20160206153044523" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160206051622299" modified="20160206153626219" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7565,8 +7567,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[TiddlyTools/SlideBars/AuthorTools]]
-# [[TiddlyTools/SlideBars/Panels/AuthorTools]]</pre>
+# [[TiddlyTools/SlideBars/Tray]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -7639,6 +7640,9 @@ LOAD
 </div>
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
+</div>
+<div created="20160206153640070" modified="20160206153640070" title="$:/state/tab/sidebar--1269925866">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160205055200642" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
@@ -12290,7 +12294,7 @@ background: #f8f8ff;
       .&lt;&lt;barclass&gt;&gt;:hover { border:1px dotted; }
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20160202063613357" creator="EricShulman" modified="20160203194049684" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Tray">
+<div created="20160202063613357" creator="EricShulman" modified="20160206144510056" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Tray">
 <pre>&lt;!-- SHOW THE SLIDEBAR TRAY CONTAINING TAGGED CONTENT WITH PIN/UNPIN BUTTON --&gt;
 &lt;$list filter=&quot;[tag&lt;bartag&gt;!has[draft.of]limit[1]]&quot; variable=&quot;has-items&quot;&gt;
 &lt;div class=&lt;&lt;barclass&gt;&gt;&gt;
@@ -12309,9 +12313,7 @@ background: #f8f8ff;
       &lt;/$button&gt;
    &lt;/$reveal&gt;
    &lt;div class=&quot;tt-slidebar-tray&quot;&gt;
-      &lt;$list filter=&quot;[tag&lt;bartag&gt;!has[draft.of]]&quot; variable=&quot;listItem&quot;&gt;
-         &lt;$transclude tiddler=&lt;&lt;listItem&gt;&gt;/&gt;
-      &lt;/$list&gt;
+      &lt;$list filter=&quot;[tag&lt;bartag&gt;!has[draft.of]]&quot;&gt;&lt;$transclude/&gt;&lt;/$list&gt;
    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/$list&gt;</pre>
