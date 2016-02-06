@@ -154,6 +154,8 @@ Error message and password prompt
 
 <li>$:/Geo/Data</li>
 
+<li>$:/Geo/Data/Address</li>
+
 <li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
@@ -164,6 +166,10 @@ Error message and password prompt
 
 <li>$:/SiteTitle</li>
 
+<li>$:/state/$tid$</li>
+
+<li>$:/state/Dashboard/AddressLookup</li>
+
 <li>$:/state/Dashboard/Camera</li>
 
 <li>$:/state/Dashboard/GeoLocation</li>
@@ -171,6 +177,8 @@ Error message and password prompt
 <li>$:/state/Dashboard/LocalStorage</li>
 
 <li>$:/state/Dashboard/LocalStorage/Viewer</li>
+
+<li>$:/state/Dashboard/Maps</li>
 
 <li>$:/state/Dashboard/MPAC</li>
 
@@ -186,9 +194,13 @@ Error message and password prompt
 
 <li>$:/state/tab-1749438307</li>
 
+<li>$:/state/tab/moresidebar--1669835544</li>
+
 <li>$:/state/tab/moresidebar--1976877895</li>
 
 <li>$:/state/tab/moresidebar-419835164</li>
+
+<li>$:/state/tab/sidebar--1269925866</li>
 
 <li>$:/state/tab/sidebar--1835078512</li>
 
@@ -451,7 +463,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160206064434327" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160206090222229" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopBar&quot;: &quot;yes&quot;,
@@ -6896,11 +6908,672 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
+<div created="20160206075628475" modified="20160206085959337" title="$:/Geo/Data/Address" type="application/json">
+<pre>{
+   &quot;results&quot; : [
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;700&quot;,
+               &quot;short_name&quot; : &quot;700&quot;,
+               &quot;types&quot; : [ &quot;street_number&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;University Avenue&quot;,
+               &quot;short_name&quot; : &quot;University Ave&quot;,
+               &quot;types&quot; : [ &quot;route&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;700 University Ave, Toronto, ON M5G, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.659829,
+                  &quot;lng&quot; : -79.39033049999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6592045,
+                  &quot;lng&quot; : -79.39059999999999
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6597929,
+               &quot;lng&quot; : -79.39060409999999
+            },
+            &quot;location_type&quot; : &quot;RANGE_INTERPOLATED&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6608657302915,
+                  &quot;lng&quot; : -79.3891162697085
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.65816776970851,
+                  &quot;lng&quot; : -79.3918142302915
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;Eis3MDAgVW5pdmVyc2l0eSBBdmUsIFRvcm9udG8sIE9OIE01RywgQ2FuYWRh&quot;,
+         &quot;types&quot; : [ &quot;street_address&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
+               &quot;short_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
+               &quot;types&quot; : [ &quot;premise&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;University&quot;,
+               &quot;short_name&quot; : &quot;University&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;M5S&quot;,
+               &quot;short_name&quot; : &quot;M5S&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Leslie Dan Faculty of Pharmacy, Toronto, ON M5S, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.659835,
+               &quot;lng&quot; : -79.391122
+            },
+            &quot;location_type&quot; : &quot;ROOFTOP&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6611839802915,
+                  &quot;lng&quot; : -79.38977301970849
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6584860197085,
+                  &quot;lng&quot; : -79.39247098029151
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJWZmQ-7c0K4gR3jTwl2b5dRY&quot;,
+         &quot;types&quot; : [ &quot;premise&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;College Park at University Ave.&quot;,
+               &quot;short_name&quot; : &quot;College Park at University Ave.&quot;,
+               &quot;types&quot; : [ &quot;point_of_interest&quot;, &quot;establishment&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;University&quot;,
+               &quot;short_name&quot; : &quot;University&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;College Park at University Ave., Toronto, ON M5G, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.659852,
+               &quot;lng&quot; : -79.39048199999999
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6612009802915,
+                  &quot;lng&quot; : -79.3891330197085
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6585030197085,
+                  &quot;lng&quot; : -79.3918309802915
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJgRuM5rc0K4gRYtSUSGWh3EE&quot;,
+         &quot;types&quot; : [
+            &quot;bus_station&quot;,
+            &quot;transit_station&quot;,
+            &quot;point_of_interest&quot;,
+            &quot;establishment&quot;
+         ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Discovery District&quot;,
+               &quot;short_name&quot; : &quot;Discovery District&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Discovery District, Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6630908,
+                  &quot;lng&quot; : -79.3843102
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6557481,
+                  &quot;lng&quot; : -79.40053210000001
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6603242,
+               &quot;lng&quot; : -79.3937162
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6630908,
+                  &quot;lng&quot; : -79.3843102
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6557481,
+                  &quot;lng&quot; : -79.40053210000001
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJY9gBJ8g0K4gRwfKR3nQauiI&quot;,
+         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Downtown, Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6755833,
+                  &quot;lng&quot; : -79.3470176
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6339328,
+                  &quot;lng&quot; : -79.41131710000001
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.654262,
+               &quot;lng&quot; : -79.385975
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6755833,
+                  &quot;lng&quot; : -79.3470176
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6339328,
+                  &quot;lng&quot; : -79.41131710000001
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJvRBz0jTL1IkRkwMHIgbSFbo&quot;,
+         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Old Toronto, Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.75373099999999,
+                  &quot;lng&quot; : -79.27971699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6118399,
+                  &quot;lng&quot; : -79.491969
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6486795,
+               &quot;lng&quot; : -79.3803231
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.75373099999999,
+                  &quot;lng&quot; : -79.27971699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6118399,
+                  &quot;lng&quot; : -79.491969
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ2YVS1Po0K4gR8_c5_bvmDW4&quot;,
+         &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.653226,
+               &quot;lng&quot; : -79.3831843
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJpTvG15DL1IkRd8S0KlBVNTI&quot;,
+         &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Toronto, ON M5G, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.662463,
+                  &quot;lng&quot; : -79.380601
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6511301,
+                  &quot;lng&quot; : -79.39171899999999
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6579524,
+               &quot;lng&quot; : -79.3873826
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.662463,
+                  &quot;lng&quot; : -79.380601
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6511301,
+                  &quot;lng&quot; : -79.39171899999999
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJQ4yqgck0K4gR1f-j38zDpt0&quot;,
+         &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Toronto Division, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6689775,
+               &quot;lng&quot; : -79.29021329999999
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.8554579,
+                  &quot;lng&quot; : -79.11689699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.5810245,
+                  &quot;lng&quot; : -79.639219
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ5b2RG4_L1IkRDtQ2gFEjLv4&quot;,
+         &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Ontario, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 56.8565279,
+                  &quot;lng&quot; : -74.34388229999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 41.68134879999999,
+                  &quot;lng&quot; : -95.1562271
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 51.253775,
+               &quot;lng&quot; : -85.3232139
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 56.8565279,
+                  &quot;lng&quot; : -74.34388229999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 41.6813554,
+                  &quot;lng&quot; : -95.15480099999999
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJrxNRX7IFzkwRCR5iKVZC-HA&quot;,
+         &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 83.09565619999999,
+                  &quot;lng&quot; : -52.6206965
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 41.6765559,
+                  &quot;lng&quot; : -141.00187
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 56.130366,
+               &quot;lng&quot; : -106.346771
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 70,
+                  &quot;lng&quot; : -50
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 42,
+                  &quot;lng&quot; : -142
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ2WrMN9MDDUsRpY9Doiq3aJk&quot;,
+         &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+      }
+   ],
+   &quot;status&quot; : &quot;OK&quot;
+}
+</pre>
+</div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Dashboard/MPAC]]
-# [[Dashboard/TeraNet]]</pre>
+# [[Dashboard]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -6935,25 +7608,34 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div created="20160205232016114" modified="20160206044654587" title="$:/state/Dashboard/Camera">
+<div created="20160206082913446" modified="20160206083019677" title="$:/state/$tid$">
+<pre>show</pre>
+</div>
+<div created="20160206081250498" modified="20160206081312090" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div created="20160205082717708" modified="20160206050742854" title="$:/state/Dashboard/GeoLocation">
+<div created="20160205232016114" modified="20160206085654455" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div created="20160206023548795" modified="20160206044647268" title="$:/state/Dashboard/LocalStorage">
+<div created="20160205082717708" modified="20160206085918022" title="$:/state/Dashboard/GeoLocation">
+<pre></pre>
+</div>
+<div created="20160206023548795" modified="20160206075647700" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div created="20160205083858907" modified="20160206051204990" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div created="20160205231638508" modified="20160205231703476" title="$:/state/Dashboard/MPAC">
+<div created="20160206080402476" modified="20160206085256128" title="$:/state/Dashboard/Maps">
+<pre></pre>
+</div>
+<div created="20160205231638508" modified="20160206081538913" title="$:/state/Dashboard/MPAC">
 <pre></pre>
 </div>
 <div created="20160206050630095" modified="20160206050654495" title="$:/state/Dashboard/Realtor.ca">
 <pre></pre>
 </div>
-<div created="20160205232056994" modified="20160205232058618" title="$:/state/Dashboard/StreetView">
+<div created="20160205232056994" modified="20160206084934689" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
 <div created="20160205060325015" modified="20160206004115480" title="$:/state/sidebar">
@@ -6968,11 +7650,17 @@ LOAD
 <div created="20160205061544691" modified="20160206050438831" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
+<div created="20160206081905416" modified="20160206081905416" title="$:/state/tab/moresidebar--1669835544">
+<pre>$:/core/ui/MoreSideBar/System</pre>
+</div>
 <div created="20160206021125241" modified="20160206031041907" title="$:/state/tab/moresidebar--1976877895">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
+</div>
+<div created="20160206080416213" modified="20160206085344408" title="$:/state/tab/sidebar--1269925866">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160205055200642" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
@@ -6992,7 +7680,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="Dashboard/MPAC" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160206051131662" title="$:/temp/advancedsearch">
@@ -7018,7 +7706,7 @@ LOAD
 <div created="20160205082821981" modified="20160206051422077" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160206050844655" title="$:/temp/search">
+<div created="20160205232823187" modified="20160206081902000" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160206050709750" title="$:/temp/slidebars/debug">
@@ -7363,7 +8051,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Realtor.ca&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20160206064311081" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20160206081239938" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;get summary&quot;)
 &lt;$button tooltip=&quot;get summary address data from GeoLocation&quot;&gt; $label$
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -7435,7 +8123,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
       title:&quot;AddressLookup settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset smaller&quot; style=&quot;max-height:75vh;max-width:calc(50vw - 1em);overflow-y:scroll&quot;&gt;
@@ -7447,7 +8135,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160206050608661" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160206090044126" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname(label:&quot;name:&quot;)
@@ -7581,7 +8269,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
       title:&quot;Camera settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopLeftBar&quot; /&gt;&amp;nbsp;@@
 &lt;$vars path={{$:/config/Camera##path}}
        name={{$:/config/Camera##name}}
        counter={{$:/config/Camera##counter}}
@@ -7603,7 +8291,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160206030352294" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160206081341587" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -7725,7 +8413,7 @@ timeout:&lt;br&gt;
       title:&quot;GeoLocation settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller 
    &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; ,,&lt;&lt;showTimestamp&gt;&gt;,,@@
 &lt;div class=&quot;clear shadowbox inset center smaller&quot; style=&quot;min-width:30em&quot;&gt;
@@ -7755,7 +8443,7 @@ timeout:&lt;br&gt;
 <div created="20160206050933894" modified="20160206051107942" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
 <pre>&lt;$button to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/home-button}}&lt;/$button&gt;</pre>
 </div>
-<div caption="Storage" created="20151009192813110" modified="20160206050558077" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
+<div caption="Storage" created="20151009192813110" modified="20160206081355666" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
@@ -7938,7 +8626,7 @@ tiddler cache location:&lt;br&gt;
       title:&quot;LocalStorage settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopRightBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;toggleviewer&gt;&gt;@@
 &lt;div class=&quot;center clear shadowbox inset nowrap&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
@@ -8120,17 +8808,31 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160206033952959" tags="$:/tags/Macro" title="Dashboard/Macros">
-<pre>\define dashboardbutton(tid,class:&quot;tc-btn-invisible&quot;)
-&lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
-&lt;$button tooltip=&quot;show $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot; class=&quot;$class$&quot;&gt;
-   @@.nowrap &lt;$text text={{$tid$!!caption}}/&gt;@@
-&lt;/$button&gt;
+<div created="20151021203705648" modified="20160206085958903" tags="$:/tags/Macro" title="Dashboard/Macros">
+<pre>\define dashboardbutton(tid,barname,class:&quot;tc-btn-invisible&quot;)
+&lt;$reveal state=&quot;$:/config/TiddlyTools##$barname$&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+   &lt;$button tooltip=&quot;unpin $barname$&quot; class=&quot;$class$&quot;&gt;
+      @@.nowrap 📌 &lt;$text text={{$tid$!!caption}}/&gt;@@
+      &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;$barname$&quot; $value=&quot;no&quot;/&gt;
+   &lt;/$button&gt;
 &lt;/$reveal&gt;
-&lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
-&lt;$button tooltip=&quot;hide $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;&quot; class=&quot;$class$&quot;&gt;
-   @@.nowrap &lt;$text text={{$tid$!!caption}}/&gt;@@
-&lt;/$button&gt;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##$barname$&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
+   &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+      &lt;$button tooltip=&quot;show $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;show&quot; class=&quot;$class$&quot;&gt;
+         @@.nowrap &lt;$text text={{$tid$!!caption}}/&gt;@@
+         &lt;$reveal text=&quot;$barname$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+            &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;$barname$&quot; $value=&quot;no&quot;/&gt;
+         &lt;/$reveal&gt;
+      &lt;/$button&gt;
+   &lt;/$reveal&gt;
+   &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+      &lt;$button tooltip=&quot;hide $tid$&quot; set=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; setTo=&quot;&quot; class=&quot;$class$&quot;&gt;
+         @@.nowrap &lt;$text text={{$tid$!!caption}}/&gt;@@
+         &lt;$reveal text=&quot;$barname$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+            &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;$barname$&quot; $value=&quot;no&quot;/&gt;
+         &lt;/$reveal&gt;
+      &lt;/$button&gt;
+   &lt;/$reveal&gt;
 &lt;/$reveal&gt;
 \end
 
@@ -8138,14 +8840,6 @@ tiddler cache location:&lt;br&gt;
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
 {{$tid$}}
 &lt;/$reveal&gt;
-&lt;!--
-&lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot; default=&quot;&quot;&gt;
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
-@@.floatleft.nowrap &lt;$macrocall $name=&quot;dashboardbutton&quot; tid=&quot;&quot;&quot;$tid$&quot;&quot;&quot;/&gt;@@
-@@.clear @@
-&lt;/div&gt;
-&lt;/$reveal&gt;
---&gt;
 \end
 
 \define dashboardpopup(id,label,title,content,position:&quot;belowleft&quot;,width:&quot;auto&quot;)
@@ -8215,7 +8909,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160206042719393" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20160206081434289" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
 <pre>\define ShowMap()
 &lt;$reveal state=&quot;$:/config/TiddlyTools##LeftBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
 [img[https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
@@ -8287,7 +8981,7 @@ quality:&lt;br&gt; &amp;nbsp;
       title:&quot;GoogleMaps settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;LeftBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
 @@.clear.shadowbox.inset
@@ -8305,7 +8999,7 @@ quality:&lt;br&gt; &amp;nbsp;
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20160206064346575" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20160206081444781" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -8413,7 +9107,7 @@ Password:&lt;br&gt;
       title:&quot;MPAC settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomLeftBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset smaller&quot;style=&quot;max-height:75vh;max-width:calc(50vw - 1em);overflow-y:scroll&quot;&gt;
    &lt;&lt;parseXML&gt;&gt;
@@ -8572,7 +9266,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160206042817240" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20160206081501038" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define StreetView()
 &lt;$reveal state=&quot;$:/config/TiddlyTools##RightBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
    [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -8621,7 +9315,7 @@ x
       title:&quot;StreetView settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;RightBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
 @@.clear.shadowbox.inset
@@ -8638,7 +9332,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160206064328845" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160206081519036" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -8747,7 +9441,7 @@ Password:&lt;br&gt;
       title:&quot;Teranet settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomRightBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset smaller&quot; style=&quot;max-height:75vh;max-width:calc(50vw - 1em);overflow-y:scroll&quot;&gt;
    &lt;&lt;parseXML&gt;&gt;
@@ -11505,7 +12199,7 @@ background: #f8f8ff;
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160206045536405" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160206080628747" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -11536,7 +12230,7 @@ background: #f8f8ff;
 \define barzhover()    999
 
 \define traytop()      $(Vmargin)$
-\define trayleft()     $(Hmargin)$
+\define trayleft()     0em
 \define traybottom()   auto
 \define trayright()    auto
 \define traywidth()    max-content
@@ -11550,7 +12244,7 @@ background: #f8f8ff;
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160206045920583" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160206080557365" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -11583,7 +12277,7 @@ background: #f8f8ff;
 \define traytop()      $(Vmargin)$
 \define trayleft()     auto
 \define traybottom()   auto
-\define trayright()    $(Hmargin)$
+\define trayright()    0em
 \define traywidth()    max-content
 \define trayheight()   auto
 \define traymin()      1em
@@ -11621,7 +12315,7 @@ background: #f8f8ff;
       .&lt;&lt;barclass&gt;&gt;:hover { border:1px dotted; }
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20160202063613357" creator="EricShulman" modified="20160203194049684" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Tray">
+<div created="20160202063613357" creator="EricShulman" modified="20160206080312515" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Tray">
 <pre>&lt;!-- SHOW THE SLIDEBAR TRAY CONTAINING TAGGED CONTENT WITH PIN/UNPIN BUTTON --&gt;
 &lt;$list filter=&quot;[tag&lt;bartag&gt;!has[draft.of]limit[1]]&quot; variable=&quot;has-items&quot;&gt;
 &lt;div class=&lt;&lt;barclass&gt;&gt;&gt;
@@ -11640,9 +12334,7 @@ background: #f8f8ff;
       &lt;/$button&gt;
    &lt;/$reveal&gt;
    &lt;div class=&quot;tt-slidebar-tray&quot;&gt;
-      &lt;$list filter=&quot;[tag&lt;bartag&gt;!has[draft.of]]&quot; variable=&quot;listItem&quot;&gt;
-         &lt;$transclude tiddler=&lt;&lt;listItem&gt;&gt;/&gt;
-      &lt;/$list&gt;
+      &lt;$list filter=&quot;[tag&lt;bartag&gt;!has[draft.of]]&quot;&gt;&lt;$transclude/&gt;&lt;/$list&gt;
    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/$list&gt;</pre>
