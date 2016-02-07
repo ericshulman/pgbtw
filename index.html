@@ -344,6 +344,8 @@ Error message and password prompt
 
 <li>TiddlyTools/SlideBars/BottomRight</li>
 
+<li>TiddlyTools/SlideBars/CloseOthers</li>
+
 <li>TiddlyTools/SlideBars/Left</li>
 
 <li>TiddlyTools/SlideBars/Panels/AuthorTools</li>
@@ -465,7 +467,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160207094147478" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160207101237287" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
@@ -487,7 +489,7 @@ Error message and password prompt
     &quot;BottomRightBar&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Hover&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
-    &quot;AuthorToolBar&quot;: &quot;yes&quot;
+    &quot;AuthorToolBar&quot;: &quot;no&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -7688,7 +7690,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="StyleSheet/Shortcuts" title="$:/StoryList">
+<div list="Dashboard" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160206051131662" title="$:/temp/advancedsearch">
@@ -8457,9 +8459,18 @@ timeout:&lt;br&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160206050933894" modified="20160206194458722" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
+<div created="20160206050933894" modified="20160207094933804" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
 <pre>&lt;$button to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot;&gt;
    {{$:/core/images/home-button}}
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopLeftBar&quot;     $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopBar&quot;         $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopRightBar&quot;    $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;LeftBar&quot;        $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;RightBar&quot;       $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;BottomLeftBar&quot;  $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;BottomBar&quot;      $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;BottomRightBar&quot; $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;AuthorToolBar&quot;  $value=&quot;no&quot;/&gt;
    &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
 &lt;/$button&gt;</pre>
 </div>
@@ -11998,6 +12009,16 @@ background: #f8f8ff;
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
+<div created="20160207095128200" modified="20160207101048008" title="TiddlyTools/SlideBars/CloseOthers">
+<pre>&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+   {{$:/core/images/close-others-button}}
+   &lt;$list filter=&quot;TopLeftBar TopBar TopRightBar LeftBar RightBar BottomLeftBar BottomBar BottomRightBar AuthorToolBar&quot;&gt;
+      &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;nomatch&quot; default=&lt;&lt;barname&gt;&gt;&gt;
+         &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&lt;&lt;currentTiddler&gt;&gt;  $value=&quot;no&quot;/&gt;
+      &lt;/$reveal&gt;
+   &lt;/$list&gt;
+&lt;/$button&gt;</pre>
+</div>
 <div created="20160202082823082" creator="EricShulman" modified="20160206185919148" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Left">
 <pre>\define config()       $:/config/TiddlyTools
 \define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
@@ -12044,11 +12065,12 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160207090430501" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160207100835297" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>&lt;div class=&quot;authortools&quot;&gt;
    &lt;div class=&quot;tt-shadowbox&quot; style=&quot;height:100%; min-width:25em; max-width:40vw; max-height:80vh&quot;&gt;
+      @@float:right; &lt;$vars barname=&quot;AuthorToolBar&quot;&gt;{{TiddlyTools/SlideBars/CloseOthers}}&lt;/$vars&gt;@@
       &lt;&lt;dashboardbutton barname:AuthorToolBar&gt;&gt; //(~TiddlyWiki sidebar)//
-      &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;clear:both;&quot;&gt;
          &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:70vh&quot;&gt;
             @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
             @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
