@@ -471,29 +471,35 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160207202213353" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160207220530330" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
+    &quot;TopLeftBar/Hover&quot;: &quot;yes&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
-    &quot;TopBar&quot;: &quot;yes&quot;,
+    &quot;TopBar&quot;: &quot;no&quot;,
+    &quot;TopBar/Hover&quot;: &quot;yes&quot;,
     &quot;TopBar/Size&quot;: &quot;40%&quot;,
     &quot;TopRightBar&quot;: &quot;no&quot;,
+    &quot;TopRightBar/Hover&quot;: &quot;yes&quot;,
     &quot;TopRightBar/Size&quot;: &quot;25%&quot;,
     &quot;LeftBar&quot;: &quot;no&quot;,
-    &quot;LeftBar/Hover&quot;: &quot;no&quot;,
+    &quot;LeftBar/Hover&quot;: &quot;yes&quot;,
     &quot;LeftBar/Size&quot;: &quot;50vh&quot;,
     &quot;RightBar&quot;: &quot;no&quot;,
-    &quot;RightBar/Hover&quot;: &quot;no&quot;,
+    &quot;RightBar/Hover&quot;: &quot;yes&quot;,
     &quot;RightBar/Size&quot;: &quot;50vh&quot;,
     &quot;BottomLeftBar&quot;: &quot;no&quot;,
-    &quot;BottomLeftBar/Hover&quot;: &quot;no&quot;,
+    &quot;BottomLeftBar/Hover&quot;: &quot;yes&quot;,
     &quot;BottomLeftBar/Size&quot;: &quot;25%&quot;,
     &quot;BottomBar&quot;: &quot;no&quot;,
+    &quot;BottomBar/Hover&quot;: &quot;yes&quot;,
     &quot;BottomBar/Size&quot;: &quot;40%&quot;,
     &quot;BottomRightBar&quot;: &quot;no&quot;,
-    &quot;BottomRightBar/Hover&quot;: &quot;no&quot;,
+    &quot;BottomRightBar/Hover&quot;: &quot;yes&quot;,
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
-    &quot;AuthorToolBar&quot;: &quot;no&quot;
+    &quot;AuthorToolBar&quot;: &quot;no&quot;,
+    &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
+    &quot;AuthorToolBar/Size&quot;: &quot;&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -6922,7 +6928,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160207190315238" modified="20160207201814436" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160207190315238" modified="20160207214751132" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7664,8 +7670,8 @@ LOAD
 <div created="20160205061544691" modified="20160206050438831" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div created="20160206155829393" modified="20160207174453072" title="$:/state/tab/moresidebar--1669835544">
-<pre>$:/core/ui/MoreSideBar/All</pre>
+<div created="20160206155829393" modified="20160207220128690" title="$:/state/tab/moresidebar--1669835544">
+<pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
 <div created="20160206021125241" modified="20160206031041907" title="$:/state/tab/moresidebar--1976877895">
 <pre>$:/core/ui/MoreSideBar/System</pre>
@@ -7676,7 +7682,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160207174655007" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160207220528728" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160206161513372" title="$:/state/tab/sidebar--1835078512">
@@ -7697,7 +7703,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="TiddlyTools/SlideBars/Transitions/Debug Dashboard/AddressLookup" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160206051131662" title="$:/temp/advancedsearch">
@@ -8170,8 +8176,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 @@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;real estate dashboard@@//@@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160206205944288" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
-<pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
+<div caption="Camera" created="20160205084233633" modified="20160207215419373" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/Camera">
+<pre>\define barname()    BottomLeftBar
+\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
 &lt;$edit-text tag=&quot;input&quot; index=&quot;name&quot;
@@ -8301,7 +8308,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
       title:&quot;Camera settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopLeftBar&quot;/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&lt;&lt;barname&gt;&gt;/&gt;&amp;nbsp;@@
 &lt;$vars path={{$:/config/Camera##path}}
        name={{$:/config/Camera##name}}
        counter={{$:/config/Camera##counter}}
@@ -8487,8 +8494,10 @@ timeout:&lt;br&gt;
    &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Storage" created="20151009192813110" modified="20160206161715829" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
-<pre>\define loadfile(label:&quot;load file&quot;)
+<div caption="Storage" created="20151009192813110" modified="20160207215521507" tags="$:/tags/ControlPanel $:/tags/BottomRightSlideBar" title="Dashboard/LocalStorage">
+<pre>\define barname() BottomRightBar
+
+\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
 &lt;$reveal text=&lt;&lt;filename&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
@@ -8670,7 +8679,7 @@ tiddler cache location:&lt;br&gt;
       title:&quot;LocalStorage settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopRightBar&quot;/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&lt;&lt;barname&gt;&gt;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;toggleviewer&gt;&gt;@@
 &lt;div class=&quot;center clear shadowbox inset nowrap&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
@@ -8963,13 +8972,15 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160206195704190" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
-<pre>\define ShowMap()
-&lt;$reveal state=&quot;$:/config/TiddlyTools##LeftBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+<div caption="GoogleMaps" created="20151010204309614" modified="20160207215733443" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Maps">
+<pre>\define barname() TopLeftBar
+
+\define ShowMap()
+&lt;$reveal state=&quot;$:/config/TiddlyTools##TopLeftBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
 [img width=$(width)$ height=$(height)$ [https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
 &lt;/$reveal&gt;
-&lt;$reveal state=&quot;$:/config/TiddlyTools##LeftBar&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
-   &lt;$button set=&quot;$:/config/TiddlyTools##LeftBar&quot; setTo=&quot;yes&quot;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##TopLeftBar&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##TopLeftBar&quot; setTo=&quot;yes&quot;
       class=&quot;tc-btn-invisible&quot; style=&quot;font-size:300%;width:$(width)$px;height:$(height)$px;&quot;&gt;
       click to view
    &lt;/$button&gt;
@@ -9035,7 +9046,7 @@ quality:&lt;br&gt; &amp;nbsp;
       title:&quot;GoogleMaps settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;LeftBar&quot;/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&lt;&lt;barname&gt;&gt;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
@@ -9053,8 +9064,10 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20160207190813963" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
-<pre>\define sources()       [prefix[MPAC]suffix[.xml]]
+<div caption="MPAC" created="20151105083541233" modified="20160207215700276" tags="$:/tags/LeftSlideBar" title="Dashboard/MPAC">
+<pre>\define barname()       LeftBar
+
+\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
 \define mpac_info()     $(xml)$/B2B/header/mpac_info/
@@ -9161,7 +9174,7 @@ Password:&lt;br&gt;
       title:&quot;MPAC settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomLeftBar&quot;/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&lt;&lt;barname&gt;&gt;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset smaller&quot;style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
    &lt;&lt;parseXML&gt;&gt;
@@ -9320,7 +9333,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160207192306416" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160207214750869" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9365,7 +9378,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160207174400656" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160207214713462" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9373,8 +9386,8 @@ x
 \define barname()      BottomLeftBar
 \define barclass()     tt-bottomleft-slidebar
 \define bartag()       $:/tags/BottomLeftSlideBar
-\define barpin()       ''@@font-size:150%;&amp;#x21d7; MPAC@@''
-\define barunpin()     ''@@font-size:150%;&amp;#x21d9; MPAC@@''
+\define barpin()       ''@@font-size:150%;&amp;#x21d7; Camera@@''
+\define barunpin()     ''@@font-size:150%;&amp;#x21d9; Camera@@''
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -9410,7 +9423,7 @@ x
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160207174440400" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160207215904714" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9418,8 +9431,8 @@ x
 \define barname()      BottomRightBar
 \define barclass()     tt-bottomright-slidebar
 \define bartag()       $:/tags/BottomRightSlideBar
-\define barpin()       ''@@font-size:150%;~TeraNet &amp;#x21d6;@@''
-\define barunpin()     ''@@font-size:150%;~TeraNet &amp;#x21d8;''
+\define barpin()       ''@@font-size:150%;Storage &amp;#x21d6;@@''
+\define barunpin()     ''@@font-size:150%;Storage &amp;#x21d8;''
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -9455,7 +9468,7 @@ x
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202082823082" creator="EricShulman" modified="20160207174341648" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
+<div created="20160202082823082" creator="EricShulman" modified="20160207214854933" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
 <pre>\define config()       $:/config/TiddlyTools
 \define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9464,8 +9477,8 @@ x
 \define barname()      LeftBar
 \define barclass()     tt-left-slidebar
 \define bartag()       $:/tags/LeftSlideBar
-\define barpin()       &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~GoogleMaps'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~GoogleMaps'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt; 
+\define barpin()       &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-60%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''MPAC'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-60%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''MPAC'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt; 
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -9501,7 +9514,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202084149670" creator="EricShulman" modified="20160207174350008" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
+<div created="20160202084149670" creator="EricShulman" modified="20160207214932389" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
 <pre>\define config()      $:/config/TiddlyTools
 \define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9510,8 +9523,8 @@ x
 \define barname()      RightBar
 \define barclass()     tt-right-slidebar
 \define bartag()       $:/tags/RightSlideBar
-\define barpin()       &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~StreetView'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~StreetView'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt;
+\define barpin()       &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-80%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~TeraNet'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-80%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~TeraNet'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt;
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
 \define barsize()      {{$(config)$##$(barname)$/Size}}
@@ -9546,7 +9559,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160207192322120" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160207213922472" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9591,7 +9604,7 @@ x
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160207174328528" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160207213903685" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9599,8 +9612,8 @@ x
 \define barname()      TopLeftBar
 \define barclass()     tt-topleft-slidebar
 \define bartag()       $:/tags/TopLeftSlideBar
-\define barpin()       ''@@font-size:150%;&amp;#x21d8; Camera@@''
-\define barunpin()     ''@@font-size:150%;&amp;#x21d6; Camera@@''
+\define barpin()       ''@@font-size:150%;&amp;#x21d8; ~GoogleMaps@@''
+\define barunpin()     ''@@font-size:150%;&amp;#x21d6; ~GoogleMaps@@''
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -9636,7 +9649,7 @@ x
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160207174257273" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160207213944197" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9644,8 +9657,8 @@ x
 \define barname()      TopRightBar
 \define barclass()     tt-topright-slidebar
 \define bartag()       $:/tags/TopRightSlideBar
-\define barpin()       ''@@font-size:150%;Storage &amp;#x21d9;@@''
-\define barunpin()     ''@@font-size:150%;Storage &amp;#x21d7;@@''
+\define barpin()       ''@@font-size:150%;~StreetView &amp;#x21d9;@@''
+\define barunpin()     ''@@font-size:150%;~StreetView &amp;#x21d7;@@''
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -9681,13 +9694,15 @@ x
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160206194954336" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
-<pre>\define StreetView()
-&lt;$reveal state=&quot;$:/config/TiddlyTools##RightBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+<div caption="StreetView" created="20151010205755347" modified="20160207215817842" tags="$:/tags/TopRightSlideBar" title="Dashboard/StreetView">
+<pre>\define barname() TopRightBar
+
+\define StreetView()
+&lt;$reveal state=&quot;$:/config/TiddlyTools##TopRightBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
    [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 &lt;/$reveal&gt;
-&lt;$reveal state=&quot;$:/config/TiddlyTools##RightBar&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
-   &lt;$button set=&quot;$:/config/TiddlyTools##RightBar&quot; setTo=&quot;yes&quot;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##TopRightBar&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##TopRightBar&quot; setTo=&quot;yes&quot;
       class=&quot;tc-btn-invisible&quot; style=&quot;font-size:300%;width:$(width)$px;height:$(height)$px;&quot;&gt;
       click to view
    &lt;/$button&gt;
@@ -9730,7 +9745,7 @@ x
       title:&quot;StreetView settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;RightBar&quot;/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&lt;&lt;barname&gt;&gt;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
@@ -9747,8 +9762,9 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160207174034370" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
-<pre>\define sources() [suffix[ter_output.xml]]
+<div caption="TeraNet" created="20151105112106480" modified="20160207215546377" tags="$:/tags/RightSlideBar" title="Dashboard/TeraNet">
+<pre>\define barname() RightBar
+\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
 \define report()  $(path)$/Envelope/Body/DirectReportResponse/ReportDetail/
@@ -9856,7 +9872,7 @@ Password:&lt;br&gt;
       title:&quot;Teranet settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomRightBar&quot;/&gt;&amp;nbsp;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&lt;&lt;barname&gt;&gt;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
 &lt;div class=&quot;clear shadowbox inset smaller&quot; style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
    &lt;&lt;parseXML&gt;&gt;
