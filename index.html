@@ -469,7 +469,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160207110025674" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160207112049318" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
@@ -491,7 +491,7 @@ Error message and password prompt
     &quot;BottomRightBar&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Hover&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
-    &quot;AuthorToolBar&quot;: &quot;no&quot;
+    &quot;AuthorToolBar&quot;: &quot;yes&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -7692,7 +7692,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="Dashboard/GeoLocation" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160206051131662" title="$:/temp/advancedsearch">
@@ -8318,7 +8318,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160207004737567" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160207112000336" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -8428,7 +8428,7 @@ timeout:&lt;br&gt;
 \define getfullname() locations/$(currentTiddler)$.tids
 \define getfilter()   [title[$(currentTiddler)$]]
 
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;min-width:calc(fit-content + 1em)&quot;&gt;
+&lt;div class=&quot;shadowbox left clear&quot; style=&quot;min-width:fit-content&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8441,9 +8441,9 @@ timeout:&lt;br&gt;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopBar&quot;/&gt;&amp;nbsp;@@
-@@.floatleft.smaller 
+@@.floatleft.smaller.nowrap 
    &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; ,,&lt;&lt;showTimestamp&gt;&gt;,,@@
-&lt;div class=&quot;clear shadowbox inset center smaller&quot; style=&quot;min-width:fit-content&quot;&gt;
+&lt;div class=&quot;clear shadowbox inset center smaller&quot; style=&quot;min-width:max-content&quot;&gt;
    @@.floatleft.nowrap 
       latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
          tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
