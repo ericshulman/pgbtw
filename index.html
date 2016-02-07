@@ -469,11 +469,11 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160207191606178" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160207193511157" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;25%&quot;,
-    &quot;TopBar&quot;: &quot;no&quot;,
+    &quot;TopBar&quot;: &quot;yes&quot;,
     &quot;TopBar/Size&quot;: &quot;40%&quot;,
     &quot;TopRightBar&quot;: &quot;no&quot;,
     &quot;TopRightBar/Size&quot;: &quot;25%&quot;,
@@ -6920,7 +6920,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160207190315238" modified="20160207191428396" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160207190315238" modified="20160207193426231" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7692,7 +7692,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="Dashboard" title="$:/StoryList">
+<div list="Dashboard/Macros Dashboard/GeoLocation" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160206051131662" title="$:/temp/advancedsearch">
@@ -8075,7 +8075,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Realtor.ca&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20160207191428158" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20160207193141662" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;get summary&quot;)
 &lt;$button tooltip=&quot;get summary address data from GeoLocation&quot;&gt; $label$
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -8135,7 +8135,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 &lt;$vars latitude={{$:/Geo/Data##latitude}}
        longitude={{$:/Geo/Data##longitude}}&gt;
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;max-height:80vh;width:max-content;margin-left:50%;transform:translateX(-50%);&quot;&gt;
+&lt;div class=&quot;shadowbox left clear&quot; style=&quot;max-height:80vh;width:max-content;margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;AddressLookup/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8159,8 +8159,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" modified="20160207181211058" tags="$:/tags/PageTemplate" title="Dashboard/Background">
-<pre>&lt;div style=&quot;position:absolute;top:50vh;left:50vw;transform:translate(-50%,-50%);text-align:center;z-index:-1000;opacity:0.5;&quot;&gt;
+<div created="20160207102508424" modified="20160207192240001" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<pre>&lt;div style=&quot;position:absolute;top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);text-align:center;z-index:-1000;opacity:0.5;&quot;&gt;
 @@font-size:7em;🏡@@
 @@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;real estate dashboard@@//@@
 &lt;/div&gt;</pre>
@@ -8318,7 +8318,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160207190607493" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160207193302445" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -8428,7 +8428,7 @@ timeout:&lt;br&gt;
 \define getfullname() locations/$(currentTiddler)$.tids
 \define getfilter()   [title[$(currentTiddler)$]]
 
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;min-width:fit-content;left-margin:50%:transform:translateX(-50%);&quot;&gt;
+&lt;div class=&quot;shadowbox left clear&quot; style=&quot;width:max-content;margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8442,7 +8442,7 @@ timeout:&lt;br&gt;
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap 
-   &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; ,,&lt;&lt;showTimestamp&gt;&gt;,,@@
+   &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; ,,&lt;&lt;showTimestamp&gt;&gt;&amp;nbsp;,,@@
 &lt;div class=&quot;clear shadowbox inset center smaller&quot; style=&quot;min-width:max-content&quot;&gt;
    @@.floatleft.nowrap 
       latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
@@ -8847,18 +8847,18 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160207092248032" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20160207193425813" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define dashboardbutton(tid,barname,class:&quot;tc-btn-invisible&quot;)
 &lt;$reveal text=&quot;$barname$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
    &lt;$reveal state=&quot;$:/config/TiddlyTools##$barname$&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
       &lt;$button tooltip=&quot;unpin $barname$&quot; class=&quot;$class$&quot;&gt;
-         @@.nowrap 📌 ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
+         @@.nowrap &lt;div style=&quot;display:inline-block;width:1em;&quot;&gt;📌&lt;/div&gt; ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
          &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;$barname$&quot; $value=&quot;no&quot;/&gt;
       &lt;/$button&gt;
    &lt;/$reveal&gt;
    &lt;$reveal state=&quot;$:/config/TiddlyTools##$barname$&quot; type=&quot;match&quot; text=&quot;no&quot;&gt;
       &lt;$button tooltip=&quot;pin $barname$&quot; class=&quot;$class$&quot;&gt;
-         @@.nowrap &amp;#x21b9; ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
+         @@.nowrap &lt;div style=&quot;display:inline-block;width:1em;&quot;&gt;&amp;#x21b9;&lt;/div&gt; ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
         &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;$barname$&quot; $value=&quot;yes&quot;/&gt;
       &lt;/$button&gt;
    &lt;/$reveal&gt;
@@ -9315,7 +9315,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160207185733627" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160207192306416" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9346,7 +9346,7 @@ x
 \define barzhover()    1005
 
 \define traytop()      auto
-\define trayleft()     50%; transform:translateX(-50%)
+\define trayleft()     50%; transform:translateX(-50%); -webkit-transform:translateX(-50%)
 \define traybottom()   calc($(barbottom)$ + $(barheight)$)
 \define trayright()    0em
 \define traywidth()    $(barwidth)$
@@ -9541,7 +9541,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160207190454533" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160207192322120" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9572,7 +9572,7 @@ x
 \define barzhover()    1005
 
 \define traytop()      calc($(bartop)$ + $(barheight)$)
-\define trayleft()     50%; transform:translateX(-50%)
+\define trayleft()     50%; transform:translateX(-50%); -webkit-transform:translateX(-50%)
 \define traybottom()   auto
 \define trayright()    0em
 \define traywidth()    $(barwidth)$
