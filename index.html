@@ -216,6 +216,8 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar-1501833866</li>
 
+<li>$:/state/tab/sidebar-1867989403</li>
+
 <li>$:/state/TiddlyTools/SlideBars/Panels/AuthorTools</li>
 
 <li>$:/state/TiddlyTools/SlideBars/Tray</li>
@@ -279,6 +281,8 @@ Error message and password prompt
 <li>Dashboard/MPAC/RequestTemplate</li>
 
 <li>Dashboard/Realtor.ca</li>
+
+<li>Dashboard/SlideBars/AuthorTools</li>
 
 <li>Dashboard/SlideBars/Bottom</li>
 
@@ -361,8 +365,6 @@ Error message and password prompt
 <li>Sunnyvale</li>
 
 <li>test</li>
-
-<li>TiddlyTools/SlideBars/AuthorTools</li>
 
 <li>TiddlyTools/SlideBars/CloseOthers</li>
 
@@ -477,12 +479,12 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208201952787" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160208222028696" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;20%&quot;,
-    &quot;TopBar&quot;: &quot;yes&quot;,
+    &quot;TopBar&quot;: &quot;no&quot;,
     &quot;TopBar/Hover&quot;: &quot;yes&quot;,
     &quot;TopBar/Size&quot;: &quot;40%&quot;,
     &quot;TopRightBar&quot;: &quot;no&quot;,
@@ -503,7 +505,7 @@ Error message and password prompt
     &quot;BottomRightBar&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Hover&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
-    &quot;AuthorToolBar&quot;: &quot;no&quot;,
+    &quot;AuthorToolBar&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Size&quot;: &quot;&quot;
 }</pre>
@@ -6934,7 +6936,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160208201351865" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208061323423" modified="20160208212510432" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7670,8 +7672,8 @@ LOAD
 <div created="20160205060325015" modified="20160207103929735" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
-<div created="20160205081747543" modified="20160208025824819" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Standard</pre>
+<div created="20160205081747543" modified="20160208220446083" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20160205061546875" modified="20160206033220911" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
@@ -7709,6 +7711,9 @@ LOAD
 <div created="20160205060731559" modified="20160205084535152" title="$:/state/tab/sidebar-1501833866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
+<div created="20160208212910243" modified="20160208214648759" title="$:/state/tab/sidebar-1867989403">
+<pre>$:/core/ui/SideBar/Recent</pre>
+</div>
 <div created="20160207232935220" modified="20160207232948012" title="$:/state/TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre></pre>
 </div>
@@ -7718,10 +7723,10 @@ LOAD
 <div list="" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20160205081751366" modified="20160208030000545" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20160205081751366" modified="20160208220450702" title="$:/temp/advancedsearch">
+<pre>newtiddler</pre>
 </div>
-<div created="20160208023043988" modified="20160208200421760" title="$:/temp/authortools/blick">
+<div created="20160208023043988" modified="20160208222012593" title="$:/temp/authortools/blick">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -7744,7 +7749,7 @@ LOAD
 <div created="20160205082821981" modified="20160207001132418" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160208070351357" title="$:/temp/search">
+<div created="20160205232823187" modified="20160208214625015" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160208053730437" title="$:/temp/slidebars/debug">
@@ -9360,6 +9365,60 @@ x
    &lt;/$vars&gt;
 @@
 &lt;/div&gt;</pre>
+</div>
+<div created="20160206045629259" creator="EricShulman" modified="20160208214459943" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/AuthorTools">
+<pre>\define config()       $:/config/TiddlyTools
+
+\define barID()        authortools
+\define barname()      AuthorToolBar
+\define barclass()     tt-authortools-slidebar
+\define bartag()       $:/tags/AuthorToolsSlideBar
+\define barpin()       ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+\define barunpin()     ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       $(Vmargin)$
+\define barleft()      auto
+\define barbottom()    auto
+\define barright()     0em
+\define barwidth()     $(Hmargin)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         999
+\define barzhover()    999
+
+\define traytop()      0em
+\define trayleft()     auto
+\define traybottom()   auto
+\define trayright()    $(Hmargin)$
+\define traywidth()    max-content
+\define trayheight()   auto
+\define traymin()      20em
+\define traymax()      40vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:1; margin-top:0vh; margin-right:-100vw;
+\define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
+
+\define outerclass()   tt-shadowbox
+\define outerstyle()   min-width:25em; width:max-content; max-width:50vw;
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   width:100%;
+
+&lt;style&gt;
+   /* shift text to top of button for vertical slidebar */
+   .tt-authortools-slidebar .tt-slidebar-button { vertical-align:top; }
+&lt;/style&gt;
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
 <div created="20160202073342303" creator="EricShulman" modified="20160208201013175" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
@@ -12134,7 +12193,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160208032719247" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160208213603114" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
@@ -12143,6 +12202,9 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 
 /* SMALLER FONT IN SIDEBAR */
 .tc-sidebar-scrollable { font-size:100%; line-height:110%; }
+
+/* LIMIT HEIGHT OF LIST TABS WHEN SHOWN IN SLIDEBARS */
+.tt-slidebar-tray .tc-tab-content { max-height:50vh;overflow-x:auto;overflow-y:scroll; }
 
 /* MONO FONT FOR EDITING */
 .tc-edit-texteditor { font-family:monospace; font-size:90%;  }
@@ -12157,15 +12219,6 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 /* adjust topleftbar to put scaled home button into corner */
 .tc-topbar-left        { left:0; top:42px; font-size:200%; }
 
-/* OVERRIDE ABSOLUTE SHADOWBOXES WHEN SHOWN IN TIDDLERS */
-.tc-tiddler-body .absolute {
-   position:static !important;
-   top:auto !important;
-   transform:none !important;
-   width:auto !important;
-   min-width:auto !important;
-   max-width:auto !important;
-}
 &lt;/pre&gt;</pre>
 </div>
 <div created="20150418111607835" creator="EricShulman" modified="20160207094145166" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
@@ -12300,61 +12353,6 @@ background: #f8f8ff;
 &lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
 &lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
 </div>
-<div created="20160206045629259" creator="EricShulman" modified="20160208201137222" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        authortools
-\define barname()      AuthorToolBar
-\define barclass()     tt-authortools-slidebar
-\define bartag()       $:/tags/AuthorToolsSlideBar
-\define barpin()       ''@@font-size:200%;👷&lt;!--&amp;#x1F477;--&gt;@@''
-\define barunpin()     ''@@font-size:200%;👷&lt;!--&amp;#x1F477;--&gt;@@''
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       $(Vmargin)$
-\define barleft()      auto
-\define barbottom()    auto
-\define barright()     0em
-\define barwidth()     $(Hmargin)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         999
-\define barzhover()    999
-
-\define traytop()      0em
-\define trayleft()     auto
-\define traybottom()   auto
-\define trayright()    $(Hmargin)$
-\define traywidth()    max-content
-\define trayheight()   auto
-\define traymin()      20em
-\define traymax()      40vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:1; margin-top:0vh; margin-right:-100vw;
-\define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
-
-\define outerclass()   tt-shadowbox
-\define outerstyle()   min-width:25em; width:max-content; max-width:50vw;
-\define innerclass()   tt-shadowbox inset
-\define innerstyle()   none
-
-&lt;style&gt;
-   /* shift button to top of bar */
-   .tt-authortools-slidebar .tt-slidebar-button { vertical-align:top; }
-&lt;/style&gt;
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
 <div created="20160207095128200" modified="20160208055604056" title="TiddlyTools/SlideBars/CloseOthers">
 <pre>&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close other slidebars&quot;&gt;
    {{$:/core/images/close-others-button}}
@@ -12365,7 +12363,7 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208200414391" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208222005437" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,label)
@@ -12396,21 +12394,37 @@ background: #f8f8ff;
 
 \define edittiddler()
 @@font-size:80%;line-height:100%;white-space:nowrap; 
-&amp;emsp;&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot;
+&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot;
    size=15 placeholder=&quot;enter a title&quot; default=&quot;&quot; /&gt;
-&lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}}
-   tooltip=&quot;edit tiddler&quot;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;&amp;emsp;@@
+&lt;$set name=&quot;tid&quot; filter={{$:/temp/authortools/blick}} emptyValue={{$:/language/DefaultNewTiddlerTitle}}&gt; 
+&lt;$list filter=&quot;[{$:/temp/authortools/blick}is[tiddler]]&quot;&gt;
+   &lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}}
+      tooltip=&lt;&lt;edittip&gt;&gt;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;
+&lt;/$list&gt;
+&lt;$list filter=&quot;[{$:/temp/authortools/blick}is[missing]]&quot;&gt;
+   &lt;$button message=&quot;tm-new-tiddler&quot; param=&lt;&lt;tid&gt;&gt;
+      tooltip=&lt;&lt;createtip&gt;&gt;&gt;{{$:/core/images/new-button}}&lt;/$button&gt;
+&lt;/$list&gt;
+&lt;/$set&gt;
+&amp;nbsp;@@
 \end
+\define createtip() create &quot;$(tid)$&quot;
+\define edittip()   edit &quot;$(tid)$&quot;
 
 \define options()
 &lt;nobr&gt;
+@@font-size:80%;line-height:100%; 
 &lt;$button popup=&quot;$:/state/popup/authortools/settings&quot;
-   class=&quot;tc-btn-invisible&quot; tooltip=&quot;settings&quot;&gt;
+   tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
-&lt;/$button&gt;
+&lt;/$button&gt;@@
 &lt;$reveal state=&quot;$:/state/popup/authortools/settings&quot; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
 &lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
+   @@float:right;font-size:80%;line-height:100%; 
+      &lt;$button popup=&quot;$:/state/popup/authortools/settings&quot; tooltip=&quot;close settings&quot;&gt;
+      {{$:/core/images/close-button}}&lt;/$button&gt;@@
    ''slidebar settings''
+   &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
       ''show on hover (auto-hide):'' &lt;&lt;slidebaroption &quot;/Hover&quot;&gt;&gt;&lt;hr&gt;
       ''stay visible (pinned):''     &lt;&lt;slidebaroption &quot; &quot;&gt;&gt;     &lt;hr&gt;
@@ -12426,13 +12440,11 @@ background: #f8f8ff;
 &lt;div class=&quot;authortools&quot;&gt;
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
    @@float:right;&lt;&lt;options&gt;&gt;@@
-   @@float:left;&lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&lt;&lt;edittiddler&gt;&gt;@@
+   @@float:left;&lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt; &lt;&lt;edittiddler&gt;&gt;@@
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
-      &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:60vh&quot;&gt;
-         @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
-         @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
-      &lt;/div&gt;
+      @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
+      @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
