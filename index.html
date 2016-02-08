@@ -477,7 +477,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208073149543" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160208201952787" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6934,7 +6934,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160208072100583" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208061323423" modified="20160208201351865" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7634,17 +7634,17 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div created="20160207195648176" modified="20160208063515605" title="$:/state/Dashboard/AddressLookup">
+<div created="20160207195648176" modified="20160208201356349" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div created="20160205232016114" modified="20160208063504437" title="$:/state/Dashboard/Camera">
+<div created="20160205232016114" modified="20160208201320918" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div created="20160205082717708" modified="20160208063802701" title="$:/state/Dashboard/GeoLocation">
+<div created="20160205082717708" modified="20160208201359021" title="$:/state/Dashboard/GeoLocation">
 <pre></pre>
 </div>
-<div created="20160206023548795" modified="20160208063506309" title="$:/state/Dashboard/LocalStorage">
-<pre></pre>
+<div created="20160206023548795" modified="20160208201547045" title="$:/state/Dashboard/LocalStorage">
+<pre>show</pre>
 </div>
 <div created="20160208070234728" modified="20160208070250240" title="$:/state/Dashboard/LocalStorage/Directory">
 <pre>open</pre>
@@ -7652,16 +7652,16 @@ LOAD
 <div created="20160205083858907" modified="20160208065822922" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div created="20160208030017009" modified="20160208063509613" title="$:/state/Dashboard/Maps">
+<div created="20160208030017009" modified="20160208201328982" title="$:/state/Dashboard/Maps">
 <pre></pre>
 </div>
-<div created="20160205231638508" modified="20160208063528749" title="$:/state/Dashboard/MPAC">
+<div created="20160205231638508" modified="20160208201358021" title="$:/state/Dashboard/MPAC">
 <pre></pre>
 </div>
 <div created="20160206050630095" modified="20160208063527461" title="$:/state/Dashboard/Realtor.ca">
 <pre></pre>
 </div>
-<div created="20160205232056994" modified="20160208063510781" title="$:/state/Dashboard/StreetView">
+<div created="20160205232056994" modified="20160208201350502" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
 <div created="20160207092540481" modified="20160208063530053" title="$:/state/Dashboard/TeraNet">
@@ -7721,7 +7721,7 @@ LOAD
 <div created="20160205081751366" modified="20160208030000545" title="$:/temp/advancedsearch">
 <pre></pre>
 </div>
-<div created="20160208023043988" modified="20160208033544383" title="$:/temp/authortools/blick">
+<div created="20160208023043988" modified="20160208200421760" title="$:/temp/authortools/blick">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -8072,22 +8072,27 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20160206050528317" title="Dashboard">
-<pre>@@.center.larger.nowrap 
-&lt;&lt;dashboardbutton tid:Dashboard/GeoLocation class:width30&gt;&gt;
+<div created="20150623211607895" modified="20160208201258237" title="Dashboard">
+<pre>\define outerclass()   tt-shadowbox
+\define outerstyle()   min-width:max-content;
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   min-width:max-content;
+
+@@.center.larger.nowrap 
+&lt;&lt;dashboardbutton tid:Dashboard/GeoLocation  class:width30&gt;&gt;
 &lt;&lt;dashboardbutton tid:Dashboard/LocalStorage class:width30&gt;&gt;
-&lt;&lt;dashboardbutton tid:Dashboard/Camera class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/Camera       class:width30&gt;&gt;
 @@
 @@display:block;height:0.25em;@@
 @@.center.larger.nowrap 
-&lt;&lt;dashboardbutton tid:Dashboard/Maps class:width30&gt;&gt;
-&lt;&lt;dashboardbutton tid:Dashboard/StreetView class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/Maps          class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/StreetView    class:width30&gt;&gt;
 &lt;&lt;dashboardbutton tid:Dashboard/AddressLookup class:width30&gt;&gt;
 @@
 @@display:block;height:0.25em;@@
 @@.center.larger.nowrap 
-&lt;&lt;dashboardbutton tid:Dashboard/MPAC class:width30&gt;&gt;
-&lt;&lt;dashboardbutton tid:Dashboard/TeraNet class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/MPAC       class:width30&gt;&gt;
+&lt;&lt;dashboardbutton tid:Dashboard/TeraNet    class:width30&gt;&gt;
 &lt;&lt;dashboardbutton tid:Dashboard/Realtor.ca class:width30&gt;&gt;
 @@
 
@@ -8101,7 +8106,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Realtor.ca&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20160208062306997" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20160208194756101" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;summary&quot;)
 &lt;$button tooltip=&quot;get summary address data from GeoLocation&quot;&gt; $label$
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -8161,7 +8166,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 &lt;$vars latitude={{$:/Geo/Data##latitude}}
        longitude={{$:/Geo/Data##longitude}}&gt;
-&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-height:80vh;min-width:max-content;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;AddressLookup/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8176,7 +8181,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
-&lt;div class=&quot;clear tt-shadowbox inset smaller&quot; style=&quot;max-height:75vh;overflow-y:scroll;min-width:max-content;width:100%;&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    &lt;table style=&quot;width:100%;margin:0;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&quot;$:/Geo/Data/Address/&quot;/&gt;
    &lt;/table&gt;
@@ -8191,7 +8197,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 @@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;real estate dashboard@@//@@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160208062325741" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160208193056527" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
@@ -8305,7 +8311,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 @@
 \end
 
-&lt;div class=&quot;tt-shadowbox left clear nowrap&quot; style=&quot;min-width:calc(max-content + 1em);&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;$vars path={{$:/config/Camera##path}}
           name={{$:/config/Camera##name}}
@@ -8340,11 +8346,12 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
        width={{$:/config/Camera##width}}
        height={{$:/config/Camera##height}}
        quality={{$:/config/Camera##quality}}&gt;
-&lt;div class=&quot;center clear smaller tt-shadowbox inset&quot; style=&quot;min-width:max-content&quot;&gt;&lt;&lt;showpicture&gt;&gt;&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;&lt;&lt;showpicture&gt;&gt;&lt;/div&gt;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160208062402569" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160208193502511" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -8454,7 +8461,7 @@ timeout:&lt;br&gt;
 \define getfullname() locations/$(currentTiddler)$.tids
 \define getfilter()   [title[$(currentTiddler)$]]
 
-&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8469,7 +8476,8 @@ timeout:&lt;br&gt;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap 
    &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; ,,&lt;&lt;showTimestamp&gt;&gt;&amp;nbsp;,,@@
-&lt;div class=&quot;clear tt-shadowbox inset center smaller&quot; style=&quot;width:100%&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    @@.floatleft.nowrap 
       latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
          tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
@@ -8508,7 +8516,7 @@ timeout:&lt;br&gt;
    &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="LocalStorage" created="20151009192813110" modified="20160208070231023" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
+<div caption="LocalStorage" created="20151009192813110" modified="20160208194127356" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
@@ -8671,7 +8679,7 @@ tiddler cache location:&lt;br&gt;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;15&quot; default=&quot;$:/LocalStorage/&quot; /&gt;
 \end
 
-&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-width:calc(80vw);margin:0 auto;&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;$vars filter={{$:/config/LocalStorage##filter}}
        filename={{$:/config/LocalStorage##filename}}
@@ -8693,7 +8701,8 @@ tiddler cache location:&lt;br&gt;
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;
    &amp;nbsp; &lt;&lt;showdirectory&gt;&gt;@@
-&lt;div class=&quot;center clear tt-shadowbox inset nowrap&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    &lt;&lt;setfilter&gt;&gt;
    &lt;&lt;setfilename&gt;&gt;
 &lt;/div&gt;
@@ -8703,7 +8712,7 @@ tiddler cache location:&lt;br&gt;
    {{Dashboard/LocalStorage/Directory}}
 &lt;/$reveal&gt;</pre>
 </div>
-<div caption="LocalStorage Directory" created="20151014083917209" modified="20160208070135719" tags="" title="Dashboard/LocalStorage/Directory">
+<div caption="LocalStorage Directory" created="20151014083917209" modified="20160208201532189" tags="" title="Dashboard/LocalStorage/Directory">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8845,7 +8854,7 @@ tiddler cache location:&lt;br&gt;
 \end
 
 &lt;$set name=&quot;emptylist&quot; value=&quot;[[]]&quot;&gt;
-&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-width:calc(80vw);margin:0 auto&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;resetcache &quot;{{$:/core/images/delete-button}}&quot;&gt;&gt;
    &amp;nbsp;
@@ -8858,7 +8867,8 @@ tiddler cache location:&lt;br&gt;
 @@.floatleft.smaller.nowrap
    &amp;nbsp;
    &lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt;@@
-&lt;div class=&quot;clear tt-shadowbox inset&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;
    emptyMessage=&quot;&quot;&quot;
       @@display:none;&lt;&lt;getfoldersbutton&gt;&gt;@@
@@ -8987,7 +8997,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160208062454706" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20160208195404968" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
 <pre>\define ShowMap()
 &lt;!-- RENDER LIVE --&gt;
 [img width=$(width)$ height=$(height)$ [https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
@@ -9056,7 +9066,7 @@ quality:&lt;br&gt; &amp;nbsp;
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;tt-shadowbox absolute left clear&quot; style=&quot;left:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9066,7 +9076,8 @@ quality:&lt;br&gt; &amp;nbsp;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
-&lt;div class=&quot;clear tt-shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
     longitude={{$:/Geo/Data##longitude}}
@@ -9081,7 +9092,7 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20160208062504608" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20160208194440613" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -9182,7 +9193,7 @@ Password:&lt;br&gt;
    tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
-&lt;div class=&quot;tt-shadowbox left clear&quot;style=&quot;max-height:80vh;width:fit-content;max-width:100%;&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;MPAC/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9191,7 +9202,8 @@ Password:&lt;br&gt;
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
-&lt;div class=&quot;clear tt-shadowbox inset smaller&quot;style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    &lt;&lt;parseXML&gt;&gt;
    &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
    &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
@@ -9236,7 +9248,7 @@ Password:&lt;br&gt;
  &lt;/body&gt;
 &lt;/B2B&gt;</pre>
 </div>
-<div caption="Realtor.ca" created="20151204010130352" modified="20160208025752905" title="Dashboard/Realtor.ca">
+<div caption="Realtor.ca" created="20151204010130352" modified="20160208195912906" title="Dashboard/Realtor.ca">
 <pre>\define ShowMap()
 &lt;iframe src=&quot;http://www.realtor.ca/Residential/Map.aspx#CultureId=$(CultureId)$&amp;ApplicationId=$(ApplicationId)$&amp;RecordsPerPage=$(RecordsPerPage)$&amp;MaximumResults=$(MaximumResults)$&amp;PropertyTypeId=$(PropertyTypeId)$&amp;TransactionTypeId=$(TransactionTypeId)$&amp;StoreyRange=$(StoreyRange)$&amp;BuildingTypeId=$(BuildingTypeId)$&amp;ConstructionStyleId=$(ConstructionStyleId)$&amp;BedRange=$(BedRange)$&amp;BathRange=$(BathRange)$&amp;LongitudeMin=$(LongitudeMin)$&amp;LongitudeMax=$(LongitudeMax)$&amp;LatitudeMin=$(LatitudeMin)$&amp;LatitudeMax=$(LatitudeMax)$&amp;SortOrder=$(SortOrder)$&amp;SortBy=$(SortBy)$&amp;viewState=$(viewState)$Longitude=$(longitude)$&amp;Latitude=$(latitude)$&quot; width=&quot;$(width)$&quot; height=&quot;$(height)$&quot;&gt;&lt;/iframe&gt;
 \end
@@ -9307,7 +9319,7 @@ x
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;tt-shadowbox left clear&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;Realtor.ca/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9317,7 +9329,8 @@ x
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;toolbar&gt;&gt;@@
-@@.clear.tt-shadowbox.inset
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
     longitude={{$:/Geo/Data##longitude}}
@@ -9348,7 +9361,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160207192306416" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160208201013175" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9391,9 +9404,14 @@ x
 \define trayhide()     opacity:0; margin-bottom:-100vh;
 \define trayshow()     opacity:1; margin-bottom:0;
 
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   max-height:80vh;min-width:max-content;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);
+\define innerclass()   tt-shadowbox inset smaller
+\define innerstyle()   max-height:75vh;overflow-y:scroll;min-width:max-content;width:100%;
+
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160207174400656" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160208201000267" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9435,10 +9453,15 @@ x
 
 \define trayhide()     opacity:0; margin-bottom:-100vh; margin-left:-100vw;
 \define trayshow()     opacity:1; margin-bottom:0vh;    margin-left:0vw;
- 
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
+\define innerclass()   tt-shadowbox inset smaller
+\define innerstyle()   max-height:75vh;overflow:auto;max-width:100%;
+
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160207174440400" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160208201027078" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9480,10 +9503,15 @@ x
 
 \define trayhide()     opacity:0; margin-bottom:-100vh; margin-right:-100vw;
 \define trayshow()     opacity:1; margin-bottom:0vh;    margin-right:0vw;
- 
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
+\define innerclass()   tt-shadowbox inset smaller
+\define innerstyle()   max-height:75vh;overflow:auto;max-width:100%;
+
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202082823082" creator="EricShulman" modified="20160208032248796" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
+<div created="20160202082823082" creator="EricShulman" modified="20160208201045546" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
 <pre>\define config()       $:/config/TiddlyTools
 \define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9527,9 +9555,14 @@ x
 \define trayhide()     opacity:0; margin-left:-100vw;
 \define trayshow()     opacity:1; margin-left:0vw; 
 
+\define outerclass()   tt-shadowbox absolute left
+\define outerstyle()   left:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   width:max-content
+
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202084149670" creator="EricShulman" modified="20160208015856128" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
+<div created="20160202084149670" creator="EricShulman" modified="20160208201111931" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
 <pre>\define config()      $:/config/TiddlyTools
 \define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9570,11 +9603,16 @@ x
 \define traymargin()   0em
 
 \define trayhide()     opacity:0; margin-right:-100vw;
-\define trayshow()     opacity:1; margin-right:0vw; 
+\define trayshow()     opacity:1; margin-right:0vw;
+
+\define outerclass()   tt-shadowbox absolute left
+\define outerstyle()   right:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   width:max-content
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160207192322120" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160208200916577" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9616,10 +9654,15 @@ x
 
 \define trayhide()     opacity:0; margin-top:-100vh;
 \define trayshow()     opacity:1; margin-top:0vh;
- 
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);
+\define innerclass()   tt-shadowbox inset center smaller
+\define innerstyle()   width:100%
+
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160207235157568" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160208200842060" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9661,10 +9704,15 @@ x
 
 \define trayhide()     opacity:1; margin-top:-100vh; margin-left:-100vw;
 \define trayshow()     opacity:1; margin-top:0vh; margin-left:0vw;
+
+\define outerclass()   tt-shadowbox left nowrap
+\define outerstyle()   min-width:calc(max-content + 1em);
+\define innerclass()   tt-shadowbox inset center smaller
+\define innerstyle()   min-width:max-content
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160207235211344" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160208201744135" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9706,10 +9754,15 @@ x
 
 \define trayhide()     opacity:1; margin-top:-100vh; margin-right:-100vw;
 \define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
- 
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   max-width:calc(80vw);margin:0 auto;
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   max-width:calc(80vw - 1em);
+
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160208062526590" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20160208195658323" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define StreetView()
 &lt;!-- RENDER LIVE --&gt;
 [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -9755,7 +9808,7 @@ x
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;tt-shadowbox absolute left clear&quot; style=&quot;right:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;StreetView/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9765,7 +9818,8 @@ x
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
-&lt;div class=&quot;clear tt-shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    &lt;$vars
       latitude={{$:/Geo/Data##latitude}}
       longitude={{$:/Geo/Data##longitude}}
@@ -9779,7 +9833,7 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160208062537349" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160208195101405" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -9881,7 +9935,7 @@ Password:&lt;br&gt;
    tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
-&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-height:80vh;width:fit-content;max-width:100%;&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;TeraNet/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9890,7 +9944,8 @@ Password:&lt;br&gt;
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
-&lt;div class=&quot;clear tt-shadowbox inset smaller&quot; style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
+&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    &lt;&lt;parseXML&gt;&gt;
    &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
    &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
@@ -12245,7 +12300,7 @@ background: #f8f8ff;
 &lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
 &lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
 </div>
-<div created="20160206045629259" creator="EricShulman" modified="20160207235108936" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
+<div created="20160206045629259" creator="EricShulman" modified="20160208201137222" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12288,7 +12343,16 @@ background: #f8f8ff;
 \define trayhide()     opacity:1; margin-top:0vh; margin-right:-100vw;
 \define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
 
-&lt;style&gt;.tt-authortools-slidebar .tt-slidebar-button { vertical-align:top; } &lt;/style&gt;
+\define outerclass()   tt-shadowbox
+\define outerstyle()   min-width:25em; width:max-content; max-width:50vw;
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   none
+
+&lt;style&gt;
+   /* shift button to top of bar */
+   .tt-authortools-slidebar .tt-slidebar-button { vertical-align:top; }
+&lt;/style&gt;
+
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
 <div created="20160207095128200" modified="20160208055604056" title="TiddlyTools/SlideBars/CloseOthers">
@@ -12301,7 +12365,7 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208072840864" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208200414391" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,label)
@@ -12360,10 +12424,11 @@ background: #f8f8ff;
 \end
 
 &lt;div class=&quot;authortools&quot;&gt;
-&lt;div class=&quot;tt-shadowbox&quot; style=&quot;min-width:25em; width:max-content; max-width:50vw;&quot;&gt;
+&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
    @@float:right;&lt;&lt;options&gt;&gt;@@
    @@float:left;&lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&lt;&lt;edittiddler&gt;&gt;@@
-   &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;clear:both;&quot;&gt;
+   &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+   &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
       &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:60vh&quot;&gt;
          @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
          @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
