@@ -475,7 +475,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208034851117" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160208055804550" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6932,7 +6932,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208033648112" modified="20160208033648112" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208033648112" modified="20160208055801731" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7742,7 +7742,7 @@ LOAD
 <div created="20160205232823187" modified="20160208033623753" title="$:/temp/search">
 <pre></pre>
 </div>
-<div created="20160205231132173" modified="20160208033536389" title="$:/temp/slidebars/debug">
+<div created="20160205231132173" modified="20160208053730437" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160207173424122" title="$:/temp/TeraNet/source">
@@ -8339,7 +8339,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160208033307542" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160208055725597" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -8449,7 +8449,7 @@ timeout:&lt;br&gt;
 \define getfullname() locations/$(currentTiddler)$.tids
 \define getfilter()   [title[$(currentTiddler)$]]
 
-&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;width:calc(100% + 1em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8868,21 +8868,24 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160208025905345" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20160208055649238" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define dashboardbutton(tid,barname,class:&quot;tc-btn-invisible&quot;)
 &lt;$reveal text=&quot;$barname$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
    &lt;$reveal state=&quot;$:/config/TiddlyTools##$barname$&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
       &lt;$button tooltip=&quot;unpin $barname$&quot; class=&quot;$class$&quot;&gt;
-         @@.nowrap &lt;div style=&quot;display:inline-block;width:1em;&quot;&gt;📌&lt;/div&gt; ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
+         @@.nowrap &lt;div style=&quot;display:inline-block;width:1em;&quot;&gt;📌&lt;/div&gt;
+         ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
          &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;$barname$&quot; $value=&quot;no&quot;/&gt;
       &lt;/$button&gt;
    &lt;/$reveal&gt;
    &lt;$reveal state=&quot;$:/config/TiddlyTools##$barname$&quot; type=&quot;match&quot; text=&quot;no&quot;&gt;
       &lt;$button tooltip=&quot;pin $barname$&quot; class=&quot;$class$&quot;&gt;
-         @@.nowrap &lt;div style=&quot;display:inline-block;width:1em;&quot;&gt;&amp;#x21b9;&lt;/div&gt; ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
+         @@.nowrap &lt;div style=&quot;display:inline-block;width:1em;&quot;&gt;&amp;#x21b9;&lt;/div&gt;
+         ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
         &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;$barname$&quot; $value=&quot;yes&quot;/&gt;
       &lt;/$button&gt;
    &lt;/$reveal&gt;
+   &lt;$vars barname=&quot;$barname$&quot;&gt;{{TiddlyTools/SlideBars/CloseOthers}}&lt;/$vars&gt;
 &lt;/$reveal&gt;
 &lt;$reveal text=&quot;$barname$&quot; type=&quot;match&quot; default=&quot;&quot;&gt;
    &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
@@ -12275,8 +12278,8 @@ background: #f8f8ff;
 &lt;style&gt;.tt-authortools-slidebar .tt-slidebar-button { vertical-align:top; } &lt;/style&gt;
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160207095128200" modified="20160207101420118" title="TiddlyTools/SlideBars/CloseOthers">
-<pre>&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;unpin/close all slidebars&quot;&gt;
+<div created="20160207095128200" modified="20160208055604056" title="TiddlyTools/SlideBars/CloseOthers">
+<pre>&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close other slidebars&quot;&gt;
    {{$:/core/images/close-others-button}}
    &lt;$list filter=&quot;TopLeftBar TopBar TopRightBar LeftBar RightBar BottomLeftBar BottomBar BottomRightBar AuthorToolBar&quot;&gt;
       &lt;$reveal text=&lt;&lt;currentTiddler&gt;&gt; type=&quot;nomatch&quot; default=&lt;&lt;barname&gt;&gt;&gt;
@@ -12285,39 +12288,73 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208034808166" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
-<pre>\define options()
-&lt;$button popup=&quot;$:/state/popup/authortools/settings&quot; class=&quot;tc-btn-invisible&quot; tooltip=&quot;settings&quot;&gt;
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208055319237" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<pre>\define config() $:/config/TiddlyTools
+
+\define checkbox(id,label)
+&lt;$vars target=&quot;&quot;&quot;$(config)$##$id$&quot;&quot;&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible tc-popup-handle&quot;&gt;
+   &lt;$reveal state=&lt;&lt;target&gt;&gt; type=&quot;match&quot; text=&quot;yes&quot;&gt; &lt;!-- CHECKED --&gt;
+      &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;$label$ &amp;nbsp;
+      &lt;$action-setfield $tiddler=&quot;&quot;&quot;$(config)$&quot;&quot;&quot; $index=&quot;$id$&quot; $value=&quot;no&quot;/&gt;
+   &lt;/$reveal&gt;
+   &lt;$reveal state=&lt;&lt;target&gt;&gt; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt; &lt;!-- UNCHECKED --&gt;
+      &lt;input type=&quot;checkbox&quot;&gt;$label$ &amp;nbsp;
+      &lt;$action-setfield $tiddler=&quot;&quot;&quot;$(config)$&quot;&quot;&quot; $index=&quot;$id$&quot; $value=&quot;yes&quot;/&gt;
+   &lt;/$reveal&gt;
+&lt;/$button&gt;
+&lt;/$vars&gt;
+\end
+
+\define slidebaroption(opt)
+      &lt;div style=&quot;margin-left:1em;&quot;&gt;
+
+|borderless|k
+|&lt;&lt;checkbox TopLeftBar$opt$ Camera&gt;&gt;   |&lt;&lt;checkbox TopBar$opt$ ~GeoLocation&gt;&gt;      |&lt;&lt;checkbox TopRightBar$opt$ Storage&gt;&gt;     |
+|&lt;&lt;checkbox LeftBar$opt$ ~GoogleMaps&gt;&gt; | @@font-size:70%;🏡//~CurbSide//@@          |&lt;&lt;checkbox RightBar$opt$ ~StreetView&gt;&gt;    |
+|&lt;&lt;checkbox BottomLeftBar$opt$ MPAC&gt;&gt;  |&lt;&lt;checkbox BottomBar$opt$ ~AddressLookup&gt;&gt; |&lt;&lt;checkbox BottomRightBar$opt$ ~TeraNet&gt;&gt; |
+
+      &lt;/div&gt;
+\end
+
+\define edittiddler()
+&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot;
+   size=10 placeholder=&quot;enter a title&quot; default=&quot;&quot; /&gt;
+&lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}}
+   tooltip=&quot;edit tiddler&quot;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;
+\end
+
+\define options()
+@@font-size:80%;line-height:100%;&lt;&lt;edittiddler&gt;&gt;@@
+&lt;$button popup=&quot;$:/state/popup/authortools/settings&quot;
+   class=&quot;tc-btn-invisible&quot; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;
 &lt;$reveal state=&quot;$:/state/popup/authortools/settings&quot; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
 &lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
+   ''slidebar settings''
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
-      &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;no&quot;&gt;view slidebars&lt;/$checkbox&gt;
+      ''show on hover (auto-hide):'' &lt;&lt;slidebaroption &quot;/Hover&quot;&gt;&gt;&lt;hr&gt;
+      ''stay visible (pinned):''     &lt;&lt;slidebaroption &quot; &quot;&gt;&gt;     &lt;hr&gt;
+      &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;no&quot;&gt;
+         ''show slidebar hover zones''
+      &lt;/$checkbox&gt;
    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/$reveal&gt;
 \end
 
-\define edittiddler()
-&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot; size=10 placeholder=&quot;enter a title&quot; default=&quot;&quot; /&gt;
-&lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}} tooltip=&quot;edit tiddler&quot;&gt;
-   {{$:/core/images/edit-button}}
-&lt;/$button&gt;
-\end
-
 &lt;div class=&quot;authortools&quot;&gt;
-   &lt;div class=&quot;tt-shadowbox&quot; style=&quot;min-width:fit-content; max-width:40vw;&quot;&gt;
-      @@float:right;&lt;&lt;options&gt;&gt; &lt;$vars barname=&quot;closeall&quot;&gt;{{TiddlyTools/SlideBars/CloseOthers}}&lt;/$vars&gt;@@
-      &lt;&lt;dashboardbutton barname:AuthorToolBar&gt;&gt;
-      @@font-size:80%;line-height:100%;&lt;&lt;edittiddler&gt;&gt;@@
-      &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;clear:both;&quot;&gt;
-         &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:60vh&quot;&gt;
-            @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
-            @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
-         &lt;/div&gt;
+&lt;div class=&quot;tt-shadowbox&quot; style=&quot;min-width:fit-content; max-width:40vw;&quot;&gt;
+   @@float:right;&lt;&lt;options&gt;&gt;@@
+   &lt;&lt;dashboardbutton barname:AuthorToolBar&gt;&gt;
+   &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;clear:both;&quot;&gt;
+      &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:60vh&quot;&gt;
+         @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
+         @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
       &lt;/div&gt;
    &lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
 <div created="20160202222243119" creator="EricShulman" modified="20160208014904208" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
