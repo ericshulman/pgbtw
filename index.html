@@ -154,8 +154,6 @@ Error message and password prompt
 
 <li>$:/Geo/Data</li>
 
-<li>$:/Geo/Data/Address</li>
-
 <li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
@@ -221,6 +219,8 @@ Error message and password prompt
 <li>$:/StoryList</li>
 
 <li>$:/temp/advancedsearch</li>
+
+<li>$:/temp/authortools/blick</li>
 
 <li>$:/temp/info-plugin</li>
 
@@ -473,7 +473,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208002912900" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160208033632001" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6930,668 +6930,6 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208001826385" modified="20160208001841619" title="$:/Geo/Data/Address" type="application/json">
-<pre>{
-   &quot;results&quot; : [
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;700&quot;,
-               &quot;short_name&quot; : &quot;700&quot;,
-               &quot;types&quot; : [ &quot;street_number&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University Avenue&quot;,
-               &quot;short_name&quot; : &quot;University Ave&quot;,
-               &quot;types&quot; : [ &quot;route&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;700 University Ave, Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.659829,
-                  &quot;lng&quot; : -79.39033049999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6592045,
-                  &quot;lng&quot; : -79.39059999999999
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6597929,
-               &quot;lng&quot; : -79.39060409999999
-            },
-            &quot;location_type&quot; : &quot;RANGE_INTERPOLATED&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6608657302915,
-                  &quot;lng&quot; : -79.3891162697085
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.65816776970851,
-                  &quot;lng&quot; : -79.3918142302915
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;Eis3MDAgVW5pdmVyc2l0eSBBdmUsIFRvcm9udG8sIE9OIE01RywgQ2FuYWRh&quot;,
-         &quot;types&quot; : [ &quot;street_address&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
-               &quot;short_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
-               &quot;types&quot; : [ &quot;premise&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University&quot;,
-               &quot;short_name&quot; : &quot;University&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5S&quot;,
-               &quot;short_name&quot; : &quot;M5S&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Leslie Dan Faculty of Pharmacy, Toronto, ON M5S, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.659835,
-               &quot;lng&quot; : -79.391122
-            },
-            &quot;location_type&quot; : &quot;ROOFTOP&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6611839802915,
-                  &quot;lng&quot; : -79.38977301970849
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6584860197085,
-                  &quot;lng&quot; : -79.39247098029151
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJWZmQ-7c0K4gR3jTwl2b5dRY&quot;,
-         &quot;types&quot; : [ &quot;premise&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;College Park at University Ave.&quot;,
-               &quot;short_name&quot; : &quot;College Park at University Ave.&quot;,
-               &quot;types&quot; : [ &quot;point_of_interest&quot;, &quot;establishment&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University&quot;,
-               &quot;short_name&quot; : &quot;University&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;College Park at University Ave., Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.659852,
-               &quot;lng&quot; : -79.39048199999999
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6612009802915,
-                  &quot;lng&quot; : -79.3891330197085
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6585030197085,
-                  &quot;lng&quot; : -79.3918309802915
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJgRuM5rc0K4gRYtSUSGWh3EE&quot;,
-         &quot;types&quot; : [
-            &quot;bus_station&quot;,
-            &quot;transit_station&quot;,
-            &quot;point_of_interest&quot;,
-            &quot;establishment&quot;
-         ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Discovery District&quot;,
-               &quot;short_name&quot; : &quot;Discovery District&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Discovery District, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6630908,
-                  &quot;lng&quot; : -79.3843102
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6557481,
-                  &quot;lng&quot; : -79.40053210000001
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6603242,
-               &quot;lng&quot; : -79.3937162
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6630908,
-                  &quot;lng&quot; : -79.3843102
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6557481,
-                  &quot;lng&quot; : -79.40053210000001
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJY9gBJ8g0K4gRwfKR3nQauiI&quot;,
-         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Downtown, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6755833,
-                  &quot;lng&quot; : -79.3470176
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6339328,
-                  &quot;lng&quot; : -79.41131710000001
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.654262,
-               &quot;lng&quot; : -79.385975
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6755833,
-                  &quot;lng&quot; : -79.3470176
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6339328,
-                  &quot;lng&quot; : -79.41131710000001
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJvRBz0jTL1IkRkwMHIgbSFbo&quot;,
-         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Old Toronto, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.75373099999999,
-                  &quot;lng&quot; : -79.27971699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6118399,
-                  &quot;lng&quot; : -79.491969
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6486795,
-               &quot;lng&quot; : -79.3803231
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.75373099999999,
-                  &quot;lng&quot; : -79.27971699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6118399,
-                  &quot;lng&quot; : -79.491969
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ2YVS1Po0K4gR8_c5_bvmDW4&quot;,
-         &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.653226,
-               &quot;lng&quot; : -79.3831843
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJpTvG15DL1IkRd8S0KlBVNTI&quot;,
-         &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.662463,
-                  &quot;lng&quot; : -79.380601
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6511301,
-                  &quot;lng&quot; : -79.39171899999999
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6579524,
-               &quot;lng&quot; : -79.3873826
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.662463,
-                  &quot;lng&quot; : -79.380601
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6511301,
-                  &quot;lng&quot; : -79.39171899999999
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJQ4yqgck0K4gR1f-j38zDpt0&quot;,
-         &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto Division, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6689775,
-               &quot;lng&quot; : -79.29021329999999
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ5b2RG4_L1IkRDtQ2gFEjLv4&quot;,
-         &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Ontario, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 56.8565279,
-                  &quot;lng&quot; : -74.34388229999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.68134879999999,
-                  &quot;lng&quot; : -95.1562271
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 51.253775,
-               &quot;lng&quot; : -85.3232139
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 56.8565279,
-                  &quot;lng&quot; : -74.34388229999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.6813554,
-                  &quot;lng&quot; : -95.15480099999999
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJrxNRX7IFzkwRCR5iKVZC-HA&quot;,
-         &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 83.09565619999999,
-                  &quot;lng&quot; : -52.6206965
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.6765559,
-                  &quot;lng&quot; : -141.00187
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 56.130366,
-               &quot;lng&quot; : -106.346771
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 70,
-                  &quot;lng&quot; : -50
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 42,
-                  &quot;lng&quot; : -142
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ2WrMN9MDDUsRpY9Doiq3aJk&quot;,
-         &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-      }
-   ],
-   &quot;status&quot; : &quot;OK&quot;
-}
-</pre>
-</div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
@@ -7630,41 +6968,41 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div created="20160207195648176" modified="20160207195654688" title="$:/state/Dashboard/AddressLookup">
+<div created="20160207195648176" modified="20160208032805498" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div created="20160205232016114" modified="20160207195658815" title="$:/state/Dashboard/Camera">
+<div created="20160205232016114" modified="20160208032806010" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div created="20160205082717708" modified="20160208000516412" title="$:/state/Dashboard/GeoLocation">
+<div created="20160205082717708" modified="20160208032845674" title="$:/state/Dashboard/GeoLocation">
 <pre></pre>
 </div>
-<div created="20160206023548795" modified="20160207092549377" title="$:/state/Dashboard/LocalStorage">
+<div created="20160206023548795" modified="20160208032803234" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div created="20160205083858907" modified="20160206051204990" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div created="20160207092036835" modified="20160207195645592" title="$:/state/Dashboard/Maps">
+<div created="20160208030017009" modified="20160208032801986" title="$:/state/Dashboard/Maps">
 <pre></pre>
 </div>
-<div created="20160205231638508" modified="20160207092300138" title="$:/state/Dashboard/MPAC">
+<div created="20160205231638508" modified="20160208032801388" title="$:/state/Dashboard/MPAC">
 <pre></pre>
 </div>
-<div created="20160206050630095" modified="20160208001332273" title="$:/state/Dashboard/Realtor.ca">
+<div created="20160206050630095" modified="20160208032805034" title="$:/state/Dashboard/Realtor.ca">
 <pre></pre>
 </div>
-<div created="20160205232056994" modified="20160207092545786" title="$:/state/Dashboard/StreetView">
+<div created="20160205232056994" modified="20160208032803866" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
-<div created="20160207092540481" modified="20160207092545017" title="$:/state/Dashboard/TeraNet">
+<div created="20160207092540481" modified="20160208032804434" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
 <div created="20160205060325015" modified="20160207103929735" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
-<div created="20160205081747543" modified="20160207232707229" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+<div created="20160205081747543" modified="20160208025824819" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Standard</pre>
 </div>
 <div created="20160205061546875" modified="20160206033220911" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
@@ -7684,7 +7022,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160208002920981" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160208025042211" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160206161513372" title="$:/state/tab/sidebar--1835078512">
@@ -7708,11 +7046,14 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="$:/config/TiddlyTools" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20160205081751366" modified="20160207232709994" title="$:/temp/advancedsearch">
-<pre>sidebar</pre>
+<div created="20160205081751366" modified="20160208030000545" title="$:/temp/advancedsearch">
+<pre></pre>
+</div>
+<div created="20160208023043988" modified="20160208033544383" title="$:/temp/authortools/blick">
+<pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -7734,10 +7075,10 @@ LOAD
 <div created="20160205082821981" modified="20160207001132418" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160208001738728" title="$:/temp/search">
+<div created="20160205232823187" modified="20160208033623753" title="$:/temp/search">
 <pre></pre>
 </div>
-<div created="20160205231132173" modified="20160208001815115" title="$:/temp/slidebars/debug">
+<div created="20160205231132173" modified="20160208033536389" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160207173424122" title="$:/temp/TeraNet/source">
@@ -8091,7 +7432,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Realtor.ca&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20160207201814228" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20160208025409610" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
 <pre>\define getdata(label:&quot;get summary&quot;)
 &lt;$button tooltip=&quot;get summary address data from GeoLocation&quot;&gt; $label$
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
@@ -8151,7 +7492,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 &lt;$vars latitude={{$:/Geo/Data##latitude}}
        longitude={{$:/Geo/Data##longitude}}&gt;
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;max-height:80vh;min-width:max-content;width:100%;margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-height:80vh;min-width:max-content;width:100%;margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;AddressLookup/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8166,7 +7507,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
-&lt;div class=&quot;clear shadowbox inset smaller&quot; style=&quot;max-height:75vh;overflow-y:scroll;min-width:max-content;width:100%;&quot;&gt;
+&lt;div class=&quot;clear tt-shadowbox inset smaller&quot; style=&quot;max-height:75vh;overflow-y:scroll;min-width:max-content;width:100%;&quot;&gt;
    &lt;table style=&quot;width:100%;margin:0;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&quot;$:/Geo/Data/Address/&quot;/&gt;
    &lt;/table&gt;
@@ -8181,7 +7522,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 @@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;real estate dashboard@@//@@
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160206205944288" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160208025449082" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
@@ -8295,7 +7636,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 @@
 \end
 
-&lt;div class=&quot;shadowbox left clear nowrap&quot; style=&quot;min-width:calc(max-content + 1em);&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear nowrap&quot; style=&quot;min-width:calc(max-content + 1em);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;$vars path={{$:/config/Camera##path}}
           name={{$:/config/Camera##name}}
@@ -8330,11 +7671,11 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
        width={{$:/config/Camera##width}}
        height={{$:/config/Camera##height}}
        quality={{$:/config/Camera##quality}}&gt;
-&lt;div class=&quot;center clear smaller shadowbox inset&quot; style=&quot;min-width:max-content&quot;&gt;&lt;&lt;showpicture&gt;&gt;&lt;/div&gt;
+&lt;div class=&quot;center clear smaller tt-shadowbox inset&quot; style=&quot;min-width:max-content&quot;&gt;&lt;&lt;showpicture&gt;&gt;&lt;/div&gt;
 &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160207195626584" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160208033307542" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -8444,7 +7785,7 @@ timeout:&lt;br&gt;
 \define getfullname() locations/$(currentTiddler)$.tids
 \define getfilter()   [title[$(currentTiddler)$]]
 
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;width:calc(100% + 1px);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;width:calc(100% + 1em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
@@ -8459,7 +7800,7 @@ timeout:&lt;br&gt;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap 
    &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; ,,&lt;&lt;showTimestamp&gt;&gt;&amp;nbsp;,,@@
-&lt;div class=&quot;clear shadowbox inset center smaller&quot; style=&quot;width:100%&quot;&gt;
+&lt;div class=&quot;clear tt-shadowbox inset center smaller&quot; style=&quot;width:100%&quot;&gt;
    @@.floatleft.nowrap 
       latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
          tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
@@ -8483,11 +7824,11 @@ timeout:&lt;br&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160206050933894" modified="20160207094933804" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
-<pre>&lt;$button to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot;&gt;
+<div created="20160206050933894" modified="20160208033424608" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
+<pre>&lt;$button X-to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot; tooltip=&quot;home: close all panels&quot;&gt;
    {{$:/core/images/home-button}}
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopLeftBar&quot;     $value=&quot;no&quot;/&gt;
-   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopBar&quot;         $value=&quot;no&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopBar&quot;         $value=&quot;yes&quot;/&gt;
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopRightBar&quot;    $value=&quot;no&quot;/&gt;
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;LeftBar&quot;        $value=&quot;no&quot;/&gt;
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;RightBar&quot;       $value=&quot;no&quot;/&gt;
@@ -8498,7 +7839,7 @@ timeout:&lt;br&gt;
    &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Storage" created="20151009192813110" modified="20160206161715829" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
+<div caption="Storage" created="20151009192813110" modified="20160208025555810" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
@@ -8548,7 +7889,7 @@ $label$
    state=&quot;$:/temp/popup/filterInfoDropdown&quot;
    class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
    &amp;nbsp; This filter matches these tiddlers: &amp;nbsp;
-   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;
    &lt;$list filter={{$:/config/LocalStorage##filter}}
       emptyMessage=&quot;@@.smallest //(no matching tiddlers)//@@&quot;&gt;
       &lt;$linkcatcher to=&quot;$:/config/LocalStorage##filter&quot;&gt;
@@ -8572,7 +7913,7 @@ $label$
    state=&quot;$:/temp/popup/filterPickerDropdown&quot;
    class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
    &amp;nbsp; select a filter... &amp;nbsp;
-   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;
    &lt;$list filter=&quot;[prefix[LocalStorage/Filters]]&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot;&gt;{{##label}}
       &lt;$action-setfield $tiddler=&quot;$:/config/LocalStorage&quot; $index=&quot;filename&quot;
@@ -8595,7 +7936,7 @@ $label$
 &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; style=&quot;text-align:left&quot;
    state=&quot;$:/temp/popup/tiddlerPickerDropdown&quot;
    class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
-   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;
    &lt;div class=&quot;scroll-y&quot; style=&quot;height:10em&quot;&gt;
       &lt;$list filter=&quot;[all[]!is[system]]&quot;&gt;
          &lt;$button class=&quot;tc-btn-invisible&quot;&gt;&lt;$text text={{!!title}}/&gt;
@@ -8627,7 +7968,7 @@ filename:
    state=&quot;$:/temp/popup/filenameDropdown&quot;
    class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
    @@.nowrap &amp;nbsp; enter a new filename, or select an existing file: &amp;nbsp;@@
-   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;
    &lt;$list filter=&quot;[prefix[$:/LocalStorage]]&quot;&gt;
    &lt;$list filter=&quot;[all[current]list[!!filelist]]&quot; variable=&quot;filename&quot;&gt;
       &lt;$set name=&quot;fullname&quot; filter=&quot;[all[current]removeprefix[$:/LocalStorage]addsuffix[/]addsuffix&lt;filename&gt;removeprefix[/]]&quot;&gt;
@@ -8661,7 +8002,7 @@ tiddler cache location:&lt;br&gt;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;15&quot; default=&quot;$:/LocalStorage/&quot; /&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;max-width:calc(80vw);margin:0 auto;&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-width:calc(80vw);margin:0 auto;&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;$vars filter={{$:/config/LocalStorage##filter}}
        filename={{$:/config/LocalStorage##filename}}
@@ -8684,7 +8025,7 @@ tiddler cache location:&lt;br&gt;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;TopRightBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;toggleviewer&gt;&gt;@@
-&lt;div class=&quot;center clear shadowbox inset nowrap&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
+&lt;div class=&quot;center clear tt-shadowbox inset nowrap&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
    &lt;&lt;setfilter&gt;&gt;
    &lt;&lt;setfilename&gt;&gt;
 &lt;/div&gt;
@@ -8694,7 +8035,7 @@ tiddler cache location:&lt;br&gt;
    {{Dashboard/LocalStorage/Viewer}}
 &lt;/$reveal&gt;</pre>
 </div>
-<div caption="storage viewer" created="20151014083917209" modified="20160206034029385" tags="" title="Dashboard/LocalStorage/Viewer">
+<div caption="storage viewer" created="20151014083917209" modified="20160208025626810" tags="" title="Dashboard/LocalStorage/Viewer">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8836,7 +8177,7 @@ tiddler cache location:&lt;br&gt;
 \end
 
 &lt;$set name=&quot;emptylist&quot; value=&quot;[[]]&quot;&gt;
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;max-width:calc(80vw);margin:0 auto&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-width:calc(80vw);margin:0 auto&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;resetcache &quot;{{$:/core/images/delete-button}}&quot;&gt;&gt;
    &amp;nbsp;
@@ -8848,7 +8189,7 @@ tiddler cache location:&lt;br&gt;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap
    &lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt;@@
-&lt;div class=&quot;clear shadowbox inset&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
+&lt;div class=&quot;clear tt-shadowbox inset&quot; style=&quot;max-width:calc(80vw - 1em);&quot;&gt;
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;
    emptyMessage=&quot;&quot;&quot;
       @@display:none;&lt;&lt;getfoldersbutton&gt;&gt;@@
@@ -8863,7 +8204,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160207193425813" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20160208025905345" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define dashboardbutton(tid,barname,class:&quot;tc-btn-invisible&quot;)
 &lt;$reveal text=&quot;$barname$&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
    &lt;$reveal state=&quot;$:/config/TiddlyTools##$barname$&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
@@ -8897,25 +8238,17 @@ tiddler cache location:&lt;br&gt;
 &lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
 {{$tid$}}
 &lt;/$reveal&gt;
-&lt;!--
-&lt;$reveal state=&quot;&quot;&quot;$:/state/$tid$&quot;&quot;&quot; type=&quot;match&quot; text=&quot;&quot; default=&quot;&quot;&gt;
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
-@@.floatleft.nowrap &lt;$macrocall $name=&quot;dashboardbutton&quot; tid=&quot;&quot;&quot;$tid$&quot;&quot;&quot;/&gt;@@
-@@.clear @@
-&lt;/div&gt;
-&lt;/$reveal&gt;
---&gt;
 \end
 
 \define dashboardpopup(id,label,title,content,position:&quot;belowleft&quot;,width:&quot;auto&quot;)
 &lt;$button popup=&quot;$:/temp/popup/$id$&quot; tooltip=&quot;$title$&quot;&gt; $label$ &lt;/$button&gt;
 &lt;$reveal type=&quot;popup&quot; position=&quot;$position$&quot; state=&quot;$:/temp/popup/$id$&quot;
-   class=&quot;shadowbox tc-popup-keep&quot; style=&quot;padding:0.5em;width:$width$&quot;&gt;
+   class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;padding:0.5em;width:$width$&quot;&gt;
    @@.left &lt;$button class=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/cancel-button}}
       &lt;$action-deletetiddler $tiddler=&quot;$:/temp/popup/$id$&quot; /&gt;
    &lt;/$button&gt;
    ''&lt;$text text=&quot;$title$&quot;/&gt;''&amp;nbsp;
-   &lt;div class=&quot;shadowbox inset nowrap&quot;&gt;&lt;&lt;$content$&gt;&gt;&lt;/div&gt;
+   &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;&lt;&lt;$content$&gt;&gt;&lt;/div&gt;
    @@
 &lt;/$reveal&gt;
 \end
@@ -8974,7 +8307,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160208001132176" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20160208030727107" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
 <pre>\define ShowMap()
 &lt;!-- RENDER LIVE --&gt;
 [img width=$(width)$ height=$(height)$ [https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
@@ -9043,7 +8376,7 @@ quality:&lt;br&gt; &amp;nbsp;
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;position:absolute;left:0;width:calc(max-content + 1em)&quot;&gt;
+&lt;div class=&quot;tt-shadowbox absolute left clear&quot; style=&quot;left:0;top:50%;transform:translateY(-50%);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9053,7 +8386,7 @@ quality:&lt;br&gt; &amp;nbsp;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;LeftBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
-&lt;div class=&quot;clear shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
+&lt;div class=&quot;clear tt-shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
     longitude={{$:/Geo/Data##longitude}}
@@ -9068,7 +8401,7 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20160207190813963" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20160208025716842" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -9169,7 +8502,7 @@ Password:&lt;br&gt;
    tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot;style=&quot;max-height:80vh;width:fit-content;max-width:100%;&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot;style=&quot;max-height:80vh;width:fit-content;max-width:100%;&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;MPAC/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9178,7 +8511,7 @@ Password:&lt;br&gt;
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomLeftBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
-&lt;div class=&quot;clear shadowbox inset smaller&quot;style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
+&lt;div class=&quot;clear tt-shadowbox inset smaller&quot;style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
    &lt;&lt;parseXML&gt;&gt;
    &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
    &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
@@ -9223,7 +8556,7 @@ Password:&lt;br&gt;
  &lt;/body&gt;
 &lt;/B2B&gt;</pre>
 </div>
-<div caption="Realtor.ca" created="20151204010130352" modified="20160205084109682" title="Dashboard/Realtor.ca">
+<div caption="Realtor.ca" created="20151204010130352" modified="20160208025752905" title="Dashboard/Realtor.ca">
 <pre>\define ShowMap()
 &lt;iframe src=&quot;http://www.realtor.ca/Residential/Map.aspx#CultureId=$(CultureId)$&amp;ApplicationId=$(ApplicationId)$&amp;RecordsPerPage=$(RecordsPerPage)$&amp;MaximumResults=$(MaximumResults)$&amp;PropertyTypeId=$(PropertyTypeId)$&amp;TransactionTypeId=$(TransactionTypeId)$&amp;StoreyRange=$(StoreyRange)$&amp;BuildingTypeId=$(BuildingTypeId)$&amp;ConstructionStyleId=$(ConstructionStyleId)$&amp;BedRange=$(BedRange)$&amp;BathRange=$(BathRange)$&amp;LongitudeMin=$(LongitudeMin)$&amp;LongitudeMax=$(LongitudeMax)$&amp;LatitudeMin=$(LatitudeMin)$&amp;LatitudeMax=$(LatitudeMax)$&amp;SortOrder=$(SortOrder)$&amp;SortBy=$(SortBy)$&amp;viewState=$(viewState)$Longitude=$(longitude)$&amp;Latitude=$(latitude)$&quot; width=&quot;$(width)$&quot; height=&quot;$(height)$&quot;&gt;&lt;/iframe&gt;
 \end
@@ -9294,7 +8627,7 @@ x
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;Realtor.ca/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9304,7 +8637,7 @@ x
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;toolbar&gt;&gt;@@
-@@.clear.shadowbox.inset
+@@.clear.tt-shadowbox.inset
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
     longitude={{$:/Geo/Data##longitude}}
@@ -9470,7 +8803,7 @@ x
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202082823082" creator="EricShulman" modified="20160207174341648" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
+<div created="20160202082823082" creator="EricShulman" modified="20160208032248796" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
 <pre>\define config()       $:/config/TiddlyTools
 \define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9501,12 +8834,12 @@ x
 \define barz()         0
 \define barzhover()    999
 
-\define traytop()      -25%
+\define traytop()      0em
 \define trayleft()     $(Hmargin)$
 \define traybottom()   auto
 \define trayright()    auto
 \define traywidth()    max-content
-\define trayheight()   100%
+\define trayheight()   $(barheight)$
 \define traymin()      40vw
 \define traymax()      80vw
 \define traymargin()   0em
@@ -9516,7 +8849,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202084149670" creator="EricShulman" modified="20160207174350008" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
+<div created="20160202084149670" creator="EricShulman" modified="20160208015856128" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
 <pre>\define config()      $:/config/TiddlyTools
 \define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9546,12 +8879,12 @@ x
 \define barz()         0
 \define barzhover()    999
 
-\define traytop()      -25%
+\define traytop()      0em
 \define trayleft()     auto
 \define traybottom()   auto
 \define trayright()    $(Hmargin)$
 \define traywidth()    max-content
-\define trayheight()   100%
+\define trayheight()   $(barheight)$
 \define traymin()      40vw
 \define traymax()      80vw
 \define traymargin()   0em
@@ -9696,7 +9029,7 @@ x
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160208001214788" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20160208030845718" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define StreetView()
 &lt;!-- RENDER LIVE --&gt;
 [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
@@ -9742,7 +9075,7 @@ x
 @@&lt;br&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;position:absolute;right:0;width:calc(max-content + 1em)&quot;&gt;
+&lt;div class=&quot;tt-shadowbox absolute left clear&quot; style=&quot;right:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;StreetView/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9752,7 +9085,7 @@ x
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;RightBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.borderless
    &lt;&lt;showcontrols&gt;&gt;@@
-&lt;div class=&quot;clear shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
+&lt;div class=&quot;clear tt-shadowbox inset&quot; style=&quot;width:max-content&quot;&gt;
    &lt;$vars
       latitude={{$:/Geo/Data##latitude}}
       longitude={{$:/Geo/Data##longitude}}
@@ -9766,7 +9099,7 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160207174034370" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160208025803089" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -9868,7 +9201,7 @@ Password:&lt;br&gt;
    tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
-&lt;div class=&quot;shadowbox left clear&quot; style=&quot;max-height:80vh;width:fit-content;max-width:100%;&quot;&gt;
+&lt;div class=&quot;tt-shadowbox left clear&quot; style=&quot;max-height:80vh;width:fit-content;max-width:100%;&quot;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;dashboardpopup id:&quot;TeraNet/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -9877,7 +9210,7 @@ Password:&lt;br&gt;
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}} barname=&quot;BottomRightBar&quot;/&gt;&amp;nbsp;@@
 @@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
-&lt;div class=&quot;clear shadowbox inset smaller&quot; style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
+&lt;div class=&quot;clear tt-shadowbox inset smaller&quot; style=&quot;max-height:75vh;overflow:auto;max-width:100%;&quot;&gt;
    &lt;&lt;parseXML&gt;&gt;
    &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
    &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
@@ -12066,7 +11399,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160207235314190" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160208032719247" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
@@ -12088,6 +11421,16 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 
 /* adjust topleftbar to put scaled home button into corner */
 .tc-topbar-left        { left:0; top:42px; font-size:200%; }
+
+/* OVERRIDE ABSOLUTE SHADOWBOXES WHEN SHOWN IN TIDDLERS */
+.tc-tiddler-body .absolute {
+   position:static !important;
+   top:auto !important;
+   transform:none !important;
+   width:auto !important;
+   min-width:auto !important;
+   max-width:auto !important;
+}
 &lt;/pre&gt;</pre>
 </div>
 <div created="20150418111607835" creator="EricShulman" modified="20160207094145166" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
@@ -12278,14 +11621,34 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208001724605" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
-<pre>&lt;div class=&quot;authortools&quot;&gt;
-   &lt;div class=&quot;tt-shadowbox&quot; style=&quot;height:100%; min-width:25em; max-width:40vw; max-height:80vh&quot;&gt;
-      @@float:right; &lt;$vars barname=&quot;closeall&quot;&gt;{{TiddlyTools/SlideBars/CloseOthers}}&lt;/$vars&gt;@@
-      &lt;&lt;dashboardbutton barname:AuthorToolBar&gt;&gt; &amp;nbsp; &amp;nbsp;
-      @@font-size:90%;&lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;no&quot;&gt; show slidebars&lt;/$checkbox&gt;@@
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208023122704" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<pre>\define options()
+&lt;$button popup=&quot;$:/state/popup/authortools/settings&quot; class=&quot;tc-btn-invisible&quot; tooltip=&quot;settings&quot;&gt;
+   {{$:/core/images/options-button}}
+&lt;/$button&gt;
+&lt;$reveal state=&quot;$:/state/popup/authortools/settings&quot; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
+&lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;no&quot;&gt;view slidebars&lt;/$checkbox&gt;
+   &lt;/div&gt;
+&lt;/div&gt;
+&lt;/$reveal&gt;
+\end
+
+\define edittiddler()
+&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot; size=15 placeholder=&quot;enter a title&quot; default=&quot;&quot; /&gt;
+&lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}} tooltip=&quot;edit tiddler&quot;&gt;
+   {{$:/core/images/edit-button}}
+&lt;/$button&gt;
+\end
+
+&lt;div class=&quot;authortools&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox&quot; style=&quot;min-width:25em; max-width:40vw;&quot;&gt;
+      @@float:right;&lt;&lt;options&gt;&gt; &lt;$vars barname=&quot;closeall&quot;&gt;{{TiddlyTools/SlideBars/CloseOthers}}&lt;/$vars&gt;@@
+      &lt;&lt;dashboardbutton barname:AuthorToolBar&gt;&gt;
+      @@font-size:80%;line-height:100%;&lt;&lt;edittiddler&gt;&gt;@@
       &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;clear:both;&quot;&gt;
-         &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:70vh&quot;&gt;
+         &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:60vh&quot;&gt;
             @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
             @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
          &lt;/div&gt;
@@ -12293,7 +11656,7 @@ background: #f8f8ff;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160202222243119" creator="EricShulman" modified="20160207003500036" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
+<div created="20160202222243119" creator="EricShulman" modified="20160208014904208" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
 <pre>&lt;pre&gt;/* SLIDEBAR */
 .&lt;&lt;barclass&gt;&gt;
    { position:fixed; z-index:999;
@@ -12304,7 +11667,8 @@ background: #f8f8ff;
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-tray
    { position:absolute;
      top:&lt;&lt;traytop&gt;&gt;; left:&lt;&lt;trayleft&gt;&gt;; bottom:&lt;&lt;traybottom&gt;&gt;; right:&lt;&lt;trayright&gt;&gt;;
-     width:&lt;&lt;traywidth&gt;&gt;; min-width:&lt;&lt;traymin&gt;&gt;; max-width:&lt;&lt;traymax&gt;&gt;; margin-left:&lt;&lt;traymargin&gt;&gt;; margin-right:&lt;&lt;traymargin&gt;&gt;; }
+     height:&lt;&lt;trayheight&gt;&gt;; width:&lt;&lt;traywidth&gt;&gt;; min-width:&lt;&lt;traymin&gt;&gt;; max-width:&lt;&lt;traymax&gt;&gt;;
+     margin-left:&lt;&lt;traymargin&gt;&gt;; margin-right:&lt;&lt;traymargin&gt;&gt;; }
 
 /* PIN BUTTON */
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-button
