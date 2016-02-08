@@ -473,7 +473,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208060833507" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160208061243979" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -11624,7 +11624,7 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208055319237" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208061225791" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,label)
@@ -11654,13 +11654,16 @@ background: #f8f8ff;
 \end
 
 \define edittiddler()
+&amp;emsp;
 &lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot;
    size=10 placeholder=&quot;enter a title&quot; default=&quot;&quot; /&gt;
 &lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}}
    tooltip=&quot;edit tiddler&quot;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;
+&amp;emsp;
 \end
 
 \define options()
+&lt;nobr&gt;
 @@font-size:80%;line-height:100%;&lt;&lt;edittiddler&gt;&gt;@@
 &lt;$button popup=&quot;$:/state/popup/authortools/settings&quot;
    class=&quot;tc-btn-invisible&quot; tooltip=&quot;settings&quot;&gt;
@@ -11678,6 +11681,7 @@ background: #f8f8ff;
    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/$reveal&gt;
+&lt;/nobr&gt;
 \end
 
 &lt;div class=&quot;authortools&quot;&gt;
