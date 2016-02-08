@@ -477,7 +477,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208070346181" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160208071901050" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6934,7 +6934,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160208064347489" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208061323423" modified="20160208071146337" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -12301,7 +12301,7 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208065031016" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208071825512" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,label)
@@ -12331,12 +12331,11 @@ background: #f8f8ff;
 \end
 
 \define edittiddler()
-&amp;emsp;
-&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot;
+@@font-size:80%;line-height:100%;white-space:nowrap; 
+&amp;emsp;&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/authortools/blick&quot;
    size=10 placeholder=&quot;enter a title&quot; default=&quot;&quot; /&gt;
 &lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}}
-   tooltip=&quot;edit tiddler&quot;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;
-&amp;emsp;
+   tooltip=&quot;edit tiddler&quot;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;&amp;emsp;@@
 \end
 
 \define options()
@@ -12361,10 +12360,9 @@ background: #f8f8ff;
 \end
 
 &lt;div class=&quot;authortools&quot;&gt;
-&lt;div class=&quot;tt-shadowbox&quot; style=&quot;min-width:fit-content; max-width:40vw;&quot;&gt;
+&lt;div class=&quot;tt-shadowbox&quot; style=&quot;min-width:fit-content; width:max-content; max-width:50vw;&quot;&gt;
    @@float:right;&lt;&lt;options&gt;&gt;@@
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;
-   @@font-size:80%;line-height:100%;&lt;&lt;edittiddler&gt;&gt;@@
+   @@float:left;&lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&lt;&lt;edittiddler&gt;&gt;@@
    &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;clear:both;&quot;&gt;
       &lt;div style=&quot;overflow-x:auto; overflow-y:scroll; max-height:60vh&quot;&gt;
          @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
