@@ -479,12 +479,12 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208222028696" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160208222542325" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;20%&quot;,
-    &quot;TopBar&quot;: &quot;no&quot;,
+    &quot;TopBar&quot;: &quot;yes&quot;,
     &quot;TopBar/Hover&quot;: &quot;yes&quot;,
     &quot;TopBar/Size&quot;: &quot;40%&quot;,
     &quot;TopRightBar&quot;: &quot;no&quot;,
@@ -505,7 +505,7 @@ Error message and password prompt
     &quot;BottomRightBar&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Hover&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
-    &quot;AuthorToolBar&quot;: &quot;yes&quot;,
+    &quot;AuthorToolBar&quot;: &quot;no&quot;,
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Size&quot;: &quot;&quot;
 }</pre>
@@ -6936,7 +6936,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160208212510432" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208061323423" modified="20160208222453289" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -9368,6 +9368,7 @@ x
 </div>
 <div created="20160206045629259" creator="EricShulman" modified="20160208214459943" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/AuthorTools">
 <pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
 \define barID()        authortools
 \define barname()      AuthorToolBar
