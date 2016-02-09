@@ -364,6 +364,8 @@ Error message and password prompt
 
 <li>TiddlyTools/SlideBars/Panels/AuthorTools</li>
 
+<li>TiddlyTools/SlideBars/Panels/Settings</li>
+
 <li>TiddlyTools/SlideBars/Right</li>
 
 <li>TiddlyTools/SlideBars/Styles</li>
@@ -484,12 +486,12 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209031640751" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209044127577" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Size&quot;: &quot;20%&quot;,
-    &quot;TopBar&quot;: &quot;yes&quot;,
+    &quot;TopBar&quot;: &quot;no&quot;,
     &quot;TopBar/Hover&quot;: &quot;yes&quot;,
     &quot;TopBar/Size&quot;: &quot;40%&quot;,
     &quot;TopRightBar&quot;: &quot;no&quot;,
@@ -510,7 +512,7 @@ Error message and password prompt
     &quot;BottomRightBar&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Hover&quot;: &quot;no&quot;,
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
-    &quot;AuthorToolBar&quot;: &quot;no&quot;,
+    &quot;AuthorToolBar&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Size&quot;: &quot;&quot;
 }</pre>
@@ -6941,7 +6943,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209031427126" modified="20160209031601946" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209031427126" modified="20160209035255583" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7636,17 +7638,17 @@ LOAD
 <div created="20150623204423061" modified="20150623204425683" title="$:/SiteTitle">
 <pre>CurbSide</pre>
 </div>
-<div created="20160207195648176" modified="20160209031601839" title="$:/state/Dashboard/AddressLookup">
-<pre>show</pre>
+<div created="20160207195648176" modified="20160209035301678" title="$:/state/Dashboard/AddressLookup">
+<pre></pre>
 </div>
-<div created="20160205232016114" modified="20160209031558351" title="$:/state/Dashboard/Camera">
-<pre>show</pre>
+<div created="20160205232016114" modified="20160209035302358" title="$:/state/Dashboard/Camera">
+<pre></pre>
 </div>
-<div created="20160205082717708" modified="20160209031555631" title="$:/state/Dashboard/GeoLocation">
-<pre>show</pre>
+<div created="20160205082717708" modified="20160209035259142" title="$:/state/Dashboard/GeoLocation">
+<pre></pre>
 </div>
-<div created="20160206023548795" modified="20160209031556815" title="$:/state/Dashboard/LocalStorage">
-<pre>show</pre>
+<div created="20160206023548795" modified="20160209035306646" title="$:/state/Dashboard/LocalStorage">
+<pre></pre>
 </div>
 <div created="20160208070234728" modified="20160209024109479" title="$:/state/Dashboard/LocalStorage/Directory">
 <pre>open</pre>
@@ -7654,20 +7656,20 @@ LOAD
 <div created="20160205083858907" modified="20160208065822922" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div created="20160208030017009" modified="20160209031559799" title="$:/state/Dashboard/Maps">
-<pre>show</pre>
+<div created="20160208030017009" modified="20160209035258446" title="$:/state/Dashboard/Maps">
+<pre></pre>
 </div>
-<div created="20160205231638508" modified="20160209031604095" title="$:/state/Dashboard/MPAC">
-<pre>show</pre>
+<div created="20160205231638508" modified="20160209035257678" title="$:/state/Dashboard/MPAC">
+<pre></pre>
 </div>
 <div created="20160206050630095" modified="20160209031549126" title="$:/state/Dashboard/Realtor.ca">
 <pre></pre>
 </div>
-<div created="20160205232056994" modified="20160209031600631" title="$:/state/Dashboard/StreetView">
-<pre>show</pre>
+<div created="20160205232056994" modified="20160209035300590" title="$:/state/Dashboard/StreetView">
+<pre></pre>
 </div>
-<div created="20160207092540481" modified="20160209031603327" title="$:/state/Dashboard/TeraNet">
-<pre>show</pre>
+<div created="20160207092540481" modified="20160209035259910" title="$:/state/Dashboard/TeraNet">
+<pre></pre>
 </div>
 <div created="20160205060325015" modified="20160207103929735" title="$:/state/sidebar">
 <pre>no</pre>
@@ -8199,10 +8201,12 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" modified="20160207192240001" tags="$:/tags/PageTemplate" title="Dashboard/Background">
-<pre>&lt;div style=&quot;position:absolute;top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);text-align:center;z-index:-1000;opacity:0.5;&quot;&gt;
-@@font-size:7em;🏡@@
-@@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;real estate dashboard@@//@@
+<div created="20160207102508424" modified="20160209040111103" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<pre>&lt;div style=&quot;position:absolute;top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);text-align:center;z-index:-1000;&quot;&gt;
+&lt;div class=&quot;tt-shadowbox&quot;&gt;&lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+   @@font-size:7em;line-height:100%;🏡@@
+   @@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;your real estate dashboard@@//@@
+&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
 <div caption="Camera" created="20160205084233633" modified="20160208193056527" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
@@ -8509,11 +8513,11 @@ timeout:&lt;br&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160206050933894" modified="20160208033424608" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
+<div created="20160206050933894" modified="20160209040306082" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
 <pre>&lt;$button X-to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot; tooltip=&quot;home: close all panels&quot;&gt;
    {{$:/core/images/home-button}}
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopLeftBar&quot;     $value=&quot;no&quot;/&gt;
-   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopBar&quot;         $value=&quot;yes&quot;/&gt;
+   &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopBar&quot;         $value=&quot;no&quot;/&gt;
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopRightBar&quot;    $value=&quot;no&quot;/&gt;
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;LeftBar&quot;        $value=&quot;no&quot;/&gt;
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;RightBar&quot;       $value=&quot;no&quot;/&gt;
@@ -9238,7 +9242,7 @@ Password:&lt;br&gt;
  &lt;/body&gt;
 &lt;/B2B&gt;</pre>
 </div>
-<div caption="Realtor.ca" created="20151204010130352" modified="20160208195912906" title="Dashboard/Realtor.ca">
+<div caption="Realtor.ca" created="20151204010130352" modified="20160209035525822" title="Dashboard/Realtor.ca">
 <pre>\define ShowMap()
 &lt;iframe src=&quot;http://www.realtor.ca/Residential/Map.aspx#CultureId=$(CultureId)$&amp;ApplicationId=$(ApplicationId)$&amp;RecordsPerPage=$(RecordsPerPage)$&amp;MaximumResults=$(MaximumResults)$&amp;PropertyTypeId=$(PropertyTypeId)$&amp;TransactionTypeId=$(TransactionTypeId)$&amp;StoreyRange=$(StoreyRange)$&amp;BuildingTypeId=$(BuildingTypeId)$&amp;ConstructionStyleId=$(ConstructionStyleId)$&amp;BedRange=$(BedRange)$&amp;BathRange=$(BathRange)$&amp;LongitudeMin=$(LongitudeMin)$&amp;LongitudeMax=$(LongitudeMax)$&amp;LatitudeMin=$(LatitudeMin)$&amp;LatitudeMax=$(LatitudeMax)$&amp;SortOrder=$(SortOrder)$&amp;SortBy=$(SortBy)$&amp;viewState=$(viewState)$Longitude=$(longitude)$&amp;Latitude=$(latitude)$&quot; width=&quot;$(width)$&quot; height=&quot;$(height)$&quot;&gt;&lt;/iframe&gt;
 \end
@@ -9348,7 +9352,6 @@ x
    &lt;&lt;ShowMap&gt;&gt;
    &lt;div class=&quot;smallest&quot;&gt;&lt;&lt;ShowLink&gt;&gt;&lt;/div&gt;
    &lt;/$vars&gt;
-@@
 &lt;/div&gt;</pre>
 </div>
 <div caption="StreetView" created="20151010205755347" modified="20160208195658323" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
@@ -11723,12 +11726,17 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160209000221846" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160209035243334" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
 .tc-sidebar-lists a.tc-tiddlylink       { color: #999; }
 .tc-sidebar-lists a.tc-tiddlylink:hover { color: #000; }
+
+body.tc-body { background:#BABACA; }
+
+.tc-topbar svg { fill:black; opacity:0.15; }
+.tc-topbar svg:hover { opacity:0.6; }
 
 /* SMALLER FONT IN SIDEBAR */
 .tc-sidebar-scrollable { font-size:100%; line-height:110%; }
@@ -12153,34 +12161,8 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208222005437" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160209044052267" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
-
-\define checkbox(id,label)
-&lt;$vars target=&quot;&quot;&quot;$(config)$##$id$&quot;&quot;&quot;&gt;
-&lt;$button class=&quot;tc-btn-invisible tc-popup-handle&quot;&gt;
-   &lt;$reveal state=&lt;&lt;target&gt;&gt; type=&quot;match&quot; text=&quot;yes&quot;&gt; &lt;!-- CHECKED --&gt;
-      &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;$label$ &amp;nbsp;
-      &lt;$action-setfield $tiddler=&quot;&quot;&quot;$(config)$&quot;&quot;&quot; $index=&quot;$id$&quot; $value=&quot;no&quot;/&gt;
-   &lt;/$reveal&gt;
-   &lt;$reveal state=&lt;&lt;target&gt;&gt; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt; &lt;!-- UNCHECKED --&gt;
-      &lt;input type=&quot;checkbox&quot;&gt;$label$ &amp;nbsp;
-      &lt;$action-setfield $tiddler=&quot;&quot;&quot;$(config)$&quot;&quot;&quot; $index=&quot;$id$&quot; $value=&quot;yes&quot;/&gt;
-   &lt;/$reveal&gt;
-&lt;/$button&gt;
-&lt;/$vars&gt;
-\end
-
-\define slidebaroption(opt)
-      &lt;div style=&quot;margin-left:1em;&quot;&gt;
-
-|borderless|k
-|&lt;&lt;checkbox TopLeftBar$opt$ Camera&gt;&gt;   |&lt;&lt;checkbox TopBar$opt$ ~GeoLocation&gt;&gt;      |&lt;&lt;checkbox TopRightBar$opt$ Storage&gt;&gt;     |
-|&lt;&lt;checkbox LeftBar$opt$ ~GoogleMaps&gt;&gt; | @@font-size:70%;🏡//~CurbSide//@@          |&lt;&lt;checkbox RightBar$opt$ ~StreetView&gt;&gt;    |
-|&lt;&lt;checkbox BottomLeftBar$opt$ MPAC&gt;&gt;  |&lt;&lt;checkbox BottomBar$opt$ ~AddressLookup&gt;&gt; |&lt;&lt;checkbox BottomRightBar$opt$ ~TeraNet&gt;&gt; |
-
-      &lt;/div&gt;
-\end
 
 \define edittiddler()
 @@font-size:80%;line-height:100%;white-space:nowrap; 
@@ -12204,25 +12186,11 @@ background: #f8f8ff;
 \define options()
 &lt;nobr&gt;
 @@font-size:80%;line-height:100%; 
-&lt;$button popup=&quot;$:/state/popup/authortools/settings&quot;
-   tooltip=&quot;settings&quot;&gt;
+&lt;$button popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;@@
-&lt;$reveal state=&quot;$:/state/popup/authortools/settings&quot; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
-&lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
-   @@float:right;font-size:80%;line-height:100%; 
-      &lt;$button popup=&quot;$:/state/popup/authortools/settings&quot; tooltip=&quot;close settings&quot;&gt;
-      {{$:/core/images/close-button}}&lt;/$button&gt;@@
-   ''slidebar settings''
-   &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
-   &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
-      ''show on hover (auto-hide):'' &lt;&lt;slidebaroption &quot;/Hover&quot;&gt;&gt;&lt;hr&gt;
-      ''stay visible (pinned):''     &lt;&lt;slidebaroption &quot; &quot;&gt;&gt;     &lt;hr&gt;
-      &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;no&quot;&gt;
-         ''show slidebar hover zones''
-      &lt;/$checkbox&gt;
-   &lt;/div&gt;
-&lt;/div&gt;
+&lt;$reveal state=&quot;$:/state/popup/slidebars/settings&quot; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
+   {{TiddlyTools/SlideBars/Panels/Settings}}
 &lt;/$reveal&gt;
 &lt;/nobr&gt;
 \end
@@ -12237,6 +12205,53 @@ background: #f8f8ff;
       @@font-size:90%;line-height:140%;{{||$:/core/ui/SideBarLists}}@@
    &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;</pre>
+</div>
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160209044104755" modifier="EricShulman" title="TiddlyTools/SlideBars/Panels/Settings">
+<pre>\define config() $:/config/TiddlyTools
+
+\define checkbox(id,opt)
+&lt;$vars target=&quot;&quot;&quot;$(config)$##$id$Bar$opt$&quot;&quot;&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible tc-popup-handle&quot;&gt;
+   &lt;$reveal state=&lt;&lt;target&gt;&gt; type=&quot;match&quot; text=&quot;yes&quot;&gt; &lt;!-- CHECKED --&gt;
+      &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;&lt;$text text=&quot;&quot;&quot;$id$&quot;&quot;&quot;/&gt; &amp;nbsp;
+      &lt;$action-setfield $tiddler=&quot;&quot;&quot;$(config)$&quot;&quot;&quot; $index=&quot;$id$Bar$opt$&quot; $value=&quot;no&quot;/&gt;
+   &lt;/$reveal&gt;
+   &lt;$reveal state=&lt;&lt;target&gt;&gt; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt; &lt;!-- UNCHECKED --&gt;
+      &lt;input type=&quot;checkbox&quot;&gt;&lt;$text text=&quot;&quot;&quot;$id$&quot;&quot;&quot;/&gt; &amp;nbsp;
+      &lt;$action-setfield $tiddler=&quot;&quot;&quot;$(config)$&quot;&quot;&quot; $index=&quot;$id$Bar$opt$&quot; $value=&quot;yes&quot;/&gt;
+   &lt;/$reveal&gt;
+&lt;/$button&gt;
+&lt;/$vars&gt;
+\end
+
+\define slidebaroption(opt,label)
+&lt;div style=&quot;display:inline-block;&quot;&gt;
+''$label$''
+&lt;div&gt;
+
+|borderless|k
+|&lt;&lt;checkbox TopLeft $opt$&gt;&gt;    |&lt;&lt;checkbox Top $opt$&gt;&gt;    |&lt;&lt;checkbox TopRight $opt$&gt;&gt;    |
+|&lt;&lt;checkbox Left $opt$&gt;&gt;       |                          |&lt;&lt;checkbox Right $opt$&gt;&gt;       |
+|&lt;&lt;checkbox BottomLeft $opt$&gt;&gt; |&lt;&lt;checkbox Bottom $opt$&gt;&gt; |&lt;&lt;checkbox BottomRight $opt$&gt;&gt; |
+
+&lt;/div&gt;
+&lt;/div&gt;
+\end
+
+&lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
+   @@float:right;font-size:80%;line-height:100%; 
+      &lt;$button popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;close settings&quot;&gt;
+      {{$:/core/images/close-button}}&lt;/$button&gt;@@
+   &lt;$link to=&lt;&lt;config&gt;&gt;&gt;slidebar settings&lt;/$link&gt;
+   &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      &lt;&lt;slidebaroption &quot;/Hover&quot; &quot;show on hover:&quot;&gt;&gt;
+      &lt;hr style=&quot;margin:1px&quot;/&gt;
+      &lt;&lt;slidebaroption &quot; &quot; &quot;pinned (stay visible):&quot;&gt;&gt;
+      &lt;hr style=&quot;margin:1px&quot;/&gt;
+      &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;no&quot;&gt;''show active hover zones''&lt;/$checkbox&gt;
+   &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
 <div created="20160202084149670" creator="EricShulman" modified="20160209030430377" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Right">
