@@ -128,6 +128,8 @@ Error message and password prompt
 
 <li>$:/config/MPAC</li>
 
+<li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
 
 <li>$:/config/Realtor.ca</li>
@@ -436,6 +438,9 @@ Error message and password prompt
     &quot;report_type&quot;: &quot;comparable&quot;
 }</pre>
 </div>
+<div created="20160209015526114" modified="20160209015532273" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/close-all">
+<pre>hide</pre>
+</div>
 <div modified="20150722012049072" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
 </div>
@@ -479,7 +484,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209002115394" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209015927505" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -497,7 +502,7 @@ Error message and password prompt
     &quot;RightBar/Hover&quot;: &quot;yes&quot;,
     &quot;RightBar/Size&quot;: &quot;50vh&quot;,
     &quot;BottomLeftBar&quot;: &quot;no&quot;,
-    &quot;BottomLeftBar/Hover&quot;: &quot;no&quot;,
+    &quot;BottomLeftBar/Hover&quot;: &quot;yes&quot;,
     &quot;BottomLeftBar/Size&quot;: &quot;25%&quot;,
     &quot;BottomBar&quot;: &quot;no&quot;,
     &quot;BottomBar/Hover&quot;: &quot;yes&quot;,
@@ -6936,7 +6941,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160208235110002" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208061323423" modified="20160209015401188" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7643,7 +7648,7 @@ LOAD
 <div created="20160206023548795" modified="20160208201547045" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div created="20160208070234728" modified="20160208070250240" title="$:/state/Dashboard/LocalStorage/Directory">
+<div created="20160208070234728" modified="20160209011355982" title="$:/state/Dashboard/LocalStorage/Directory">
 <pre>open</pre>
 </div>
 <div created="20160205083858907" modified="20160208065822922" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -7709,7 +7714,7 @@ LOAD
 <div created="20160205060731559" modified="20160205084535152" title="$:/state/tab/sidebar-1501833866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20160208212910243" modified="20160209002119665" title="$:/state/tab/sidebar-1867989403">
+<div created="20160208212910243" modified="20160209015804553" title="$:/state/tab/sidebar-1867989403">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160207232935220" modified="20160207232948012" title="$:/state/TiddlyTools/SlideBars/Panels/AuthorTools">
@@ -7750,7 +7755,7 @@ LOAD
 <div created="20160205232823187" modified="20160208214625015" title="$:/temp/search">
 <pre></pre>
 </div>
-<div created="20160205231132173" modified="20160208053730437" title="$:/temp/slidebars/debug">
+<div created="20160205231132173" modified="20160209015924804" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160207173424122" title="$:/temp/TeraNet/source">
@@ -8519,7 +8524,7 @@ timeout:&lt;br&gt;
    &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="LocalStorage" created="20151009192813110" modified="20160208194127356" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
+<div caption="LocalStorage" created="20151009192813110" modified="20160209011809164" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
@@ -8684,18 +8689,6 @@ tiddler cache location:&lt;br&gt;
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
-   &lt;$vars filter={{$:/config/LocalStorage##filter}}
-       filename={{$:/config/LocalStorage##filename}}
-       root={{$:/config/LocalStorage##root}}
-       limit={{$:/config/LocalStorage##limit}}&gt;
-   &lt;&lt;savefile     label:&quot;{{$:/core/images/save-button}}&quot;&gt;&gt;
-   &amp;nbsp;
-   &lt;&lt;loadfile     label:&quot;{{$:/core/images/download-button}}&quot;&gt;&gt;
-   &amp;nbsp;
-   &lt;&lt;removefile   label:&quot;@@.redsvg {{$:/core/images/close-button}}@@&quot;&gt;&gt;
-   &amp;nbsp;
-   &lt;&lt;removefolder label:&quot;@@.redsvg {{$:/core/images/close-all-button}}@@&quot;&gt;&gt;
-   &lt;/$vars&gt;
    &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;LocalStorage&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
@@ -8706,16 +8699,28 @@ tiddler cache location:&lt;br&gt;
    &amp;nbsp; &lt;&lt;showdirectory&gt;&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
+   @@.smaller
    &lt;&lt;setfilter&gt;&gt;
    &lt;&lt;setfilename&gt;&gt;
+   &lt;nobr&gt;
+   &lt;$vars filter={{$:/config/LocalStorage##filter}}
+       filename={{$:/config/LocalStorage##filename}}
+       root={{$:/config/LocalStorage##root}}
+       limit={{$:/config/LocalStorage##limit}}&gt;
+   &lt;&lt;savefile     label:&quot;{{$:/core/images/save-button}}&quot;&gt;&gt;
+   &lt;&lt;loadfile     label:&quot;{{$:/core/images/download-button}}&quot;&gt;&gt;
+   &lt;&lt;removefile   label:&quot;@@.redsvg {{$:/core/images/close-button}}@@&quot;&gt;&gt;
+   &lt;&lt;removefolder label:&quot;@@.redsvg {{$:/core/images/close-all-button}}@@&quot;&gt;&gt;
+   &lt;/$vars&gt;
+   &lt;/nobr&gt;
+   @@
+   &lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
+         &amp;nbsp;{{Dashboard/LocalStorage/Directory}}
+   &lt;/$reveal&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
-   @@display:block;height:1em;@@
-   {{Dashboard/LocalStorage/Directory}}
-&lt;/$reveal&gt;</pre>
+&lt;/div&gt;</pre>
 </div>
-<div caption="LocalStorage Directory" created="20151014083917209" modified="20160208201532189" tags="" title="Dashboard/LocalStorage/Directory">
+<div caption="LocalStorage Directory" created="20151014083917209" modified="20160209011028995" tags="" title="Dashboard/LocalStorage/Directory">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8842,36 +8847,12 @@ tiddler cache location:&lt;br&gt;
 &lt;/$set&gt;
 \end
 
-\define options()
-root path:&lt;br&gt;
-&amp;nbsp; &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;root&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;15&quot; default=&quot;TW5/&quot; /&gt;
-&lt;br&gt;
-max folder depth:&lt;br&gt;
-&amp;nbsp; &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;limit&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;15&quot; default=&quot;5&quot; /&gt;
-&lt;br&gt;
-tiddler cache location:&lt;br&gt;
-&amp;nbsp; &lt;$edit-text tiddler=&quot;$:/config/LocalStorage&quot; index=&quot;cache&quot;
-   field=&quot;text&quot; tag=&quot;input&quot; size=&quot;15&quot; default=&quot;$:/LocalStorage/&quot; /&gt;
-\end
-
 &lt;$set name=&quot;emptylist&quot; value=&quot;[[]]&quot;&gt;
-&lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;resetcache &quot;{{$:/core/images/delete-button}}&quot;&gt;&gt;
-   &amp;nbsp;
-   &lt;&lt;dashboardpopup id:&quot;LocalStorage/Viewer&quot;
-      label:&quot;{{$:/core/images/options-button}}&quot;
-      title:&quot;LocalStorage settings&quot;
-      content:&quot;options&quot;&gt;&gt;@@
-@@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.nowrap
-   &amp;nbsp;
    &lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
-&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
+&lt;hr style=&quot;margin:1px&quot;&gt;
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;
    emptyMessage=&quot;&quot;&quot;
       @@display:none;&lt;&lt;getfoldersbutton&gt;&gt;@@
@@ -8882,8 +8863,6 @@ tiddler cache location:&lt;br&gt;
       @@.bottomdots &lt;&lt;showfileitem&gt;&gt;@@
    &lt;/$list&gt;
 &lt;/$list&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;/$set&gt;</pre>
 </div>
 <div created="20151021203705648" modified="20160208064346944" tags="$:/tags/Macro" title="Dashboard/Macros">
@@ -9425,7 +9404,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160208235109761" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160209015400955" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9452,7 +9431,7 @@ x
 \define barheight()    $(Vmargin)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         999
+\define barz()         5
 \define barzhover()    1005
 
 \define traytop()      auto
@@ -9475,7 +9454,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160208201000267" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160209015726462" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9511,7 +9490,7 @@ x
 \define trayright()    auto
 \define traywidth()    max-content
 \define trayheight()   auto
-\define traymin()      40em
+\define traymin()      max-content
 \define traymax()      80vw
 \define traymargin()   0em
 
@@ -9521,11 +9500,11 @@ x
 \define outerclass()   tt-shadowbox left
 \define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
 \define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:75vh;overflow:auto;max-width:100%;
+\define innerstyle()   max-height:calc(80vh - 4em);overflow:auto;max-width:100%;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160208201027078" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160209015832346" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9571,11 +9550,11 @@ x
 \define outerclass()   tt-shadowbox left
 \define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
 \define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:75vh;overflow:auto;max-width:100%;
+\define innerstyle()   max-height:calc(80vh - 4em);overflow:auto;max-width:100%;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202082823082" creator="EricShulman" modified="20160208201045546" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
+<div created="20160202082823082" creator="EricShulman" modified="20160209014043942" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
 <pre>\define config()       $:/config/TiddlyTools
 \define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9603,8 +9582,8 @@ x
 \define barheight()    $(barsize)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
-\define barzhover()    999
+\define barz()         2
+\define barzhover()    1002
 
 \define traytop()      0em
 \define trayleft()     $(Hmargin)$
@@ -9626,7 +9605,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202084149670" creator="EricShulman" modified="20160208201111931" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
+<div created="20160202084149670" creator="EricShulman" modified="20160209014031078" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
 <pre>\define config()      $:/config/TiddlyTools
 \define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -9653,8 +9632,8 @@ x
 \define barheight()    $(barsize)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
-\define barzhover()    999
+\define barz()         2
+\define barzhover()    1002
 
 \define traytop()      0em
 \define trayleft()     auto
@@ -9676,7 +9655,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160208235001385" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160209014106222" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9703,7 +9682,7 @@ x
 \define barheight()    $(Vmargin)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
+\define barz()         5
 \define barzhover()    1005
 
 \define traytop()      calc($(bartop)$ + $(barheight)$)
@@ -9726,7 +9705,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160208200842060" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160209013315273" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9753,7 +9732,7 @@ x
 \define barheight()    $(Vmargin)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         999
+\define barz()         0
 \define barzhover()    999
 
 \define traytop()      $(Vmargin)$
@@ -9770,13 +9749,13 @@ x
 \define trayshow()     opacity:1; margin-top:0vh; margin-left:0vw;
 
 \define outerclass()   tt-shadowbox left nowrap
-\define outerstyle()   min-width:calc(max-content + 1em);
+\define outerstyle()   min-width:&lt;&lt;traymin&gt;&gt;; max-width:&lt;&lt;traymax&gt;&gt;;
 \define innerclass()   tt-shadowbox inset center smaller
-\define innerstyle()   min-width:max-content
+\define innerstyle()   min-width:calc(&lt;&lt;traymin&gt;&gt; - 1em); max-width:calc(&lt;&lt;traymax&gt;&gt; - 1em);
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160208201744135" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160209012557241" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9803,7 +9782,7 @@ x
 \define barheight()    $(Vmargin)$
 \define barmin()       1em
 \define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         999
+\define barz()         0
 \define barzhover()    999
 
 \define traytop()      $(Vmargin)$
@@ -9820,9 +9799,9 @@ x
 \define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   max-width:calc(80vw);margin:0 auto;
+\define outerstyle()   min-width:&lt;&lt;traymin&gt;&gt;;max-width:calc(&lt;&lt;traymax&gt;&gt;);margin:0 auto;
 \define innerclass()   tt-shadowbox inset
-\define innerstyle()   max-width:calc(80vw - 1em);
+\define innerstyle()   min-width:calc(&lt;&lt;traymin&gt;&gt; - 1em);max-width:calc(&lt;&lt;traymax&gt;&gt; - 1em);
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
