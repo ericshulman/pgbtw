@@ -486,7 +486,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209044245458" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209051713097" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -7757,7 +7757,7 @@ LOAD
 <div created="20160205232823187" modified="20160209022856729" title="$:/temp/search">
 <pre></pre>
 </div>
-<div created="20160205231132173" modified="20160209030657402" title="$:/temp/slidebars/debug">
+<div created="20160205231132173" modified="20160209051512732" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160207173424122" title="$:/temp/TeraNet/source">
@@ -12000,7 +12000,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160209030500129" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160209051245314" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12036,7 +12036,7 @@ background: #f8f8ff;
 \define trayright()    auto
 \define traywidth()    max-content
 \define trayheight()   auto
-\define traymin()      max-content
+\define traymin()      30em
 \define traymax()      80vw
 \define traymargin()   0em
 
@@ -12050,7 +12050,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160209030450793" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160209051450867" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12207,7 +12207,7 @@ background: #f8f8ff;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160209044104755" modifier="EricShulman" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160209051652822" modifier="EricShulman" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,opt)
@@ -12227,7 +12227,7 @@ background: #f8f8ff;
 
 \define slidebaroption(opt,label)
 &lt;div style=&quot;display:inline-block;&quot;&gt;
-''$label$''
+$label$
 &lt;div&gt;
 
 |borderless|k
@@ -12246,9 +12246,9 @@ background: #f8f8ff;
    &lt;$link to=&lt;&lt;config&gt;&gt;&gt;slidebar settings&lt;/$link&gt;
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
-      &lt;&lt;slidebaroption &quot;/Hover&quot; &quot;show on hover:&quot;&gt;&gt;
+      &lt;&lt;slidebaroption &quot;/Hover&quot; &quot;''hover'' //(auto show/hide)//:&quot;&gt;&gt;
       &lt;hr style=&quot;margin:1px&quot;/&gt;
-      &lt;&lt;slidebaroption &quot; &quot; &quot;pinned (stay visible):&quot;&gt;&gt;
+      &lt;&lt;slidebaroption &quot; &quot; &quot;''pinned'' //(stay visible)//:&quot;&gt;&gt;
       &lt;hr style=&quot;margin:1px&quot;/&gt;
       &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;no&quot;&gt;''show active hover zones''&lt;/$checkbox&gt;
    &lt;/div&gt;
