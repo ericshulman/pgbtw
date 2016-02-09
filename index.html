@@ -120,6 +120,8 @@ Error message and password prompt
 
 <li>$:/config/Camera</li>
 
+<li>$:/config/curbside/fontsize</li>
+
 <li>$:/config/Geo</li>
 
 <li>$:/config/GoogleMaps</li>
@@ -266,6 +268,8 @@ Error message and password prompt
 
 <li>Dashboard/Background</li>
 
+<li>Dashboard/Background/Stylesheet</li>
+
 <li>Dashboard/Camera</li>
 
 <li>Dashboard/GeoLocation</li>
@@ -411,6 +415,9 @@ Error message and password prompt
     &quot;counter&quot;: &quot;04&quot;
 }</pre>
 </div>
+<div created="20160209215425104" modified="20160209225121878" title="$:/config/curbside/fontsize">
+<pre>100</pre>
+</div>
 <div accuracy="yes" created="20151017064839232" modified="20151027225721983" title="$:/config/Geo" type="application/json">
 <pre>{
     &quot;digits&quot;: &quot;6&quot;,
@@ -488,7 +495,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209210608787" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209225316176" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6947,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160209210439454" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160209215126673" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -8222,13 +8229,28 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" modified="20160209040111103" tags="$:/tags/PageTemplate" title="Dashboard/Background">
-<pre>&lt;div style=&quot;position:absolute;top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);text-align:center;z-index:-1000;&quot;&gt;
-&lt;div class=&quot;tt-shadowbox&quot;&gt;&lt;div class=&quot;tt-shadowbox inset&quot;&gt;
-   @@font-size:7em;line-height:100%;🏡@@
-   @@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;your real estate dashboard@@//@@
-&lt;/div&gt;&lt;/div&gt;
+<div created="20160207102508424" modified="20160209225717924" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<pre>&lt;div class=&quot;background&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox&quot;&gt;&lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      @@font-size:7em;line-height:100%;🏡@@
+      @@font-size:4em;display:inline-block;
+         ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;your real estate dashboard@@//@@
+   &lt;/div&gt;&lt;/div&gt;
+   &lt;div class=&quot;background-controls&quot;&gt;
+      zoom &lt;$edit-text tag=&quot;input&quot; type=&quot;range&quot; tiddler=&quot;$:/config/curbside/fontsize&quot; min=&quot;50&quot; max=&quot;200&quot; step=&quot;10&quot; default=&quot;100&quot;/&gt;
+      {{$:/config/curbside/fontsize}}%
+   &lt;/div&gt;
 &lt;/div&gt;</pre>
+</div>
+<div created="20160209215841962" modified="20160209225257594" tags="$:/tags/Stylesheet" title="Dashboard/Background/Stylesheet">
+<pre>&lt;pre&gt;
+body.tc-body
+   { font-size:{{$:/config/curbside/fontsize}}%; }
+
+.background { position:absolute; z-index:-1; top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%); text-align:center; }
+.background       .background-controls       { opacity:0; transition: opacity 1s; }
+.background:hover .background-controls       { opacity:1; transition: opacity 1s; }
+&lt;/pre&gt;</pre>
 </div>
 <div caption="Camera" created="20160205084233633" modified="20160209193843029" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
@@ -11961,7 +11983,7 @@ background: #f8f8ff;
 &lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
 &lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
 </div>
-<div created="20160206045629259" creator="EricShulman" modified="20160209030352523" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
+<div created="20160206045629259" creator="EricShulman" modified="20160209221217811" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -11969,8 +11991,8 @@ background: #f8f8ff;
 \define barname()      AuthorToolBar
 \define barclass()     tt-authortools-slidebar
 \define bartag()       $:/tags/AuthorToolsSlideBar
-\define barpin()       ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
-\define barunpin()     ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+\define barpin()       ''@@font-size:200%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+\define barunpin()     ''@@font-size:200%;👷&lt;!--&amp;#x1F477;--&gt;@@''
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
