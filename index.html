@@ -158,6 +158,8 @@ Error message and password prompt
 
 <li>$:/Geo/Data/Address</li>
 
+<li>$:/Import</li>
+
 <li>$:/isEncrypted</li>
 
 <li>$:/scraps</li>
@@ -486,7 +488,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209055256402" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209205210970" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -515,8 +517,8 @@ Error message and password prompt
     &quot;AuthorToolBar&quot;: &quot;no&quot;,
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Size&quot;: &quot;&quot;,
-    &quot;EnableMaps&quot;: &quot;no&quot;,
-    &quot;EnableStreetView&quot;: &quot;no&quot;
+    &quot;EnableMaps&quot;: &quot;yes&quot;,
+    &quot;EnableStreetView&quot;: &quot;yes&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -6939,13 +6941,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623224550947" modified="20160206050802745" title="$:/DefaultTiddlers">
 <pre></pre>
 </div>
-<div created="20151016012736156" modified="20160208000921930" tags="location" title="$:/Geo/Data" type="application/json">
+<div created="20151016012736156" modified="20160209205151793" tags="location" title="$:/Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209031427126" modified="20160209052450979" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160209204942044" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7607,6 +7609,11 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 }
 </pre>
 </div>
+<div status="complete" title="$:/Import">
+<pre>The following tiddlers were imported:
+
+# [[Dashboard/GeoLocation]]</pre>
+</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -7643,13 +7650,13 @@ LOAD
 <div created="20160207195648176" modified="20160209035301678" title="$:/state/Dashboard/AddressLookup">
 <pre></pre>
 </div>
-<div created="20160205232016114" modified="20160209035302358" title="$:/state/Dashboard/Camera">
+<div created="20160205232016114" modified="20160209202917323" title="$:/state/Dashboard/Camera">
 <pre></pre>
 </div>
-<div created="20160205082717708" modified="20160209035259142" title="$:/state/Dashboard/GeoLocation">
+<div created="20160205082717708" modified="20160209202911907" title="$:/state/Dashboard/GeoLocation">
 <pre></pre>
 </div>
-<div created="20160206023548795" modified="20160209035306646" title="$:/state/Dashboard/LocalStorage">
+<div created="20160206023548795" modified="20160209202920954" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
 <div created="20160208070234728" modified="20160209024109479" title="$:/state/Dashboard/LocalStorage/Directory">
@@ -7658,7 +7665,7 @@ LOAD
 <div created="20160205083858907" modified="20160208065822922" title="$:/state/Dashboard/LocalStorage/Viewer">
 <pre>open</pre>
 </div>
-<div created="20160208030017009" modified="20160209035258446" title="$:/state/Dashboard/Maps">
+<div created="20160208030017009" modified="20160209202928507" title="$:/state/Dashboard/Maps">
 <pre></pre>
 </div>
 <div created="20160205231638508" modified="20160209035257678" title="$:/state/Dashboard/MPAC">
@@ -7673,7 +7680,7 @@ LOAD
 <div created="20160207092540481" modified="20160209035259910" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
-<div created="20160205060325015" modified="20160207103929735" title="$:/state/sidebar">
+<div created="20160205060325015" modified="20160209191605317" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20160205081747543" modified="20160208220446083" title="$:/state/tab--1498284803">
@@ -7733,7 +7740,7 @@ LOAD
 <div created="20160205081751366" modified="20160209022855178" title="$:/temp/advancedsearch">
 <pre></pre>
 </div>
-<div created="20160208023043988" modified="20160208222012593" title="$:/temp/authortools/blick">
+<div created="20160208023043988" modified="20160209205207676" title="$:/temp/authortools/blick">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -7753,7 +7760,7 @@ LOAD
 <div created="20160205085005903" modified="20160205085005903" title="$:/temp/MPAC/source">
 <pre>MPAC_AVM_12ClarkSecorOutput.xml</pre>
 </div>
-<div created="20160205082821981" modified="20160207001132418" title="$:/temp/notify">
+<div created="20160205082821981" modified="20160209203508442" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
 <div created="20160205232823187" modified="20160209022856729" title="$:/temp/search">
@@ -7762,8 +7769,8 @@ LOAD
 <div created="20160205231132173" modified="20160209051512732" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
-<div created="20160205085243127" modified="20160207173424122" title="$:/temp/TeraNet/source">
-<pre>m1c3J8_1HARTSVILLE_ter_output.xml</pre>
+<div created="20160205085243127" modified="20160209195843026" title="$:/temp/TeraNet/source">
+<pre>m1c3l3_12CLARK_ter_output.xml</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.11">
 <pre>{
@@ -8118,8 +8125,10 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Realtor.ca&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20160208194756101" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
-<pre>\define getdata(label:&quot;summary&quot;)
+<div caption="AddressLookup" created="20151010193622207" modified="20160209204115065" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
+<pre>\define geotarget() $:/Geo/Data
+
+\define getdata(label:&quot;summary&quot;)
 &lt;$button tooltip=&quot;get summary address data from GeoLocation&quot;&gt; $label$
 &lt;$action-httpRequest url=&quot;https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude)$,$(longitude)$&quot;
    tiddler=&quot;$:/Geo/Data/Address&quot; parse=&quot;geo&quot; autoload=&quot;true&quot; /&gt;
@@ -8137,6 +8146,17 @@ exports.startup = function() {
 &lt;$button tooltip=&quot;clear extracted address data elements&quot;&gt; $label$
 &lt;$action-deletetiddler $filter=&quot;[prefix[$:/Geo/Data/Address]]&quot;/&gt;
 &lt;/$button&gt;
+\end
+
+\define showgeo()
+latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;geotarget&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
+longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;geotarget&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+\end
+
+\define toolbar()
+@@.center &lt;&lt;showgeo&gt;&gt; &amp;emsp; &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
 \end
 
 \define showlink()
@@ -8191,14 +8211,14 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.nowrap
-   &lt;&lt;getdata&gt;&gt; &lt;&lt;unpackdata&gt;&gt; &lt;&lt;cleardata&gt;&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
+   &lt;&lt;toolbar&gt;&gt;
+   @@.clear @@
    &lt;table style=&quot;width:100%;margin:0;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&quot;$:/Geo/Data/Address/&quot;/&gt;
    &lt;/table&gt;
-   @@.center.smaller &lt;&lt;showlink&gt;&gt;@@
+   @@.clear.center.smaller &lt;&lt;showlink&gt;&gt;@@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
@@ -8211,7 +8231,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160208193056527" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160209193843029" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
@@ -8265,8 +8285,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;$action-setfield $tiddler=&quot;$:/config/Camera&quot; $index=&quot;counter&quot; $value=&lt;&lt;prev&gt;&gt; /&gt;
 &lt;/$button&gt;
 &amp;nbsp;
-&lt;&lt;takepicture   label:&quot;{{$:/core/images/close-others-button}}&quot;&gt;&gt;
-&lt;&lt;deletepicture label:&quot;{{$:/core/images/close-button}}&quot;&gt;&gt;
+&amp;nbsp;
+&lt;&lt;takepicture   label:&quot;''&amp;#x26A1;''&quot;&gt;&gt;&lt;&lt;deletepicture label:&quot;{{$:/core/images/close-button}}&quot;&gt;&gt;
+&amp;nbsp;
 &amp;nbsp;
 &lt;$button tooltip=&quot;NEXT PHOTO: increment counter (01-99)&quot;&gt;
    {{$:/core/images/right-arrow}}
@@ -8288,7 +8309,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;$transclude tiddler=&lt;&lt;gettarget&gt;&gt; mode=&quot;block&quot;&gt;
 &lt;table class=&quot;borderless&quot; style=&quot;height:$(height)$px;min-width:fit-content;width:100%;background:#666;border-radius:0.5em;&quot;&gt;
 &lt;tr valign=&quot;center&quot;&gt;&lt;td align=&quot;center&quot;&gt;
-@@font-size:400%;&lt;&lt;takepicture&gt;&gt;@@
+@@font-size:400%;&lt;&lt;takepicture label:&quot;&amp;#x26A1; click!&quot;&gt;&gt;@@
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/$transclude&gt;
 \end
@@ -8343,26 +8364,31 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-&lt;$vars path={{$:/config/Camera##path}}
-       name={{$:/config/Camera##name}}
-       counter={{$:/config/Camera##counter}}
-       format={{$:/config/Camera##format}}
-       width={{$:/config/Camera##width}}
-       height={{$:/config/Camera##height}}
-       quality={{$:/config/Camera##quality}}&gt;
-   @@.floatleft.smaller.nowrap &lt;&lt;selectpicture&gt;&gt; &amp;nbsp; &amp;nbsp;@@
-&lt;/$vars&gt;
-@@.floatleft.smaller.nowrap &lt;&lt;getname &quot;////&quot;&gt;&gt;@@
-&lt;$vars path={{$:/config/Camera##path}}
-       name={{$:/config/Camera##name}}
-       counter={{$:/config/Camera##counter}}
-       format={{$:/config/Camera##format}}
-       width={{$:/config/Camera##width}}
-       height={{$:/config/Camera##height}}
-       quality={{$:/config/Camera##quality}}&gt;
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
-&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;&lt;&lt;showpicture&gt;&gt;&lt;/div&gt;
-&lt;/$vars&gt;
+&lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
+   @@.floatleft.nowrap 
+      &lt;$vars path={{$:/config/Camera##path}}
+             name={{$:/config/Camera##name}}
+          counter={{$:/config/Camera##counter}}
+           format={{$:/config/Camera##format}}
+            width={{$:/config/Camera##width}}
+           height={{$:/config/Camera##height}}
+          quality={{$:/config/Camera##quality}}&gt;
+      &lt;&lt;selectpicture&gt;&gt;
+      &lt;/$vars&gt;@@
+   @@.floatright.nowrap 
+      &lt;&lt;getname &quot;////&quot;&gt;&gt;@@
+   @@.clear @@
+   &lt;$vars path={{$:/config/Camera##path}}
+          name={{$:/config/Camera##name}}
+       counter={{$:/config/Camera##counter}}
+        format={{$:/config/Camera##format}}
+         width={{$:/config/Camera##width}}
+        height={{$:/config/Camera##height}}
+       quality={{$:/config/Camera##quality}}&gt;
+   &lt;&lt;showpicture&gt;&gt;
+   &lt;/$vars&gt;
+&lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
 <div caption="GeoLocation" created="20151009192708809" modified="20160208193502511" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
@@ -8993,8 +9019,10 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160209055123329" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
-<pre>\define ShowMap()
+<div caption="GoogleMaps" created="20151010204309614" modified="20160209204340953" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<pre>\define geotarget() $:/Geo/Data
+
+\define ShowMap()
 &lt;$reveal state=&quot;$:/config/TiddlyTools##EnableMaps&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
 [img width=$(width)$ height=$(height)$ [https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
 &lt;/$reveal&gt;
@@ -9032,8 +9060,16 @@ source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$..
 &lt;/$reveal&gt;
 \end
 
+\define showgeo()
+latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;geotarget&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
+longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;geotarget&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+\end
+
 \define showcontrols()
 &lt;table&gt;&lt;tr&gt;&lt;td&gt;
+   &lt;&lt;showgeo&gt;&gt;
    zoom:
    &lt;$edit-text tiddler=&quot;$:/config/GoogleMaps&quot; index=&quot;zoom&quot;
       tooltip=&quot;zoom&quot; tag=&quot;input&quot; size=&quot;3&quot;/&gt;
@@ -9073,17 +9109,17 @@ quality:&lt;br&gt; &amp;nbsp;
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
-   &lt;&lt;toggleactive&gt;&gt;
    &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;GoogleMaps settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.borderless
-   &lt;&lt;showcontrols&gt;&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
+   @@.floatleft.smaller.borderless &lt;&lt;showcontrols&gt;&gt;@@
+   @@.floatright.smaller &lt;&lt;toggleactive&gt;&gt;@@
+   &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
     longitude={{$:/Geo/Data##longitude}}
@@ -9098,7 +9134,7 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20160208194440613" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20160209195926699" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -9136,7 +9172,32 @@ quality:&lt;br&gt; &amp;nbsp;
       title:&quot;MPAC Search Criteria&quot;
       content:&quot;search&quot;
       position:&quot;belowright&quot;&gt;&gt;
-  &lt;$button&gt;get data&lt;/$button&gt;
+   &lt;$button&gt;get report&lt;/$button&gt;
+   &lt;$button&gt;reset
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot; /&gt;
+   &lt;/$button&gt;
+   &lt;hr style=&quot;margin:1px&quot;/&gt;
+   &lt;&lt;parseXML&gt;&gt;
+\end
+
+\define parseXML()
+@@.nowrap 
+&lt;$select tiddler=&quot;$:/temp/MPAC/source&quot; field=&quot;text&quot;&gt;
+   &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
+   &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
+   &lt;/$list&gt;
+&lt;/$select&gt;
+&lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
+   &lt;$button&gt; load
+      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt;
+         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
+      &lt;$action-httpRequest tiddler=&lt;&lt;xml&gt;&gt;
+         parse=&quot;xml&quot; autoload=&quot;true&quot; /&gt;
+   &lt;/$button&gt;
+   &lt;$button&gt; save   &lt;/$button&gt;
+   &lt;$button&gt; delete &lt;/$button&gt;
+&lt;/$set&gt;
+@@
 \end
 
 \define search()
@@ -9166,27 +9227,6 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 \end
 
-\define parseXML()
-@@.nowrap 
-&lt;$select tiddler=&quot;$:/temp/MPAC/source&quot; field=&quot;text&quot;&gt;
-   &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
-   &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
-   &lt;/$list&gt;
-&lt;/$select&gt;
-&lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
-   &lt;$button&gt; parse
-      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt;
-         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
-      &lt;$action-httpRequest tiddler=&lt;&lt;xml&gt;&gt;
-         parse=&quot;xml&quot; autoload=&quot;true&quot; /&gt;
-   &lt;/$button&gt;
-   &lt;$button&gt; clear
-      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot; /&gt;
-   &lt;/$button&gt;
-&lt;/$set&gt;
-@@
-\end
-
 \define options()
 MPAC Server:&lt;br&gt;
 &lt;$edit-text tag=&quot;input&quot; index=&quot;url&quot;
@@ -9207,10 +9247,9 @@ Password:&lt;br&gt;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
-   &lt;&lt;parseXML&gt;&gt;
+   @@.center &lt;&lt;toolbar&gt;&gt;@@
    &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
    &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;mpac_info&gt;&gt;/&gt;
@@ -9366,8 +9405,10 @@ x
    &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160209055100329" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
-<pre>\define StreetView()
+<div caption="StreetView" created="20151010205755347" modified="20160209204807508" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<pre>\define geotarget() $:/Geo/Data
+
+\define StreetView()
 &lt;$reveal state=&quot;$:/config/TiddlyTools##EnableStreetView&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
    [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 &lt;/$reveal&gt;
@@ -9396,17 +9437,25 @@ source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$.
 &lt;/$reveal&gt;
 \end
 
+\define showgeo()
+latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;geotarget&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
+longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
+   tiddler=&lt;&lt;geotarget&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
+\end
+
 \define showcontrols()
 &lt;table&gt;&lt;tr&gt;&lt;td&gt;
+   &lt;&lt;showgeo&gt;&gt;
    heading=''{{$:/config/StreetView##heading}}'' &amp;nbsp;
 &lt;/td&gt;&lt;td&gt;
    &lt;$edit-text tiddler=&quot;$:/config/StreetView&quot; index=&quot;heading&quot; tooltip=&quot;heading&quot;
-      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;
+      tag=&quot;input&quot; type=&quot;range&quot; size=&quot;3&quot; min=&quot;0&quot; max=&quot;360&quot; step=&quot;20&quot;/&gt;
 &lt;/td&gt;&lt;td&gt;
-    &amp;nbsp; field of view=''{{$:/config/StreetView##fov}}'' &amp;nbsp;
+    &amp;nbsp; field of view&lt;!--=''{{$:/config/StreetView##fov}}'' &amp;nbsp;--&gt;
 &lt;/td&gt;&lt;td&gt;
    &lt;$edit-text tiddler=&quot;$:/config/StreetView&quot; index=&quot;fov&quot; tooltip=&quot;field of view&quot;
-      tag=&quot;input&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;
+      tag=&quot;input&quot; Xtype=&quot;range&quot; size=&quot;3&quot; min=&quot;0&quot; max=&quot;120&quot; step=&quot;5&quot;/&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 \end
 
@@ -9423,17 +9472,17 @@ x
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
-   &lt;&lt;toggleactive&gt;&gt;
    &lt;&lt;dashboardpopup id:&quot;StreetView/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;StreetView settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.borderless
-   &lt;&lt;showcontrols&gt;&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
+   @@.floatleft.smaller.borderless &lt;&lt;showcontrols&gt;&gt;@@
+   @@.floatright.smaller &lt;&lt;toggleactive&gt;&gt;@@
+   &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;$vars
       latitude={{$:/Geo/Data##latitude}}
       longitude={{$:/Geo/Data##longitude}}
@@ -9447,7 +9496,7 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160208195101405" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160209195816320" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -9483,7 +9532,30 @@ x
       title:&quot;TeraNet Search Criteria&quot;
       content:&quot;search&quot;
       position:&quot;belowright&quot;&gt;&gt;
-  &lt;$button&gt;get data&lt;/$button&gt;
+   &lt;$button&gt;get report&lt;/$button&gt;
+   &lt;$button&gt;reset
+      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot;/&gt;
+   &lt;/$button&gt;
+   &lt;hr style=&quot;margin:1px&quot;/&gt;
+   &lt;&lt;parseXML&gt;&gt;
+\end
+
+\define parseXML()
+@@.nowrap 
+&lt;$select tiddler=&quot;$:/temp/TeraNet/source&quot; field=&quot;text&quot;&gt;
+   &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
+   &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
+   &lt;/$list&gt;
+&lt;/$select&gt;
+&lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
+   &lt;$button&gt;load
+      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt;
+         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
+   &lt;/$button&gt;
+   &lt;$button&gt; save   &lt;/$button&gt;
+   &lt;$button&gt; delete &lt;/$button&gt;
+&lt;/$set&gt;
+@@
 \end
 
 \define search()
@@ -9518,25 +9590,6 @@ x
 &lt;/div&gt;
 \end
 
-\define parseXML()
-@@.nowrap 
-&lt;$select tiddler=&quot;$:/temp/TeraNet/source&quot; field=&quot;text&quot;&gt;
-   &lt;$list filter=&lt;&lt;sources&gt;&gt;&gt;
-   &lt;option value={{!!title}}&gt;&lt;$text text={{!!title}}/&gt;&lt;/option&gt;
-   &lt;/$list&gt;
-&lt;/$select&gt;
-&lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
-   &lt;$button&gt; parse
-      &lt;$action-httpRequest tiddler=&lt;&lt;source&gt;&gt;
-         parse=&quot;xml&quot; path=&lt;&lt;path&gt;&gt; autoload=&quot;true&quot; /&gt;
-   &lt;/$button&gt;
-   &lt;$button&gt; clear
-      &lt;$action-deletetiddler $filter=&quot;[prefix&lt;path&gt;] -[&lt;source&gt;]&quot;/&gt;
-   &lt;/$button&gt;
-&lt;/$set&gt;
-@@
-\end
-
 \define options()
 TeraNet Server:&lt;br&gt;
 &lt;$edit-text tag=&quot;input&quot; index=&quot;url&quot;
@@ -9557,10 +9610,9 @@ Password:&lt;br&gt;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-@@.floatleft.smaller.nowrap &lt;&lt;toolbar&gt;&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
-   &lt;&lt;parseXML&gt;&gt;
+   @@.center &lt;&lt;toolbar&gt;&gt;@@
    &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
    &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;header&gt;&gt;/&gt;
