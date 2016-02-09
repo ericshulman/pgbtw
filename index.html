@@ -484,7 +484,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209015927505" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209024123399" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6941,7 +6941,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160209015401188" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208061323423" modified="20160209023757607" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7648,7 +7648,7 @@ LOAD
 <div created="20160206023548795" modified="20160208201547045" title="$:/state/Dashboard/LocalStorage">
 <pre>show</pre>
 </div>
-<div created="20160208070234728" modified="20160209011355982" title="$:/state/Dashboard/LocalStorage/Directory">
+<div created="20160208070234728" modified="20160209024109479" title="$:/state/Dashboard/LocalStorage/Directory">
 <pre>open</pre>
 </div>
 <div created="20160205083858907" modified="20160208065822922" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -7714,7 +7714,7 @@ LOAD
 <div created="20160205060731559" modified="20160205084535152" title="$:/state/tab/sidebar-1501833866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20160208212910243" modified="20160209015804553" title="$:/state/tab/sidebar-1867989403">
+<div created="20160208212910243" modified="20160209020449312" title="$:/state/tab/sidebar-1867989403">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160207232935220" modified="20160207232948012" title="$:/state/TiddlyTools/SlideBars/Panels/AuthorTools">
@@ -7726,8 +7726,8 @@ LOAD
 <div list="" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20160205081751366" modified="20160208220450702" title="$:/temp/advancedsearch">
-<pre>newtiddler</pre>
+<div created="20160205081751366" modified="20160209022855178" title="$:/temp/advancedsearch">
+<pre></pre>
 </div>
 <div created="20160208023043988" modified="20160208222012593" title="$:/temp/authortools/blick">
 <pre></pre>
@@ -7752,7 +7752,7 @@ LOAD
 <div created="20160205082821981" modified="20160207001132418" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160208214625015" title="$:/temp/search">
+<div created="20160205232823187" modified="20160209022856729" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160209015924804" title="$:/temp/slidebars/debug">
@@ -8080,7 +8080,7 @@ exports.startup = function() {
 <pre>&lt;script src=&quot;cordova.js&quot;&gt;&lt;/script&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;content=&quot;user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=8&gt;</pre>
 </div>
-<div created="20150623211607895" modified="20160208201258237" title="Dashboard">
+<div created="20150623211607895" modified="20160209020329496" tags="$:/tags/Macro" title="Dashboard">
 <pre>\define outerclass()   tt-shadowbox
 \define outerstyle()   min-width:max-content;
 \define innerclass()   tt-shadowbox inset
@@ -8524,7 +8524,7 @@ timeout:&lt;br&gt;
    &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="LocalStorage" created="20151009192813110" modified="20160209011809164" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
+<div caption="LocalStorage" created="20151009192813110" modified="20160209023906185" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
@@ -8669,8 +8669,17 @@ filename:
 \end
 
 \define showdirectory()
-&lt;$checkbox tiddler=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; field=&quot;text&quot;
-   checked=&quot;open&quot; unchecked=&quot;&quot; default=&quot;&quot;&gt;show directory&lt;/$checkbox&gt;
+&amp;nbsp;
+&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; type=&quot;match&quot; text=&quot;&quot;&gt;
+   &lt;$button set=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; setTo=&quot;open&quot; tooltip=&quot;show folder list&quot;&gt;
+      {{$:/core/images/chevron-down}}
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt;
+   &lt;$button set=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; setTo=&quot;&quot; tooltip=&quot;hide folder list&quot;&gt;
+      {{$:/core/images/chevron-up}}
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
 \end
 
 \define options()
@@ -8695,8 +8704,7 @@ tiddler cache location:&lt;br&gt;
       title:&quot;LocalStorage settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
 @@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;
-   &amp;nbsp; &lt;&lt;showdirectory&gt;&gt;@@
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;@@
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    @@.smaller
@@ -8714,13 +8722,14 @@ tiddler cache location:&lt;br&gt;
    &lt;/$vars&gt;
    &lt;/nobr&gt;
    @@
+   @@.floatright.smaller &lt;&lt;showdirectory&gt;&gt;@@
    &lt;$reveal state=&quot;$:/state/Dashboard/LocalStorage/Directory&quot; type=&quot;match&quot; text=&quot;open&quot;&gt;
          &amp;nbsp;{{Dashboard/LocalStorage/Directory}}
    &lt;/$reveal&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="LocalStorage Directory" created="20151014083917209" modified="20160209011028995" tags="" title="Dashboard/LocalStorage/Directory">
+<div caption="LocalStorage Directory" created="20151014083917209" modified="20160209020757299" tags="" title="Dashboard/LocalStorage/Directory">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8851,8 +8860,7 @@ tiddler cache location:&lt;br&gt;
 @@.floatright.smaller.nowrap
    &lt;&lt;resetcache &quot;{{$:/core/images/delete-button}}&quot;&gt;&gt;
    &lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt;@@
-&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
-&lt;hr style=&quot;margin:1px&quot;&gt;
+&lt;div class=&quot;clear&quot; style=&quot;height:0.5em&quot;&gt;&lt;/div&gt;
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;
    emptyMessage=&quot;&quot;&quot;
       @@display:none;&lt;&lt;getfoldersbutton&gt;&gt;@@
@@ -9343,7 +9351,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div created="20160206045629259" creator="EricShulman" modified="20160209002027355" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/AuthorTools">
+<div created="20160206045629259" creator="EricShulman" modified="20160209022719428" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/AuthorTools">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9390,6 +9398,7 @@ x
 \define outerstyle()   width:max-content;min-width:$(traymin)$; max-width:$(traymax)$;
 \define innerclass()   tt-shadowbox inset
 \define innerstyle()   min-width:calc($(traymin)$ - 1em); max-width:calc($(traymax)$ - 1em);
+
 &lt;style&gt;
    /* shift text to top of button for vertical slidebar */
    .tt-authortools-slidebar .tt-slidebar-button
@@ -9705,7 +9714,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160209013315273" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160209022810481" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9749,13 +9758,13 @@ x
 \define trayshow()     opacity:1; margin-top:0vh; margin-left:0vw;
 
 \define outerclass()   tt-shadowbox left nowrap
-\define outerstyle()   min-width:&lt;&lt;traymin&gt;&gt;; max-width:&lt;&lt;traymax&gt;&gt;;
+\define outerstyle()   min-width:$(traymin)$; max-width:$(traymax)$;
 \define innerclass()   tt-shadowbox inset center smaller
-\define innerstyle()   min-width:calc(&lt;&lt;traymin&gt;&gt; - 1em); max-width:calc(&lt;&lt;traymax&gt;&gt; - 1em);
+\define innerstyle()   min-width:calc($(traymin)$ - 1em); max-width:calc($(traymax)$ - 1em);
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160209012557241" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160209023034426" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9791,7 +9800,7 @@ x
 \define trayright()    0em
 \define traywidth()    max-content
 \define trayheight()   auto
-\define traymin()      40em
+\define traymin()      42em
 \define traymax()      80vw
 \define traymargin()   0em
 
@@ -9799,9 +9808,9 @@ x
 \define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   min-width:&lt;&lt;traymin&gt;&gt;;max-width:calc(&lt;&lt;traymax&gt;&gt;);margin:0 auto;
+\define outerstyle()   min-width:$(traymin)$;max-width:calc($(traymax)$);margin:0 auto;
 \define innerclass()   tt-shadowbox inset
-\define innerstyle()   min-width:calc(&lt;&lt;traymin&gt;&gt; - 1em);max-width:calc(&lt;&lt;traymax&gt;&gt; - 1em);
+\define innerstyle()   min-width:calc($(traymin)$ - 1em);max-width:calc($(traymax)$ - 1em);
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
