@@ -156,8 +156,6 @@ Error message and password prompt
 
 <li>$:/Geo/Data/Address</li>
 
-<li>$:/Import</li>
-
 <li>$:/isEncrypted</li>
 
 <li>$:/scraps</li>
@@ -199,6 +197,8 @@ Error message and password prompt
 <li>$:/state/tab/moresidebar--1669835544</li>
 
 <li>$:/state/tab/moresidebar--1976877895</li>
+
+<li>$:/state/tab/moresidebar-1805003501</li>
 
 <li>$:/state/tab/moresidebar-401116514</li>
 
@@ -479,7 +479,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160208222542325" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209002115394" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6936,7 +6936,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160208222453289" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160208061323423" modified="20160208235110002" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7598,11 +7598,6 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 }
 </pre>
 </div>
-<div status="complete" title="$:/Import">
-<pre>The following tiddlers were imported:
-
-# [[Dashboard/LocalStorage]]</pre>
-</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -7687,6 +7682,9 @@ LOAD
 <div created="20160206021125241" modified="20160206031041907" title="$:/state/tab/moresidebar--1976877895">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
+<div created="20160208235209721" modified="20160208235209721" title="$:/state/tab/moresidebar-1805003501">
+<pre>$:/core/ui/MoreSideBar/System</pre>
+</div>
 <div created="20160206161514620" modified="20160206161514620" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
@@ -7711,7 +7709,7 @@ LOAD
 <div created="20160205060731559" modified="20160205084535152" title="$:/state/tab/sidebar-1501833866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20160208212910243" modified="20160208214648759" title="$:/state/tab/sidebar-1867989403">
+<div created="20160208212910243" modified="20160209002119665" title="$:/state/tab/sidebar-1867989403">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160207232935220" modified="20160207232948012" title="$:/state/TiddlyTools/SlideBars/Panels/AuthorTools">
@@ -9366,7 +9364,7 @@ x
 @@
 &lt;/div&gt;</pre>
 </div>
-<div created="20160206045629259" creator="EricShulman" modified="20160208214459943" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/AuthorTools">
+<div created="20160206045629259" creator="EricShulman" modified="20160209002027355" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/AuthorTools">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9402,7 +9400,7 @@ x
 \define trayright()    $(Hmargin)$
 \define traywidth()    max-content
 \define trayheight()   auto
-\define traymin()      20em
+\define traymin()      25em
 \define traymax()      40vw
 \define traymargin()   0em
 
@@ -9410,18 +9408,24 @@ x
 \define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
 
 \define outerclass()   tt-shadowbox
-\define outerstyle()   min-width:25em; width:max-content; max-width:50vw;
+\define outerstyle()   width:max-content;min-width:$(traymin)$; max-width:$(traymax)$;
 \define innerclass()   tt-shadowbox inset
-\define innerstyle()   width:100%;
-
+\define innerstyle()   min-width:calc($(traymin)$ - 1em); max-width:calc($(traymax)$ - 1em);
 &lt;style&gt;
    /* shift text to top of button for vertical slidebar */
-   .tt-authortools-slidebar .tt-slidebar-button { vertical-align:top; }
+   .tt-authortools-slidebar .tt-slidebar-button
+      { vertical-align:top; }
+   /* LIMIT WIDTH/HEIGHT OF LIST TABS */
+   .tt-authortools-slidebar .tt-slidebar-tray .tc-tab-content
+      { max-width:calc(&lt;&lt;traymax&gt;&gt;);
+        min-width:calc(&lt;&lt;traymin&gt;&gt;);
+        max-height:50vh;
+        overflow-x:auto;overflow-y:scroll; }
 &lt;/style&gt;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160208201013175" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160208235109761" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9465,9 +9469,9 @@ x
 \define trayshow()     opacity:1; margin-bottom:0;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;min-width:max-content;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);
+\define outerstyle()   max-height:80vh;min-width:max-content;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);position:relative;
 \define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:75vh;overflow-y:scroll;min-width:max-content;width:100%;
+\define innerstyle()   max-height:75vh;overflow-y:scroll;min-width:max-content;width:100%;position:relative;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
@@ -9672,7 +9676,7 @@ x
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160208200916577" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160208235001385" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -9716,9 +9720,9 @@ x
 \define trayshow()     opacity:1; margin-top:0vh;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);
+\define outerstyle()   width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);position:relative;
 \define innerclass()   tt-shadowbox inset center smaller
-\define innerstyle()   width:100%
+\define innerstyle()   width:100%;position:relative;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
@@ -12194,7 +12198,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160208213603114" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160209000221846" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
@@ -12203,9 +12207,6 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 
 /* SMALLER FONT IN SIDEBAR */
 .tc-sidebar-scrollable { font-size:100%; line-height:110%; }
-
-/* LIMIT HEIGHT OF LIST TABS WHEN SHOWN IN SLIDEBARS */
-.tt-slidebar-tray .tc-tab-content { max-height:50vh;overflow-x:auto;overflow-y:scroll; }
 
 /* MONO FONT FOR EDITING */
 .tc-edit-texteditor { font-family:monospace; font-size:90%;  }
