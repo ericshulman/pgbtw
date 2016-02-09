@@ -418,13 +418,13 @@ Error message and password prompt
     &quot;address&quot;: &quot;111 Wellesley St W, Toronto, ON M7A 1A5, Canada&quot;
 }</pre>
 </div>
-<div created="20151021074010415" modified="20160207001656544" title="$:/config/GoogleMaps" type="application/json">
+<div created="20151021074010415" modified="20160209052938918" title="$:/config/GoogleMaps" type="application/json">
 <pre>{
     &quot;width&quot;: &quot;640&quot;,
     &quot;height&quot;: &quot;384&quot;,
     &quot;scale&quot;: &quot;2&quot;,
     &quot;maptype&quot;: &quot;hybrid&quot;,
-    &quot;zoom&quot;: &quot;14&quot;
+    &quot;zoom&quot;: &quot;17&quot;
 }</pre>
 </div>
 <div created="20151017070437816" modified="20151025002656441" title="$:/config/LocalStorage" type="application/json">
@@ -473,7 +473,7 @@ Error message and password prompt
 <div created="20150705120259221" modified="20151205101909213" title="$:/config/SaverFilter">
 <pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[$:/Geo/Data]] -[prefix[$:/LocalStorage]] -[prefix[$:/xml]] -[tag[location]]</pre>
 </div>
-<div created="20151017064109083" modified="20160207004148946" title="$:/config/StreetView" type="application/json">
+<div created="20151017064109083" modified="20160209053135606" title="$:/config/StreetView" type="application/json">
 <pre>{
     &quot;heading&quot;: &quot;200&quot;,
     &quot;fov&quot;: &quot;120&quot;,
@@ -486,7 +486,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209051713097" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209055256402" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -514,7 +514,9 @@ Error message and password prompt
     &quot;BottomRightBar/Size&quot;: &quot;25%&quot;,
     &quot;AuthorToolBar&quot;: &quot;no&quot;,
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
-    &quot;AuthorToolBar/Size&quot;: &quot;&quot;
+    &quot;AuthorToolBar/Size&quot;: &quot;&quot;,
+    &quot;EnableMaps&quot;: &quot;no&quot;,
+    &quot;EnableStreetView&quot;: &quot;no&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -6943,7 +6945,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209031427126" modified="20160209044230885" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209031427126" modified="20160209052450979" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -8991,21 +8993,17 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160208195404968" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20160209055123329" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
 <pre>\define ShowMap()
-&lt;!-- RENDER LIVE --&gt;
-[img width=$(width)$ height=$(height)$ [https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
-&lt;!-- DEFER RENDERING UNTIL PINNED
-&lt;$reveal state=&quot;$:/config/TiddlyTools##LeftBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableMaps&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
 [img width=$(width)$ height=$(height)$ [https://maps.googleapis.com/maps/api/staticmap?center=$(latitude)$,$(longitude)$&amp;zoom=$(zoom)$&amp;size=$(width)$x$(height)$&amp;scale=$(scale)$&amp;maptype=$(maptype)$&amp;format=jpg]]
 &lt;/$reveal&gt;
-&lt;$reveal state=&quot;$:/config/TiddlyTools##LeftBar&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
-   &lt;$button set=&quot;$:/config/TiddlyTools##LeftBar&quot; setTo=&quot;yes&quot;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableMaps&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##EnableMaps&quot; setTo=&quot;yes&quot;
       class=&quot;tc-btn-invisible&quot; style=&quot;font-size:300%;width:$(width)$px;height:$(height)$px;color:white;background:gray;&quot;&gt;
-      click to view
+      click to start
    &lt;/$button&gt;
 &lt;/$reveal&gt;
---&gt;
 \end
 
 \define EmbedMap()
@@ -9019,6 +9017,19 @@ tiddler cache location:&lt;br&gt;
 
 \define ShowLink()
 source: [ext[https://www.google.com/maps/embed?...$(longitude)$...$(latitude)$...|https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d12683.03999020653!2d$(longitude)$!3d$(latitude)$!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1435106909123]]
+\end
+
+\define toggleactive()
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableMaps&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##EnableMaps&quot; setTo=&quot;no&quot; class=&quot;tc-btn-invisible&quot;&gt;
+      &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;enabled &amp;nbsp;
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableMaps&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##EnableMaps&quot; setTo=&quot;yes&quot; class=&quot;tc-btn-invisible&quot;&gt;
+      &lt;input type=&quot;checkbox&quot;&gt;enabled &amp;nbsp;
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
 \end
 
 \define showcontrols()
@@ -9062,6 +9073,7 @@ quality:&lt;br&gt; &amp;nbsp;
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;toggleactive&gt;&gt;
    &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;GoogleMaps settings&quot;
@@ -9354,25 +9366,34 @@ x
    &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160208195658323" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20160209055100329" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define StreetView()
-&lt;!-- RENDER LIVE --&gt;
-[img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
-&lt;!-- DEFER RENDERING UNTIL PINNED 
-&lt;$reveal state=&quot;$:/config/TiddlyTools##RightBar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableStreetView&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
    [img[https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
 &lt;/$reveal&gt;
-&lt;$reveal state=&quot;$:/config/TiddlyTools##RightBar&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
-   &lt;$button set=&quot;$:/config/TiddlyTools##RightBar&quot; setTo=&quot;yes&quot;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableStreetView&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##EnableStreetView&quot; setTo=&quot;yes&quot;
       class=&quot;tc-btn-invisible&quot; style=&quot;font-size:300%;width:$(width)$px;height:$(height)$px;color:white;background:gray;&quot;&gt;
-      click to view
+      click to start
    &lt;/$button&gt;
 &lt;/$reveal&gt;
---&gt;
 \end
 
 \define ShowLink()
 source: [ext[https://maps.googleapis.com/...location=$(latitude)$,$(longitude)$...|https://maps.googleapis.com/maps/api/streetview?size=$(width)$x$(height)$&amp;location=$(latitude)$,$(longitude)$&amp;fov=$(fov)$&amp;heading=$(heading)$&amp;pitch=0]]
+\end
+
+\define toggleactive()
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableStreetView&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##EnableStreetView&quot; setTo=&quot;no&quot; class=&quot;tc-btn-invisible&quot;&gt;
+      &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt;enabled &amp;nbsp;
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/config/TiddlyTools##EnableStreetView&quot; type=&quot;nomatch&quot; text=&quot;yes&quot;&gt;
+   &lt;$button set=&quot;$:/config/TiddlyTools##EnableStreetView&quot; setTo=&quot;yes&quot; class=&quot;tc-btn-invisible&quot;&gt;
+      &lt;input type=&quot;checkbox&quot;&gt;enabled &amp;nbsp;
+   &lt;/$button&gt;
+&lt;/$reveal&gt;
 \end
 
 \define showcontrols()
@@ -9402,6 +9423,7 @@ x
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;toggleactive&gt;&gt;
    &lt;&lt;dashboardpopup id:&quot;StreetView/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;StreetView settings&quot;
