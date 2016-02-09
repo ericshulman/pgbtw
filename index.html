@@ -156,8 +156,6 @@ Error message and password prompt
 
 <li>$:/Geo/Data</li>
 
-<li>$:/Geo/Data/Address</li>
-
 <li>$:/isEncrypted</li>
 
 <li>$:/scraps</li>
@@ -284,24 +282,6 @@ Error message and password prompt
 
 <li>Dashboard/Realtor.ca</li>
 
-<li>Dashboard/SlideBars/AuthorTools</li>
-
-<li>Dashboard/SlideBars/Bottom</li>
-
-<li>Dashboard/SlideBars/BottomLeft</li>
-
-<li>Dashboard/SlideBars/BottomRight</li>
-
-<li>Dashboard/SlideBars/Left</li>
-
-<li>Dashboard/SlideBars/Right</li>
-
-<li>Dashboard/SlideBars/Top</li>
-
-<li>Dashboard/SlideBars/TopLeft</li>
-
-<li>Dashboard/SlideBars/TopRight</li>
-
 <li>Dashboard/StreetView</li>
 
 <li>Dashboard/TeraNet</li>
@@ -368,13 +348,31 @@ Error message and password prompt
 
 <li>test</li>
 
+<li>TiddlyTools/SlideBars/AuthorTools</li>
+
+<li>TiddlyTools/SlideBars/Bottom</li>
+
+<li>TiddlyTools/SlideBars/BottomLeft</li>
+
+<li>TiddlyTools/SlideBars/BottomRight</li>
+
 <li>TiddlyTools/SlideBars/CloseOthers</li>
 
+<li>TiddlyTools/SlideBars/Left</li>
+
 <li>TiddlyTools/SlideBars/Panels/AuthorTools</li>
+
+<li>TiddlyTools/SlideBars/Right</li>
 
 <li>TiddlyTools/SlideBars/Styles</li>
 
 <li>TiddlyTools/SlideBars/Stylesheet</li>
+
+<li>TiddlyTools/SlideBars/Top</li>
+
+<li>TiddlyTools/SlideBars/TopLeft</li>
+
+<li>TiddlyTools/SlideBars/TopRight</li>
 
 <li>TiddlyTools/SlideBars/Transitions</li>
 
@@ -484,7 +482,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209024123399" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160209030706729" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -502,7 +500,7 @@ Error message and password prompt
     &quot;RightBar/Hover&quot;: &quot;yes&quot;,
     &quot;RightBar/Size&quot;: &quot;50vh&quot;,
     &quot;BottomLeftBar&quot;: &quot;no&quot;,
-    &quot;BottomLeftBar/Hover&quot;: &quot;yes&quot;,
+    &quot;BottomLeftBar/Hover&quot;: &quot;no&quot;,
     &quot;BottomLeftBar/Size&quot;: &quot;25%&quot;,
     &quot;BottomBar&quot;: &quot;no&quot;,
     &quot;BottomBar/Hover&quot;: &quot;yes&quot;,
@@ -6941,668 +6939,6 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160208061323423" modified="20160209023757607" title="$:/Geo/Data/Address" type="application/json">
-<pre>{
-   &quot;results&quot; : [
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;700&quot;,
-               &quot;short_name&quot; : &quot;700&quot;,
-               &quot;types&quot; : [ &quot;street_number&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University Avenue&quot;,
-               &quot;short_name&quot; : &quot;University Ave&quot;,
-               &quot;types&quot; : [ &quot;route&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;700 University Ave, Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.659829,
-                  &quot;lng&quot; : -79.39033049999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6592045,
-                  &quot;lng&quot; : -79.39059999999999
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6597929,
-               &quot;lng&quot; : -79.39060409999999
-            },
-            &quot;location_type&quot; : &quot;RANGE_INTERPOLATED&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6608657302915,
-                  &quot;lng&quot; : -79.3891162697085
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.65816776970851,
-                  &quot;lng&quot; : -79.3918142302915
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;Eis3MDAgVW5pdmVyc2l0eSBBdmUsIFRvcm9udG8sIE9OIE01RywgQ2FuYWRh&quot;,
-         &quot;types&quot; : [ &quot;street_address&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
-               &quot;short_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
-               &quot;types&quot; : [ &quot;premise&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University&quot;,
-               &quot;short_name&quot; : &quot;University&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5S&quot;,
-               &quot;short_name&quot; : &quot;M5S&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Leslie Dan Faculty of Pharmacy, Toronto, ON M5S, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.659835,
-               &quot;lng&quot; : -79.391122
-            },
-            &quot;location_type&quot; : &quot;ROOFTOP&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6611839802915,
-                  &quot;lng&quot; : -79.38977301970849
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6584860197085,
-                  &quot;lng&quot; : -79.39247098029151
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJWZmQ-7c0K4gR3jTwl2b5dRY&quot;,
-         &quot;types&quot; : [ &quot;premise&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;College Park at University Ave.&quot;,
-               &quot;short_name&quot; : &quot;College Park at University Ave.&quot;,
-               &quot;types&quot; : [ &quot;point_of_interest&quot;, &quot;establishment&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;University&quot;,
-               &quot;short_name&quot; : &quot;University&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;College Park at University Ave., Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.659852,
-               &quot;lng&quot; : -79.39048199999999
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6612009802915,
-                  &quot;lng&quot; : -79.3891330197085
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6585030197085,
-                  &quot;lng&quot; : -79.3918309802915
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJgRuM5rc0K4gRYtSUSGWh3EE&quot;,
-         &quot;types&quot; : [
-            &quot;bus_station&quot;,
-            &quot;transit_station&quot;,
-            &quot;point_of_interest&quot;,
-            &quot;establishment&quot;
-         ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Discovery District&quot;,
-               &quot;short_name&quot; : &quot;Discovery District&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Discovery District, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6630908,
-                  &quot;lng&quot; : -79.3843102
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6557481,
-                  &quot;lng&quot; : -79.40053210000001
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6603242,
-               &quot;lng&quot; : -79.3937162
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6630908,
-                  &quot;lng&quot; : -79.3843102
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6557481,
-                  &quot;lng&quot; : -79.40053210000001
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJY9gBJ8g0K4gRwfKR3nQauiI&quot;,
-         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Downtown, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6755833,
-                  &quot;lng&quot; : -79.3470176
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6339328,
-                  &quot;lng&quot; : -79.41131710000001
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.654262,
-               &quot;lng&quot; : -79.385975
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.6755833,
-                  &quot;lng&quot; : -79.3470176
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6339328,
-                  &quot;lng&quot; : -79.41131710000001
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJvRBz0jTL1IkRkwMHIgbSFbo&quot;,
-         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Old Toronto, Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.75373099999999,
-                  &quot;lng&quot; : -79.27971699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6118399,
-                  &quot;lng&quot; : -79.491969
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6486795,
-               &quot;lng&quot; : -79.3803231
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.75373099999999,
-                  &quot;lng&quot; : -79.27971699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6118399,
-                  &quot;lng&quot; : -79.491969
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ2YVS1Po0K4gR8_c5_bvmDW4&quot;,
-         &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.653226,
-               &quot;lng&quot; : -79.3831843
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJpTvG15DL1IkRd8S0KlBVNTI&quot;,
-         &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;M5G&quot;,
-               &quot;short_name&quot; : &quot;M5G&quot;,
-               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Downtown&quot;,
-               &quot;short_name&quot; : &quot;Downtown&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Old Toronto&quot;,
-               &quot;short_name&quot; : &quot;Old Toronto&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto, ON M5G, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.662463,
-                  &quot;lng&quot; : -79.380601
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6511301,
-                  &quot;lng&quot; : -79.39171899999999
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6579524,
-               &quot;lng&quot; : -79.3873826
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.662463,
-                  &quot;lng&quot; : -79.380601
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.6511301,
-                  &quot;lng&quot; : -79.39171899999999
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJQ4yqgck0K4gR1f-j38zDpt0&quot;,
-         &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Toronto Division, ON, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.6689775,
-               &quot;lng&quot; : -79.29021329999999
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554579,
-                  &quot;lng&quot; : -79.11689699999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.5810245,
-                  &quot;lng&quot; : -79.639219
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ5b2RG4_L1IkRDtQ2gFEjLv4&quot;,
-         &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Ontario, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 56.8565279,
-                  &quot;lng&quot; : -74.34388229999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.68134879999999,
-                  &quot;lng&quot; : -95.1562271
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 51.253775,
-               &quot;lng&quot; : -85.3232139
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 56.8565279,
-                  &quot;lng&quot; : -74.34388229999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.6813554,
-                  &quot;lng&quot; : -95.15480099999999
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJrxNRX7IFzkwRCR5iKVZC-HA&quot;,
-         &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 83.09565619999999,
-                  &quot;lng&quot; : -52.6206965
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 41.6765559,
-                  &quot;lng&quot; : -141.00187
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 56.130366,
-               &quot;lng&quot; : -106.346771
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 70,
-                  &quot;lng&quot; : -50
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 42,
-                  &quot;lng&quot; : -142
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJ2WrMN9MDDUsRpY9Doiq3aJk&quot;,
-         &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-      }
-   ],
-   &quot;status&quot; : &quot;OK&quot;
-}
-</pre>
-</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -7755,7 +7091,7 @@ LOAD
 <div created="20160205232823187" modified="20160209022856729" title="$:/temp/search">
 <pre></pre>
 </div>
-<div created="20160205231132173" modified="20160209015924804" title="$:/temp/slidebars/debug">
+<div created="20160205231132173" modified="20160209030657402" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160207173424122" title="$:/temp/TeraNet/source">
@@ -9350,469 +8686,6 @@ x
    &lt;/$vars&gt;
 @@
 &lt;/div&gt;</pre>
-</div>
-<div created="20160206045629259" creator="EricShulman" modified="20160209022719428" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/AuthorTools">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        authortools
-\define barname()      AuthorToolBar
-\define barclass()     tt-authortools-slidebar
-\define bartag()       $:/tags/AuthorToolsSlideBar
-\define barpin()       ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
-\define barunpin()     ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       $(Vmargin)$
-\define barleft()      auto
-\define barbottom()    auto
-\define barright()     0em
-\define barwidth()     $(Hmargin)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         999
-\define barzhover()    999
-
-\define traytop()      0em
-\define trayleft()     auto
-\define traybottom()   auto
-\define trayright()    $(Hmargin)$
-\define traywidth()    max-content
-\define trayheight()   auto
-\define traymin()      25em
-\define traymax()      40vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:1; margin-top:0vh; margin-right:-100vw;
-\define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
-
-\define outerclass()   tt-shadowbox
-\define outerstyle()   width:max-content;min-width:$(traymin)$; max-width:$(traymax)$;
-\define innerclass()   tt-shadowbox inset
-\define innerstyle()   min-width:calc($(traymin)$ - 1em); max-width:calc($(traymax)$ - 1em);
-
-&lt;style&gt;
-   /* shift text to top of button for vertical slidebar */
-   .tt-authortools-slidebar .tt-slidebar-button
-      { vertical-align:top; }
-   /* LIMIT WIDTH/HEIGHT OF LIST TABS */
-   .tt-authortools-slidebar .tt-slidebar-tray .tc-tab-content
-      { max-width:calc(&lt;&lt;traymax&gt;&gt;);
-        min-width:calc(&lt;&lt;traymin&gt;&gt;);
-        max-height:50vh;
-        overflow-x:auto;overflow-y:scroll; }
-&lt;/style&gt;
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160202073342303" creator="EricShulman" modified="20160209015400955" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Bottom">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        bottom
-\define barname()      BottomBar
-\define barclass()     tt-bottom-slidebar
-\define bartag()       $:/tags/BottomSlideBar
-\define barpin()       ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-up}} ~AddressLookup {{$:/core/images/chevron-up}}@@''
-\define barunpin()     ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-down}} ~AddressLookup {{$:/core/images/chevron-down}}@@''
-
-\define barstay()      $(config)$##BottomBar
-\define barhover()     $(config)$##BottomBar/Hover
-\define barsize()      {{$(config)$##BottomBar/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/BottomBar}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       auto
-\define barleft()      calc(50% - ($(barwidth)$ / 2))
-\define barbottom()    0em
-\define barright()     auto
-\define barwidth()     $(barsize)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         5
-\define barzhover()    1005
-
-\define traytop()      auto
-\define trayleft()     50%; transform:translateX(-50%); -webkit-transform:translateX(-50%)
-\define traybottom()   calc($(barbottom)$ + $(barheight)$)
-\define trayright()    0em
-\define traywidth()    $(barwidth)$
-\define trayheight()   auto
-\define traymin()      30em
-\define traymax()      50vw
-\define traymargin()   0em;
-
-\define trayhide()     opacity:0; margin-bottom:-100vh;
-\define trayshow()     opacity:1; margin-bottom:0;
-
-\define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;min-width:max-content;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);position:relative;
-\define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:75vh;overflow-y:scroll;min-width:max-content;width:100%;position:relative;
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160203200159738" creator="EricShulman" modified="20160209015726462" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomLeft">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        bottomleft
-\define barname()      BottomLeftBar
-\define barclass()     tt-bottomleft-slidebar
-\define bartag()       $:/tags/BottomLeftSlideBar
-\define barpin()       ''@@font-size:150%;&amp;#x21d7; MPAC@@''
-\define barunpin()     ''@@font-size:150%;&amp;#x21d9; MPAC@@''
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       auto
-\define barleft()      $(Hmargin)$
-\define barbottom()    0em
-\define barright()     auto
-\define barwidth()     $(barsize)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
-\define barzhover()    999
-
-\define traytop()      auto 
-\define trayleft()     0em
-\define traybottom()   calc($(barbottom)$ + $(barheight)$)
-\define trayright()    auto
-\define traywidth()    max-content
-\define trayheight()   auto
-\define traymin()      max-content
-\define traymax()      80vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:0; margin-bottom:-100vh; margin-left:-100vw;
-\define trayshow()     opacity:1; margin-bottom:0vh;    margin-left:0vw;
-
-\define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
-\define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:calc(80vh - 4em);overflow:auto;max-width:100%;
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160203195712156" creator="EricShulman" modified="20160209015832346" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/BottomRight">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        bottomright
-\define barname()      BottomRightBar
-\define barclass()     tt-bottomright-slidebar
-\define bartag()       $:/tags/BottomRightSlideBar
-\define barpin()       ''@@font-size:150%;~TeraNet &amp;#x21d6;@@''
-\define barunpin()     ''@@font-size:150%;~TeraNet &amp;#x21d8;''
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       auto
-\define barleft()      auto
-\define barbottom()    0em
-\define barright()     $(Hmargin)$
-\define barwidth()     $(barsize)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
-\define barzhover()    999
-
-\define traytop()      auto 
-\define trayleft()     auto
-\define traybottom()   calc($(barbottom)$ + $(barheight)$)
-\define trayright()    0em
-\define traywidth()    max-content
-\define trayheight()   auto
-\define traymin()      40em
-\define traymax()      80vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:0; margin-bottom:-100vh; margin-right:-100vw;
-\define trayshow()     opacity:1; margin-bottom:0vh;    margin-right:0vw;
-
-\define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
-\define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:calc(80vh - 4em);overflow:auto;max-width:100%;
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160202082823082" creator="EricShulman" modified="20160209014043942" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Left">
-<pre>\define config()       $:/config/TiddlyTools
-\define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        left
-\define barname()      LeftBar
-\define barclass()     tt-left-slidebar
-\define bartag()       $:/tags/LeftSlideBar
-\define barpin()       &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~GoogleMaps'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~GoogleMaps'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt; 
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       25vh
-\define barleft()      0em
-\define barbottom()    auto
-\define barright()     auto
-\define barwidth()     $(Hmargin)$
-\define barheight()    $(barsize)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         2
-\define barzhover()    1002
-
-\define traytop()      0em
-\define trayleft()     $(Hmargin)$
-\define traybottom()   auto
-\define trayright()    auto
-\define traywidth()    max-content
-\define trayheight()   $(barheight)$
-\define traymin()      40vw
-\define traymax()      80vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:0; margin-left:-100vw;
-\define trayshow()     opacity:1; margin-left:0vw; 
-
-\define outerclass()   tt-shadowbox absolute left
-\define outerstyle()   left:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
-\define innerclass()   tt-shadowbox inset
-\define innerstyle()   width:max-content
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160202084149670" creator="EricShulman" modified="20160209014031078" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Right">
-<pre>\define config()      $:/config/TiddlyTools
-\define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
-\define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        right
-\define barname()      RightBar
-\define barclass()     tt-right-slidebar
-\define bartag()       $:/tags/RightSlideBar
-\define barpin()       &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~StreetView'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~StreetView'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt;
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       25vh
-\define barleft()      auto
-\define barbottom()    auto
-\define barright()     0em
-\define barwidth()     $(Hmargin)$
-\define barheight()    $(barsize)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         2
-\define barzhover()    1002
-
-\define traytop()      0em
-\define trayleft()     auto
-\define traybottom()   auto
-\define trayright()    $(Hmargin)$
-\define traywidth()    max-content
-\define trayheight()   $(barheight)$
-\define traymin()      40vw
-\define traymax()      80vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:0; margin-right:-100vw;
-\define trayshow()     opacity:1; margin-right:0vw;
-
-\define outerclass()   tt-shadowbox absolute left
-\define outerstyle()   right:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
-\define innerclass()   tt-shadowbox inset
-\define innerstyle()   width:max-content
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160124035409515" creator="EricShulman" modified="20160209014106222" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="Dashboard/SlideBars/Top">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        top
-\define barname()      TopBar
-\define barclass()     tt-top-slidebar
-\define bartag()       $:/tags/TopSlideBar
-\define barpin()       ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-down}} ~GeoLocation {{$:/core/images/chevron-down}}@@''
-\define barunpin()     ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-up}} ~GeoLocation {{$:/core/images/chevron-up}}@@''
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       0em
-\define barleft()      calc(50% - ($(barwidth)$ / 2))
-\define barbottom()    auto
-\define barright()     auto
-\define barwidth()     $(barsize)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         5
-\define barzhover()    1005
-
-\define traytop()      calc($(bartop)$ + $(barheight)$)
-\define trayleft()     50%; transform:translateX(-50%); -webkit-transform:translateX(-50%)
-\define traybottom()   auto
-\define trayright()    0em
-\define traywidth()    $(barwidth)$
-\define trayheight()   auto
-\define traymin()      30em
-\define traymax()      50vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:0; margin-top:-100vh;
-\define trayshow()     opacity:1; margin-top:0vh;
-
-\define outerclass()   tt-shadowbox left
-\define outerstyle()   width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);position:relative;
-\define innerclass()   tt-shadowbox inset center smaller
-\define innerstyle()   width:100%;position:relative;
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160203193000882" creator="EricShulman" modified="20160209022810481" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopLeft">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        topleft
-\define barname()      TopLeftBar
-\define barclass()     tt-topleft-slidebar
-\define bartag()       $:/tags/TopLeftSlideBar
-\define barpin()       ''@@font-size:150%;&amp;#x21d8; Camera@@''
-\define barunpin()     ''@@font-size:150%;&amp;#x21d6; Camera@@''
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       0em
-\define barleft()      5%
-\define barbottom()    auto
-\define barright()     auto
-\define barwidth()     $(barsize)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
-\define barzhover()    999
-
-\define traytop()      $(Vmargin)$
-\define trayleft()     0em
-\define traybottom()   auto
-\define trayright()    auto
-\define traywidth()    max-content
-\define trayheight()   $(Vmargin)$
-\define traymin()      40em
-\define traymax()      80vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:1; margin-top:-100vh; margin-left:-100vw;
-\define trayshow()     opacity:1; margin-top:0vh; margin-left:0vw;
-
-\define outerclass()   tt-shadowbox left nowrap
-\define outerstyle()   min-width:$(traymin)$; max-width:$(traymax)$;
-\define innerclass()   tt-shadowbox inset center smaller
-\define innerstyle()   min-width:calc($(traymin)$ - 1em); max-width:calc($(traymax)$ - 1em);
- 
-{{TiddlyTools/SlideBars/Tray}}</pre>
-</div>
-<div created="20160203195151085" creator="EricShulman" modified="20160209023034426" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="Dashboard/SlideBars/TopRight">
-<pre>\define config()       $:/config/TiddlyTools
-\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
-
-\define barID()        topright
-\define barname()      TopRightBar
-\define barclass()     tt-topright-slidebar
-\define bartag()       $:/tags/TopRightSlideBar
-\define barpin()       ''@@font-size:150%;Storage &amp;#x21d9;@@''
-\define barunpin()     ''@@font-size:150%;Storage &amp;#x21d7;@@''
-
-\define barstay()      $(config)$##$(barname)$
-\define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
-
-\define Vmargin()      42px
-\define Hmargin()      42px
-
-\define bartop()       0em
-\define barleft()      auto
-\define barbottom()    auto
-\define barright()     5%
-\define barwidth()     $(barsize)$
-\define barheight()    $(Vmargin)$
-\define barmin()       1em
-\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
-\define barz()         0
-\define barzhover()    999
-
-\define traytop()      $(Vmargin)$
-\define trayleft()     auto
-\define traybottom()   auto
-\define trayright()    0em
-\define traywidth()    max-content
-\define trayheight()   auto
-\define traymin()      42em
-\define traymax()      80vw
-\define traymargin()   0em
-
-\define trayhide()     opacity:1; margin-top:-100vh; margin-right:-100vw;
-\define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
-
-\define outerclass()   tt-shadowbox left
-\define outerstyle()   min-width:$(traymin)$;max-width:calc($(traymax)$);margin:0 auto;
-\define innerclass()   tt-shadowbox inset
-\define innerstyle()   min-width:calc($(traymin)$ - 1em);max-width:calc($(traymax)$ - 1em);
-
-{{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
 <div caption="StreetView" created="20151010205755347" modified="20160208195658323" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define StreetView()
@@ -12343,6 +11216,218 @@ background: #f8f8ff;
 &lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
 &lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
 </div>
+<div created="20160206045629259" creator="EricShulman" modified="20160209030352523" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
+<pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        authortools
+\define barname()      AuthorToolBar
+\define barclass()     tt-authortools-slidebar
+\define bartag()       $:/tags/AuthorToolsSlideBar
+\define barpin()       ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+\define barunpin()     ''@@font-size:250%;👷&lt;!--&amp;#x1F477;--&gt;@@''
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       $(Vmargin)$
+\define barleft()      auto
+\define barbottom()    auto
+\define barright()     0em
+\define barwidth()     $(Hmargin)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         999
+\define barzhover()    999
+
+\define traytop()      0em
+\define trayleft()     auto
+\define traybottom()   auto
+\define trayright()    $(Hmargin)$
+\define traywidth()    max-content
+\define trayheight()   auto
+\define traymin()      25em
+\define traymax()      40vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:1; margin-top:0vh; margin-right:-100vw;
+\define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
+
+\define outerclass()   tt-shadowbox
+\define outerstyle()   width:max-content;min-width:$(traymin)$; max-width:$(traymax)$;
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   min-width:calc($(traymin)$ - 1em); max-width:calc($(traymax)$ - 1em);
+
+&lt;style&gt;
+   /* shift text to top of button for vertical slidebar */
+   .tt-authortools-slidebar .tt-slidebar-button
+      { vertical-align:top; }
+   /* LIMIT WIDTH/HEIGHT OF LIST TABS */
+   .tt-authortools-slidebar .tt-slidebar-tray .tc-tab-content
+      { max-width:calc(&lt;&lt;traymax&gt;&gt;);
+        min-width:calc(&lt;&lt;traymin&gt;&gt;);
+        max-height:50vh;
+        overflow-x:auto;overflow-y:scroll; }
+&lt;/style&gt;
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
+</div>
+<div created="20160202073342303" creator="EricShulman" modified="20160209030523681" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
+<pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        bottom
+\define barname()      BottomBar
+\define barclass()     tt-bottom-slidebar
+\define bartag()       $:/tags/BottomSlideBar
+\define barpin()       ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-up}} ~AddressLookup {{$:/core/images/chevron-up}}@@''
+\define barunpin()     ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-down}} ~AddressLookup {{$:/core/images/chevron-down}}@@''
+
+\define barstay()      $(config)$##BottomBar
+\define barhover()     $(config)$##BottomBar/Hover
+\define barsize()      {{$(config)$##BottomBar/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/BottomBar}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       auto
+\define barleft()      calc(50% - ($(barwidth)$ / 2))
+\define barbottom()    0em
+\define barright()     auto
+\define barwidth()     $(barsize)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         5
+\define barzhover()    1005
+
+\define traytop()      auto
+\define trayleft()     50%; transform:translateX(-50%); -webkit-transform:translateX(-50%)
+\define traybottom()   calc($(barbottom)$ + $(barheight)$)
+\define trayright()    0em
+\define traywidth()    $(barwidth)$
+\define trayheight()   auto
+\define traymin()      30em
+\define traymax()      50vw
+\define traymargin()   0em;
+
+\define trayhide()     opacity:0; margin-bottom:-100vh;
+\define trayshow()     opacity:1; margin-bottom:0;
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   max-height:80vh;min-width:max-content;width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);position:relative;
+\define innerclass()   tt-shadowbox inset smaller
+\define innerstyle()   max-height:calc(80vh - 4em);overflow-y:scroll;min-width:max-content;width:100%;position:relative;
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
+</div>
+<div created="20160203200159738" creator="EricShulman" modified="20160209030500129" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
+<pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        bottomleft
+\define barname()      BottomLeftBar
+\define barclass()     tt-bottomleft-slidebar
+\define bartag()       $:/tags/BottomLeftSlideBar
+\define barpin()       ''@@font-size:150%;&amp;#x21d7; MPAC@@''
+\define barunpin()     ''@@font-size:150%;&amp;#x21d9; MPAC@@''
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       auto
+\define barleft()      $(Hmargin)$
+\define barbottom()    0em
+\define barright()     auto
+\define barwidth()     $(barsize)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         0
+\define barzhover()    999
+
+\define traytop()      auto 
+\define trayleft()     0em
+\define traybottom()   calc($(barbottom)$ + $(barheight)$)
+\define trayright()    auto
+\define traywidth()    max-content
+\define trayheight()   auto
+\define traymin()      max-content
+\define traymax()      80vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:0; margin-bottom:-100vh; margin-left:-100vw;
+\define trayshow()     opacity:1; margin-bottom:0vh;    margin-left:0vw;
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
+\define innerclass()   tt-shadowbox inset smaller
+\define innerstyle()   max-height:calc(80vh - 4em);overflow:auto;max-width:100%;
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
+</div>
+<div created="20160203195712156" creator="EricShulman" modified="20160209030450793" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
+<pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        bottomright
+\define barname()      BottomRightBar
+\define barclass()     tt-bottomright-slidebar
+\define bartag()       $:/tags/BottomRightSlideBar
+\define barpin()       ''@@font-size:150%;~TeraNet &amp;#x21d6;@@''
+\define barunpin()     ''@@font-size:150%;~TeraNet &amp;#x21d8;''
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       auto
+\define barleft()      auto
+\define barbottom()    0em
+\define barright()     $(Hmargin)$
+\define barwidth()     $(barsize)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         0
+\define barzhover()    999
+
+\define traytop()      auto 
+\define trayleft()     auto
+\define traybottom()   calc($(barbottom)$ + $(barheight)$)
+\define trayright()    0em
+\define traywidth()    max-content
+\define trayheight()   auto
+\define traymin()      40em
+\define traymax()      80vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:0; margin-bottom:-100vh; margin-right:-100vw;
+\define trayshow()     opacity:1; margin-bottom:0vh;    margin-right:0vw;
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
+\define innerclass()   tt-shadowbox inset smaller
+\define innerstyle()   max-height:calc(80vh - 4em);overflow:auto;max-width:100%;
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
+</div>
 <div created="20160207095128200" modified="20160208055604056" title="TiddlyTools/SlideBars/CloseOthers">
 <pre>&lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close other slidebars&quot;&gt;
    {{$:/core/images/close-others-button}}
@@ -12352,6 +11437,57 @@ background: #f8f8ff;
       &lt;/$reveal&gt;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
+</div>
+<div created="20160202082823082" creator="EricShulman" modified="20160209030437097" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Left">
+<pre>\define config()       $:/config/TiddlyTools
+\define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        left
+\define barname()      LeftBar
+\define barclass()     tt-left-slidebar
+\define bartag()       $:/tags/LeftSlideBar
+\define barpin()       &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~GoogleMaps'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~GoogleMaps'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt; 
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       25vh
+\define barleft()      0em
+\define barbottom()    auto
+\define barright()     auto
+\define barwidth()     $(Hmargin)$
+\define barheight()    $(barsize)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         2
+\define barzhover()    1002
+
+\define traytop()      0em
+\define trayleft()     $(Hmargin)$
+\define traybottom()   auto
+\define trayright()    auto
+\define traywidth()    max-content
+\define trayheight()   $(barheight)$
+\define traymin()      40vw
+\define traymax()      80vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:0; margin-left:-100vw;
+\define trayshow()     opacity:1; margin-left:0vw; 
+
+\define outerclass()   tt-shadowbox absolute left
+\define outerstyle()   left:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   width:max-content
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
 <div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160208222005437" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
@@ -12439,6 +11575,56 @@ background: #f8f8ff;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
+<div created="20160202084149670" creator="EricShulman" modified="20160209030430377" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Right">
+<pre>\define config()      $:/config/TiddlyTools
+\define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
+\define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        right
+\define barname()      RightBar
+\define barclass()     tt-right-slidebar
+\define bartag()       $:/tags/RightSlideBar
+\define barpin()       &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~StreetView'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~StreetView'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt;
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       25vh
+\define barleft()      auto
+\define barbottom()    auto
+\define barright()     0em
+\define barwidth()     $(Hmargin)$
+\define barheight()    $(barsize)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         2
+\define barzhover()    1002
+
+\define traytop()      0em
+\define trayleft()     auto
+\define traybottom()   auto
+\define trayright()    $(Hmargin)$
+\define traywidth()    max-content
+\define trayheight()   $(barheight)$
+\define traymin()      40vw
+\define traymax()      80vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:0; margin-right:-100vw;
+\define trayshow()     opacity:1; margin-right:0vw;
+
+\define outerclass()   tt-shadowbox absolute left
+\define outerstyle()   right:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   width:max-content
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
+</div>
 <div created="20160202222243119" creator="EricShulman" modified="20160208014904208" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
 <pre>&lt;pre&gt;/* SLIDEBAR */
 .&lt;&lt;barclass&gt;&gt;
@@ -12520,6 +11706,156 @@ background: #f8f8ff;
    &lt;/$importvariables&gt;
    */
 &lt;/pre&gt;</pre>
+</div>
+<div created="20160124035409515" creator="EricShulman" modified="20160209030411442" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Top">
+<pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        top
+\define barname()      TopBar
+\define barclass()     tt-top-slidebar
+\define bartag()       $:/tags/TopSlideBar
+\define barpin()       ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-down}} ~GeoLocation {{$:/core/images/chevron-down}}@@''
+\define barunpin()     ''@@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-up}} ~GeoLocation {{$:/core/images/chevron-up}}@@''
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       0em
+\define barleft()      calc(50% - ($(barwidth)$ / 2))
+\define barbottom()    auto
+\define barright()     auto
+\define barwidth()     $(barsize)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         5
+\define barzhover()    1005
+
+\define traytop()      calc($(bartop)$ + $(barheight)$)
+\define trayleft()     50%; transform:translateX(-50%); -webkit-transform:translateX(-50%)
+\define traybottom()   auto
+\define trayright()    0em
+\define traywidth()    $(barwidth)$
+\define trayheight()   auto
+\define traymin()      30em
+\define traymax()      50vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:0; margin-top:-100vh;
+\define trayshow()     opacity:1; margin-top:0vh;
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   width:calc(100% + 2em);margin-left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);position:relative;
+\define innerclass()   tt-shadowbox inset center smaller
+\define innerstyle()   width:100%;position:relative;
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
+</div>
+<div created="20160203193000882" creator="EricShulman" modified="20160209030418890" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
+<pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        topleft
+\define barname()      TopLeftBar
+\define barclass()     tt-topleft-slidebar
+\define bartag()       $:/tags/TopLeftSlideBar
+\define barpin()       ''@@font-size:150%;&amp;#x21d8; Camera@@''
+\define barunpin()     ''@@font-size:150%;&amp;#x21d6; Camera@@''
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       0em
+\define barleft()      5%
+\define barbottom()    auto
+\define barright()     auto
+\define barwidth()     $(barsize)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         0
+\define barzhover()    999
+
+\define traytop()      $(Vmargin)$
+\define trayleft()     0em
+\define traybottom()   auto
+\define trayright()    auto
+\define traywidth()    max-content
+\define trayheight()   $(Vmargin)$
+\define traymin()      40em
+\define traymax()      80vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:1; margin-top:-100vh; margin-left:-100vw;
+\define trayshow()     opacity:1; margin-top:0vh; margin-left:0vw;
+
+\define outerclass()   tt-shadowbox left nowrap
+\define outerstyle()   min-width:$(traymin)$; max-width:$(traymax)$;
+\define innerclass()   tt-shadowbox inset center smaller
+\define innerstyle()   min-width:calc($(traymin)$ - 1em); max-width:calc($(traymax)$ - 1em);
+ 
+{{TiddlyTools/SlideBars/Tray}}</pre>
+</div>
+<div created="20160203195151085" creator="EricShulman" modified="20160209030402578" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
+<pre>\define config()       $:/config/TiddlyTools
+\define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
+
+\define barID()        topright
+\define barname()      TopRightBar
+\define barclass()     tt-topright-slidebar
+\define bartag()       $:/tags/TopRightSlideBar
+\define barpin()       ''@@font-size:150%;Storage &amp;#x21d9;@@''
+\define barunpin()     ''@@font-size:150%;Storage &amp;#x21d7;@@''
+
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
+
+\define Vmargin()      42px
+\define Hmargin()      42px
+
+\define bartop()       0em
+\define barleft()      auto
+\define barbottom()    auto
+\define barright()     5%
+\define barwidth()     $(barsize)$
+\define barheight()    $(Vmargin)$
+\define barmin()       1em
+\define barmax()       calc(100vw - $(Hmargin)$ - $(Hmargin)$)
+\define barz()         0
+\define barzhover()    999
+
+\define traytop()      $(Vmargin)$
+\define trayleft()     auto
+\define traybottom()   auto
+\define trayright()    0em
+\define traywidth()    max-content
+\define trayheight()   auto
+\define traymin()      42em
+\define traymax()      80vw
+\define traymargin()   0em
+
+\define trayhide()     opacity:1; margin-top:-100vh; margin-right:-100vw;
+\define trayshow()     opacity:1; margin-top:0vh; margin-right:0vw;
+
+\define outerclass()   tt-shadowbox left
+\define outerstyle()   min-width:$(traymin)$;max-width:calc($(traymax)$);margin:0 auto;
+\define innerclass()   tt-shadowbox inset
+\define innerstyle()   min-width:calc($(traymin)$ - 1em);max-width:calc($(traymax)$ - 1em);
+
+{{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
 <div created="20160202090753488" creator="EricShulman" modified="20160207090934638" modifier="EricShulman" title="TiddlyTools/SlideBars/Transitions">
 <pre>\define slidebar-in()   cubic-bezier(0.165, 0.84, 0.44, 1)
