@@ -415,7 +415,7 @@ Error message and password prompt
     &quot;counter&quot;: &quot;04&quot;
 }</pre>
 </div>
-<div created="20160209215425104" modified="20160210003021585" title="$:/config/curbside/fontsize">
+<div created="20160209215425104" modified="20160210023427717" title="$:/config/curbside/fontsize">
 <pre>100</pre>
 </div>
 <div accuracy="yes" created="20151017064839232" modified="20151027225721983" title="$:/config/Geo" type="application/json">
@@ -495,7 +495,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210005328875" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210023907849" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210002851145" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210022535364" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7681,7 +7681,7 @@ LOAD
 <div created="20160206050630095" modified="20160209031549126" title="$:/state/Dashboard/Realtor.ca">
 <pre></pre>
 </div>
-<div created="20160205232056994" modified="20160209035300590" title="$:/state/Dashboard/StreetView">
+<div created="20160205232056994" modified="20160210023855945" title="$:/state/Dashboard/StreetView">
 <pre></pre>
 </div>
 <div created="20160207092540481" modified="20160209035259910" title="$:/state/Dashboard/TeraNet">
@@ -7773,7 +7773,7 @@ LOAD
 <div created="20160205232823187" modified="20160209022856729" title="$:/temp/search">
 <pre></pre>
 </div>
-<div created="20160205231132173" modified="20160209051512732" title="$:/temp/slidebars/debug">
+<div created="20160205231132173" modified="20160210022636758" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160209195843026" title="$:/temp/TeraNet/source">
@@ -8229,27 +8229,43 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" modified="20160209225717924" tags="$:/tags/PageTemplate" title="Dashboard/Background">
-<pre>&lt;div class=&quot;background&quot;&gt;
-   &lt;div class=&quot;tt-shadowbox&quot;&gt;&lt;div class=&quot;tt-shadowbox inset&quot;&gt;
-      @@font-size:7em;line-height:100%;🏡@@
-      @@font-size:4em;display:inline-block;
-         ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;your real estate dashboard@@//@@
-   &lt;/div&gt;&lt;/div&gt;
-   &lt;div class=&quot;background-controls&quot;&gt;
-      zoom &lt;$edit-text tag=&quot;input&quot; type=&quot;range&quot; tiddler=&quot;$:/config/curbside/fontsize&quot; min=&quot;50&quot; max=&quot;200&quot; step=&quot;10&quot; default=&quot;100&quot;/&gt;
-      {{$:/config/curbside/fontsize}}%
+<div created="20160207102508424" list-before="" modified="20160210023627935" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<pre>\define options()
+&lt;$button popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;settings&quot;&gt;
+   {{$:/core/images/options-button}}
+&lt;/$button&gt;
+&lt;$reveal state=&quot;$:/state/popup/slidebars/settings&quot; type=&quot;popup&quot; position=&quot;left&quot;&gt;
+   {{TiddlyTools/SlideBars/Panels/Settings}}
+&lt;/$reveal&gt;
+\end
+
+\define zoom()
+zoom &lt;$edit-text tag=&quot;input&quot; type=&quot;range&quot; tiddler=&quot;$:/config/curbside/fontsize&quot;
+   min=&quot;50&quot; max=&quot;200&quot; step=&quot;10&quot; default=&quot;100&quot;/&gt;{{$:/config/curbside/fontsize}}%
+\end
+
+&lt;div class=&quot;background&quot;&gt;
+   &lt;div class=&quot;background-tray&quot;&gt;
+      &lt;div class=&quot;tt-shadowbox&quot;&gt;&lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+         &lt;div class=&quot;background-controls&quot; style=&quot;float:right&quot;&gt;&lt;&lt;options&gt;&gt;&lt;/div&gt;
+         @@font-size:7em;line-height:100%;🏡@@
+         @@font-size:4em;display:inline-block; ''//~CurbSide//''&lt;br&gt;//@@font-size:30%;your real estate dashboard@@//@@
+      &lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;background-controls&quot;&gt;&lt;&lt;zoom&gt;&gt;&lt;/div&gt;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160209215841962" modified="20160209225257594" tags="$:/tags/Stylesheet" title="Dashboard/Background/Stylesheet">
+<div created="20160209215841962" modified="20160210021933981" tags="$:/tags/Stylesheet" title="Dashboard/Background/Stylesheet">
 <pre>&lt;pre&gt;
 body.tc-body
    { font-size:{{$:/config/curbside/fontsize}}%; }
 
-.background { position:absolute; z-index:-1; top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%); text-align:center; }
-.background       .background-controls       { opacity:0; transition: opacity 1s; }
-.background:hover .background-controls       { opacity:1; transition: opacity 1s; }
+.background            { position:absolute; z-index:-1; top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%); text-align:center; }
+.background:hover      { z-index:1500; }
+.background-tray       { z-index:-1;   }
+.background-tray:hover { z-index:1500; }
+.background-tray       .background-controls  { opacity:0; transition: opacity 0.5s; }
+.background-tray:hover .background-controls  { opacity:1; transition: opacity 0.5s; }
 &lt;/pre&gt;</pre>
 </div>
 <div caption="Camera" created="20160205084233633" modified="20160209193843029" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
@@ -12302,7 +12318,7 @@ background: #f8f8ff;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160209051652822" modifier="EricShulman" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160210023804190" modifier="EricShulman" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,opt)
@@ -12335,8 +12351,8 @@ $label$
 \end
 
 &lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
-   @@float:right;font-size:80%;line-height:100%; 
-      &lt;$button popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;close settings&quot;&gt;
+   @@font-size:80%;line-height:100%; 
+      &lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;close settings&quot;&gt;
       {{$:/core/images/close-button}}&lt;/$button&gt;@@
    &lt;$link to=&lt;&lt;config&gt;&gt;&gt;slidebar settings&lt;/$link&gt;
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
