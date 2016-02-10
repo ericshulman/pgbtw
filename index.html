@@ -497,7 +497,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210201328776" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210204347241" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;yes&quot;,
@@ -11945,10 +11945,10 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160210200624372" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160210204343116" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
-/* ANDROID/IOS: DISABLE TOUCH SELECTION EXCEPT IN INPUT FIELDS */
-@media (pointer:none) {
+/* DISABLE SELECTION FOR TOUCH SCREENS EXCEPT IN INPUT FIELDS */
+@media (pointer:coarse) {
    *:not(input):not(textarea) {
       -moz-user-select: -moz-none;
       -khtml-user-select: none;
