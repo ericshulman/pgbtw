@@ -415,7 +415,7 @@ Error message and password prompt
     &quot;counter&quot;: &quot;04&quot;
 }</pre>
 </div>
-<div created="20160209215425104" modified="20160209225121878" title="$:/config/curbside/fontsize">
+<div created="20160209215425104" modified="20160210003021585" title="$:/config/curbside/fontsize">
 <pre>100</pre>
 </div>
 <div accuracy="yes" created="20151017064839232" modified="20151027225721983" title="$:/config/Geo" type="application/json">
@@ -495,7 +495,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160209225316176" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210005328875" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160209215126673" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210002851145" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -9040,7 +9040,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160209204340953" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20160210005157898" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
 <pre>\define geotarget() $:/Geo/Data
 
 \define ShowMap()
@@ -9130,6 +9130,7 @@ quality:&lt;br&gt; &amp;nbsp;
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;toggleactive&gt;&gt;
    &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;GoogleMaps settings&quot;
@@ -9139,7 +9140,6 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    @@.floatleft.smaller.borderless &lt;&lt;showcontrols&gt;&gt;@@
-   @@.floatright.smaller &lt;&lt;toggleactive&gt;&gt;@@
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;$vars
     latitude={{$:/Geo/Data##latitude}}
@@ -9426,7 +9426,7 @@ x
    &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160209204807508" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20160210005122677" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define geotarget() $:/Geo/Data
 
 \define StreetView()
@@ -9493,6 +9493,7 @@ x
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;toggleactive&gt;&gt;
    &lt;&lt;dashboardpopup id:&quot;StreetView/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;StreetView settings&quot;
@@ -9502,7 +9503,6 @@ x
 &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    @@.floatleft.smaller.borderless &lt;&lt;showcontrols&gt;&gt;@@
-   @@.floatright.smaller &lt;&lt;toggleactive&gt;&gt;@@
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;$vars
       latitude={{$:/Geo/Data##latitude}}
@@ -11851,7 +11851,7 @@ body.tc-body { background:#BABACA; }
 
 &lt;/pre&gt;</pre>
 </div>
-<div created="20150418111607835" creator="EricShulman" modified="20160207094145166" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
+<div created="20150418111607835" creator="EricShulman" modified="20160210004337010" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Shortcuts" type="">
 <pre>&lt;pre&gt;
 /* ---- FORMATTING SHORTCUTS ---- */
 
@@ -11913,14 +11913,14 @@ body.tc-body { background:#BABACA; }
 
 /* TEXT ROTATION */
 .rotate-left-90 {
-    display:block; top:50%; left:50%;
-    transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
+    display:inline-block; position:absolute; top:50%; left:50%; width:max-content;
+    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
 }
 .rotate-right-90 {
-    display:block; top:50%; left:50%;
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
+    display:inline-block; position:absolute; top:50%; left:50%; width:max-content;
+    transform: translateX(-50%) translateY(-50%) rotate(90deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(90deg);
 }
 
 /* MULTI COLUMN FLOW */
@@ -12205,7 +12205,7 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div created="20160202082823082" creator="EricShulman" modified="20160209030437097" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Left">
+<div created="20160202082823082" creator="EricShulman" modified="20160210004926717" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Left">
 <pre>\define config()       $:/config/TiddlyTools
 \define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -12214,8 +12214,8 @@ background: #f8f8ff;
 \define barname()      LeftBar
 \define barclass()     tt-left-slidebar
 \define bartag()       $:/tags/LeftSlideBar
-\define barpin()       &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~GoogleMaps'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-left-90 larger&quot; style=&quot;position:absolute;left:-125%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~GoogleMaps'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt; 
+\define barpin()       &lt;div class=&quot;rotate-left-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~GoogleMaps'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-left-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~GoogleMaps'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt; 
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12252,7 +12252,7 @@ background: #f8f8ff;
 \define outerclass()   tt-shadowbox absolute left
 \define outerstyle()   left:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
 \define innerclass()   tt-shadowbox inset
-\define innerstyle()   width:max-content
+\define innerstyle()   width:fit-content
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
@@ -12349,7 +12349,7 @@ $label$
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160202084149670" creator="EricShulman" modified="20160209030430377" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Right">
+<div created="20160202084149670" creator="EricShulman" modified="20160210004959772" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Right">
 <pre>\define config()      $:/config/TiddlyTools
 \define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -12358,8 +12358,8 @@ $label$
 \define barname()      RightBar
 \define barclass()     tt-right-slidebar
 \define bartag()       $:/tags/RightSlideBar
-\define barpin()       &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~StreetView'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-right-90 larger&quot; style=&quot;position:absolute;left:-100%;&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~StreetView'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt;
+\define barpin()       &lt;div class=&quot;rotate-right-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} ''~StreetView'' {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-right-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} ''~StreetView'' {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt;
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
 \define barsize()      {{$(config)$##$(barname)$/Size}}
@@ -12395,7 +12395,7 @@ $label$
 \define outerclass()   tt-shadowbox absolute left
 \define outerstyle()   right:0;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);
 \define innerclass()   tt-shadowbox inset
-\define innerstyle()   width:max-content
+\define innerstyle()   width:fit-content
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
