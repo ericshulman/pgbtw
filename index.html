@@ -497,7 +497,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210092635478" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210101738906" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;yes&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210092430148" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210095523762" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -8235,7 +8235,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160210064110860" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160210100115253" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
 &lt;$button popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
@@ -8260,8 +8260,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    body.tc-body           { font-size:{{$:/config/curbside/fontsize}}%; }
    .background            { position:absolute; z-index:-1; top:50vh;left:50vw;
                             transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
-                            text-align:center; }
-   .background:hover      { z-index:1500; }
+                            text-align:center; opacity:0.5; transition: opacity 0.5s; }
+   .background:hover      { z-index:1500;      opacity:1.0; transition: opacity 0.5s; }
    .background-tray       { z-index:-1;   }
    .background-tray:hover { z-index:1500; }
    .background-tray       .background-controls  { opacity:0.0; transition: opacity 0.5s; }
@@ -8269,8 +8269,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/style&gt;
 &lt;div class=&quot;background&quot;&gt;
    &lt;div class=&quot;background-tray&quot;&gt;
-      &lt;div class=&quot;tt-shadowbox&quot; style=&quot;background:#babaca&quot;&gt;
-         &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;background:#cacada&quot;&gt;
+      &lt;div class=&quot;tt-shadowbox&quot; xstyle=&quot;background:#babaca&quot;&gt;
+         &lt;div class=&quot;tt-shadowbox inset&quot; xstyle=&quot;background:#cacada&quot;&gt;
             &lt;div class=&quot;background-controls&quot; style=&quot;float:right&quot;&gt;&lt;&lt;options&gt;&gt;&lt;/div&gt;
             @@font-size:6em;line-height:100%;🏡@@
             @@display:inline-block; ''//@@font-size:3em;~CurbSide@@//''&lt;br&gt;//your real estate dashboard//@@
@@ -12340,7 +12340,7 @@ background: #f8f8ff;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160210085926331" modifier="EricShulman" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160210101639066" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,opt)
@@ -12371,10 +12371,11 @@ $label$
 \end
 
 &lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
-   @@font-size:80%;line-height:100%; 
-      &lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;close settings&quot;&gt;
-      {{$:/core/images/close-button}}&lt;/$button&gt;@@
-   &lt;$link to=&lt;&lt;config&gt;&gt;&gt;slidebar settings&lt;/$link&gt;
+   @@float:right;
+      &lt;$button class=&quot;tc-btn-invisible&quot; to=&lt;&lt;config&gt;&gt; tooltip=&quot;edit configuration...&quot;&gt;
+         edit {{$:/core/images/edit-button}}&lt;/$button&gt;@@
+   &lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;close settings&quot;&gt;
+      @@font-size:80%;{{$:/core/images/close-button}}@@ ''~SlideBar settings''&lt;/$button&gt;
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
       &lt;&lt;slidebaroption &quot;/Hover&quot; &quot;''auto show/hide'' //(hover/longpress)//:&quot;&gt;&gt;
