@@ -415,7 +415,7 @@ Error message and password prompt
     &quot;counter&quot;: &quot;04&quot;
 }</pre>
 </div>
-<div created="20160209215425104" modified="20160210033014220" title="$:/config/curbside/fontsize">
+<div created="20160209215425104" modified="20160210042448007" title="$:/config/curbside/fontsize">
 <pre>100</pre>
 </div>
 <div accuracy="yes" created="20151017064839232" modified="20151027225721983" title="$:/config/Geo" type="application/json">
@@ -495,7 +495,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210034850665" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210042712672" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210032852806" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210042709421" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7770,7 +7770,7 @@ LOAD
 <div created="20160205082821981" modified="20160209203508442" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160209022856729" title="$:/temp/search">
+<div created="20160205232823187" modified="20160210042520255" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160210022636758" title="$:/temp/slidebars/debug">
@@ -8132,7 +8132,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Realtor.ca&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20160209210120865" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20160210042215589" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
 <pre>\define geotarget() $:/Geo/Data
 
 \define getdata(label:&quot;summary&quot;)
@@ -8177,8 +8177,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;tr valign=&quot;top&quot;&gt;
       &lt;td style=&quot;text-align:left;xwidth:1%;&quot;&gt;
          &lt;$list filter=&quot;[&lt;item&gt;removeprefix[results/]]&quot; variable=&quot;trimmeditem&quot;
-            emptyMessage=&quot;&lt;$link&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&lt;/$link&gt;&amp;nbsp;&quot;&gt;
-            &lt;$link&gt;&lt;$text text=&lt;&lt;trimmeditem&gt;&gt;/&gt;:&lt;/$link&gt;&amp;nbsp;
+            emptyMessage=&quot;@@font-size:80%;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&amp;nbsp;@@&quot;&gt;
+            @@font-size:80%;&lt;$text text=&lt;&lt;trimmeditem&gt;&gt;/&gt;:&amp;nbsp;@@
          &lt;/$list&gt;
       &lt;/td&gt;
       &lt;td style=&quot;max-width:30vw;overflow:hidden&quot;&gt;
@@ -8263,7 +8263,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160209215841962" modified="20160210034843040" tags="$:/tags/Stylesheet" title="Dashboard/Background/Stylesheet">
+<div created="20160209215841962" modified="20160210042407505" tags="$:/tags/Stylesheet" title="Dashboard/Background/Stylesheet">
 <pre>&lt;pre&gt;
 body.tc-body
    { font-size:{{$:/config/curbside/fontsize}}%; }
@@ -9179,7 +9179,7 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20160209195926699" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20160210041942270" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -9194,7 +9194,7 @@ quality:&lt;br&gt; &amp;nbsp;
    &lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[$pre$]]&quot;&gt;
    &lt;tr valign=&quot;top&quot;&gt;
       &lt;td style=&quot;text-align:left;Xwidth:1%;&quot;&gt;
-         &lt;$link&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&lt;/$link&gt;&amp;nbsp;
+         @@font-size:80%;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&amp;nbsp;@@
       &lt;/td&gt;
       &lt;td style=&quot;max-width:20em;overflow:hidden&quot;&gt;
          &lt;$list filter=&quot;[{!!text}prefix[http]]&quot; variable=&quot;if_prefix_is_http&quot;
@@ -9296,7 +9296,7 @@ Password:&lt;br&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    @@.center &lt;&lt;toolbar&gt;&gt;@@
    &lt;$set name=&quot;source&quot; value={{$:/temp/MPAC/source}}&gt;
-   &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
+   &lt;table style=&quot;width:max-content;max-width:100%;margin:0 auto;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;mpac_info&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;security_info&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;request&gt;&gt;/&gt;
@@ -9541,7 +9541,7 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160209195816320" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160210042045039" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -9552,8 +9552,8 @@ x
 &lt;$list filter=&quot;[prefix[$pre$]sort[]]&quot;&gt;
    &lt;$set name=&quot;item&quot; filter=&quot;[is[current]removeprefix[$pre$]]&quot;&gt;
    &lt;tr valign=&quot;top&quot;&gt;
-      &lt;td style=&quot;text-align:left;xwidth:1%;&quot;&gt;
-         &lt;$link&gt;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&lt;/$link&gt;&amp;nbsp;
+      &lt;td style=&quot;text-align:left;&quot;&gt;
+         @@font-size:80%;&lt;$text text=&lt;&lt;item&gt;&gt;/&gt;:&amp;nbsp;@@
       &lt;/td&gt;
       &lt;td style=&quot;max-width:30em;overflow:hidden&quot;&gt;
          &lt;$list filter=&quot;[{!!text}prefix[http]]&quot; variable=&quot;if_prefix_is_http&quot;
@@ -9659,7 +9659,7 @@ Password:&lt;br&gt;
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    @@.center &lt;&lt;toolbar&gt;&gt;@@
    &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
-   &lt;table style=&quot;width:max-content;max-width:100%;margin:0;&quot;&gt;
+   &lt;table style=&quot;width:max-content;max-width:100%;margin:0 auto;&quot;&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;header&gt;&gt;/&gt;
       &lt;$macrocall $name=&quot;showdata&quot; pre=&lt;&lt;report&gt;&gt;/&gt;
    &lt;/table&gt;
@@ -12119,7 +12119,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160209210550226" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160210041718680" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12163,13 +12163,13 @@ background: #f8f8ff;
 \define trayshow()     opacity:1; margin-bottom:0vh;    margin-left:0vw;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
+\define outerstyle()   max-height:80vh;max-width:100%;
 \define innerclass()   tt-shadowbox inset smaller
 \define innerstyle()   max-height:70vh;overflow:auto;max-width:100%;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160209210526667" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160210041808119" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 
@@ -12213,7 +12213,7 @@ background: #f8f8ff;
 \define trayshow()     opacity:1; margin-bottom:0vh;    margin-right:0vw;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;width:fit-content;max-width:100%;
+\define outerstyle()   max-height:80vh;max-width:100%;
 \define innerclass()   tt-shadowbox inset smaller
 \define innerstyle()   max-height:70vh;overflow:auto;max-width:100%;
 
