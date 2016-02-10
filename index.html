@@ -497,7 +497,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210200638065" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210201328776" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;yes&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210194845820" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210201320893" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7779,8 +7779,8 @@ LOAD
 <div created="20160210051044605" modified="20160210090135132" title="$:/temp/slidebars/debug/showzones">
 <pre>no</pre>
 </div>
-<div created="20160210050457479" modified="20160210183702961" title="$:/temp/slidebars/debug/transitions">
-<pre>yes</pre>
+<div created="20160210050457479" modified="20160210201045044" title="$:/temp/slidebars/debug/transitions">
+<pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160209195843026" title="$:/temp/TeraNet/source">
 <pre>m1c3l3_12CLARK_ter_output.xml</pre>
@@ -8995,7 +8995,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$list&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160210194845310" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20160210201320440" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define config()   $:/config/TiddlyTools
 \define pinned()   $(config)$##$(barname)$
 \define pintip()   pin $(barname)$ (keep visible)
@@ -9051,7 +9051,7 @@ buttonclass:&quot;tc-btn-invisible&quot;,
 &lt;$button class=&quot;$buttonclass$&quot; popup=&quot;$:/temp/popup/$id$&quot; tooltip=&quot;$title$&quot;&gt; $label$ &lt;/$button&gt;&amp;nbsp;
 &lt;$reveal type=&quot;popup&quot; position=&quot;$position$&quot; state=&quot;$:/temp/popup/$id$&quot;
    class=&quot;tt-shadowbox $popupclass$&quot; style=&quot;padding:0.5em;width:$width$&quot;&gt;
-   @@.left &lt;$button class=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/cancel-button}}
+   @@.left &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close panel&quot;&gt; {{$:/core/images/cancel-button}}
       &lt;$action-deletetiddler $tiddler=&quot;$:/temp/popup/$id$&quot; /&gt;
       ''&lt;$text text=&quot;$title$&quot;/&gt;''
    &lt;/$button&gt;
