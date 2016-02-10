@@ -43,8 +43,8 @@
 <gap:plugin name="org.apache.cordova.geolocation" />
 <gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" />
 
+<plugin name="com.kumbe.phonegap.zoom.zoomcontrol" spec="0.1.7" source="pgb" />
 <!-- DISABLED... INCOMPATIBLE WITH cli-5.2.0
-<gap:plugin name="com.kumbe.phonegap.zoom.zoomcontrol" />
 -->
 
 <!-- ICON/SPLASH/LOADING MESSAGE -->
