@@ -497,7 +497,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210101738906" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210165936109" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;yes&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210095523762" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210163305557" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7714,7 +7714,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160210092253407" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160210164736543" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160206161513372" title="$:/state/tab/sidebar--1835078512">
@@ -8235,12 +8235,12 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160210100115253" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160210164202209" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
-&lt;$button popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;settings&quot;&gt;
+&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;
-&lt;$reveal state=&quot;$:/state/popup/slidebars/settings&quot; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
+&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
    {{TiddlyTools/SlideBars/Panels/Settings}}
 &lt;/$reveal&gt;
 \end
@@ -12294,8 +12294,20 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160210064611469" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160210164301680" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
+
+\define options()
+&lt;nobr&gt;
+@@font-size:80%;line-height:100%; 
+&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
+   {{$:/core/images/options-button}}
+&lt;/$button&gt;@@
+&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
+   {{TiddlyTools/SlideBars/Panels/Settings}}
+&lt;/$reveal&gt;
+&lt;/nobr&gt;
+\end
 
 \define edittiddler()
 @@font-size:80%;line-height:100%;white-space:nowrap; 
@@ -12316,18 +12328,6 @@ background: #f8f8ff;
 \define createtip() create &quot;$(tid)$&quot;
 \define edittip()   edit &quot;$(tid)$&quot;
 
-\define options()
-&lt;nobr&gt;
-@@font-size:80%;line-height:100%; 
-&lt;$button popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;settings&quot;&gt;
-   {{$:/core/images/options-button}}
-&lt;/$button&gt;@@
-&lt;$reveal state=&quot;$:/state/popup/slidebars/settings&quot; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
-   {{TiddlyTools/SlideBars/Panels/Settings}}
-&lt;/$reveal&gt;
-&lt;/nobr&gt;
-\end
-
 &lt;div class=&quot;authortools&quot;&gt;
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
    @@float:right;padding-bottom:0.2em; &lt;&lt;edittiddler&gt;&gt;&lt;&lt;options&gt;&gt;@@
@@ -12340,7 +12340,7 @@ background: #f8f8ff;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160210101639066" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160210165811647" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,opt)
@@ -12359,7 +12359,7 @@ background: #f8f8ff;
 \end
 
 \define slidebaroption(opt,label)
-$label$
+@@font-size:70%;line-height:100%;$label$@@
 &lt;div style=&quot;border:1px solid;border-radius:0.5em;padding:0.5em;margin:0;background:rgba(0,0,0,0.1);&quot;&gt;
 
 |borderless|k
@@ -12371,20 +12371,25 @@ $label$
 \end
 
 &lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
-   @@float:right;
-      &lt;$button class=&quot;tc-btn-invisible&quot; to=&lt;&lt;config&gt;&gt; tooltip=&quot;edit configuration...&quot;&gt;
-         edit {{$:/core/images/edit-button}}&lt;/$button&gt;@@
-   &lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;$:/state/popup/slidebars/settings&quot; tooltip=&quot;close settings&quot;&gt;
-      @@font-size:80%;{{$:/core/images/close-button}}@@ ''~SlideBar settings''&lt;/$button&gt;
+   &lt;$reveal text=&lt;&lt;barname&gt;&gt; type=&quot;match&quot; default=&quot;AuthorToolBar&quot;&gt; &lt;!-- HIDE UNLESS AUTHOR TOOLBAR --&gt;
+      @@float:right;
+         &lt;$button class=&quot;tc-btn-invisible&quot; to=&lt;&lt;config&gt;&gt; tooltip=&quot;edit configuration...&quot;&gt;
+            edit {{$:/core/images/edit-button}}&lt;/$button&gt;@@
+   &lt;/$reveal&gt;
+   &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close settings&quot;&gt;
+      @@font-size:80%;{{$:/core/images/close-button}}@@ ''~SlideBar settings''
+      &lt;$action-deletetiddler $filter=&quot;[prefix[$:/state/popup/slidebars/settings]]&quot;/&gt;
+   &lt;/$button&gt;
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      &lt;&lt;slidebaroption &quot; &quot; &quot;''stay visible'' //(click to toggle)//:&quot;&gt;&gt;
+      &lt;div style=&quot;height:0.5em&quot;&gt;&lt;/div&gt;
       &lt;&lt;slidebaroption &quot;/Hover&quot; &quot;''auto show/hide'' //(hover/longpress)//:&quot;&gt;&gt;
+      &lt;div style=&quot;height:0.5em&quot;&gt;&lt;/div&gt;
       &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug/showzones&quot;   field=&quot;text&quot;
-         checked=&quot;yes&quot; unchecked=&quot;no&quot;  default=&quot;no&quot;&gt;show hover zones&lt;/$checkbox&gt;
+         checked=&quot;yes&quot; unchecked=&quot;no&quot;  default=&quot;no&quot;&gt;show hover zones&lt;/$checkbox&gt; &amp;nbsp;
       &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug/transitions&quot; field=&quot;text&quot;
          checked=&quot;no&quot;  unchecked=&quot;yes&quot; default=&quot;yes&quot;&gt;disable transitions&lt;/$checkbox&gt;
-      &lt;div style=&quot;height:0.5em&quot;&gt;&lt;/div&gt;
-      &lt;&lt;slidebaroption &quot; &quot; &quot;''stay visible'' //(click to toggle)//:&quot;&gt;&gt;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
