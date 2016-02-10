@@ -497,7 +497,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210070349369" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210071440790" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210070246151" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210070500649" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -11849,12 +11849,14 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160210070019355" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160210071431806" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* ANDROID/IOS: DISABLE TOUCH SELECTION EXCEPT IN INPUT FIELDS */
-*:not(input,textarea) {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none; /* Disable selection/Copy of UIWebView */
+*:not(input):not(textarea) {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -webkit-touch-callout: none;
 }
 
 /* SIDEBAR TEXT/LINK COLOR */
