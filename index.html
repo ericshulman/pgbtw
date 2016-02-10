@@ -483,13 +483,13 @@ Error message and password prompt
 <div created="20150705120259221" modified="20151205101909213" title="$:/config/SaverFilter">
 <pre>[all[]] -[[$:/HistoryList]] -[[$:/StoryList]] -[[$:/Import]] -[[$:/isEncrypted]] -[[$:/UploadName]] -[prefix[$:/state]] -[prefix[$:/temp]] -[prefix[$:/config]] -[prefix[$:/Geo/Data]] -[prefix[$:/LocalStorage]] -[prefix[$:/xml]] -[tag[location]]</pre>
 </div>
-<div created="20151017064109083" modified="20160210060032920" title="$:/config/StreetView" type="application/json">
+<div created="20151017064109083" modified="20160210185631908" title="$:/config/StreetView" type="application/json">
 <pre>{
     &quot;heading&quot;: &quot;200&quot;,
     &quot;fov&quot;: &quot;120&quot;,
     &quot;width&quot;: &quot;640&quot;,
     &quot;height&quot;: &quot;384&quot;,
-    &quot;EnableStreetView&quot;: &quot;no&quot;
+    &quot;EnableStreetView&quot;: &quot;yes&quot;
 }</pre>
 </div>
 <div created="20151108215219915" modified="20160205085238399" title="$:/config/TeraNet" type="application/json">
@@ -497,7 +497,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210165936109" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160210194924895" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;yes&quot;,
@@ -6948,13 +6948,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623224550947" modified="20160206050802745" title="$:/DefaultTiddlers">
 <pre></pre>
 </div>
-<div created="20151016012736156" modified="20160209205151793" tags="location" title="$:/Geo/Data" type="application/json">
+<div created="20151016012736156" modified="20160210191050857" tags="location" title="$:/Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210163305557" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210194845820" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7619,7 +7619,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/Geo/Data]]</pre>
+# [[test]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -7666,7 +7666,7 @@ LOAD
 <div created="20160206023548795" modified="20160209202920954" title="$:/state/Dashboard/LocalStorage">
 <pre></pre>
 </div>
-<div created="20160208070234728" modified="20160209024109479" title="$:/state/Dashboard/LocalStorage/Directory">
+<div created="20160208070234728" modified="20160210192143254" title="$:/state/Dashboard/LocalStorage/Directory">
 <pre>open</pre>
 </div>
 <div created="20160205083858907" modified="20160208065822922" title="$:/state/Dashboard/LocalStorage/Viewer">
@@ -7714,7 +7714,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160210164736543" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160210185359693" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160206161513372" title="$:/state/tab/sidebar--1835078512">
@@ -7744,8 +7744,8 @@ LOAD
 <div list="" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20160205081751366" modified="20160209022855178" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20160205081751366" modified="20160210192317854" title="$:/temp/advancedsearch">
+<pre>$:/core/images</pre>
 </div>
 <div created="20160208023043988" modified="20160209205207676" title="$:/temp/authortools/blick">
 <pre></pre>
@@ -7770,7 +7770,7 @@ LOAD
 <div created="20160205082821981" modified="20160209203508442" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160210092255543" title="$:/temp/search">
+<div created="20160205232823187" modified="20160210194012147" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160210050735268" title="$:/temp/slidebars/debug">
@@ -7779,8 +7779,8 @@ LOAD
 <div created="20160210051044605" modified="20160210090135132" title="$:/temp/slidebars/debug/showzones">
 <pre>no</pre>
 </div>
-<div created="20160210050457479" modified="20160210170319987" title="$:/temp/slidebars/debug/transitions">
-<pre>no</pre>
+<div created="20160210050457479" modified="20160210183702961" title="$:/temp/slidebars/debug/transitions">
+<pre>yes</pre>
 </div>
 <div created="20160205085243127" modified="20160209195843026" title="$:/temp/TeraNet/source">
 <pre>m1c3l3_12CLARK_ter_output.xml</pre>
@@ -8138,7 +8138,7 @@ exports.startup = function() {
 &lt;&lt;dashboardpanel tid:Dashboard/TeraNet&gt;&gt;
 &lt;&lt;dashboardpanel tid:Dashboard/Realtor.ca&gt;&gt;</pre>
 </div>
-<div caption="AddressLookup" created="20151010193622207" modified="20160210042215589" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
+<div caption="AddressLookup" created="20151010193622207" modified="20160210194232656" tags="$:/tags/BottomSlideBar" title="Dashboard/AddressLookup">
 <pre>\define geotarget() $:/Geo/Data
 
 \define getdata(label:&quot;summary&quot;)
@@ -8209,10 +8209,19 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    filter=&quot;[prefix[$:/Geo/Data/Address]]&quot;/&gt;
 \end
 
+\define help()
+{{Dashboard/AddressLookup/Help}}
+\end
+
 &lt;$vars latitude={{$:/Geo/Data##latitude}}
        longitude={{$:/Geo/Data##longitude}}&gt;
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;dashboardpopup id:&quot;AddressLookup/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for AddressLookup&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;AddressLookup/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
       title:&quot;LocalStorage for AddressLookup&quot;
@@ -8235,9 +8244,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160210164202209" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160210183956793" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
-&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;
 &lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
@@ -8260,8 +8269,8 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    body.tc-body           { font-size:{{$:/config/curbside/fontsize}}%; }
    .background            { position:absolute; z-index:-1; top:50vh;left:50vw;
                             transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
-                            text-align:center; opacity:0.5; transition: opacity 0.5s; }
-   .background:hover      { z-index:1500;      opacity:1.0; transition: opacity 0.5s; }
+                            text-align:center; opacity:0.25; transition: opacity 0.5s; }
+   .background:hover      { z-index:1500;      opacity:1.0;  transition: opacity 0.5s; }
    .background-tray       { z-index:-1;   }
    .background-tray:hover { z-index:1500; }
    .background-tray       .background-controls  { opacity:0.0; transition: opacity 0.5s; }
@@ -8280,7 +8289,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160209193843029" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160210194419968" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
@@ -8395,8 +8404,18 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 @@
 \end
 
+\define help()
+{{Dashboard/Camera/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &amp;nbsp;
+   &lt;&lt;dashboardpopup id:&quot;Camera/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for Camera&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;$vars path={{$:/config/Camera##path}}
           name={{$:/config/Camera##name}}
           counter={{$:/config/Camera##counter}}
@@ -8440,7 +8459,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160210070328649" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160210194404512" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -8450,7 +8469,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 
 \define getGeo()
 &lt;$button tooltip=&quot;get geolocation data from GPS and/or network interpolation&quot;&gt;
-   get Geo data
+   get location
    &lt;$action-getGeoData mode=&quot;get&quot; tiddler=&lt;&lt;target&gt;&gt;
       age={{$:/config/Geo##age}}
       timeout={{$:/config/Geo##timeout}}
@@ -8550,8 +8569,18 @@ timeout:&lt;br&gt;
 \define getfullname() locations/$(currentTiddler)$.tids
 \define getfilter()   [title[$(currentTiddler)$]]
 
+\define help()
+{{Dashboard/GeoLocation/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &amp;nbsp;
+   &lt;&lt;dashboardpopup id:&quot;GeoLocation/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for GeoLocation&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;GeoLocation/Storage&quot;
       label:&quot;@@.resize {{images/folder.svg}}@@&quot;
       title:&quot;LocalStorage for GeoLocation&quot;
@@ -8573,16 +8602,18 @@ timeout:&lt;br&gt;
       longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
          tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;@@
    @@.floatright.nowrap
-      &lt;&lt;saveGeo&gt;&gt;
+      &lt;&lt;saveGeo label:&quot;{{$:/core/images/save-button}}&quot;&gt;&gt;
       &lt;&lt;dashboardpopup id:&quot;GeoLocation/Load&quot;
-         label:&quot;load&quot;
+         buttonclass:&quot; &quot; popupclass:&quot; &quot;
+         label:&quot;{{$:/core/images/download-button}}&quot;
          title:&quot;select a saved location&quot;
-         position:&quot;belowright&quot;
+         position:&quot;belowleft&quot;
          content:&quot;loadGeo&quot;&gt;&gt;
       &lt;&lt;dashboardpopup id:&quot;GeoLocation/Delete&quot;
-         label:&quot;delete&quot;
+         buttonclass:&quot; &quot; popupclass:&quot; &quot;
+         label:&quot;{{$:/core/images/delete-button}}&quot;
          title:&quot;delete a saved location&quot;
-         position:&quot;belowright&quot;
+         position:&quot;belowleft&quot;
          content:&quot;deleteGeo&quot;&gt;&gt;@@
    @@display:block;clear:both;height:0.25em;@@
    &lt;$edit-text tag=&quot;textarea&quot; class=&quot;width100&quot;
@@ -8605,7 +8636,7 @@ timeout:&lt;br&gt;
    &lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot; /&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div caption="LocalStorage" created="20151009192813110" modified="20160209023906185" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
+<div caption="LocalStorage" created="20151009192813110" modified="20160210194346768" tags="$:/tags/ControlPanel $:/tags/TopRightSlideBar" title="Dashboard/LocalStorage">
 <pre>\define loadfile(label:&quot;load file&quot;)
 &lt;$button tooltip=&quot;copy /$(filename)$ from local storage to tiddler cache&quot;&gt;
 $label$
@@ -8777,10 +8808,19 @@ tiddler cache location:&lt;br&gt;
    field=&quot;text&quot; tag=&quot;input&quot; size=&quot;15&quot; default=&quot;$:/LocalStorage/&quot; /&gt;
 \end
 
+\define help()
+{{Dashboard/LocalStorage/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
    &amp;nbsp;
-   &lt;&lt;dashboardpopup id:&quot;LocalStorage&quot;
+   &lt;&lt;dashboardpopup id:&quot;LocalStorage/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for LocalStorage&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
+   &lt;&lt;dashboardpopup id:&quot;LocalStorage/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;LocalStorage settings&quot;
       content:&quot;options&quot;&gt;&gt;@@
@@ -8810,7 +8850,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="LocalStorage Directory" created="20151014083917209" modified="20160209020757299" tags="" title="Dashboard/LocalStorage/Directory">
+<div caption="LocalStorage Directory" created="20151014083917209" modified="20160210192208156" tags="" title="Dashboard/LocalStorage/Directory">
 <pre>\define msg(txt)
 &lt;$action-setfield    $tiddler=&quot;$:/temp/notify&quot; text=&quot;$txt$&quot;/&gt;
 &lt;$action-sendmessage $message=&quot;tm-notify&quot; $param=&quot;$:/temp/notify&quot;/&gt;
@@ -8942,6 +8982,7 @@ tiddler cache location:&lt;br&gt;
    &lt;&lt;resetcache &quot;{{$:/core/images/delete-button}}&quot;&gt;&gt;
    &lt;&lt;getfoldersbutton &quot;{{$:/core/images/refresh-button}}&quot;&gt;&gt;@@
 &lt;div class=&quot;clear&quot; style=&quot;height:0.5em&quot;&gt;&lt;/div&gt;
+''~LocalStorage contents:''&lt;hr style=&quot;margin:1px&quot;/&gt;
 &lt;$list filter=&quot;[prefix[$:/LocalStorage]has[filelist]sort[]]&quot;
    emptyMessage=&quot;&quot;&quot;
       @@display:none;&lt;&lt;getfoldersbutton&gt;&gt;@@
@@ -8954,7 +8995,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$list&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160208064346944" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20160210194845310" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define config()   $:/config/TiddlyTools
 \define pinned()   $(config)$##$(barname)$
 \define pintip()   pin $(barname)$ (keep visible)
@@ -9001,14 +9042,19 @@ tiddler cache location:&lt;br&gt;
 &lt;/$reveal&gt;
 \end
 
-\define dashboardpopup(id,label,title,content,position:&quot;belowleft&quot;,width:&quot;auto&quot;)
-&lt;$button popup=&quot;$:/temp/popup/$id$&quot; tooltip=&quot;$title$&quot;&gt; $label$ &lt;/$button&gt;
+\define dashboardpopup(id,label,title,content,
+   position:&quot;belowleft&quot;,
+      width:&quot;auto&quot;,
+buttonclass:&quot;tc-btn-invisible&quot;,
+ popupclass:&quot;tc-popup-keep&quot;
+)
+&lt;$button class=&quot;$buttonclass$&quot; popup=&quot;$:/temp/popup/$id$&quot; tooltip=&quot;$title$&quot;&gt; $label$ &lt;/$button&gt;&amp;nbsp;
 &lt;$reveal type=&quot;popup&quot; position=&quot;$position$&quot; state=&quot;$:/temp/popup/$id$&quot;
-   class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;padding:0.5em;width:$width$&quot;&gt;
+   class=&quot;tt-shadowbox $popupclass$&quot; style=&quot;padding:0.5em;width:$width$&quot;&gt;
    @@.left &lt;$button class=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/cancel-button}}
       &lt;$action-deletetiddler $tiddler=&quot;$:/temp/popup/$id$&quot; /&gt;
+      ''&lt;$text text=&quot;$title$&quot;/&gt;''
    &lt;/$button&gt;
-   ''&lt;$text text=&quot;$title$&quot;/&gt;''&amp;nbsp;
    &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;&lt;&lt;$content$&gt;&gt;&lt;/div&gt;
    @@
 &lt;/$reveal&gt;
@@ -9066,9 +9112,11 @@ tiddler cache location:&lt;br&gt;
    &lt;/$list&gt;
    &lt;/div&gt;&lt;/div&gt;
 &lt;/$reveal&gt;
-\end</pre>
+\end
+
+@@.smaller &lt;pre&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/pre&gt;@@</pre>
 </div>
-<div caption="GoogleMaps" created="20151010204309614" modified="20160210060017012" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
+<div caption="GoogleMaps" created="20151010204309614" modified="20160210194324696" tags="$:/tags/LeftSlideBar" title="Dashboard/Maps">
 <pre>\define geotarget() $:/Geo/Data
 \define enabled()   $:/config/GoogleMaps##EnableMaps
 
@@ -9155,10 +9203,20 @@ quality:&lt;br&gt; &amp;nbsp;
 @@&lt;br&gt;
 \end
 
+\define help()
+{{Dashboard/Maps/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &amp;nbsp;
    &lt;&lt;toggleactive&gt;&gt;
    &amp;emsp;
+   &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for GoogleMaps&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;GoogleMaps/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;GoogleMaps settings&quot;
@@ -9183,7 +9241,7 @@ quality:&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="MPAC" created="20151105083541233" modified="20160210041942270" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
+<div caption="MPAC" created="20151105083541233" modified="20160210194247840" tags="$:/tags/BottomLeftSlideBar" title="Dashboard/MPAC">
 <pre>\define sources()       [prefix[MPAC]suffix[.xml]]
 \define path()          $:/xml/$(source)$
 \define xml()           $(path)$/Envelope/Body/processResponse/processReturn
@@ -9288,8 +9346,17 @@ Password:&lt;br&gt;
    tiddler=&quot;$:/config/MPAC&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
+\define help()
+{{Dashboard/MPAC/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;dashboardpopup id:&quot;MAPC/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for MPAC&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;MPAC/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;MPAC settings&quot;
@@ -9342,7 +9409,7 @@ Password:&lt;br&gt;
  &lt;/body&gt;
 &lt;/B2B&gt;</pre>
 </div>
-<div caption="Realtor.ca" created="20151204010130352" modified="20160209035525822" title="Dashboard/Realtor.ca">
+<div caption="Realtor.ca" created="20151204010130352" modified="20160210194150778" title="Dashboard/Realtor.ca">
 <pre>\define ShowMap()
 &lt;iframe src=&quot;http://www.realtor.ca/Residential/Map.aspx#CultureId=$(CultureId)$&amp;ApplicationId=$(ApplicationId)$&amp;RecordsPerPage=$(RecordsPerPage)$&amp;MaximumResults=$(MaximumResults)$&amp;PropertyTypeId=$(PropertyTypeId)$&amp;TransactionTypeId=$(TransactionTypeId)$&amp;StoreyRange=$(StoreyRange)$&amp;BuildingTypeId=$(BuildingTypeId)$&amp;ConstructionStyleId=$(ConstructionStyleId)$&amp;BedRange=$(BedRange)$&amp;BathRange=$(BathRange)$&amp;LongitudeMin=$(LongitudeMin)$&amp;LongitudeMax=$(LongitudeMax)$&amp;LatitudeMin=$(LatitudeMin)$&amp;LatitudeMax=$(LatitudeMax)$&amp;SortOrder=$(SortOrder)$&amp;SortBy=$(SortBy)$&amp;viewState=$(viewState)$Longitude=$(longitude)$&amp;Latitude=$(latitude)$&quot; width=&quot;$(width)$&quot; height=&quot;$(height)$&quot;&gt;&lt;/iframe&gt;
 \end
@@ -9413,8 +9480,18 @@ x
 @@&lt;br&gt;
 \end
 
+\define help()
+{{Dashboard/Realtor.ca/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &amp;nbsp;
+   &lt;&lt;dashboardpopup id:&quot;Realtor.ca/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for Realtor.ca&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;Realtor.ca/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;Realtor.ca settings&quot;
@@ -9454,7 +9531,7 @@ x
    &lt;/$vars&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="StreetView" created="20151010205755347" modified="20160210055944985" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
+<div caption="StreetView" created="20151010205755347" modified="20160210194301088" tags="$:/tags/RightSlideBar" title="Dashboard/StreetView">
 <pre>\define geotarget() $:/Geo/Data
 \define enabled()   $:/config/StreetView##EnableStreetView
 
@@ -9518,10 +9595,20 @@ x
 @@&lt;br&gt;
 \end
 
+\define help()
+{{Dashboard/StreetView/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &amp;nbsp;
    &lt;&lt;toggleactive&gt;&gt;
    &amp;emsp;
+   &lt;&lt;dashboardpopup id:&quot;StreetView/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for StreetView&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;StreetView/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;StreetView settings&quot;
@@ -9545,7 +9632,7 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160210042045039" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160210194213145" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -9651,8 +9738,17 @@ Password:&lt;br&gt;
    tiddler=&quot;$:/config/TeraNet&quot; default=&quot;&quot; placeholder=&quot;enter password&quot; size=&quot;25&quot; /&gt;&lt;br&gt;
 \end
 
+\define help()
+{{Dashboard/TeraNet/Help}}
+\end
+
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
 @@.floatright.smaller.nowrap
+   &lt;&lt;dashboardpopup id:&quot;TeraNet/Help&quot;
+      label:&quot;{{$:/core/images/help}}&quot;
+      title:&quot;Help for TeraNet&quot;
+      content:&quot;help&quot;&gt;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;TeraNet/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;Teranet settings&quot;
@@ -12294,13 +12390,13 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160210164301680" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
+<div caption="Author Tools" created="20160130075612572" creator="EricShulman" modified="20160210185259253" modifier="EricShulman" tags="$:/tags/AuthorToolsSlideBar" title="TiddlyTools/SlideBars/Panels/AuthorTools">
 <pre>\define config() $:/config/TiddlyTools
 
 \define options()
 &lt;nobr&gt;
 @@font-size:80%;line-height:100%; 
-&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;@@
 &lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
@@ -12315,11 +12411,11 @@ background: #f8f8ff;
    size=17 placeholder=&quot;enter a title&quot; default=&quot;&quot; /&gt;
 &lt;$set name=&quot;tid&quot; filter={{$:/temp/authortools/blick}} emptyValue={{$:/language/DefaultNewTiddlerTitle}}&gt; 
 &lt;$list filter=&quot;[{$:/temp/authortools/blick}is[tiddler]]&quot;&gt;
-   &lt;$button message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}}
+   &lt;$button class=&quot;tc-btn-invisible&quot; message=&quot;tm-edit-tiddler&quot; param={{$:/temp/authortools/blick}}
       tooltip=&lt;&lt;edittip&gt;&gt;&gt;{{$:/core/images/edit-button}}&lt;/$button&gt;
 &lt;/$list&gt;
 &lt;$list filter=&quot;[{$:/temp/authortools/blick}is[missing]]&quot;&gt;
-   &lt;$button message=&quot;tm-new-tiddler&quot; param=&lt;&lt;tid&gt;&gt;
+   &lt;$button class=&quot;tc-btn-invisible&quot; message=&quot;tm-new-tiddler&quot; param=&lt;&lt;tid&gt;&gt;
       tooltip=&lt;&lt;createtip&gt;&gt;&gt;{{$:/core/images/new-button}}&lt;/$button&gt;
 &lt;/$list&gt;
 &lt;/$set&gt;
@@ -12330,8 +12426,9 @@ background: #f8f8ff;
 
 &lt;div class=&quot;authortools&quot;&gt;
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
-   @@float:right;padding-bottom:0.2em; &lt;&lt;edittiddler&gt;&gt;&lt;&lt;options&gt;&gt;@@
+   @@float:right;padding-bottom:0.2em;&lt;&lt;options&gt;&gt;@@
    @@float:left;&lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;@@
+   @@display:block;text-align:center;&lt;&lt;edittiddler&gt;&gt;@@
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
    &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
       @@white-space:nowrap;{{||$:/core/ui/PageTemplate/pagecontrols}}@@
@@ -12340,7 +12437,7 @@ background: #f8f8ff;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160210165811647" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160210184910015" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define checkbox(id,opt)
@@ -12372,12 +12469,11 @@ background: #f8f8ff;
 
 &lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap;&quot;&gt;
    &lt;$reveal text=&lt;&lt;barname&gt;&gt; type=&quot;match&quot; default=&quot;AuthorToolBar&quot;&gt; &lt;!-- HIDE UNLESS AUTHOR TOOLBAR --&gt;
-      @@float:right;
-         &lt;$button class=&quot;tc-btn-invisible&quot; to=&lt;&lt;config&gt;&gt; tooltip=&quot;edit configuration...&quot;&gt;
-            edit {{$:/core/images/edit-button}}&lt;/$button&gt;@@
+      @@float:right;&lt;$button class=&quot;tc-btn-invisible&quot; to=&lt;&lt;config&gt;&gt; tooltip=&quot;edit configuration...&quot;&gt;
+         {{$:/core/images/edit-button}}&lt;/$button&gt;@@
    &lt;/$reveal&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close settings&quot;&gt;
-      @@font-size:80%;{{$:/core/images/close-button}}@@ ''~SlideBar settings''
+      @@font-size:80%;{{$:/core/images/cancel-button}}@@ ''~SlideBar settings''
       &lt;$action-deletetiddler $filter=&quot;[prefix[$:/state/popup/slidebars/settings]]&quot;/&gt;
    &lt;/$button&gt;
    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
