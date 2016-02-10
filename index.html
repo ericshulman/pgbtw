@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210213339807" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160210214221345" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7779,8 +7779,8 @@ LOAD
 <div created="20160210051044605" modified="20160210090135132" title="$:/temp/slidebars/debug/showzones">
 <pre>no</pre>
 </div>
-<div created="20160210050457479" modified="20160210214137128" title="$:/temp/slidebars/debug/transitions">
-<pre>no</pre>
+<div created="20160210050457479" modified="20160210231849591" title="$:/temp/slidebars/debug/transitions">
+<pre>yes</pre>
 </div>
 <div created="20160205085243127" modified="20160209195843026" title="$:/temp/TeraNet/source">
 <pre>m1c3l3_12CLARK_ter_output.xml</pre>
@@ -12775,7 +12775,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202090753488" creator="EricShulman" modified="20160210051121310" modifier="EricShulman" title="TiddlyTools/SlideBars/Transitions">
+<div created="20160202090753488" creator="EricShulman" modified="20160210231844271" modifier="EricShulman" title="TiddlyTools/SlideBars/Transitions">
 <pre>\define slidebar-in()   cubic-bezier(0.165, 0.84, 0.44, 1)
 \define slidebar-out()  ease-out
 /*
@@ -12799,11 +12799,16 @@ background: #f8f8ff;
       /* slidebar-out = cubic-bezier(0.165, 0.84, 0.44, 1) http://easings.net/#easeOutQuart */
       .&lt;&lt;barclass&gt;&gt;                         { transition: z-index 0s 1s, width 0s 1s; }
       .&lt;&lt;barclass&gt;&gt;:hover                   { transition: z-index 0s 0s, width 0s 0s; }
-      .&lt;&lt;barclass&gt;&gt;       .tt-slidebar-tray { transition: margin 1s 0s &lt;&lt;slidebar-out&gt;&gt;,  opacity 2s 0s; }
-      .&lt;&lt;barclass&gt;&gt;:hover .tt-slidebar-tray { transition: margin 1s 0.5s &lt;&lt;slidebar-in&gt;&gt;, opacity 1s 0.5s; }
+      @media (pointer:coarse) { /* &quot;FAT FINGER&quot; TOUCH SCREENS (SLIDE-IN, POP-OUT) */
+      .&lt;&lt;barclass&gt;&gt;       .tt-slidebar-tray { transition: margin 0s 0s   &lt;&lt;slidebar-out&gt;&gt;, opacity 0s 0s;   }
+      .&lt;&lt;barclass&gt;&gt;:hover .tt-slidebar-tray { transition: margin 1s 0.5s &lt;&lt;slidebar-in&gt;&gt;,  opacity 1s 0.5s; }
+      }
+      @media (pointer:fine) { /* DESKTOP/MOUSE (SLIDE-IN, SLIDE-OUT) */
+      .&lt;&lt;barclass&gt;&gt;       .tt-slidebar-tray { transition: margin 1s 0s   &lt;&lt;slidebar-out&gt;&gt;, opacity 2s 0s;   }
+      .&lt;&lt;barclass&gt;&gt;:hover .tt-slidebar-tray { transition: margin 1s 0.5s &lt;&lt;slidebar-in&gt;&gt;,  opacity 1s 0.5s; }
+      }
 &lt;/pre&gt;
-&lt;/$reveal&gt;
-{{TiddlyTools/SlideBars/Transitions/Debug}}</pre>
+&lt;/$reveal&gt;</pre>
 </div>
 <div created="20160202063613357" creator="EricShulman" modified="20160206144510056" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Tray">
 <pre>&lt;!-- SHOW THE SLIDEBAR TRAY CONTAINING TAGGED CONTENT WITH PIN/UNPIN BUTTON --&gt;
