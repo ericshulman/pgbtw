@@ -497,7 +497,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160210214142401" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160211081713071" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;yes&quot;,
@@ -6954,7 +6954,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160210214221345" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160211070053432" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7687,7 +7687,7 @@ LOAD
 <div created="20160207092540481" modified="20160209035259910" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
-<div created="20160205060325015" modified="20160209191605317" title="$:/state/sidebar">
+<div created="20160205060325015" modified="20160211081707607" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20160205081747543" modified="20160210213005237" title="$:/state/tab--1498284803">
@@ -7696,8 +7696,8 @@ LOAD
 <div created="20160205061546875" modified="20160206033220911" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
 </div>
-<div created="20160205061544691" modified="20160207232536413" title="$:/state/tab-1749438307">
-<pre>Dashboard/LocalStorage</pre>
+<div created="20160205061544691" modified="20160211075624789" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
 <div created="20160206155829393" modified="20160207234142633" title="$:/state/tab/moresidebar--1669835544">
 <pre>$:/core/ui/MoreSideBar/System</pre>
@@ -7714,11 +7714,11 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160210185359693" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160211080633772" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20160205055200642" modified="20160206161513372" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/More</pre>
+<div created="20160205055200642" modified="20160211074959798" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160206050425983" modified="20160206050425983" title="$:/state/tab/sidebar--1860112234">
 <pre>$:/core/ui/SideBar/Recent</pre>
@@ -7770,17 +7770,17 @@ LOAD
 <div created="20160205082821981" modified="20160209203508442" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160210213003508" title="$:/temp/search">
+<div created="20160205232823187" modified="20160211071501816" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160210050735268" title="$:/temp/slidebars/debug">
 <pre>no</pre>
 </div>
-<div created="20160210051044605" modified="20160210090135132" title="$:/temp/slidebars/debug/showzones">
+<div created="20160210051044605" modified="20160211074557233" title="$:/temp/slidebars/debug/showzones">
 <pre>no</pre>
 </div>
-<div created="20160210050457479" modified="20160210231849591" title="$:/temp/slidebars/debug/transitions">
-<pre>yes</pre>
+<div created="20160210050457479" modified="20160211081721409" title="$:/temp/slidebars/debug/transitions">
+<pre>no</pre>
 </div>
 <div created="20160205085243127" modified="20160209195843026" title="$:/temp/TeraNet/source">
 <pre>m1c3l3_12CLARK_ter_output.xml</pre>
@@ -8244,7 +8244,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160210200806059" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160211080330796" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
 &lt;$button class=&quot;tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
@@ -8267,9 +8267,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 &lt;style&gt;
    body.tc-body           { font-size:{{$:/config/curbside/fontsize}}%; }
-   .background            { position:absolute; z-index:-1; top:50vh;left:50vw;
+   .background            { position:fixed; z-index:-1; top:50vh;left:50vw;
                             transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
-                            text-align:center; opacity:0.5; transition: opacity 0.5s; }
+                            text-align:center; opacity:0.7; transition: opacity 0.5s; }
    .background:hover      { z-index:1500;      opacity:1.0;  transition: opacity 0.5s; }
    .background-tray       { z-index:-1;   }
    .background-tray:hover { z-index:1500; }
@@ -11945,7 +11945,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
     &quot;longitude&quot;: &quot;-79.134589&quot;
 }</pre>
 </div>
-<div created="20150314000609556" creator="EricShulman" modified="20160210204343116" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
+<div created="20150314000609556" creator="EricShulman" modified="20160211081652816" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Adjustments" type="">
 <pre>&lt;pre&gt;
 /* DISABLE SELECTION FOR TOUCH SCREENS EXCEPT IN INPUT FIELDS */
 @media (pointer:coarse) {
@@ -11959,7 +11959,7 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
 
 /* SIDEBAR TEXT/LINK COLOR */
 .tc-sidebar-header                      { color: #000; }
-.tc-sidebar-lists a.tc-tiddlylink       { color: #999; }
+.tc-sidebar-lists a.tc-tiddlylink       { color: #666; }
 .tc-sidebar-lists a.tc-tiddlylink:hover { color: #000; }
 
 /* BACKGROUND COLOR */
@@ -11969,8 +11969,20 @@ body.tc-body { background:#BABACA; }
 .tc-topbar svg { fill:black; opacity:0.15; }
 .tc-topbar svg:hover { opacity:0.6; }
 
-/* SMALLER FONT IN SIDEBAR */
+/* SMALLER FONT IN SIDEBAR*/
 .tc-sidebar-scrollable { font-size:100%; line-height:110%; }
+
+/* SEND SCROLLBAR TO BACK (BEHIND Dashboard/Background) WHEN NOT VISIBLE */
+.tc-sidebar-scrollable { z-index:-2; }
+&lt;$reveal state=&quot;$:/state/sidebar&quot; type=&quot;match&quot; text=&quot;yes&quot;&gt;
+   /* BRING SIDEBAR TO FRONT WHEN VISIBLE */
+   .tc-sidebar-scrollable { z-index:1; }
+   /* SIDEBAR BACKGROUND (SLIGHTLY SEE THRU, WITH FUZZY EDGES */
+   .tc-sidebar-scrollable {
+      background: rgba(240,240,248,0.7);
+      box-shadow: -0.5em 0em 0.5em rgba(240,240,248,0.7);
+}
+&lt;/$reveal&gt;
 
 /* MONO FONT FOR EDITING */
 .tc-edit-texteditor { font-family:monospace; font-size:90%;  }
