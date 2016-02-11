@@ -499,7 +499,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160211095312934" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160211192103742" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6956,7 +6956,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160211083604434" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160211191158162" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -8246,13 +8246,14 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160211093101005" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160211192027481" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
 &lt;$button class=&quot;tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;
-&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; type=&quot;popup&quot; position=&quot;belowleft&quot;&gt;
-   {{TiddlyTools/SlideBars/Panels/Settings}}
+&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; type=&quot;popup&quot; position=&quot;above&quot;&gt;
+   @@position:absolute;bottom:0;right:0;transform:translateX(50%);-webkit-transform:translateX(50%); 
+      {{TiddlyTools/SlideBars/Panels/Settings}}@@
 &lt;/$reveal&gt;
 \end
 
@@ -8288,11 +8289,11 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;div class=&quot;background-tray&quot;&gt;
       &lt;div class=&quot;tt-shadowbox&quot;&gt;
          &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
-            &lt;div class=&quot;background-controls&quot; style=&quot;float:right&quot;&gt;&lt;&lt;help&gt;&gt; &amp;nbsp; &lt;&lt;options&gt;&gt;&lt;/div&gt;
             @@font-size:6em;line-height:100%;🏡@@
             @@display:inline-block; ''//@@font-size:3em;~CurbSide@@//''&lt;br&gt;//your real estate dashboard//@@
          &lt;/div&gt;
       &lt;/div&gt;
+      &lt;div class=&quot;background-controls&quot; style=&quot;float:right&quot;&gt;&lt;&lt;help&gt;&gt; &amp;nbsp; &lt;&lt;options&gt;&gt; &amp;emsp;&lt;/div&gt;
       &lt;div class=&quot;background-controls&quot;&gt;&lt;&lt;zoom&gt;&gt;&lt;/div&gt;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
