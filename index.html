@@ -417,7 +417,7 @@ Error message and password prompt
     &quot;counter&quot;: &quot;04&quot;
 }</pre>
 </div>
-<div created="20160209215425104" modified="20160211193414050" title="$:/config/curbside/fontsize">
+<div created="20160209215425104" modified="20160212011008786" title="$:/config/curbside/fontsize">
 <pre>100</pre>
 </div>
 <div accuracy="yes" created="20151017064839232" modified="20151027225721983" title="$:/config/Geo" type="application/json">
@@ -499,7 +499,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160211194609457" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160212011758218" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;TopLeftBar&quot;: &quot;no&quot;,
     &quot;TopLeftBar/Hover&quot;: &quot;no&quot;,
@@ -6956,7 +6956,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160211192234151" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160212011732518" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -8246,37 +8246,34 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160211194518086" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160212011915631" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
+&lt;$button class=&quot;largest tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
 &lt;/$button&gt;
 &lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; type=&quot;popup&quot; position=&quot;above&quot;&gt;
-   @@position:absolute;bottom:0;right:0;
+   @@position:absolute;bottom:0;right:0;transform:translateY(50%);-webkit-transform:translateY(50%);
       {{TiddlyTools/SlideBars/Panels/Settings}}@@
 &lt;/$reveal&gt;
 \end
 
 \define help()
-&lt;$button class=&quot;tc-btn-invisible&quot; to=&quot;Dashboard/Help&quot; tooltip=&quot;Help for Curbside/Dashboard&quot;&gt;
+&lt;$button class=&quot;largest tc-btn-invisible&quot; to=&quot;Dashboard/Help&quot; tooltip=&quot;Help for Curbside Dashboard&quot;&gt;
    {{$:/core/images/help}}
 &lt;/$button&gt;
 \end
 
 \define zoom()
-^^@@.larger ''zoom:''@@^^
-&lt;$edit-text tag=&quot;input&quot; type=&quot;range&quot; tiddler=&quot;$:/config/curbside/fontsize&quot;
-   min=&quot;50&quot; max=&quot;200&quot; step=&quot;1&quot; default=&quot;100&quot;/&gt;
-^^@@.larger 
-&lt;$list filter=&quot;[title[$:/config/curbside/fontsize]text[100]]&quot;
-   emptyMessage=&quot;&quot;&quot;
-      &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;CLICK: reset to default&quot;&gt;
-         {{$:/config/curbside/fontsize}}% ''&amp;#x21b6;''
-         &lt;$action-setfield $tiddler=&quot;$:/config/curbside/fontsize&quot; text=&quot;100&quot;/&gt;
-      &lt;/$button&gt;
-   &quot;&quot;&quot;&gt;
-  {{$:/config/curbside/fontsize}}%
-&lt;/$list&gt;&amp;emsp;@@^^
+''zoom:''
+,,&lt;$edit-text tag=&quot;input&quot; type=&quot;range&quot; tiddler=&quot;$:/config/curbside/fontsize&quot;
+   min=&quot;50&quot; max=&quot;200&quot; step=&quot;1&quot; default=&quot;100&quot;/&gt;,,
+&lt;$list filter=&quot;[title[$:/config/curbside/fontsize]!text[100]]&quot;
+   emptyMessage=&quot;{{$:/config/curbside/fontsize}}%&quot;&gt;
+   &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;CLICK: reset to default&quot;&gt;
+      {{$:/config/curbside/fontsize}}% ''&amp;#x21b6;''
+      &lt;$action-setfield $tiddler=&quot;$:/config/curbside/fontsize&quot; text=&quot;100&quot;/&gt;
+   &lt;/$button&gt;
+&lt;/$list&gt;
 \end
 
 &lt;style&gt;
@@ -8290,6 +8287,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    .background-tray       .background-controls  { opacity:0.0; transition: opacity 0.5s; }
    .background-tray:hover .background-controls  { opacity:1.0; transition: opacity 0.5s; }
 &lt;/style&gt;
+
 &lt;div class=&quot;background&quot;&gt;
    &lt;div class=&quot;background-tray&quot;&gt;
       &lt;div class=&quot;tt-shadowbox&quot;&gt;
@@ -8298,7 +8296,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
             @@display:inline-block; ''//@@font-size:3em;~CurbSide@@//''&lt;br&gt;//your real estate dashboard//@@
          &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;background-controls&quot; style=&quot;float:right&quot;&gt;&lt;&lt;help&gt;&gt; &amp;nbsp; &lt;&lt;options&gt;&gt; &amp;emsp;&lt;/div&gt;
+      &lt;div style=&quot;height:0.25em&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;background-controls floatleft&quot; &gt; &lt;&lt;help&gt;&gt;    &lt;/div&gt;
+      &lt;div class=&quot;background-controls floatright&quot;&gt; &lt;&lt;options&gt;&gt; &lt;/div&gt;
       &lt;div class=&quot;background-controls&quot;&gt;&lt;&lt;zoom&gt;&gt;&lt;/div&gt;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
