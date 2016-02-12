@@ -499,7 +499,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160212211058195" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160212211645730" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -7700,7 +7700,7 @@ LOAD
 <div created="20160207092540481" modified="20160209035259910" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
-<div created="20160205060325015" modified="20160211192640405" title="$:/state/sidebar">
+<div created="20160205060325015" modified="20160212211313115" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20160205081747543" modified="20160210213005237" title="$:/state/tab--1498284803">
@@ -8257,7 +8257,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160212210907236" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160212211715619" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
 &lt;$button class=&quot;largest tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
@@ -8298,11 +8298,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    .background            { position:fixed; z-index:-1; top:50vh;left:50vw;
                             transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
                             text-align:center; opacity:0.3; transition: opacity 0.5s; }
-   .background:hover      { z-index:1500;      opacity:1.0;  transition: opacity 0.5s; }
+   .background:hover      { z-index:1500;      opacity:1.0; transition: opacity 0.5s; }
    .background-tray       { z-index:-1;   }
    .background-tray:hover { z-index:1500; }
-   .background-tray       .tt-shadowbox:not(.inset) { box-shadow:none; transition: box-shadow 2s; }
-   .background-tray:hover .tt-shadowbox:not(.inset) { box-shadow:0.3em 0.3em 0.6em gray; 2s; }
    .background-tray       .background-controls  { opacity:0.0; transition: opacity 0.5s; }
    .background-tray:hover .background-controls  { opacity:1.0; transition: opacity 0.5s; }
 &lt;/style&gt;
