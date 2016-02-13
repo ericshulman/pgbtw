@@ -417,7 +417,7 @@ Error message and password prompt
     &quot;counter&quot;: &quot;04&quot;
 }</pre>
 </div>
-<div created="20160209215425104" modified="20160212141158074" title="$:/config/curbside/fontsize">
+<div created="20160209215425104" modified="20160213004019738" title="$:/config/curbside/fontsize">
 <pre>100</pre>
 </div>
 <div accuracy="yes" created="20151017064839232" modified="20151027225721983" title="$:/config/Geo" type="application/json">
@@ -499,7 +499,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160212211645730" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160213004117676" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6967,7 +6967,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160212205803030" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160212233257183" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7727,7 +7727,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160212130950906" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160212235922949" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160211074959798" title="$:/state/tab/sidebar--1835078512">
@@ -7783,7 +7783,7 @@ LOAD
 <div created="20160205082821981" modified="20160209203508442" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160212130351332" title="$:/temp/search">
+<div created="20160205232823187" modified="20160213001207416" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160210050735268" title="$:/temp/slidebars/debug">
@@ -8257,7 +8257,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160212211715619" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160213003852436" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
 &lt;$button class=&quot;largest tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
@@ -8293,26 +8293,43 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/$list&gt;
 \end
 
+\define stayvisible() [title[$:/state/popup/background/stay]!text[show]] [prefix[$:/state/popup/Dashboard/Help]] [prefix[$:/state/popup/slidebars/settings]]
 &lt;style&gt;
    body.tc-body           { font-size:{{$:/config/curbside/fontsize}}%; }
-   .background            { position:fixed; z-index:-1; top:50vh;left:50vw;
-                            transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
-                            text-align:center; opacity:0.3; transition: opacity 0.5s; }
-   .background:hover      { z-index:1500;      opacity:1.0; transition: opacity 0.5s; }
-   .background-tray       { z-index:-1;   }
-   .background-tray:hover { z-index:1500; }
+   .background            { position:fixed; top:50vh;left:50vw; text-align:center;
+                            transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%); }
+   .background, .background-tray { z-index:1500; }
+&lt;/style&gt;
+&lt;$list filter=&lt;&lt;stayvisible&gt;&gt; emptyMessage=&quot;&quot;&quot;
+   &lt;style&gt;
+   .background, .background-tray                { z-index:-1;   }
+   .background:hover, .background-tray:hover    { z-index:1500; }
+   .background                                  { opacity:0.3; transition: opacity 0.5s; }
+   .background:hover                            { opacity:1.0; transition: opacity 0.5s; }
    .background-tray       .background-controls  { opacity:0.0; transition: opacity 0.5s; }
    .background-tray:hover .background-controls  { opacity:1.0; transition: opacity 0.5s; }
-&lt;/style&gt;
+   &lt;/style&gt;
+&quot;&quot;&quot;&gt;////&lt;/$list&gt;
 
 &lt;div class=&quot;background&quot;&gt;
    &lt;div class=&quot;background-tray&quot;&gt;
-      &lt;div class=&quot;tt-shadowbox&quot;&gt;
+      &lt;$set name=&quot;toggle&quot; filter=&quot;[{$:/state/popup/background/stay}] -[[show]]&quot; value=&quot;show&quot; emptyValue=&quot;hide&quot;&gt;
+      &lt;$button class=&quot;tc-btn-invisible&quot; set=&quot;$:/state/popup/background/stay&quot; setTo=&lt;&lt;toggle&gt;&gt;&gt;
+      &lt;div class=&quot;tt-shadowbox&quot; style=&quot;line-height:100%;&quot;&gt;
          &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+            &lt;div class=&quot;background-controls&quot; style=&quot;position:absolute;top:1em;right:1em;&quot;&gt; 
+               &lt;$reveal state=&quot;$:/state/popup/background/stay&quot; type=&quot;match&quot; text=&quot;hide&quot;&gt;
+                  &lt;$button class=&quot;tc-btn-invisible&quot;&gt;&amp;nbsp;📌&amp;nbsp;
+                     &lt;$action-setfield $tiddler=&quot;$:/state/popup/background/stay&quot; text=&quot;show&quot;/&gt;
+                  &lt;/$button&gt;
+               &lt;/$reveal&gt;
+            &lt;/div&gt;
             @@font-size:6em;line-height:100%;🏡@@
             @@display:inline-block; ''//@@font-size:3em;~CurbSide@@//''&lt;br&gt;//your real estate dashboard//@@
          &lt;/div&gt;
       &lt;/div&gt;
+      &lt;/$button&gt;
+      &lt;/$set&gt;
       &lt;div style=&quot;height:0.25em&quot;&gt;&lt;/div&gt;
       &lt;div class=&quot;background-controls floatleft&quot; &gt; &amp;emsp;&lt;&lt;help&gt;&gt;    &lt;/div&gt;
       &lt;div class=&quot;background-controls floatright&quot;&gt; &lt;&lt;options&gt;&gt;&amp;emsp; &lt;/div&gt;
@@ -9055,7 +9072,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$list&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160212135310620" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20160212233256645" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define config()   $:/config/TiddlyTools
 \define pinned()   $(config)$##$(barname)$
 \define pintip()   pin $(barname)$ (keep visible)
@@ -9108,11 +9125,11 @@ tiddler cache location:&lt;br&gt;
 buttonclass:&quot;tc-btn-invisible&quot;,
  popupclass:&quot;tc-popup-keep&quot;
 )
-&lt;$button class=&quot;$buttonclass$&quot; popup=&quot;$:/temp/popup/$id$&quot; tooltip=&quot;$title$&quot;&gt; $label$ &lt;/$button&gt;&amp;nbsp;
-&lt;$reveal type=&quot;popup&quot; position=&quot;$position$&quot; state=&quot;$:/temp/popup/$id$&quot;
+&lt;$button class=&quot;$buttonclass$&quot; popup=&quot;$:/state/popup/$id$&quot; tooltip=&quot;$title$&quot;&gt; $label$ &lt;/$button&gt;&amp;nbsp;
+&lt;$reveal type=&quot;popup&quot; position=&quot;$position$&quot; state=&quot;$:/state/popup/$id$&quot;
    class=&quot;tt-shadowbox $popupclass$&quot; style=&quot;padding:0.5em;width:$width$&quot;&gt;
    @@.left &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close panel&quot;&gt; {{$:/core/images/cancel-button}}
-      &lt;$action-deletetiddler $tiddler=&quot;$:/temp/popup/$id$&quot; /&gt;
+      &lt;$action-deletetiddler $tiddler=&quot;$:/state/popup/$id$&quot; /&gt;
       ''&lt;$text text=&quot;$title$&quot;/&gt;''
    &lt;/$button&gt;
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;&lt;&lt;$content$&gt;&gt;&lt;/div&gt;@@
@@ -9154,14 +9171,14 @@ buttonclass:&quot;tc-btn-invisible&quot;,
 \end
 
 \define filterinfopopup(label,target,filter)
-&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;&gt;
+&lt;$button class=&quot;tc-btn-invisible&quot; popup=&quot;&quot;&quot;$:/state/popup/FilterInfo/$target$&quot;&quot;&quot;&gt;
     {{$:/core/images/info-button}} ''&lt;$text text=&quot;&quot;&quot;$label$&quot;&quot;&quot;/&gt;:''&amp;nbsp;
 &lt;/$button&gt;
-&lt;$reveal type=&quot;popup&quot; state=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;
+&lt;$reveal type=&quot;popup&quot; state=&quot;&quot;&quot;$:/state/popup/FilterInfo/$target$&quot;&quot;&quot;
    position=&quot;belowright&quot; class=&quot;tc-drop-down&quot; style=&quot;padding:0.5em&quot;&gt;
    &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&quot;close&quot;&gt;
       {{$:/core/images/cancel-button}}
-      &lt;$action-deletetiddler $tiddler=&quot;&quot;&quot;$:/temp/popup/FilterInfo/$target$&quot;&quot;&quot;/&gt;
+      &lt;$action-deletetiddler $tiddler=&quot;&quot;&quot;$:/state/popup/FilterInfo/$target$&quot;&quot;&quot;/&gt;
    &lt;/$button&gt;
    @@.smallest //filter by:// @@''&lt;$text text=&quot;&quot;&quot;$filter$&quot;&quot;&quot;/&gt;''&amp;nbsp;
    &lt;div class=&quot;clear shadowbox inset&quot;&gt;&lt;div class=&quot;scroll-y&quot; style=&quot;max-height:20em;&quot;&gt;
