@@ -499,7 +499,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160213011548338" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160213061755281" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -538,7 +538,7 @@ Error message and password prompt
     &quot;AuthorToolBar&quot;: &quot;no&quot;,
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Size&quot;: &quot;&quot;,
-    &quot;AuthorToolBar/Label&quot;: &quot;@@font-size:200%;👷&lt;!--&amp;#x1F477;--&gt;@@&quot;
+    &quot;AuthorToolBar/Label&quot;: &quot;@@font-size:150%;👷@@&lt;!--&amp;#x1F477;--&gt;&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -6967,7 +6967,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160213005339979" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160213060453986" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7727,7 +7727,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160213011756760" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160213061030179" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160211074959798" title="$:/state/tab/sidebar--1835078512">
@@ -7754,7 +7754,7 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="Dashboard/Background" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160205081751366" modified="20160210213003508" title="$:/temp/advancedsearch">
@@ -8257,7 +8257,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/div&gt;
 &lt;/$vars&gt;</pre>
 </div>
-<div created="20160207102508424" list-before="" modified="20160213011735842" tags="$:/tags/PageTemplate" title="Dashboard/Background">
+<div created="20160207102508424" list-before="" modified="20160213061714281" tags="$:/tags/PageTemplate" title="Dashboard/Background">
 <pre>\define options()
 &lt;$button class=&quot;largest tc-btn-invisible&quot; popup=&lt;&lt;qualify &quot;$:/state/popup/slidebars/settings&quot;&gt;&gt; tooltip=&quot;settings&quot;&gt;
    {{$:/core/images/options-button}}
@@ -8293,7 +8293,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;/$list&gt;
 \end
 
-\define stayvisible() [title[$:/state/popup/background/stay]text[show]] [prefix[$:/state/popup/Dashboard/Help]] [prefix[$:/state/popup/slidebars/settings]]
+\define stayvisible() [title[$:/state/popup/background/stay]text[show]] [prefix[$:/state/popup/Dashboard/Help]] [prefix[$:/state/popup/slidebars/settings]suffix&lt;qualify&gt;]
 &lt;style&gt;
    body.tc-body           { font-size:{{$:/config/curbside/fontsize}}%; }
    .background            { position:fixed; top:50vh;left:50vw; text-align:center;
@@ -12261,7 +12261,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160212130140434" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160213060453762" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12272,8 +12272,8 @@ background: #f8f8ff;
 \define barclass()     tt-bottom-slidebar
 \define bartag()       $:/tags/BottomSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       @@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-up}} $(barlabel)$ {{$:/core/images/chevron-up}}@@
-\define barunpin()     @@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}@@
+\define barpin()       {{$:/core/images/chevron-up}} $(barlabel)$ {{$:/core/images/chevron-up}}
+\define barunpin()     {{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}
 
 \define barstay()      $(config)$##BottomBar
 \define barhover()     $(config)$##BottomBar/Hover
@@ -12311,7 +12311,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160212130003299" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160213060436058" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12322,8 +12322,8 @@ background: #f8f8ff;
 \define barclass()     tt-bottomleft-slidebar
 \define bartag()       $:/tags/BottomLeftSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       @@font-size:150%;&amp;#x21d7; $(barlabel)$@@
-\define barunpin()     @@font-size:150%;&amp;#x21d9; $(barlabel)$@@
+\define barpin()       &amp;#x21d7; $(barlabel)$
+\define barunpin()     &amp;#x21d9; $(barlabel)$
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12361,7 +12361,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160212130016907" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160213060509605" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12372,8 +12372,8 @@ background: #f8f8ff;
 \define barclass()     tt-bottomright-slidebar
 \define bartag()       $:/tags/BottomRightSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       @@font-size:150%; $(barlabel)$ &amp;#x21d6;@@
-\define barunpin()     @@font-size:150%; $(barlabel)$ &amp;#x21d8;@@
+\define barpin()       $(barlabel)$ &amp;#x21d6;
+\define barunpin()     $(barlabel)$ &amp;#x21d8;
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12421,7 +12421,7 @@ background: #f8f8ff;
    &lt;/$list&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div created="20160202082823082" creator="EricShulman" modified="20160212130035235" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Left">
+<div created="20160202082823082" creator="EricShulman" modified="20160213060613162" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Left">
 <pre>\define config()       $:/config/TiddlyTools
 \define toolbarsize()  &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -12433,8 +12433,8 @@ background: #f8f8ff;
 \define barclass()     tt-left-slidebar
 \define bartag()       $:/tags/LeftSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       &lt;div class=&quot;rotate-left-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-left-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} $(barlabel)$ {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt; 
+\define barpin()       &lt;div class=&quot;rotate-left-90&quot;&gt;{{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-left-90&quot;&gt;{{$:/core/images/chevron-up}}   $(barlabel)$ {{$:/core/images/chevron-up}}&lt;/div&gt; 
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12602,7 +12602,7 @@ background: #f8f8ff;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20160202084149670" creator="EricShulman" modified="20160212130048579" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Right">
+<div created="20160202084149670" creator="EricShulman" modified="20160213060713330" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Right">
 <pre>\define config()      $:/config/TiddlyTools
 \define toolbarsize() &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;FontSize/ToolBar&quot;&gt;100&lt;/$transclude&gt;
 \define barbg()       &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
@@ -12614,8 +12614,8 @@ background: #f8f8ff;
 \define barclass()     tt-right-slidebar
 \define bartag()       $:/tags/RightSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       &lt;div class=&quot;rotate-right-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}&lt;/nobr&gt;&lt;/div&gt;
-\define barunpin()     &lt;div class=&quot;rotate-right-90 larger&quot;&gt;&lt;nobr&gt;{{$:/core/images/chevron-up}} $(barlabel)$ {{$:/core/images/chevron-up}}&lt;/nobr&gt;&lt;/div&gt;
+\define barpin()       &lt;div class=&quot;rotate-right-90&quot;&gt;{{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}&lt;/div&gt;
+\define barunpin()     &lt;div class=&quot;rotate-right-90&quot;&gt;{{$:/core/images/chevron-up}}   $(barlabel)$ {{$:/core/images/chevron-up}}&lt;/div&gt;
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12653,7 +12653,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202222243119" creator="EricShulman" modified="20160212141129282" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
+<div created="20160202222243119" creator="EricShulman" modified="20160213061741209" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
 <pre>&lt;pre&gt;/* SLIDEBAR */
 .&lt;&lt;barclass&gt;&gt;
    { position:fixed; z-index:999;
@@ -12669,7 +12669,7 @@ background: #f8f8ff;
 
 /* PIN BUTTON */
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-button
-   { z-index:-1; height:100%; width:100%; opacity:0.3; white-space:nowrap; }
+   { z-index:-1; height:100%; width:100%; opacity:0.3; white-space:nowrap; font-size:150%; font-weight:bold; }
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-button:hover
    { opacity:0.6; }
 
@@ -12737,7 +12737,7 @@ background: #f8f8ff;
    */
 &lt;/pre&gt;</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160212130059672" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160213060348723" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12748,8 +12748,8 @@ background: #f8f8ff;
 \define barclass()     tt-top-slidebar
 \define bartag()       $:/tags/TopSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       @@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}@@
-\define barunpin()     @@font-size:150%;white-space:nowrap;{{$:/core/images/chevron-up}} $(barlabel)$ {{$:/core/images/chevron-up}}@@
+\define barpin()       {{$:/core/images/chevron-down}} $(barlabel)$ {{$:/core/images/chevron-down}}
+\define barunpin()     {{$:/core/images/chevron-up}} $(barlabel)$ {{$:/core/images/chevron-up}}
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12787,7 +12787,7 @@ background: #f8f8ff;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160212130109114" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160213060406611" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12798,8 +12798,8 @@ background: #f8f8ff;
 \define barclass()     tt-topleft-slidebar
 \define bartag()       $:/tags/TopLeftSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       @@font-size:150%;&amp;#x21d8; $(barlabel)$@@
-\define barunpin()     @@font-size:150%;&amp;#x21d6; $(barlabel)$@@
+\define barpin()       &amp;#x21d8; $(barlabel)$
+\define barunpin()     &amp;#x21d6; $(barlabel)$
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
@@ -12837,7 +12837,7 @@ background: #f8f8ff;
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160212130121971" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160213060326087" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;&gt;#eee&lt;/$transclude&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12848,8 +12848,8 @@ background: #f8f8ff;
 \define barclass()     tt-topright-slidebar
 \define bartag()       $:/tags/TopRightSlideBar
 \define barlabel()     {{$(config)$##$(barname)$/Label}}
-\define barpin()       @@font-size:150%; $(barlabel)$ &amp;#x21d9;@@
-\define barunpin()     @@font-size:150%; $(barlabel)$ &amp;#x21d7;@@
+\define barpin()       $(barlabel)$ &amp;#x21d9;
+\define barunpin()     $(barlabel)$ &amp;#x21d7;
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
