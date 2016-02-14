@@ -362,6 +362,10 @@ Error message and password prompt
 
 <li>test</li>
 
+<li>TiddlyTools/Macros/combobox</li>
+
+<li>TiddlyTools/Settings/Palettes/X11Names</li>
+
 <li>TiddlyTools/SlideBars/AuthorTools</li>
 
 <li>TiddlyTools/SlideBars/Bottom</li>
@@ -501,7 +505,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160214142209105" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160214155156346" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -540,7 +544,8 @@ Error message and password prompt
     &quot;AuthorToolBar&quot;: &quot;no&quot;,
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Size&quot;: &quot;&quot;,
-    &quot;AuthorToolBar/Label&quot;: &quot;@@font-size:150%;👷@@&lt;!--&amp;#x1F477;--&gt;&quot;
+    &quot;AuthorToolBar/Label&quot;: &quot;@@font-size:150%;👷@@&lt;!--&amp;#x1F477;--&gt;&quot;,
+    &quot;Background/SlideBars&quot;: &quot;#dde&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -6970,7 +6975,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;notes&quot;: &quot;&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160214142204794" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160214155151309" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7635,7 +7640,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[test]]</pre>
+# [[TiddlyTools/Settings/Palettes/X11Names]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -7786,7 +7791,7 @@ LOAD
 <div created="20160205082821981" modified="20160209203508442" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
-<div created="20160205232823187" modified="20160213001207416" title="$:/temp/search">
+<div created="20160205232823187" modified="20160214155141361" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160210050735268" title="$:/temp/slidebars/debug">
@@ -12053,9 +12058,9 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
    { display:inline; width:auto; padding:0; margin:0; }
 &lt;/pre&gt;</pre>
 </div>
-<div created="20160214133138626" creator="EricShulman" modified="20160214141920065" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Colors" type="">
+<div created="20160214133138626" creator="EricShulman" modified="20160214154932339" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Colors" type="">
 <pre>\define bgcolor()     #babaca
-\define framecolor()  #ddd
+\define framecolor()  {{$:/config/TiddlyTools##Background/SlideBars}}
 \define shadowcolor() 0,0,0
 \define glowcolor()   102,102,178
 
@@ -12080,7 +12085,7 @@ body.tc-body { background:&lt;&lt;bgcolor&gt;&gt;; }
 
 /* SHADOWBOX/DROPDOWN GLOW */
 .tt-shadowbox{
-   background: &lt;&lt;framecolor&gt;&gt;;
+   background: &lt;&lt;framecolor&gt;&gt; !important;
    border:1px solid #999; border-radius:0.5em; margin:0; padding:0.5em;
    box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5);
    transition: box-shadow 1s, background 1s;
@@ -12090,12 +12095,12 @@ body.tc-body { background:&lt;&lt;bgcolor&gt;&gt;; }
    transition: box-shadow 1s, background 1s;
 }
 .tt-shadowbox.inset {
-   background:#eee;
+   background:#eee !important;
    box-shadow: 0.3em 0.3em 0.6em rgba(&lt;&lt;shadowcolor&gt;&gt;,0.5) inset;
    transition: box-shadow 1s, background 1s;
 }
 .tt-shadowbox.inset:hover {
-   background:#f8f8ff;
+   background:#f8f8ff !important;
    box-shadow: 0.3em 0.3em 0.6em rgba(&lt;&lt;glowcolor&gt;&gt;,0.5) inset;
    transition: box-shadow 1s, background 1s;
 }
@@ -12236,6 +12241,262 @@ background: #f8f8ff;
 &lt;&lt;get smile &quot;https://avatars0.githubusercontent.com/u/58688&quot;&gt;&gt;
 &lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
 &lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
+</div>
+<div created="20160115230544319" creator="EricShulman" modified="20160129232840926" modifier="EricShulman" tags="$:/tags/Macro" title="TiddlyTools/Macros/combobox">
+<pre>\define combobox(
+     filter:&quot;[all[]] -[is[system]]&quot;
+placeholder:&quot;enter or select an item...&quot;
+    tiddler:&quot;$:/temp/combobox/input&quot;
+      field:&quot;&quot;
+      index:&quot;&quot;
+         id:&quot;&quot; 
+      match:&quot;no&quot;
+      focus:&quot;no&quot;
+ focusPopup:&quot;no&quot;
+   position:&quot;&quot;
+   editsize:&quot;25&quot;
+  editclass:&quot;&quot;
+    edittip:&quot;&quot;
+   listsize:&quot;10&quot;
+  listclass:&quot;&quot;
+    listtip:&quot;&quot;
+   template:&quot;&lt;&lt;toc-caption&gt;&gt;&quot;
+    oklabel:&quot;{{$:/core/images/done-button}}&quot;
+      oktip:&quot;accept input&quot;
+   okaction:&quot;&quot; 
+clickaction:&quot;&quot; 
+)
+&lt;style&gt;
+   .tt-combo-wrapper                        { position:relative; display:inline-block; text-align:left; }
+   .tt-combo-wrapper       button           { visibility:visible !important; display:inline !important; }
+   .tt-combo-wrapper       .tt-combo-button { position:absolute; top:0; right:0; }
+   .tt-combo-wrapper       .tt-combo-button { opacity:0.0; transition: opacity 1.0s; }
+   .tt-combo-wrapper:hover .tt-combo-button { opacity:1.0; transition: opacity 0.5s; }
+   .tt-combo-list { border:1px solid #999; background:white; overflow-y:auto; overflow-x:hidden; 
+        height:calc($listsize$ * 1.2em); line-height:1.2em; white-space:nowrap; }
+   .tt-combo-item button       { width:100%; visibility:visible; text-align:left; margin-left:2px; }
+   .tt-combo-item button:hover { background:lightgray; color:black; }
+   .tt-combo-item button img   { width:1em; height:1em; }
+   .tt-combo-item button svg   { width:1em; height:1em; }
+&lt;/style&gt;
+&lt;span class=&quot;tt-combo-wrapper&quot;&gt;
+   &lt;$vars popupID=&lt;&lt;qualify &quot;$:/state/popup/combo/$tiddler$/$field$-$id$&quot;&gt;&gt; &gt;
+   &lt;!-- EDIT FIELD --&gt;
+   &lt;$set name=&quot;focusPopup&quot; filter=&quot;$focusPopup$ -[[no]] -[[false]]&quot; value=&lt;&lt;popupID&gt;&gt; emptyValue=&quot;&quot;&gt;
+   &lt;span title=&quot;&quot;&quot;$edittip$&quot;&quot;&quot;&gt;
+      &lt;$edit-text tag=&quot;input&quot; focus=&quot;&quot;&quot;$focus$&quot;&quot;&quot; focusPopup=&lt;&lt;focusPopup&gt;&gt;
+         class=&quot;&quot;&quot;tc-popup-handle $editclass$&quot;&quot;&quot; size=&quot;&quot;&quot;$editsize$&quot;&quot;&quot;
+         tiddler=&quot;&quot;&quot;$tiddler$&quot;&quot;&quot; field=&quot;&quot;&quot;$field$&quot;&quot;&quot; index=&quot;&quot;&quot;$index$&quot;&quot;&quot; placeholder=&quot;&quot;&quot;$placeholder$&quot;&quot;&quot; default=&quot;&quot; /&gt;
+   &lt;/span&gt;
+   &lt;/$set&gt;
+   &lt;!-- GET LIST ITEMS FROM FILTER WITH OPTIONAL TITLE SEARCH FILTER --&gt;
+   &lt;$set name=&quot;filter&quot; filter=&quot;&quot;&quot;$match$ -[[no]]&quot;&quot;&quot;
+       value=&quot;&quot;&quot;$filter$ +[search:title{$tiddler$!!$field$}]&quot;&quot;&quot; emptyValue=&quot;&quot;&quot;$filter$&quot;&quot;&quot;&gt;
+   &lt;$set name=&quot;items&quot; filter=&lt;&lt;filter&gt;&gt;&gt;
+   &lt;!-- OK/CANCEL BUTTONS --&gt;
+   &lt;$reveal state=&quot;&quot;&quot;$tiddler$!!$field$&quot;&quot;&quot; type=&quot;nomatch&quot; text=&quot;&quot;&gt; &lt;!-- HAS INPUT --&gt;
+      &lt;$reveal text=&quot;&quot;&quot;$okaction$&quot;&quot;&quot; type=&quot;nomatch&quot; default=&quot;&quot;&gt;    &lt;!-- HAS OK ACTION --&gt;
+         &lt;$button class=&quot;tt-combo-button&quot; style=&quot;right:4em&quot; tooltip=&quot;&quot;&quot;$oktip$&quot;&quot;&quot;&gt;
+            $oklabel$ $okaction$
+            &lt;$action-setfield $tiddler=&quot;&quot;&quot;$tiddler$&quot;&quot;&quot; $field=&quot;&quot;&quot;$field$&quot;&quot;&quot; index=&quot;&quot;&quot;$index$&quot;&quot;&quot; $value=&quot;&quot; /&gt;
+         &lt;/$button&gt;
+      &lt;/$reveal&gt;
+      &lt;$button class=&quot;tt-combo-button&quot; style=&quot;right:2em&quot; tooltip=&quot;clear input&quot;&gt;
+         {{$:/core/images/cancel-button}}
+         &lt;$action-setfield $tiddler=&quot;&quot;&quot;$tiddler$&quot;&quot;&quot; $field=&quot;&quot;&quot;$field$&quot;&quot;&quot; index=&quot;&quot;&quot;$index$&quot;&quot;&quot; $value=&quot;&quot; /&gt;
+      &lt;/$button&gt;
+   &lt;/$reveal&gt;
+   &lt;!-- TOGGLE LIST BUTTON --&gt;
+   &lt;$reveal text=&lt;&lt;items&gt;&gt; type=&quot;match&quot; default=&quot;&quot;&gt; &lt;!-- DISABLE BUTTON --&gt;
+      &lt;$button class=&quot;tt-combo-button&quot; style=&quot;right:0em&quot; tooltip=&quot;no list&quot;&gt;
+         &lt;span style=&quot;opacity:0.3&quot;&gt;{{$:/core/images/down-arrow}}&lt;/span&gt;
+      &lt;/$button&gt;
+   &lt;/$reveal&gt;
+   &lt;$reveal text=&lt;&lt;items&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt; &lt;!-- DISPLAY SHOW OR HIDE BUTTON --&gt;
+      &lt;$set name=&quot;show&quot; filter=&quot;[title&lt;popupID&gt;get[text]]&quot;&gt;
+      &lt;$reveal text=&lt;&lt;show&gt;&gt; type=&quot;match&quot; default=&quot;&quot;&gt;
+         &lt;$button popup=&lt;&lt;popupID&gt;&gt; class=&quot;tt-combo-button&quot; style=&quot;right:0em&quot; tooltip=&quot;show list&quot;&gt;
+            {{$:/core/images/down-arrow}}
+         &lt;/$button&gt;
+      &lt;/$reveal&gt;
+      &lt;$reveal text=&lt;&lt;show&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
+         &lt;$button popup=&lt;&lt;popupID&gt;&gt; class=&quot;tt-combo-button&quot; style=&quot;right:0em&quot; tooltip=&quot;hide list&quot;&gt;
+            {{$:/core/images/close-button}}
+         &lt;/$button&gt;
+      &lt;/$reveal&gt;
+      &lt;/$set&gt;
+   &lt;/$reveal&gt;
+   &lt;br&gt;
+   &lt;!-- LISTBOX POPUP --&gt;
+   &lt;$reveal text=&lt;&lt;items&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;   &lt;!-- IF LIST IS NOT EMPTY --&gt;
+      &lt;$set name=&quot;type&quot; filter=&quot;[title[x$position$x]] -[[xx]]&quot; value=&quot;popup&quot; emptyValue=&quot;nomatch&quot;&gt;
+      &lt;$reveal state=&lt;&lt;popupID&gt;&gt; type=&lt;&lt;type&gt;&gt; text=&quot;&quot; position=&quot;&quot;&quot;$position$&quot;&quot;&quot; style=&quot;position:absolute; z-index:999;&quot;&gt;
+         &lt;!-- LISTBOX OUTLINE AND SCROLLBAR --&gt;
+         &lt;div class=&quot;&quot;&quot;tt-combo-list $listclass$&quot;&quot;&quot; title=&quot;&quot;&quot;$listtip$&quot;&quot;&quot;&gt;
+            &lt;$list filter=&lt;&lt;items&gt;&gt;&gt;
+               &lt;!-- LISTBOX ITEM --&gt;
+               &lt;div class=&quot;tt-combo-item&quot;&gt;
+                  &lt;$vars thistitle={{!!title}} thistags={{!!tags}}&gt;
+                  &lt;$button class=&quot;tc-btn-invisible&quot; tooltip=&lt;&lt;combobox_maketip&gt;&gt;&gt;
+                     &lt;!-- DISPLAY ITEM, SET FIELD, PEFORM ACTION (IF ANY) --&gt;
+                     $template$
+                     &lt;$action-setfield $tiddler=&quot;&quot;&quot;$tiddler$&quot;&quot;&quot; $field=&quot;&quot;&quot;$field$&quot;&quot;&quot; $index=&quot;&quot;&quot;$index$&quot;&quot;&quot; $value=&lt;&lt;currentTiddler&gt;&gt;/&gt;
+                     $clickaction$
+                  &lt;/$button&gt;
+                  &lt;/$vars&gt;
+               &lt;/div&gt;
+            &lt;/$list&gt;
+         &lt;/div&gt;
+      &lt;/$reveal&gt;
+      &lt;/$set&gt;
+   &lt;/$reveal&gt;
+   &lt;/$set&gt;
+   &lt;/$set&gt;
+   &lt;/$vars&gt;
+&lt;/span&gt;
+\end
+\define combobox_maketip() title=&quot;$(thistitle)$&quot; tags=[$(thistags)$]
+
+@@.smaller &lt;pre&gt;&lt;$view field=&quot;text&quot;/&gt;&lt;/pre&gt;@@</pre>
+</div>
+<div created="20160129222605332" creator="EricShulman" modified="20160129231049539" modifier="EricShulman" title="TiddlyTools/Settings/Palettes/X11Names" type="text/plain">
+<pre>AliceBlue
+AntiqueWhite
+Aquamarine
+Azure
+Beige
+Bisque
+Black
+BlanchedAlmond
+Blue
+BlueViolet
+Brown
+Burlywood
+CadetBlue
+Chartreuse
+Chocolate
+Coral
+CornflowerBlue
+Cornsilk
+Cyan
+DarkBlue
+DarkCyan
+DarkGoldenrod
+DarkGray
+DarkGreen
+DarkKhaki
+DarkMagenta
+DarkOliveGreen
+DarkOrange
+DarkOrchid
+DarkRed
+DarkSalmon
+DarkSeaGreen
+DarkSlateBlue
+DarkSlateGray
+DarkTurquoise
+DarkViolet
+DeepPink
+DeepSkyBlue
+DimGray
+DodgerBlue
+Firebrick
+FloralWhite
+ForestGreen
+Gainsboro
+GhostWhite
+Gold
+Goldenrod
+Gray
+Green
+GreenYellow
+Honeydew
+HotPink
+IndianRed
+Ivory
+Khaki
+Lavender
+LavenderBlush
+LawnGreen
+LemonChiffon
+LightBlue
+LightCoral
+LightCyan
+LightGoldenrod
+LightGoldenrodYellow
+LightGray
+LightGreen
+LightPink
+LightSalmon
+LightSeaGreen
+LightSkyBlue
+LightSlateBlue
+LightSlateGray
+LightSteelBlue
+LightYellow
+LimeGreen
+Linen
+Magenta
+Maroon
+MediumAquamarine
+MediumBlue
+MediumOrchid
+MediumPurple
+MediumSeaGreen
+MediumSlateBlue
+MediumSpringGreen
+MediumTurquoise
+MediumVioletRed
+MidnightBlue
+MintCream
+MistyRose
+Moccasin
+NavajoWhite
+Navy
+NavyBlue
+OldLace
+OliveDrab
+Orange
+OrangeRed
+Orchid
+PaleGoldenrod
+PaleGreen
+PaleTurquoise
+PaleVioletRed
+PapayaWhip
+PeachPuff
+Peru
+Pink
+Plum
+PowderBlue
+Purple
+Red
+RosyBrown
+RoyalBlue
+SaddleBrown
+Salmon
+SandyBrown
+SeaGreen
+Seashell
+Sienna
+SkyBlue
+SlateBlue
+SlateGray
+Snow
+SpringGreen
+SteelBlue
+Tan
+Thistle
+Tomato
+Turquoise
+Violet
+VioletRed
+Wheat
+White
+WhiteSmoke
+Yellow
+YellowGreen
+</pre>
 </div>
 <div created="20160206045629259" creator="EricShulman" modified="20160212125944403" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/AuthorTools">
 <pre>\define config()       $:/config/TiddlyTools
@@ -12557,7 +12818,7 @@ background: #f8f8ff;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160211194435545" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160214153415509" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define help()
@@ -12637,6 +12898,9 @@ background: #f8f8ff;
          &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug/transitions&quot; field=&quot;text&quot;
             checked=&quot;no&quot;  unchecked=&quot;yes&quot; default=&quot;yes&quot;&gt; disable animations &lt;/$checkbox&gt;
       &lt;/div&gt;
+      &lt;br&gt;
+      &lt;$macrocall $name=&quot;combobox&quot; tiddler=&quot;$:/config/TiddlyTools&quot; index=&quot;Background/SlideBars&quot;
+         filter={{TiddlyTools/Settings/Palettes/X11Names}} placeholder=&quot;enter/select a color&quot; /&gt;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
