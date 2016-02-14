@@ -507,7 +507,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160214203047958" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160214210041685" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6977,7 +6977,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;notes&quot;: &quot;&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160214200250397" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160214205933354" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -12251,7 +12251,7 @@ background: #f8f8ff;
 &lt;&lt;get cors &quot;http://2.bp.blogspot.com/-PkSynHoqoN8/VP9QacKXWzI/AAAAAAAAAdM/vvNe_CtrM6k/s1600/cors-mountain-02.png&quot;&gt;&gt;
 &lt;&lt;get tid:md url:&quot;https://raw.githubusercontent.com/Jermolene/TiddlyWiki5/master/readme.md&quot; parse:&quot;raw&quot;&gt;&gt;</pre>
 </div>
-<div created="20160115230544319" creator="EricShulman" modified="20160129232840926" modifier="EricShulman" tags="$:/tags/Macro" title="TiddlyTools/Macros/combobox">
+<div created="20160115230544319" creator="EricShulman" modified="20160214205932741" modifier="EricShulman" tags="$:/tags/Macro" title="TiddlyTools/Macros/combobox">
 <pre>\define combobox(
      filter:&quot;[all[]] -[is[system]]&quot;
 placeholder:&quot;enter or select an item...&quot;
@@ -12263,6 +12263,7 @@ placeholder:&quot;enter or select an item...&quot;
       focus:&quot;no&quot;
  focusPopup:&quot;no&quot;
    position:&quot;&quot;
+     retain:&quot;no&quot;
    editsize:&quot;25&quot;
   editclass:&quot;&quot;
     edittip:&quot;&quot;
@@ -12339,7 +12340,7 @@ clickaction:&quot;&quot;
    &lt;!-- LISTBOX POPUP --&gt;
    &lt;$reveal text=&lt;&lt;items&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;   &lt;!-- IF LIST IS NOT EMPTY --&gt;
       &lt;$set name=&quot;type&quot; filter=&quot;[title[x$position$x]] -[[xx]]&quot; value=&quot;popup&quot; emptyValue=&quot;nomatch&quot;&gt;
-      &lt;$reveal state=&lt;&lt;popupID&gt;&gt; type=&lt;&lt;type&gt;&gt; text=&quot;&quot; position=&quot;&quot;&quot;$position$&quot;&quot;&quot; style=&quot;position:absolute; z-index:999;&quot;&gt;
+      &lt;$reveal state=&lt;&lt;popupID&gt;&gt; type=&lt;&lt;type&gt;&gt; text=&quot;&quot; position=&quot;&quot;&quot;$position$&quot;&quot;&quot; style=&quot;position:absolute; z-index:999;&quot; retain=&quot;$retain$&quot;&gt;
          &lt;!-- LISTBOX OUTLINE AND SCROLLBAR --&gt;
          &lt;div class=&quot;&quot;&quot;tt-combo-list $listclass$&quot;&quot;&quot; title=&quot;&quot;&quot;$listtip$&quot;&quot;&quot;&gt;
             &lt;$list filter=&lt;&lt;items&gt;&gt;&gt;
@@ -12827,7 +12828,7 @@ YellowGreen
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160214202327590" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160214210006665" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define color_box(color:&quot;white&quot;,w:&quot;1.5em&quot;,h:&quot;1.5em&quot;,inset:&quot;&quot;)
@@ -12927,7 +12928,7 @@ YellowGreen
       &lt;/div&gt;
       &lt;br&gt;
       &lt;$macrocall $name=&quot;combobox&quot; tiddler=&quot;$:/config/TiddlyTools&quot; index=&quot;Background/SlideBars&quot;
-         template=&quot;&lt;&lt;color_item&gt;&gt;&quot; listsize=7
+         template=&quot;&lt;&lt;color_item&gt;&gt;&quot; listsize=7 retain=yes
          filter=&quot;[{TiddlyTools/Settings/Palettes/X11Names}]&quot; placeholder=&quot;enter/select a color&quot; /&gt;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
