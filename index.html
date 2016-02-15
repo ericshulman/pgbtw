@@ -507,7 +507,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160214225947079" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160215071652115" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -547,8 +547,11 @@ Error message and password prompt
     &quot;AuthorToolBar/Hover&quot;: &quot;yes&quot;,
     &quot;AuthorToolBar/Size&quot;: &quot;&quot;,
     &quot;AuthorToolBar/Label&quot;: &quot;@@font-size:150%;👷@@&lt;!--&amp;#x1F477;--&gt;&quot;,
-    &quot;Background/SlideBars&quot;: &quot;#dde&quot;,
-    &quot;Background/Window&quot;: &quot;#bbc&quot;
+    &quot;Background/SlideBars&quot;: &quot;#bbc&quot;,
+    &quot;Background/Window&quot;: &quot;#99a&quot;,
+    &quot;Background/SlideBars/Panel&quot;: &quot;#eef&quot;,
+    &quot;Background/SlideBars/Text&quot;: &quot;&quot;,
+    &quot;Background/SlideBars/Title&quot;: &quot;&quot;
 }</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.11">
@@ -6971,14 +6974,13 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623224550947" modified="20160206050802745" title="$:/DefaultTiddlers">
 <pre></pre>
 </div>
-<div created="20151016012736156" modified="20160214134901857" tags="location" title="$:/Geo/Data" type="application/json">
+<div created="20151016012736156" modified="20160215070759332" tags="location" title="$:/Geo/Data" type="application/json">
 <pre>{
     &quot;latitude&quot;: &quot;43.659797&quot;,
-    &quot;longitude&quot;: &quot;-79.390586&quot;,
-    &quot;notes&quot;: &quot;&quot;
+    &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160214214235248" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160215070759405" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7718,7 +7720,7 @@ LOAD
 <div created="20160207092540481" modified="20160209035259910" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
-<div created="20160205060325015" modified="20160214135905023" title="$:/state/sidebar">
+<div created="20160205060325015" modified="20160215071544795" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20160205081747543" modified="20160210213005237" title="$:/state/tab--1498284803">
@@ -7730,8 +7732,8 @@ LOAD
 <div created="20160205061544691" modified="20160211075624789" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
-<div created="20160206155829393" modified="20160207234142633" title="$:/state/tab/moresidebar--1669835544">
-<pre>$:/core/ui/MoreSideBar/System</pre>
+<div created="20160206155829393" modified="20160215063140286" title="$:/state/tab/moresidebar--1669835544">
+<pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
 <div created="20160206021125241" modified="20160206031041907" title="$:/state/tab/moresidebar--1976877895">
 <pre>$:/core/ui/MoreSideBar/System</pre>
@@ -7745,7 +7747,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160214224229107" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160215063347206" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160211074959798" title="$:/state/tab/sidebar--1835078512">
@@ -12068,17 +12070,20 @@ filter: [prefix[$:/config]] [prefix[$:/state/Dashboard]] [[$:/state/sidebar]]</p
    { display:inline; width:auto; padding:0; margin:0; }
 &lt;/pre&gt;</pre>
 </div>
-<div created="20160214133138626" creator="EricShulman" modified="20160214223045390" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Colors" type="">
+<div created="20160214133138626" creator="EricShulman" modified="20160215070139316" modifier="EricShulman" tags="$:/tags/Stylesheet" title="StyleSheet/Colors" type="">
 <pre>\define bgcolor()     {{$:/config/TiddlyTools##Background/Window}}
 \define framecolor()  {{$:/config/TiddlyTools##Background/SlideBars}}
+\define titlecolor()  {{$:/config/TiddlyTools##Background/SlideBars/Title}}
+\define panelcolor()  {{$:/config/TiddlyTools##Background/SlideBars/Panel}}
+\define textcolor()   {{$:/config/TiddlyTools##Background/SlideBars/Text}}
 \define shadowcolor() 0,0,0
 \define glowcolor()   102,102,178
 
 &lt;pre&gt;
 /* SIDEBAR TEXT/LINK COLOR */
-.tc-sidebar-header                      { color: #000; }
-.tc-sidebar-lists a.tc-tiddlylink       { color: #666; }
-.tc-sidebar-lists a.tc-tiddlylink:hover { color: #000; }
+.tc-sidebar-header                      { color: &lt;&lt;textcolor&gt;&gt;; }
+.tc-sidebar-lists a.tc-tiddlylink       { color: &lt;&lt;textcolor&gt;&gt;; }
+.tc-sidebar-lists a.tc-tiddlylink:hover { color: &lt;&lt;textcolor&gt;&gt;; }
 
 /* BACKGROUND COLOR */
 body.tc-body { background:&lt;&lt;bgcolor&gt;&gt;; }
@@ -12095,7 +12100,7 @@ body.tc-body { background:&lt;&lt;bgcolor&gt;&gt;; }
 
 /* SHADOWBOX/DROPDOWN GLOW */
 .tt-shadowbox{
-   background: &lt;&lt;framecolor&gt;&gt; !important;
+   background: &lt;&lt;framecolor&gt;&gt; !important; color:&lt;&lt;titlecolor&gt;&gt; !important;
    border:1px solid #999; border-radius:0.5em; margin:0; padding:0.5em;
    box-shadow: 0.3em 0.3em 0.6em rgba(0,0,0,0.5);
    transition: box-shadow 1s, background 1s;
@@ -12105,12 +12110,11 @@ body.tc-body { background:&lt;&lt;bgcolor&gt;&gt;; }
    transition: box-shadow 1s, background 1s;
 }
 .tt-shadowbox.inset {
-   background:#eee !important;
+   background:&lt;&lt;panelcolor&gt;&gt; !important; color:&lt;&lt;textcolor&gt;&gt; !important;
    box-shadow: 0.3em 0.3em 0.6em rgba(&lt;&lt;shadowcolor&gt;&gt;,0.5) inset;
    transition: box-shadow 1s, background 1s;
 }
 .tt-shadowbox.inset:hover {
-   background:#f8f8ff !important;
    box-shadow: 0.3em 0.3em 0.6em rgba(&lt;&lt;glowcolor&gt;&gt;,0.5) inset;
    transition: box-shadow 1s, background 1s;
 }
@@ -12829,7 +12833,7 @@ YellowGreen
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160214225621240" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
+<div caption="Author Tools" created="20160209040419422" creator="EricShulman" modified="20160215070044840" modifier="EricShulman" tags="$:/tags/ControlPanel" title="TiddlyTools/SlideBars/Panels/Settings">
 <pre>\define config() $:/config/TiddlyTools
 
 \define help()
@@ -12899,39 +12903,52 @@ YellowGreen
 &lt;/div&gt;
 \end
 
+\define slidebar_colorcombo(id:&quot;Background/SlideBars&quot;,tip:&quot;color for Slidebar frames&quot;)
+&lt;$set name=&quot;trimmed&quot; filter=&quot;[title[$id$]removeprefix[Background/]]&quot;&gt;
+&lt;$macrocall $name=&quot;combobox&quot; tiddler=&quot;$:/config/TiddlyTools&quot; index=&quot;$id$&quot; id=&quot;$id$&quot;
+   filter=&quot;[{TiddlyTools/Settings/Palettes/X11Names}]&quot; placeholder=&quot; &quot; edittip=&quot;&quot;&quot;$tip$&quot;&quot;&quot;
+   editsize=10 listsize=7 retain=yes template=&quot;&lt;&lt;slidebar_colorcombo_item&gt;&gt;&quot; /&gt;
+&lt;/$set&gt;
+\end
+\define  slidebar_colorcombo_item() &lt;div style='background:$(currentTiddler)$; width:1em; height:1em; display:inline-block; border:1px solid gray;'&gt;&lt;/div&gt;&lt;&lt;toc-caption&gt;&gt;
+
 \define slidebaroptions()
 &lt;div style=&quot;display:inline-block;text-align:left;vertical-align:top;&quot;&gt;
-   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''display options''&lt;/div&gt;
+   &lt;div style=&quot;display:none;font-size:80%;line-height:110%;&quot;&gt;''display options''&lt;/div&gt;
    &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug/showzones&quot;   field=&quot;text&quot;
       checked=&quot;yes&quot; unchecked=&quot;no&quot;  default=&quot;no&quot;&gt; show hover zones &lt;/$checkbox&gt;&lt;br/&gt;
    &lt;$checkbox tiddler=&quot;$:/temp/slidebars/debug/transitions&quot; field=&quot;text&quot;
       checked=&quot;no&quot;  unchecked=&quot;yes&quot; default=&quot;yes&quot;&gt; disable animations &lt;/$checkbox&gt;&lt;br/&gt;
-   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''window color''&lt;/div&gt;
-   &lt;&lt;slidebarcolors id:&quot;Background/Window&quot;    tip:&quot;enter/select a color for the window background&quot;&gt;&gt;
-   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''frame color''&lt;/div&gt;
-   &lt;&lt;slidebarcolors id:&quot;Background/SlideBars&quot; tip:&quot;enter/select a color for the slidebar frames&quot;&gt;&gt;&lt;br/&gt;
 &lt;/div&gt;
 \end
 
-\define slidebarcolors(id:&quot;Background/SlideBars&quot;,tip:&quot;color for Slidebar frames&quot;)
-&lt;style&gt; .tt-slidebar-settings-combo { width:10em; } &lt;/style&gt;
-&lt;$set name=&quot;trimmed&quot; filter=&quot;[title[$id$]removeprefix[Background/]]&quot;&gt;
-&lt;$macrocall $name=&quot;combobox&quot; tiddler=&quot;$:/config/TiddlyTools&quot; index=&quot;$id$&quot; id=&quot;$id$&quot;
-   filter=&quot;[{TiddlyTools/Settings/Palettes/X11Names}]&quot; placeholder=&quot; &quot; edittip=&quot;&quot;&quot;$tip$&quot;&quot;&quot;
-   editsize=auto listsize=7 retain=yes editclass=&quot;tt-slidebar-settings-combo&quot; Xlistclass=&quot;tt-slidebar-settings-combo&quot;
-   template=&quot;&lt;&lt;combo_item&gt;&gt;&quot; /&gt;
-&lt;/$set&gt;
+\define slidebarcolors()
+&lt;div style=&quot;display:inline-block;text-align:left;vertical-align:top;&quot;&gt;
+   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''window color''&lt;/div&gt;
+   &lt;&lt;slidebar_colorcombo id:&quot;Background/Window&quot;    tip:&quot;enter/select a color for the window background&quot;&gt;&gt;
+   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''frame color''&lt;/div&gt;
+   &lt;&lt;slidebar_colorcombo id:&quot;Background/SlideBars&quot; tip:&quot;enter/select a color for the slidebar frames&quot;&gt;&gt;&lt;br/&gt;
+   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''title color''&lt;/div&gt;
+   &lt;&lt;slidebar_colorcombo id:&quot;Background/SlideBars/Title&quot; tip:&quot;enter/select a color for the slidebar frames&quot;&gt;&gt;&lt;br/&gt;
+   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''panel color''&lt;/div&gt;
+   &lt;&lt;slidebar_colorcombo id:&quot;Background/SlideBars/Panel&quot; tip:&quot;enter/select a color for the slidebar panel background&quot;&gt;&gt;&lt;br/&gt;
+   &lt;div style=&quot;font-size:80%;line-height:110%;&quot;&gt;''text color''&lt;/div&gt;
+   &lt;&lt;slidebar_colorcombo id:&quot;Background/SlideBars/Text&quot; tip:&quot;enter/select a color for the slidebar panel text&quot;&gt;&gt;&lt;br/&gt;
+&lt;/div&gt;
 \end
-\define combo_item() &lt;div style='background:$(currentTiddler)$; width:1em; height:1em; display:inline-block; border:1px solid gray;'&gt;&lt;/div&gt;&lt;&lt;toc-caption&gt;&gt;
 
 &lt;div class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left; white-space:nowrap; width:fit-content;&quot;&gt;
    &lt;&lt;toolbar&gt;&gt;
    &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;text-align:center;width:fit-content;&quot;&gt;
-      &lt;&lt;slidebargrid &quot;/Hover&quot; &quot;''auto show/hide''&lt;br&gt;^^//(hover/longpress)//^^&quot;&gt;&gt;
+      &lt;div style=&quot;display:inline-block;&quot;&gt;
+         &lt;&lt;slidebargrid &quot;/Hover&quot; &quot;''auto show/hide''&lt;br&gt;^^//(hover/longpress)//^^&quot;&gt;&gt;
+         &amp;nbsp;
+         &lt;&lt;slidebargrid &quot; &quot; &quot;''stay visible''&lt;br&gt;^^//(click to toggle)//^^&quot;&gt;&gt;
+         &lt;br&gt;
+         &lt;&lt;slidebaroptions&gt;&gt;
+      &lt;/div&gt;
       &amp;nbsp;
-      &lt;&lt;slidebargrid &quot; &quot; &quot;''stay visible''&lt;br&gt;^^//(click to toggle)//^^&quot;&gt;&gt;
-      &amp;nbsp;
-      &lt;&lt;slidebaroptions&gt;&gt;
+      &lt;&lt;slidebarcolors&gt;&gt;
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
