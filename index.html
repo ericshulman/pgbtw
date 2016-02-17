@@ -507,7 +507,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160217135527868" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160217160846486" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6980,7 +6980,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160217135517161" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160217160017758" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7645,7 +7645,8 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[TiddlyTools/Stylesheet/Shortcuts]]</pre>
+# [[TiddlyTools/SlideBars/Styles]]
+# [[TiddlyTools/SlideBars/Stylesheet]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -7793,10 +7794,10 @@ LOAD
 <div created="20160205085005903" modified="20160205085005903" title="$:/temp/MPAC/source">
 <pre>MPAC_AVM_12ClarkSecorOutput.xml</pre>
 </div>
-<div created="20160205082821981" modified="20160209203508442" title="$:/temp/notify">
-<pre>Requesting Geolocation data...</pre>
+<div created="20160205082821981" modified="20160217160017871" title="$:/temp/notify">
+<pre>requestFileSystem: Security Error</pre>
 </div>
-<div created="20160205232823187" modified="20160214202355152" title="$:/temp/search">
+<div created="20160205232823187" modified="20160217160904566" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160210050735268" title="$:/temp/slidebars/debug">
@@ -8702,12 +8703,12 @@ timeout:&lt;br&gt;
 * [[TeraNet|Dashboard/TeraNet]] - Enter parameters to query ~TeraNet database and generate a report.  Save/load reports for later review.
 &lt;/div&gt;</pre>
 </div>
-<div created="20160206050933894" modified="20160212130753244" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
+<div created="20160206050933894" modified="20160217160831599" tags="$:/tags/TopLeftBar" title="Dashboard/HomeButton">
 <pre>&lt;style&gt;
 /* adjust topleftbar to put scaled home button near corner */
 .tc-topbar-left { left:0; top:2.5em; Xborder:1px solid; }
 &lt;/style&gt;
-@@font-size:200%;
+@@font-size:150%;
 &lt;$button X-to=&quot;Dashboard&quot; class=&quot;tc-btn-invisible&quot; tooltip=&quot;home: close all panels&quot;&gt;
    {{$:/core/images/home-button}}
    &lt;$action-setfield $tiddler=&quot;$:/config/TiddlyTools&quot; $index=&quot;TopLeftBar&quot;     $value=&quot;no&quot;/&gt;
@@ -12898,7 +12899,7 @@ YellowGreen
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202222243119" creator="EricShulman" modified="20160217122619138" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
+<div created="20160202222243119" creator="EricShulman" modified="20160217154653813" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Styles">
 <pre>&lt;pre&gt;/* SLIDEBAR */
 .&lt;&lt;barclass&gt;&gt;
    { position:fixed; z-index:999;
@@ -12918,13 +12919,14 @@ YellowGreen
 
 /* PIN BUTTON */
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-button
-   { z-index:-1; height:100%; width:100%; opacity:0.3; white-space:nowrap; font-size:150%; font-weight:bold; }
+   { z-index:-1; height:100%; width:100%; opacity:0.3; white-space:nowrap; font-size:100%; font-weight:bold; }
 .&lt;&lt;barclass&gt;&gt; .tt-slidebar-button:hover
    { opacity:0.6; }
 
 /* SHADOWBOX STYLES */
 .&lt;&lt;barclass&gt;&gt; .tt-shadowbox:not(.inset) { font-size:calc(&lt;&lt;barfontsize&gt;&gt;); &lt;&lt;autofit&gt;&gt; }
 .&lt;&lt;barclass&gt;&gt; .tt-shadowbox:not(.inset) { background:&lt;&lt;barbg&gt;&gt;; }
+.&lt;&lt;barclass&gt;&gt; .tt-slidebars-fittray { width:&lt;&lt;traywidth&gt;&gt; !important; }
 
 &lt;$reveal state=&lt;&lt;barstay&gt;&gt; type=&quot;nomatch&quot; text=&quot;no&quot;&gt;
    /* STICKY (STAY) PANEL STYLES - ALWAYS SHOW, BRING TO FRONT ON HOVER */
@@ -12948,7 +12950,7 @@ YellowGreen
 &lt;/$reveal&gt;
 &lt;/pre&gt;</pre>
 </div>
-<div created="20160202223104389" creator="EricShulman" modified="20160210214017585" modifier="EricShulman" tags="$:/tags/Stylesheet" title="TiddlyTools/SlideBars/Stylesheet">
+<div created="20160202223104389" creator="EricShulman" modified="20160217155108484" modifier="EricShulman" tags="$:/tags/Stylesheet" title="TiddlyTools/SlideBars/Stylesheet">
 <pre>\define autofit()  width:fit-content; margin-left:auto; margin-right:auto;
 \define testsize() [title&lt;config&gt;getindex[$(barname)$/Size]] -[[auto]]
 \define getsize()  {{$(config)$##$(barname)$/Size}}
