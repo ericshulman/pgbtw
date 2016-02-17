@@ -507,7 +507,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160217122944833" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160217135527868" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6980,7 +6980,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160209201005075" modified="20160217123418217" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160209201005075" modified="20160217135517161" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -12460,7 +12460,7 @@ YellowGreen
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160217123417959" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160217134629149" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12474,10 +12474,10 @@ YellowGreen
 \define barpin()       &lt;$set name=&quot;label&quot; filter=$(barlabel)$ emptyValue=&quot;{{$:/core/images/chevron-up}}&quot;&gt;&lt;&lt;label&gt;&gt;&lt;/$set&gt;
 \define barunpin()     &lt;$set name=&quot;label&quot; filter=$(barlabel)$ emptyValue=&quot;{{$:/core/images/chevron-down}}&quot;&gt;&lt;&lt;label&gt;&gt;&lt;/$set&gt;
 
-\define barstay()      $(config)$##BottomBar
-\define barhover()     $(config)$##BottomBar/Hover
-\define barsize()      {{$(config)$##BottomBar/Size}}
-\define barfontsize()  (1em * ({{$(config)$##FontSize/BottomBar}} / 100))
+\define barstay()      $(config)$##$(barname)$
+\define barhover()     $(config)$##$(barname)$/Hover
+\define barsize()      &lt;$set name=&quot;size&quot; filter={{$(config)$##$(barname)$/Size}} emptyValue=&quot;30vw&quot;&gt;&lt;&lt;size&gt;&gt;&lt;/$set&gt;
+\define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
 
 \define bartop()       auto
 \define barleft()      calc(50% - ($(barwidth)$ / 2))
@@ -12512,7 +12512,7 @@ YellowGreen
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160217123144256" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160217135438427" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12528,7 +12528,7 @@ YellowGreen
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barsize()      &lt;$set name=&quot;size&quot; filter={{$(config)$##$(barname)$/Size}} emptyValue=&quot;30vw&quot;&gt;&lt;&lt;size&gt;&gt;&lt;/$set&gt;
 \define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
 
 \define bartop()       auto
@@ -12564,7 +12564,7 @@ YellowGreen
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160217123107545" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160217135428752" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12580,7 +12580,7 @@ YellowGreen
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barsize()      &lt;$set name=&quot;size&quot; filter={{$(config)$##$(barname)$/Size}} emptyValue=&quot;30vw&quot;&gt;&lt;&lt;size&gt;&gt;&lt;/$set&gt;
 \define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
 
 \define bartop()       auto
@@ -12986,7 +12986,7 @@ YellowGreen
    */
 &lt;/pre&gt;</pre>
 </div>
-<div created="20160124035409515" creator="EricShulman" modified="20160217123448671" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Top">
+<div created="20160124035409515" creator="EricShulman" modified="20160217134534357" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Top">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -13002,7 +13002,7 @@ YellowGreen
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barsize()      &lt;$set name=&quot;size&quot; filter={{$(config)$##$(barname)$/Size}} emptyValue=&quot;30vw&quot;&gt;&lt;&lt;size&gt;&gt;&lt;/$set&gt;
 \define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
 
 \define bartop()       0em
@@ -13038,7 +13038,7 @@ YellowGreen
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203193000882" creator="EricShulman" modified="20160217123226296" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
+<div created="20160203193000882" creator="EricShulman" modified="20160217135456528" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -13054,7 +13054,7 @@ YellowGreen
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barsize()      &lt;$set name=&quot;size&quot; filter={{$(config)$##$(barname)$/Size}} emptyValue=&quot;30vw&quot;&gt;&lt;&lt;size&gt;&gt;&lt;/$set&gt;
 \define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
 
 \define bartop()       0em
@@ -13090,7 +13090,7 @@ YellowGreen
  
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195151085" creator="EricShulman" modified="20160217123201512" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
+<div created="20160203195151085" creator="EricShulman" modified="20160217135448915" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/TopRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -13106,7 +13106,7 @@ YellowGreen
 
 \define barstay()      $(config)$##$(barname)$
 \define barhover()     $(config)$##$(barname)$/Hover
-\define barsize()      {{$(config)$##$(barname)$/Size}}
+\define barsize()      &lt;$set name=&quot;size&quot; filter={{$(config)$##$(barname)$/Size}} emptyValue=&quot;30vw&quot;&gt;&lt;&lt;size&gt;&gt;&lt;/$set&gt;
 \define barfontsize()  (1em * ({{$(config)$##FontSize/$(barname)$}} / 100))
 
 \define bartop()       0em
