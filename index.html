@@ -507,7 +507,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160217210238585" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160217213531048" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6980,7 +6980,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160217200920719" modified="20160217205315530" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160217200920719" modified="20160217213443843" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7740,7 +7740,7 @@ LOAD
 <div created="20160205060736639" modified="20160205060825510" title="$:/state/tab/moresidebar-419835164">
 <pre>$:/core/ui/MoreSideBar/Shadows</pre>
 </div>
-<div created="20160206153640070" modified="20160217200618430" title="$:/state/tab/sidebar--1269925866">
+<div created="20160206153640070" modified="20160217211125221" title="$:/state/tab/sidebar--1269925866">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20160205055200642" modified="20160211074959798" title="$:/state/tab/sidebar--1835078512">
@@ -9721,7 +9721,7 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160217210054579" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160217212958338" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -9832,7 +9832,7 @@ Password:&lt;br&gt;
 \end
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
-@@.smaller.nowrap
+@@.nowrap
 &lt;table style=&quot;width:100%&quot; class=&quot;borderless&quot;&gt;&lt;tr&gt;&lt;td&gt;
    &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;
    &amp;nbsp;
@@ -12467,7 +12467,7 @@ YellowGreen
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160202073342303" creator="EricShulman" modified="20160217200951326" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
+<div created="20160202073342303" creator="EricShulman" modified="20160217213355729" modifier="EricShulman" tags="$:/tags/PageTemplate $:/tags/SlideBar" title="TiddlyTools/SlideBars/Bottom">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12510,16 +12510,16 @@ YellowGreen
 \define trayhide()     opacity:0; margin-bottom:-100vh;
 \define trayshow()     opacity:1; margin-bottom:0;
 
-\define panelstyle()   position:absolute;bottom:0;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);width:max-content;
+\define panelstyle()   position:absolute;bottom:0;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;
+\define outerstyle()   max-height:80vh;max-width:80vw;
 \define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:70vh;overflow-y:scroll;
+\define innerstyle()   max-height:70vh;overflow-x:auto;overflow-y:scroll;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203200159738" creator="EricShulman" modified="20160217162756657" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
+<div created="20160203200159738" creator="EricShulman" modified="20160217213301537" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomLeft">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12565,13 +12565,13 @@ YellowGreen
 \define panelstyle()   position:absolute;bottom:0;left:0;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;
+\define outerstyle()   max-height:80vh;max-width:80vw;
 \define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:70vh;max-width:50vw;overflow-x:auto;overflow-y:scroll;
+\define innerstyle()   max-height:70vh;overflow-x:auto;overflow-y:scroll;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
-<div created="20160203195712156" creator="EricShulman" modified="20160217162747873" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
+<div created="20160203195712156" creator="EricShulman" modified="20160217213156377" modifier="EricShulman" tags="$:/tags/SlideBar $:/tags/PageTemplate" title="TiddlyTools/SlideBars/BottomRight">
 <pre>\define config()       $:/config/TiddlyTools
 \define barbg()        &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Background/SlideBars&quot;/&gt;
 \define Hmargin()      &lt;$transclude tiddler=&lt;&lt;config&gt;&gt; index=&quot;Hmargin&quot;&gt;2.5em&lt;/$transclude&gt;
@@ -12617,9 +12617,9 @@ YellowGreen
 \define panelstyle()   position:absolute;bottom:0;right:0;
 
 \define outerclass()   tt-shadowbox left
-\define outerstyle()   max-height:80vh;
+\define outerstyle()   max-height:80vh;max-width:80vw;
 \define innerclass()   tt-shadowbox inset smaller
-\define innerstyle()   max-height:70vh;max-width:50vw;overflow-x:auto;overflow-y:scroll;
+\define innerstyle()   max-height:70vh;overflow-x:auto;overflow-y:scroll;
 
 {{TiddlyTools/SlideBars/Tray}}</pre>
 </div>
