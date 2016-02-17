@@ -437,14 +437,14 @@ Error message and password prompt
     &quot;address&quot;: &quot;111 Wellesley St W, Toronto, ON M7A 1A5, Canada&quot;
 }</pre>
 </div>
-<div created="20151021074010415" modified="20160215193805005" title="$:/config/GoogleMaps" type="application/json">
+<div created="20151021074010415" modified="20160217205323091" title="$:/config/GoogleMaps" type="application/json">
 <pre>{
     &quot;width&quot;: &quot;640&quot;,
     &quot;height&quot;: &quot;384&quot;,
     &quot;scale&quot;: &quot;2&quot;,
     &quot;maptype&quot;: &quot;hybrid&quot;,
     &quot;zoom&quot;: &quot;17&quot;,
-    &quot;EnableMaps&quot;: &quot;no&quot;
+    &quot;EnableMaps&quot;: &quot;yes&quot;
 }</pre>
 </div>
 <div created="20151017070437816" modified="20151025002656441" title="$:/config/LocalStorage" type="application/json">
@@ -507,7 +507,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160217205125796" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160217210238585" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6980,7 +6980,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160217200920719" modified="20160217204604366" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160217200920719" modified="20160217205315530" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7808,8 +7808,8 @@ LOAD
 <div created="20160210050457479" modified="20160211092121122" title="$:/temp/slidebars/debug/transitions">
 <pre>yes</pre>
 </div>
-<div created="20160205085243127" modified="20160217043333823" title="$:/temp/TeraNet/source">
-<pre>m1c3J8_6BROADBRIDGE_ter_output.xml</pre>
+<div created="20160205085243127" modified="20160217210144648" title="$:/temp/TeraNet/source">
+<pre>m1c3l3_12CLARK_ter_output.xml</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.11">
 <pre>{
@@ -9721,7 +9721,7 @@ x
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="TeraNet" created="20151105112106480" modified="20160210194213145" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
+<div caption="TeraNet" created="20151105112106480" modified="20160217210054579" tags="$:/tags/BottomRightSlideBar" title="Dashboard/TeraNet">
 <pre>\define sources() [suffix[ter_output.xml]]
 \define path()    $:/xml/$(source)$
 \define header()  $(path)$/Envelope/Body/DirectReportResponse/Header/
@@ -9832,7 +9832,12 @@ Password:&lt;br&gt;
 \end
 
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
-@@.floatright.smaller.nowrap
+@@.smaller.nowrap
+&lt;table style=&quot;width:100%&quot; class=&quot;borderless&quot;&gt;&lt;tr&gt;&lt;td&gt;
+   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;
+   &amp;nbsp;
+&lt;/td&gt;&lt;td style=&quot;text-align:right&quot;&gt;
+   &amp;nbsp;
    &lt;&lt;dashboardpopup id:&quot;TeraNet/Help&quot;
       label:&quot;{{$:/core/images/help}}&quot;
       title:&quot;Help for TeraNet&quot;
@@ -9841,10 +9846,8 @@ Password:&lt;br&gt;
    &lt;&lt;dashboardpopup id:&quot;TeraNet/Options&quot;
       label:&quot;{{$:/core/images/options-button}}&quot;
       title:&quot;Teranet settings&quot;
-      content:&quot;options&quot;&gt;&gt;@@
-@@.floatleft.nowrap
-   &lt;$macrocall $name=&quot;dashboardbutton&quot; tid={{!!title}}/&gt;&amp;nbsp;@@
-&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+      content:&quot;options&quot;&gt;&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;@@
 &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
    @@.center &lt;&lt;toolbar&gt;&gt;@@
    &lt;$set name=&quot;source&quot; value={{$:/temp/TeraNet/source}}&gt;
