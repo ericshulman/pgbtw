@@ -234,6 +234,8 @@ Error message and password prompt
 
 <li>$:/temp/authortools/blick</li>
 
+<li>$:/temp/focushack</li>
+
 <li>$:/temp/info-plugin</li>
 
 <li>$:/temp/MPAC/source</li>
@@ -273,6 +275,8 @@ Error message and password prompt
 <li>Dashboard/Background</li>
 
 <li>Dashboard/Camera</li>
+
+<li>Dashboard/FocusHack</li>
 
 <li>Dashboard/GeoLocation</li>
 
@@ -507,7 +511,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160217213531048" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160218003629497" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6980,7 +6984,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160217200920719" modified="20160217213443843" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160217200920719" modified="20160218003258698" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7776,6 +7780,9 @@ LOAD
 <div created="20160208023043988" modified="20160209205207676" title="$:/temp/authortools/blick">
 <pre></pre>
 </div>
+<div created="20160218003308775" modified="20160218003629497" title="$:/temp/focushack">
+<pre>from AuthorToolBar</pre>
+</div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -8516,6 +8523,11 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
+<div created="20160218003040300" modified="20160218003511486" tags="$:/tags/PageTemplate" title="Dashboard/FocusHack">
+<pre>@@display:none; 
+&lt;!-- THIS EDIT FIELD EXISTS SO THAT BUTTONS CAN &quot;BLUR&quot; THEMSELVES BY SETTING $:/temp/focushack --&gt;
+&lt;$set name=&quot;refresh_hack&quot; value={{$:/temp/focushack}}&gt;&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/focushack&quot; focus=&quot;true&quot;/&gt;&lt;/$set&gt;@@</pre>
+</div>
 <div caption="GeoLocation" created="20151009192708809" modified="20160217204920557" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
@@ -9085,7 +9097,7 @@ tiddler cache location:&lt;br&gt;
 &lt;/$list&gt;
 &lt;/$set&gt;</pre>
 </div>
-<div created="20151021203705648" modified="20160217204603726" tags="$:/tags/Macro" title="Dashboard/Macros">
+<div created="20151021203705648" modified="20160218003257989" tags="$:/tags/Macro" title="Dashboard/Macros">
 <pre>\define config()   $:/config/TiddlyTools
 \define pinned()   $(config)$##$(barname)$
 \define pintip()   pin $(barname)$ (keep visible)
@@ -9098,6 +9110,7 @@ tiddler cache location:&lt;br&gt;
          @@.nowrap &lt;div style=&quot;display:inline-block;width:1em;&quot;&gt;📌&lt;/div&gt;
          ''&lt;$text text={{$tid$!!caption}}/&gt;''@@
          &lt;$action-setfield $tiddler=&lt;&lt;config&gt;&gt; $index=&lt;&lt;barname&gt;&gt; $value=&quot;no&quot;/&gt;
+         &lt;$action-setfield $tiddler=&quot;$:/temp/focushack&quot; text=&quot;from $(barname)$&quot;/&gt;
       &lt;/$button&gt;
    &lt;/$reveal&gt;
    &lt;$reveal state=&lt;&lt;pinned&gt;&gt; type=&quot;match&quot; text=&quot;no&quot;&gt;
