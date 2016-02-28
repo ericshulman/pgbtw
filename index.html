@@ -422,7 +422,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151017063232716" modified="20160228034021250" title="$:/config/Camera" type="application/json">
+<div created="20151017063232716" modified="20160228035517247" title="$:/config/Camera" type="application/json">
 <pre>{
     &quot;name&quot;: &quot;photo&quot;,
     &quot;format&quot;: &quot;jpg&quot;,
@@ -431,7 +431,7 @@ Error message and password prompt
     &quot;quality&quot;: &quot;50&quot;,
     &quot;path&quot;: &quot;photos/&quot;,
     &quot;counter&quot;: &quot;01&quot;,
-    &quot;source&quot;: &quot;Camera.PictureSourceType.PHOTOLIBRARY&quot;
+    &quot;source&quot;: &quot;camera&quot;
 }</pre>
 </div>
 <div created="20160209215425104" modified="20160219005857052" title="$:/config/curbside/fontsize">
@@ -516,7 +516,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160228034629225" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160228040223486" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6989,7 +6989,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160217200920719" modified="20160228034619494" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160217200920719" modified="20160228040217674" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7717,7 +7717,7 @@ LOAD
 <div created="20160207092540481" modified="20160209035259910" title="$:/state/Dashboard/TeraNet">
 <pre></pre>
 </div>
-<div created="20160205060325015" modified="20160215071544795" title="$:/state/sidebar">
+<div created="20160205060325015" modified="20160228040220413" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20160205081747543" modified="20160227205609367" title="$:/state/tab--1498284803">
@@ -7923,7 +7923,7 @@ LOAD
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20160228034341311" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20160228040209163" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -7940,7 +7940,7 @@ width   = pixels for scaling target image (640)
 height  = pixels for scaling target image (384)
 format  = JPEG or PNG (JPEG)
 quality = 0-100 (50)
-source  = source of image (Camera.PictureSourceType.CAMERA or Camera.PictureSourceType.PHOTOLIBRARY)
+source  = source of image (&quot;camera&quot; or &quot;file&quot;)
 \*/
 
 (function(){
@@ -7991,14 +7991,14 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   var height  = this.getAttribute(&quot;height&quot;,384);
   var format  = this.getAttribute(&quot;format&quot;,&quot;jpg&quot;);
   var quality = this.getAttribute(&quot;quality&quot;,50);
-  var source  = this.getAttribute(&quot;source&quot;,Camera.PictureSourceType.CAMERA);
+  var source  = this.getAttribute(&quot;source&quot;,&quot;camera&quot;);
   var type    = (format==&quot;png&quot;)?&quot;image/png&quot;:&quot;image/jpeg&quot;;
   var enctype = (format==&quot;png&quot;)?Camera.EncodingType.PNG:Camera.EncodingType.JPEG;
 
   var cameraOptions = {
     quality : quality,
     destinationType : Camera.DestinationType.DATA_URL,
-    sourceType : source,
+    sourceType : source==&quot;camera&quot;?Camera.PictureSourceType.CAMERA:Camera.PictureSourceType.PHOTOLIBRARY,
     encodingType: enctype,
     targetWidth: width,
     targetHeight: height,
@@ -8031,13 +8031,13 @@ exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
     &quot;timestamp&quot;: 1454803896252
 }</pre>
 </div>
-<div created="20160228032016154" modified="20160228032456429" module-type="macro" tags="" title="Cordova/isCordova.js" type="application/javascript">
+<div created="20160228032016154" modified="20160228035756886" module-type="macro" tags="" title="Cordova/isCordova.js" type="application/javascript">
 <pre>/*\
 Cordova/isCordova.js
 type: application/javascript
 module-type: macro
 
-Macro to test if running inside a Cordova/PhoneGap wrapper.  Returns &quot;yes&quot; or &quot;no&quot;.
+Macro to test if running inside a Cordova/PhoneGap wrapper.  Returns &quot;yes&quot; or &quot;&quot;.
 
 \*/
 (function(){
@@ -8048,7 +8048,7 @@ Macro to test if running inside a Cordova/PhoneGap wrapper.  Returns &quot;yes&q
 
 exports.name = &quot;isCordova&quot;;
 exports.params = [];
-exports.run = function(format) { return (typeof Cordova != 'undefined'?&quot;yes&quot;:&quot;no&quot;); };
+exports.run = function(format) { return (typeof Cordova != 'undefined'?&quot;yes&quot;:&quot;&quot;); };
 
 })();
 </pre>
@@ -8378,7 +8378,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160228034551270" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160228035926454" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
@@ -8402,7 +8402,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
             format=&lt;&lt;format&gt;&gt; width=&lt;&lt;width&gt;&gt; height=&lt;&lt;height&gt;&gt; quality=&lt;&lt;quality&gt;&gt; /&gt;
       &lt;/$reveal&gt;
    &lt;/$button&gt;
-   &lt;$reveal text=&lt;&lt;isCordova&gt;&gt; type=&quot;match&quot; default=&quot;no&quot;&gt;
+   &lt;$reveal text=&lt;&lt;isCordova&gt;&gt; type=&quot;nomatch&quot; default=&quot;yes&quot;&gt;
       &lt;$importfile tiddler=&lt;&lt;gettarget&gt;&gt; tag=&quot;photo&quot; accept=&quot;image/*, video/*, audio/*&quot; /&gt;
    &lt;/$reveal&gt;
 &lt;/div&gt;
@@ -8487,10 +8487,10 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 \define options()
 @@.nowrap
-source:&lt;br&gt; &amp;nbsp;
+source:&amp;nbsp;
 &lt;$select index=&quot;source&quot; tiddler=&quot;$:/config/Camera&quot;&gt;
-   &lt;option value=&quot;Camera.PictureSourceType.CAMERA&quot;&gt;Camera device&lt;/option&gt;
-   &lt;option value=&quot;Camera.PictureSourceType.PHOTOLIBRARY&quot;&gt;Saved images&lt;/option&gt;
+   &lt;option value=&quot;camera&quot;&gt;camera&lt;/option&gt;
+   &lt;option value=&quot;file&quot;&gt;file&lt;/option&gt;
 &lt;/$select&gt;
 @@&lt;br&gt;
 @@.nowrap
