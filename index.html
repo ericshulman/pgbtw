@@ -258,6 +258,8 @@ Error message and password prompt
 
 <li>Cary</li>
 
+<li>Cordova/isCordova.js</li>
+
 <li>Cordova/noexit.js</li>
 
 <li>Cordova/nowarning.js</li>
@@ -513,7 +515,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160227085245399" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160228032510248" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6986,7 +6988,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160217200920719" modified="20160227085228458" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160217200920719" modified="20160228032504671" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7717,8 +7719,8 @@ LOAD
 <div created="20160205060325015" modified="20160215071544795" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
-<div created="20160205081747543" modified="20160227080335220" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div created="20160205081747543" modified="20160227205609367" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20160205061546875" modified="20160206033220911" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
@@ -7768,11 +7770,11 @@ LOAD
 <div created="20160205232048514" modified="20160205232053618" title="$:/state/TiddlyTools/SlideBars/Tray">
 <pre></pre>
 </div>
-<div list="Dashboard/Camera" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20160205081751366" modified="20160227080332030" title="$:/temp/advancedsearch">
-<pre>boot.js</pre>
+<div created="20160205081751366" modified="20160228032000376" title="$:/temp/advancedsearch">
+<pre>now.js</pre>
 </div>
 <div created="20160208023043988" modified="20160209205207676" title="$:/temp/authortools/blick">
 <pre></pre>
@@ -7800,7 +7802,7 @@ LOAD
 <div created="20160205082821981" modified="20160227083703584" title="$:/temp/notify">
 <pre>created photos/photo01.jpg (161272 bytes)</pre>
 </div>
-<div created="20160205232823187" modified="20160227080237668" title="$:/temp/search">
+<div created="20160205232823187" modified="20160228032000376" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20160205231132173" modified="20160210050735268" title="$:/temp/slidebars/debug">
@@ -7920,7 +7922,7 @@ LOAD
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20151016004738957" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20160227205307008" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -7992,7 +7994,7 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   var cameraOptions = {
     quality : quality,
     destinationType : Camera.DestinationType.DATA_URL,
-    sourceType : Camera.PictureSourceType.CAMERA,
+    sourceType : Camera.PictureSourceType.CAMERA|Camera.PictureSourceType.PHOTOLIBRARY|Camera.PictureSourceType.SAVEDPHOTOALBUM,
     encodingType: enctype,
     targetWidth: width,
     targetHeight: height,
@@ -8024,6 +8026,28 @@ exports[&quot;action-getpicture&quot;] = CameraGetPictureWidget;
     &quot;speed&quot;: 0,
     &quot;timestamp&quot;: 1454803896252
 }</pre>
+</div>
+<div created="20160228032016154" modified="20160228032456429" module-type="macro" tags="" title="Cordova/isCordova.js" type="application/javascript">
+<pre>/*\
+Cordova/isCordova.js
+type: application/javascript
+module-type: macro
+
+Macro to test if running inside a Cordova/PhoneGap wrapper.  Returns &quot;yes&quot; or &quot;no&quot;.
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+exports.name = &quot;isCordova&quot;;
+exports.params = [];
+exports.run = function(format) { return (typeof Cordova != 'undefined'?&quot;yes&quot;:&quot;no&quot;); };
+
+})();
+</pre>
 </div>
 <div created="20151017031322979" creator="EricShulman" modified="20151103202719921" modifier="EricShulman" module-type="DISABLED-startup" tags="" title="Cordova/noexit.js" type="application/javascript">
 <pre>/*\
@@ -8350,7 +8374,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160227084904929" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160228032623998" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
@@ -8372,7 +8396,9 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
       &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
          format=&lt;&lt;format&gt;&gt; width=&lt;&lt;width&gt;&gt; height=&lt;&lt;height&gt;&gt; quality=&lt;&lt;quality&gt;&gt; /&gt;
    &lt;/$button&gt;
-   &lt;$importfile tiddler=&lt;&lt;gettarget&gt;&gt; tag=&quot;photo&quot; accept=&quot;image/*, video/*, audio/*&quot; /&gt;
+   &lt;$reveal text=&lt;&lt;isCordova&gt;&gt; type=&quot;match&quot; default=&quot;no&quot;&gt;
+      &lt;$importfile tiddler=&lt;&lt;gettarget&gt;&gt; tag=&quot;photo&quot; accept=&quot;image/*, video/*, audio/*&quot; /&gt;
+   &lt;/$reveal&gt;
 &lt;/div&gt;
 \end
 
