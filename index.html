@@ -422,7 +422,7 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20151017063232716" modified="20160226210134756" title="$:/config/Camera" type="application/json">
+<div created="20151017063232716" modified="20160228034021250" title="$:/config/Camera" type="application/json">
 <pre>{
     &quot;name&quot;: &quot;photo&quot;,
     &quot;format&quot;: &quot;jpg&quot;,
@@ -430,7 +430,8 @@ Error message and password prompt
     &quot;height&quot;: &quot;384&quot;,
     &quot;quality&quot;: &quot;50&quot;,
     &quot;path&quot;: &quot;photos/&quot;,
-    &quot;counter&quot;: &quot;01&quot;
+    &quot;counter&quot;: &quot;01&quot;,
+    &quot;source&quot;: &quot;Camera.PictureSourceType.PHOTOLIBRARY&quot;
 }</pre>
 </div>
 <div created="20160209215425104" modified="20160219005857052" title="$:/config/curbside/fontsize">
@@ -515,7 +516,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160228032510248" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160228034629225" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -6988,7 +6989,7 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
     &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
-<div created="20160217200920719" modified="20160228032504671" title="$:/Geo/Data/Address" type="application/json">
+<div created="20160217200920719" modified="20160228034619494" title="$:/Geo/Data/Address" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
@@ -7799,7 +7800,7 @@ LOAD
 <div created="20160205085005903" modified="20160205085005903" title="$:/temp/MPAC/source">
 <pre>MPAC_AVM_12ClarkSecorOutput.xml</pre>
 </div>
-<div created="20160205082821981" modified="20160227083703584" title="$:/temp/notify">
+<div created="20160205082821981" modified="20160228032701230" title="$:/temp/notify">
 <pre>created photos/photo01.jpg (161272 bytes)</pre>
 </div>
 <div created="20160205232823187" modified="20160228032000376" title="$:/temp/search">
@@ -7922,7 +7923,7 @@ LOAD
     }
 }</pre>
 </div>
-<div created="20151015061102750" modified="20160227205307008" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
+<div created="20151015061102750" modified="20160228034341311" module-type="widget" tags="" title="Camera/action-getpicture.js" type="application/javascript">
 <pre>/*\
 title: Camera/action-getpicture.js
 type: application/javascript
@@ -7939,6 +7940,7 @@ width   = pixels for scaling target image (640)
 height  = pixels for scaling target image (384)
 format  = JPEG or PNG (JPEG)
 quality = 0-100 (50)
+source  = source of image (Camera.PictureSourceType.CAMERA or Camera.PictureSourceType.PHOTOLIBRARY)
 \*/
 
 (function(){
@@ -7962,7 +7964,8 @@ CameraGetPictureWidget.prototype.refresh = function(changedTiddlers) {
            || changedAttributes[&quot;width&quot;]
            || changedAttributes[&quot;height&quot;]
            || changedAttributes[&quot;format&quot;]
-           || changedAttributes[&quot;quality&quot;] ) {
+           || changedAttributes[&quot;quality&quot;]
+           || changedAttributes[&quot;source&quot;] ) {
 		this.refreshSelf();
 		return true;
 	}
@@ -7988,13 +7991,14 @@ CameraGetPictureWidget.prototype.invokeAction = function(triggeringWidget,event)
   var height  = this.getAttribute(&quot;height&quot;,384);
   var format  = this.getAttribute(&quot;format&quot;,&quot;jpg&quot;);
   var quality = this.getAttribute(&quot;quality&quot;,50);
+  var source  = this.getAttribute(&quot;source&quot;,Camera.PictureSourceType.CAMERA);
   var type    = (format==&quot;png&quot;)?&quot;image/png&quot;:&quot;image/jpeg&quot;;
   var enctype = (format==&quot;png&quot;)?Camera.EncodingType.PNG:Camera.EncodingType.JPEG;
 
   var cameraOptions = {
     quality : quality,
     destinationType : Camera.DestinationType.DATA_URL,
-    sourceType : Camera.PictureSourceType.CAMERA|Camera.PictureSourceType.PHOTOLIBRARY|Camera.PictureSourceType.SAVEDPHOTOALBUM,
+    sourceType : source,
     encodingType: enctype,
     targetWidth: width,
     targetHeight: height,
@@ -8374,7 +8378,7 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
    &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div caption="Camera" created="20160205084233633" modified="20160228032623998" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
+<div caption="Camera" created="20160205084233633" modified="20160228034551270" tags="$:/tags/TopLeftSlideBar" title="Dashboard/Camera">
 <pre>\define gettarget()  $(path)$$(name)$$(counter)$.$(format)$
 
 \define getname()
@@ -8393,8 +8397,10 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 &lt;div class=&quot;tc-file-input-wrapper&quot;&gt;
    &lt;$button tooltip=&quot;take a photo&quot;&gt;
       @@.greensvg $label$@@
-      &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt;
-         format=&lt;&lt;format&gt;&gt; width=&lt;&lt;width&gt;&gt; height=&lt;&lt;height&gt;&gt; quality=&lt;&lt;quality&gt;&gt; /&gt;
+      &lt;$reveal text=&lt;&lt;isCordova&gt;&gt; type=&quot;match&quot; default=&quot;yes&quot;&gt;
+         &lt;$action-getpicture tiddler=&lt;&lt;gettarget&gt;&gt; source=&lt;&lt;source&gt;&gt; 
+            format=&lt;&lt;format&gt;&gt; width=&lt;&lt;width&gt;&gt; height=&lt;&lt;height&gt;&gt; quality=&lt;&lt;quality&gt;&gt; /&gt;
+      &lt;/$reveal&gt;
    &lt;/$button&gt;
    &lt;$reveal text=&lt;&lt;isCordova&gt;&gt; type=&quot;match&quot; default=&quot;no&quot;&gt;
       &lt;$importfile tiddler=&lt;&lt;gettarget&gt;&gt; tag=&quot;photo&quot; accept=&quot;image/*, video/*, audio/*&quot; /&gt;
@@ -8481,6 +8487,13 @@ source: [ext[https://maps.googleapis.com/maps/api/geocode/json?latlng=$(latitude
 
 \define options()
 @@.nowrap
+source:&lt;br&gt; &amp;nbsp;
+&lt;$select index=&quot;source&quot; tiddler=&quot;$:/config/Camera&quot;&gt;
+   &lt;option value=&quot;Camera.PictureSourceType.CAMERA&quot;&gt;Camera device&lt;/option&gt;
+   &lt;option value=&quot;Camera.PictureSourceType.PHOTOLIBRARY&quot;&gt;Saved images&lt;/option&gt;
+&lt;/$select&gt;
+@@&lt;br&gt;
+@@.nowrap
 size: //(width X height)//&lt;br&gt; &amp;nbsp;
 &lt;$edit-text tag=&quot;input&quot; index=&quot;width&quot;
    tiddler=&quot;$:/config/Camera&quot; default=&quot;640&quot; size=&quot;3&quot; /&gt;
@@ -8537,7 +8550,8 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
            format={{$:/config/Camera##format}}
             width={{$:/config/Camera##width}}
            height={{$:/config/Camera##height}}
-          quality={{$:/config/Camera##quality}}&gt;
+          quality={{$:/config/Camera##quality}}
+           source={{$:/config/Camera##source}}&gt;
       &lt;&lt;selectpicture&gt;&gt;
       &lt;/$vars&gt;@@
    @@.floatright.nowrap 
@@ -8549,7 +8563,8 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
         format={{$:/config/Camera##format}}
          width={{$:/config/Camera##width}}
         height={{$:/config/Camera##height}}
-       quality={{$:/config/Camera##quality}}&gt;
+       quality={{$:/config/Camera##quality}}
+        source={{$:/config/Camera##source}}&gt;
    &lt;&lt;showpicture&gt;&gt;
    &lt;/$vars&gt;
 &lt;/div&gt;
