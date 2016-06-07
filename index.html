@@ -130,13 +130,15 @@ Error message and password prompt
 
 <li>$:/Address/Data/neighborhood</li>
 
-<li>$:/Address/Data/postal_code</li>
-
 <li>$:/Address/Data/postal_code_prefix</li>
+
+<li>$:/Address/Data/premise</li>
 
 <li>$:/Address/Data/street_address</li>
 
 <li>$:/Address/Data/sublocality_level_1</li>
+
+<li>$:/Address/Data/subway_station</li>
 
 <li>$:/config/Camera</li>
 
@@ -262,6 +264,8 @@ Error message and password prompt
 
 <li>$:/temp/focushack</li>
 
+<li>$:/temp/geo/newname</li>
+
 <li>$:/temp/info-plugin</li>
 
 <li>$:/temp/MPAC/source</li>
@@ -285,6 +289,10 @@ Error message and password prompt
 <li>$:/temp/workbook/caption</li>
 
 <li>$:/temp/workbook/Foo/selected</li>
+
+<li>$:/temp/workbook/MyData/selected</li>
+
+<li>$:/temp/workbook/MyData2/selected</li>
 
 <li>$:/temp/workbook/MyProject/selected</li>
 
@@ -514,29 +522,29 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20160519221355373" modified="20160606144512887" title="$:/Address/Data" type="application/json">
+<div created="20160606204010586" modified="20160607002043586" title="$:/Address/Data" type="application/json">
 <pre>{
    &quot;results&quot; : [
       {
          &quot;address_components&quot; : [
             {
-               &quot;long_name&quot; : &quot;14&quot;,
-               &quot;short_name&quot; : &quot;14&quot;,
+               &quot;long_name&quot; : &quot;700&quot;,
+               &quot;short_name&quot; : &quot;700&quot;,
                &quot;types&quot; : [ &quot;street_number&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;Clark Secor Place&quot;,
-               &quot;short_name&quot; : &quot;Clark Secor Pl&quot;,
+               &quot;long_name&quot; : &quot;University Avenue&quot;,
+               &quot;short_name&quot; : &quot;University Ave&quot;,
                &quot;types&quot; : [ &quot;route&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;Rouge&quot;,
-               &quot;short_name&quot; : &quot;Rouge&quot;,
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
                &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;Scarborough&quot;,
-               &quot;short_name&quot; : &quot;Scarborough&quot;,
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
                &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
             },
             {
@@ -560,42 +568,57 @@ Error message and password prompt
                &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;M1C 3L3&quot;,
-               &quot;short_name&quot; : &quot;M1C 3L3&quot;,
-               &quot;types&quot; : [ &quot;postal_code&quot; ]
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
             }
          ],
-         &quot;formatted_address&quot; : &quot;14 Clark Secor Pl, Scarborough, ON M1C 3L3, Canada&quot;,
+         &quot;formatted_address&quot; : &quot;700 University Ave, Toronto, ON M5G, Canada&quot;,
          &quot;geometry&quot; : {
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.7900171,
-               &quot;lng&quot; : -79.13483939999999
-            },
-            &quot;location_type&quot; : &quot;ROOFTOP&quot;,
-            &quot;viewport&quot; : {
+            &quot;bounds&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.7913660802915,
-                  &quot;lng&quot; : -79.13349041970848
+                  &quot;lat&quot; : 43.659829,
+                  &quot;lng&quot; : -79.39033049999999
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.7886681197085,
-                  &quot;lng&quot; : -79.1361883802915
+                  &quot;lat&quot; : 43.6592045,
+                  &quot;lng&quot; : -79.39059999999999
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6597929,
+               &quot;lng&quot; : -79.39060409999999
+            },
+            &quot;location_type&quot; : &quot;RANGE_INTERPOLATED&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6608657302915,
+                  &quot;lng&quot; : -79.3891162697085
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.65816776970851,
+                  &quot;lng&quot; : -79.3918142302915
                }
             }
          },
-         &quot;place_id&quot; : &quot;ChIJV7nHpsHb1IkRSoAIVDVsNeE&quot;,
+         &quot;place_id&quot; : &quot;Eis3MDAgVW5pdmVyc2l0eSBBdmUsIFRvcm9udG8sIE9OIE01RywgQ2FuYWRh&quot;,
          &quot;types&quot; : [ &quot;street_address&quot; ]
       },
       {
          &quot;address_components&quot; : [
             {
-               &quot;long_name&quot; : &quot;West Rouge&quot;,
-               &quot;short_name&quot; : &quot;West Rouge&quot;,
+               &quot;long_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
+               &quot;short_name&quot; : &quot;Leslie Dan Faculty of Pharmacy&quot;,
+               &quot;types&quot; : [ &quot;premise&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;University&quot;,
+               &quot;short_name&quot; : &quot;University&quot;,
                &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;Scarborough&quot;,
-               &quot;short_name&quot; : &quot;Scarborough&quot;,
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
                &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
             },
             {
@@ -619,52 +642,111 @@ Error message and password prompt
                &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;M1C&quot;,
-               &quot;short_name&quot; : &quot;M1C&quot;,
+               &quot;long_name&quot; : &quot;M5S&quot;,
+               &quot;short_name&quot; : &quot;M5S&quot;,
                &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
             }
          ],
-         &quot;formatted_address&quot; : &quot;West Rouge, Toronto, ON M1C, Canada&quot;,
+         &quot;formatted_address&quot; : &quot;Leslie Dan Faculty of Pharmacy, Toronto, ON M5S, Canada&quot;,
          &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.80459210000001,
-                  &quot;lng&quot; : -79.1161286
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.774859,
-                  &quot;lng&quot; : -79.1436848
-               }
-            },
             &quot;location&quot; : {
-               &quot;lat&quot; : 43.794719,
-               &quot;lng&quot; : -79.134478
+               &quot;lat&quot; : 43.659835,
+               &quot;lng&quot; : -79.391122
             },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;location_type&quot; : &quot;ROOFTOP&quot;,
             &quot;viewport&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.80459210000001,
-                  &quot;lng&quot; : -79.1161286
+                  &quot;lat&quot; : 43.6611839802915,
+                  &quot;lng&quot; : -79.38977301970849
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.774859,
-                  &quot;lng&quot; : -79.1436848
+                  &quot;lat&quot; : 43.6584860197085,
+                  &quot;lng&quot; : -79.39247098029151
                }
             }
          },
-         &quot;place_id&quot; : &quot;ChIJGX8vRurb1IkRbrWRAzccRVI&quot;,
-         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+         &quot;place_id&quot; : &quot;ChIJWZmQ-7c0K4gR3jTwl2b5dRY&quot;,
+         &quot;types&quot; : [ &quot;premise&quot; ]
       },
       {
          &quot;address_components&quot; : [
             {
-               &quot;long_name&quot; : &quot;Rouge&quot;,
-               &quot;short_name&quot; : &quot;Rouge&quot;,
+               &quot;long_name&quot; : &quot;Queen's Park Station&quot;,
+               &quot;short_name&quot; : &quot;Queen's Park Station&quot;,
+               &quot;types&quot; : [ &quot;point_of_interest&quot;, &quot;establishment&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Bay Cloverhill&quot;,
+               &quot;short_name&quot; : &quot;Bay Cloverhill&quot;,
                &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;Scarborough&quot;,
-               &quot;short_name&quot; : &quot;Scarborough&quot;,
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;M5S&quot;,
+               &quot;short_name&quot; : &quot;M5S&quot;,
+               &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Queen's Park Station, Toronto, ON M5S, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6598804,
+               &quot;lng&quot; : -79.3904768
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.6612293802915,
+                  &quot;lng&quot; : -79.38912781970851
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6585314197085,
+                  &quot;lng&quot; : -79.39182578029151
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJbY5c5Lc0K4gRAgWZau0Nufw&quot;,
+         &quot;types&quot; : [
+            &quot;subway_station&quot;,
+            &quot;transit_station&quot;,
+            &quot;point_of_interest&quot;,
+            &quot;establishment&quot;
+         ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Discovery District&quot;,
+               &quot;short_name&quot; : &quot;Discovery District&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
                &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
             },
             {
@@ -688,42 +770,47 @@ Error message and password prompt
                &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
             }
          ],
-         &quot;formatted_address&quot; : &quot;Rouge, Toronto, ON, Canada&quot;,
+         &quot;formatted_address&quot; : &quot;Discovery District, Toronto, ON, Canada&quot;,
          &quot;geometry&quot; : {
             &quot;bounds&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.855448,
-                  &quot;lng&quot; : -79.1168404
+                  &quot;lat&quot; : 43.6630908,
+                  &quot;lng&quot; : -79.3843102
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.7749365,
-                  &quot;lng&quot; : -79.25125109999999
+                  &quot;lat&quot; : 43.6557481,
+                  &quot;lng&quot; : -79.40053210000001
                }
             },
             &quot;location&quot; : {
-               &quot;lat&quot; : 43.804929,
-               &quot;lng&quot; : -79.165842
+               &quot;lat&quot; : 43.6603242,
+               &quot;lng&quot; : -79.3937162
             },
             &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
             &quot;viewport&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.855448,
-                  &quot;lng&quot; : -79.1168404
+                  &quot;lat&quot; : 43.6630908,
+                  &quot;lng&quot; : -79.3843102
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.7749365,
-                  &quot;lng&quot; : -79.25125109999999
+                  &quot;lat&quot; : 43.6557481,
+                  &quot;lng&quot; : -79.40053210000001
                }
             }
          },
-         &quot;place_id&quot; : &quot;ChIJcVU-fZfZ1IkRWtOWckX72A4&quot;,
+         &quot;place_id&quot; : &quot;ChIJY9gBJ8g0K4gRwfKR3nQauiI&quot;,
          &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
       },
       {
          &quot;address_components&quot; : [
             {
-               &quot;long_name&quot; : &quot;Scarborough&quot;,
-               &quot;short_name&quot; : &quot;Scarborough&quot;,
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
                &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
             },
             {
@@ -747,35 +834,94 @@ Error message and password prompt
                &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
             }
          ],
-         &quot;formatted_address&quot; : &quot;Scarborough, Toronto, ON, Canada&quot;,
+         &quot;formatted_address&quot; : &quot;Downtown, Toronto, ON, Canada&quot;,
          &quot;geometry&quot; : {
             &quot;bounds&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554447,
-                  &quot;lng&quot; : -79.1161286
+                  &quot;lat&quot; : 43.6755833,
+                  &quot;lng&quot; : -79.3470176
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.671154,
-                  &quot;lng&quot; : -79.341341
+                  &quot;lat&quot; : 43.6339328,
+                  &quot;lng&quot; : -79.41131710000001
                }
             },
             &quot;location&quot; : {
-               &quot;lat&quot; : 43.7764258,
-               &quot;lng&quot; : -79.23175209999999
+               &quot;lat&quot; : 43.654262,
+               &quot;lng&quot; : -79.385975
             },
             &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
             &quot;viewport&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.8554447,
-                  &quot;lng&quot; : -79.1161286
+                  &quot;lat&quot; : 43.6755833,
+                  &quot;lng&quot; : -79.3470176
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.671154,
-                  &quot;lng&quot; : -79.341341
+                  &quot;lat&quot; : 43.6339328,
+                  &quot;lng&quot; : -79.41131710000001
                }
             }
          },
-         &quot;place_id&quot; : &quot;ChIJCbZmnl7Q1IkRe4BHJM5jbvA&quot;,
+         &quot;place_id&quot; : &quot;ChIJvRBz0jTL1IkRkwMHIgbSFbo&quot;,
+         &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+      },
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
+               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto&quot;,
+               &quot;short_name&quot; : &quot;Toronto&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Toronto Division&quot;,
+               &quot;short_name&quot; : &quot;Toronto Division&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Ontario&quot;,
+               &quot;short_name&quot; : &quot;ON&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Canada&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;Old Toronto, Toronto, ON, Canada&quot;,
+         &quot;geometry&quot; : {
+            &quot;bounds&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.75373099999999,
+                  &quot;lng&quot; : -79.27971699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6118399,
+                  &quot;lng&quot; : -79.491969
+               }
+            },
+            &quot;location&quot; : {
+               &quot;lat&quot; : 43.6486795,
+               &quot;lng&quot; : -79.3803231
+            },
+            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 43.75373099999999,
+                  &quot;lng&quot; : -79.27971699999999
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 43.6118399,
+                  &quot;lng&quot; : -79.491969
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ2YVS1Po0K4gR8_c5_bvmDW4&quot;,
          &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
       },
       {
@@ -835,82 +981,18 @@ Error message and password prompt
       {
          &quot;address_components&quot; : [
             {
-               &quot;long_name&quot; : &quot;M1C 3L3&quot;,
-               &quot;short_name&quot; : &quot;M1C 3L3&quot;,
-               &quot;types&quot; : [ &quot;postal_code&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Rouge&quot;,
-               &quot;short_name&quot; : &quot;Rouge&quot;,
-               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Scarborough&quot;,
-               &quot;short_name&quot; : &quot;Scarborough&quot;,
-               &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto&quot;,
-               &quot;short_name&quot; : &quot;Toronto&quot;,
-               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Toronto Division&quot;,
-               &quot;short_name&quot; : &quot;Toronto Division&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Ontario&quot;,
-               &quot;short_name&quot; : &quot;ON&quot;,
-               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
-            },
-            {
-               &quot;long_name&quot; : &quot;Canada&quot;,
-               &quot;short_name&quot; : &quot;CA&quot;,
-               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
-            }
-         ],
-         &quot;formatted_address&quot; : &quot;Scarborough, ON M1C 3L3, Canada&quot;,
-         &quot;geometry&quot; : {
-            &quot;bounds&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.79052249999999,
-                  &quot;lng&quot; : -79.13386269999999
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.78920309999999,
-                  &quot;lng&quot; : -79.13556109999999
-               }
-            },
-            &quot;location&quot; : {
-               &quot;lat&quot; : 43.7898521,
-               &quot;lng&quot; : -79.134215
-            },
-            &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
-            &quot;viewport&quot; : {
-               &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.7912117802915,
-                  &quot;lng&quot; : -79.13336291970849
-               },
-               &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.7885138197085,
-                  &quot;lng&quot; : -79.1360608802915
-               }
-            }
-         },
-         &quot;place_id&quot; : &quot;ChIJvZXKBMHb1IkRTuVtUjNZ9cA&quot;,
-         &quot;types&quot; : [ &quot;postal_code&quot; ]
-      },
-      {
-         &quot;address_components&quot; : [
-            {
-               &quot;long_name&quot; : &quot;M1C&quot;,
-               &quot;short_name&quot; : &quot;M1C&quot;,
+               &quot;long_name&quot; : &quot;M5G&quot;,
+               &quot;short_name&quot; : &quot;M5G&quot;,
                &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
             },
             {
-               &quot;long_name&quot; : &quot;Scarborough&quot;,
-               &quot;short_name&quot; : &quot;Scarborough&quot;,
+               &quot;long_name&quot; : &quot;Downtown&quot;,
+               &quot;short_name&quot; : &quot;Downtown&quot;,
+               &quot;types&quot; : [ &quot;neighborhood&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Old Toronto&quot;,
+               &quot;short_name&quot; : &quot;Old Toronto&quot;,
                &quot;types&quot; : [ &quot;sublocality_level_1&quot;, &quot;sublocality&quot;, &quot;political&quot; ]
             },
             {
@@ -934,35 +1016,35 @@ Error message and password prompt
                &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
             }
          ],
-         &quot;formatted_address&quot; : &quot;Scarborough, ON M1C, Canada&quot;,
+         &quot;formatted_address&quot; : &quot;Toronto, ON M5G, Canada&quot;,
          &quot;geometry&quot; : {
             &quot;bounds&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.80448,
-                  &quot;lng&quot; : -79.1158331
+                  &quot;lat&quot; : 43.662463,
+                  &quot;lng&quot; : -79.380601
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.767001,
-                  &quot;lng&quot; : -79.19707799999999
+                  &quot;lat&quot; : 43.6511301,
+                  &quot;lng&quot; : -79.39171899999999
                }
             },
             &quot;location&quot; : {
-               &quot;lat&quot; : 43.78453510000001,
-               &quot;lng&quot; : -79.1604971
+               &quot;lat&quot; : 43.6579524,
+               &quot;lng&quot; : -79.3873826
             },
             &quot;location_type&quot; : &quot;APPROXIMATE&quot;,
             &quot;viewport&quot; : {
                &quot;northeast&quot; : {
-                  &quot;lat&quot; : 43.80448,
-                  &quot;lng&quot; : -79.1158331
+                  &quot;lat&quot; : 43.662463,
+                  &quot;lng&quot; : -79.380601
                },
                &quot;southwest&quot; : {
-                  &quot;lat&quot; : 43.767001,
-                  &quot;lng&quot; : -79.19707799999999
+                  &quot;lat&quot; : 43.6511301,
+                  &quot;lng&quot; : -79.39171899999999
                }
             }
          },
-         &quot;place_id&quot; : &quot;ChIJ88T5Fkva1IkRCxaH2rgZuR4&quot;,
+         &quot;place_id&quot; : &quot;ChIJQ4yqgck0K4gR1f-j38zDpt0&quot;,
          &quot;types&quot; : [ &quot;postal_code_prefix&quot;, &quot;postal_code&quot; ]
       },
       {
@@ -1102,32 +1184,35 @@ Error message and password prompt
 }
 </pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/administrative_area_level_1">
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/administrative_area_level_1">
 <pre>Ontario, Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/administrative_area_level_2">
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/administrative_area_level_2">
 <pre>Toronto Division, ON, Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/country">
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/country">
 <pre>Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/locality">
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/locality">
 <pre>Toronto, ON, Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/neighborhood">
-<pre>Rouge, Toronto, ON, Canada</pre>
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/neighborhood">
+<pre>Downtown, Toronto, ON, Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/postal_code">
-<pre>Scarborough, ON M1C 3L3, Canada</pre>
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/postal_code_prefix">
+<pre>Toronto, ON M5G, Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/postal_code_prefix">
-<pre>Scarborough, ON M1C, Canada</pre>
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/premise">
+<pre>Leslie Dan Faculty of Pharmacy, Toronto, ON M5S, Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/street_address">
-<pre>14 Clark Secor Pl, Scarborough, ON M1C 3L3, Canada</pre>
+<div created="20160607002043586" modified="20160607002043586" title="$:/Address/Data/street_address">
+<pre>700 University Ave, Toronto, ON M5G, Canada</pre>
 </div>
-<div created="20160606144512888" modified="20160606144512888" title="$:/Address/Data/sublocality_level_1">
-<pre>Scarborough, Toronto, ON, Canada</pre>
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/sublocality_level_1">
+<pre>Old Toronto, Toronto, ON, Canada</pre>
+</div>
+<div created="20160607002043587" modified="20160607002043587" title="$:/Address/Data/subway_station">
+<pre>Queen's Park Station, Toronto, ON M5S, Canada</pre>
 </div>
 <div created="20151017063232716" modified="20160520050723113" title="$:/config/Camera" type="application/json">
 <pre>{
@@ -1224,7 +1309,7 @@ Error message and password prompt
     &quot;ReportType&quot;: &quot;FULLREPORT&quot;
 }</pre>
 </div>
-<div created="20160205054952899" modified="20160606150609366" title="$:/config/TiddlyTools" type="application/json">
+<div created="20160205054952899" modified="20160607002716569" title="$:/config/TiddlyTools" type="application/json">
 <pre>{
     &quot;Hmargin&quot;: &quot;2.5em&quot;,
     &quot;Vmargin&quot;: &quot;2.5em&quot;,
@@ -8352,10 +8437,10 @@ exports[&quot;edit-text&quot;] = EditTextWidget;
 <div created="20150623224550947" modified="20160527220556559" title="$:/DefaultTiddlers">
 <pre></pre>
 </div>
-<div created="20160507040624406" modified="20160603010058465" title="$:/Geo/Data" type="application/json">
+<div created="20160507040624406" modified="20160607002042098" title="$:/Geo/Data" type="application/json">
 <pre>{
-    &quot;latitude&quot;: &quot;43.790080&quot;,
-    &quot;longitude&quot;: &quot;-79.134589&quot;
+    &quot;latitude&quot;: &quot;43.659797&quot;,
+    &quot;longitude&quot;: &quot;-79.390586&quot;
 }</pre>
 </div>
 <div status="complete" title="$:/Import">
@@ -8447,8 +8532,8 @@ LOAD
 <div created="20160205061544691" modified="20160516072058474" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div created="20160602094402821" modified="20160606150052103" title="$:/state/tab-467716746">
-<pre>MyData</pre>
+<div created="20160602094402821" modified="20160607002904072" title="$:/state/tab-467716746">
+<pre>MyData2</pre>
 </div>
 <div created="20160206155829393" modified="20160217200452839" title="$:/state/tab/moresidebar--1669835544">
 <pre>$:/core/ui/MoreSideBar/System</pre>
@@ -8495,14 +8580,17 @@ LOAD
 <div list="" title="$:/StoryList">
 <pre></pre>
 </div>
-<div created="20160205081751366" modified="20160518212344473" title="$:/temp/advancedsearch">
-<pre>core/images/de</pre>
+<div created="20160205081751366" modified="20160606203411205" title="$:/temp/advancedsearch">
+<pre>core/images/</pre>
 </div>
 <div created="20160208023043988" index="" modified="20160601070321461" title="$:/temp/authortools/blick">
 <pre></pre>
 </div>
 <div created="20160218003308775" modified="20160219010814823" title="$:/temp/focushack">
 <pre>from AuthorToolBar</pre>
+</div>
+<div created="20160607000700632" modified="20160607000701149" title="$:/temp/geo/newname">
+<pre>Test</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -8521,7 +8609,7 @@ LOAD
 <div created="20160205085005903" modified="20160205085005903" title="$:/temp/MPAC/source">
 <pre>MPAC_AVM_12ClarkSecorOutput.xml</pre>
 </div>
-<div created="20160205082821981" modified="20160520051537823" title="$:/temp/notify">
+<div created="20160205082821981" modified="20160607001934883" title="$:/temp/notify">
 <pre>Requesting Geolocation data...</pre>
 </div>
 <div created="20160205232823187" modified="20160603051207547" title="$:/temp/search">
@@ -8545,11 +8633,17 @@ LOAD
 <div created="20160527213431849" modified="20160527213431849" title="$:/temp/workbook//selected">
 <pre></pre>
 </div>
-<div created="20160601052856322" modified="20160606150042524" title="$:/temp/workbook/caption">
-<pre>Sample workbook</pre>
+<div created="20160601052856322" modified="20160607002216811" title="$:/temp/workbook/caption">
+<pre>testbook</pre>
 </div>
 <div created="20160528032727579" modified="20160528032809795" title="$:/temp/workbook/Foo/selected">
 <pre></pre>
+</div>
+<div created="20160606202042416" modified="20160606204246243" title="$:/temp/workbook/MyData/selected">
+<pre>MyData/GeoLocation/20160606134109</pre>
+</div>
+<div created="20160607002710858" modified="20160607002710858" title="$:/temp/workbook/MyData2/selected">
+<pre>MyData2/GeoLocation/20160606172636</pre>
 </div>
 <div created="20160523085214348" modified="20160603051008131" title="$:/temp/workbook/MyProject/selected">
 <pre>MyProject/GeoLocation/20160602175832</pre>
@@ -8557,8 +8651,8 @@ LOAD
 <div created="20160603003311119" modified="20160603003541512" title="$:/temp/workbook/MyProject2/selected">
 <pre></pre>
 </div>
-<div created="20160519224510311" index="" modified="20160606150025086" title="$:/temp/workbook/name">
-<pre>MyData</pre>
+<div created="20160519224510311" index="" modified="20160607002210200" title="$:/temp/workbook/name">
+<pre>MyData2</pre>
 </div>
 <div created="20160601052901157" modified="20160601052903620" title="$:/temp/workbook/name/new">
 <pre></pre>
@@ -9250,7 +9344,7 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
 &lt;!-- THIS EDIT FIELD EXISTS SO THAT BUTTONS CAN &quot;BLUR&quot; THEMSELVES BY SETTING $:/temp/focushack --&gt;
 &lt;$set name=&quot;refresh_hack&quot; value={{$:/temp/focushack}}&gt;&lt;$edit-text tag=&quot;input&quot; tiddler=&quot;$:/temp/focushack&quot; focus=&quot;true&quot;/&gt;&lt;/$set&gt;@@</pre>
 </div>
-<div caption="GeoLocation" created="20151009192708809" modified="20160507025803616" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
+<div caption="GeoLocation" created="20151009192708809" modified="20160607002022067" tags="$:/tags/TopSlideBar" title="Dashboard/GeoLocation">
 <pre>\define target() $:/Geo/Data
 
 \define msg(txt)
@@ -9298,29 +9392,40 @@ path: //(name prefix)//&lt;br&gt; &amp;nbsp;
    format=&quot;date&quot; template=&quot;YYYY.0MM.0DD 0hh:0mm:0ss&quot;/&gt;&lt;/nobr&gt;
 \end
 
-\define saveGeo(label:&quot;save&quot;)
-&lt;$button tooltip=&quot;save current geolocation data&quot;
-   message=&quot;tm-new-tiddler&quot; param=&lt;&lt;target&gt;&gt;&gt;
-   $label$
-&lt;/$button&gt;
+\define saveGeo()
+&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/geo/save&quot;&gt;&gt; tooltip=&quot;save GeoLocation&quot;&gt; {{$:/core/images/save-button}} &lt;/$button&gt;
+&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/geo/save&quot;&gt;&gt; type=&quot;popup&quot; class=&quot;tt-shadowbox tc-popup-keep nowrap&quot; position=&quot;belowleft&quot;&gt;
+   ''save a location:&lt;br&gt;''
+   &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      &lt;div style=&quot;display:inline-block&quot;&gt;,,location name:,,&lt;br&gt;
+         &lt;$edit-text tiddler=&quot;$:/temp/geo/newname&quot;    tag=&quot;input&quot;
+            placeholder=&quot;name&quot;        default=&quot;&quot; style=&quot;width:20em&quot; tooltip=&quot;location name&quot;/&gt;
+      &lt;/div&gt;&lt;br&gt;
+      &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/geo/save&quot;&gt;&gt; setTo=&quot;&quot;&gt; cancel &lt;/$button&gt;
+      &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/geo/save&quot;&gt;&gt; setTo=&quot;&quot;&gt; &amp;emsp; ok &amp;emsp;
+         &lt;$action-setfield $tiddler={{$:/temp/geo/newname}}
+            text={{$(target)$}} tags=&quot;location&quot; /&gt;
+      &lt;/$button&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;
 \end
 
 \define loadGeo()
-&lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
-   &lt;div&gt;&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-      &lt;$view field=&quot;title&quot;/&gt;
-      &lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
-   &lt;/$button&gt;&lt;/div&gt;
-&lt;/$list&gt;
-\end
-
-\define deleteGeo()
-&lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
-   &lt;div&gt;&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
-      &lt;$view field=&quot;title&quot;/&gt;
-      &lt;$action-deletetiddler $tiddler={{!!title}}/&gt;
-   &lt;/$button&gt;&lt;/div&gt;
-&lt;/$list&gt;
+&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/geo/load&quot;&gt;&gt; tooltip=&quot;load GeoLocation&quot;&gt; {{$:/core/images/download-button}} &lt;/$button&gt;
+&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/geo/load&quot;&gt;&gt; type=&quot;popup&quot; class=&quot;tt-shadowbox nowrap&quot; position=&quot;belowleft&quot;&gt;
+   ''saved locations:&lt;br&gt;''
+   &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      &lt;$list filter=&quot;[tag[location]sort[]] -[&lt;target&gt;]&quot;&gt;
+         &lt;div&gt;&lt;$button class=&quot;tc-btn-invisible&quot; style=&quot;float:right;&quot;&gt;
+            {{$:/core/images/delete-button}}
+            &lt;$action-deletetiddler $tiddler={{!!title}}/&gt;
+         &lt;/$button&gt;&lt;$button class=&quot;tc-btn-invisible&quot;&gt;
+            &lt;$view field=&quot;title&quot;/&gt;
+            &lt;$action-setfield $tiddler=&lt;&lt;target&gt;&gt; $value={{!!text}}/&gt;
+         &lt;/$button&gt;&amp;emsp;&lt;/div&gt;
+      &lt;/$list&gt;
+   &lt;/div&gt;
+&lt;/$reveal&gt;
 \end
 
 \define options()
@@ -9349,35 +9454,19 @@ timeout:&lt;br&gt;
 &lt;div class=&lt;&lt;outerclass&gt;&gt; style=&lt;&lt;outerstyle&gt;&gt;&gt;
    &lt;div class=&quot;smaller nowrap&quot;&gt;
    {{||TiddlyTools/SlideBars/Titlebar}}
-   &amp;nbsp; &lt;&lt;getGeo&gt;&gt; &lt;&lt;startstopGeo&gt;&gt; ,,&lt;&lt;showTimestamp&gt;&gt;,, &amp;nbsp;
    &lt;/div&gt;
    @@display:block;clear:both;@@
    &lt;div class=&lt;&lt;innerclass&gt;&gt; style=&lt;&lt;innerstyle&gt;&gt;&gt;
-   &lt;table style=&quot;width:100%&quot; class=&quot;borderless nowrap&quot;&gt;&lt;tr&gt;&lt;td style=&quot;text-align:left;&quot;&gt;
-      latitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-         tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot; placeholder=&quot;latitude&quot;/&gt;
-      longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot;
-         tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;
-      &amp;nbsp;
-   &lt;/td&gt;&lt;td style=&quot;text-align:right&quot;&gt;
-      &lt;&lt;saveGeo label:&quot;{{$:/core/images/save-button}}&quot;&gt;&gt;
-      &lt;&lt;dashboardpopup id:&quot;GeoLocation/Load&quot;
-         buttonclass:&quot; &quot; popupclass:&quot; &quot;
-         label:&quot;{{$:/core/images/download-button}}&quot;
-         title:&quot;select a saved location&quot;
-         position:&quot;belowleft&quot;
-         content:&quot;loadGeo&quot;&gt;&gt;
-      &lt;&lt;dashboardpopup id:&quot;GeoLocation/Delete&quot;
-         buttonclass:&quot; &quot; popupclass:&quot; &quot;
-         label:&quot;{{$:/core/images/delete-button}}&quot;
-         title:&quot;delete a saved location&quot;
-         position:&quot;belowleft&quot;
-         content:&quot;deleteGeo&quot;&gt;&gt;
-   &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-   @@display:block;clear:both;height:0.25em;@@
-   &lt;$edit-text tag=&quot;textarea&quot; class=&quot;width100&quot;
-      tiddler=&lt;&lt;target&gt;&gt; index=&quot;notes&quot; default=&quot;&quot; placeholder=&quot;enter notes about this location&quot; /&gt;
-&lt;/div&gt;
+      @@display:block;float:left;  &lt;&lt;getGeo&gt;&gt;  &lt;&lt;startstopGeo&gt;&gt; @@
+      @@display:block;float:right; &lt;&lt;saveGeo&gt;&gt; &lt;&lt;loadGeo&gt;&gt;      @@
+      @@display:block;clear:both;height:0.25em;@@
+      latitude:  &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot; tiddler=&lt;&lt;target&gt;&gt; index=&quot;latitude&quot;  placeholder=&quot;latitude&quot;/&gt;
+      longitude: &lt;$edit-text tag=&quot;input&quot; size=&quot;8&quot; tiddler=&lt;&lt;target&gt;&gt; index=&quot;longitude&quot; placeholder=&quot;longitude&quot;/&gt;&lt;br&gt;
+      @@display:block;clear:both;height:0.25em;@@
+      &lt;$edit-text tiddler=&lt;&lt;target&gt;&gt; index=&quot;notes&quot; tag=&quot;textarea&quot; class=&quot;width100&quot;
+         default=&quot;&quot; placeholder=&quot;enter notes about this location&quot; /&gt;
+      @@.center ,,last update: &lt;&lt;showTimestamp&gt;&gt;,,@@
+   &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
 <div created="20160211093109866" modified="20160212141826299" title="Dashboard/Help">
@@ -13605,7 +13694,7 @@ YellowGreen
 \end
 &lt;&lt;show&gt;&gt;</pre>
 </div>
-<div created="20160507022645744" creator="EricShulman" modified="20160606145859792" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Buttons/CopyData">
+<div created="20160507022645744" creator="EricShulman" modified="20160607002631311" modifier="EricShulman" tags="" title="TiddlyTools/SlideBars/Buttons/CopyData">
 <pre>\define copydata()
 &lt;$list filter=&quot;&quot;&quot;$(panel_data)$ +[limit[1]]&quot;&quot;&quot;&gt;
    &lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/copydata&quot;&gt;&gt;
@@ -13614,17 +13703,19 @@ YellowGreen
    &lt;/$button&gt;
    &lt;$reveal type=&quot;popup&quot; position=&quot;belowleft&quot; state=&lt;&lt;qualify &quot;$:/state/popup/copydata&quot;&gt;&gt;
       class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;padding:0.5em;text-align:left;width:auto;&quot;&gt;
-      &lt;$button class=&quot;tc-btn-invisible&quot; style=&quot;white-space:nowrap&quot; tooltip=&quot;close panel&quot;&gt;
-         {{$:/core/images/cancel-button}}
-         ''&lt;$text text=&quot;&quot;&quot;Copy $(panel_title)$ data&quot;&quot;&quot;/&gt;''
-         &lt;$action-deletetiddler $tiddler=&lt;&lt;qualify &quot;$:/state/popup/slidebars/help&quot;&gt;&gt;/&gt;
-      &lt;/$button&gt;
+      ''&lt;$text text=&quot;&quot;&quot;Copy $(panel_title)$ data&quot;&quot;&quot;/&gt;''
       &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;clear:both;width:auto;&quot;&gt;
-         from ''&lt;$text text=&quot;&quot;&quot;$(panel_data)$&quot;&quot;&quot;/&gt;''&lt;br&gt;to:
+         Copy ''&lt;$text text=&quot;&quot;&quot;$(panel_data)$&quot;&quot;&quot;/&gt;'' to&lt;br&gt;
          &lt;$list filter=&quot;[tag[workbook]limit[1]]&quot;
             emptyMessage=&quot;&quot;&quot;
-               &lt;$edit-text tiddler=&quot;$:/temp/workbook/name&quot;    tag=&quot;input&quot; placeholder=&quot;name&quot;        default=&quot;&quot; style=&quot;width:20em&quot; tooltip=&quot;workbook name&quot;/&gt;
-               &lt;$edit-text tiddler=&quot;$:/temp/workbook/caption&quot; tag=&quot;input&quot; placeholder=&quot;description&quot; default=&quot;&quot; style=&quot;width:20em&quot; tooltip=&quot;workbook description&quot; /&gt;
+               &lt;div style=&quot;display:inline-block&quot;&gt;,,workbook name:,,&lt;br&gt;
+                  &lt;$edit-text tiddler=&quot;$:/temp/workbook/name&quot;    tag=&quot;input&quot;
+                     placeholder=&quot;name&quot;        default=&quot;&quot; style=&quot;width:20em&quot; tooltip=&quot;workbook name&quot;/&gt;
+               &lt;/div&gt;
+               &lt;div style=&quot;display:inline-block&quot;&gt;,,workbook description:,,&lt;br&gt;
+                  &lt;$edit-text tiddler=&quot;$:/temp/workbook/caption&quot; tag=&quot;input&quot;
+                     placeholder=&quot;description&quot; default=&quot;&quot; style=&quot;width:20em&quot; tooltip=&quot;workbook description&quot; /&gt;
+               &lt;/div&gt;
             &quot;&quot;&quot;&gt;
             &lt;$select tiddler=&quot;$:/temp/workbook/name&quot; style=&quot;width:20em&quot;&gt;
                &lt;$list filter=&quot;[tag[workbook]]&quot;&gt;&lt;option value=&lt;&lt;currentTiddler&gt;&gt;&gt;&lt;&lt;currentTiddler&gt;&gt;: &quot;&lt;$view field=&quot;caption&quot;/&gt;&quot;&lt;/option&gt;&lt;/$list&gt;
@@ -13647,6 +13738,7 @@ YellowGreen
                &lt;/$list&gt;
             &lt;/$list&gt;
             &lt;/$vars&gt;
+            &lt;$action-deletetiddler $tiddler=&lt;&lt;qualify &quot;$:/state/popup/copydata&quot;&gt;&gt;/&gt;
          &lt;/$button&gt;
       &lt;/div&gt;
    &lt;/$reveal&gt;
@@ -14452,16 +14544,16 @@ exports[&quot;importfile&quot;]= ImportFileWidget;
 
 {{Workbook/Controls/Select}} {{Workbook/Controls/New}}{{Workbook/Controls/Save}}{{Workbook/Controls/Load}}{{Workbook/Controls/Delete}}{{Workbook/Controls/Share}}</pre>
 </div>
-<div created="20160603000938385" modified="20160606151417548" tags="" title="Workbook/Controls/Delete">
+<div created="20160603000938385" modified="20160606203326611" tags="" title="Workbook/Controls/Delete">
 <pre>\define centerbox() display:block;z-index:1500;position:fixed;top:50vh;left:50vw;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);
 
 \define makefilter_list()   [prefix[$(workbookname)$/]]
 \define makefilter_delete() [prefix[$(workbookname)$/]] [title[$(workbookname)$]]
 
-&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/delete&quot;&gt;&gt; tooltip=&quot;delete workbook&quot; xclass=&quot;tc-btn-invisible&quot;&gt; delete &lt;/$button&gt;
+&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/delete&quot;&gt;&gt; tooltip=&quot;delete workbook&quot; xclass=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/delete-button}} &lt;/$button&gt;
 &lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/workbook/delete&quot;&gt;&gt; type=&quot;popup&quot; text=&quot;&quot; class=&quot;tt-shadowbox tc-popup-keep&quot; style=&quot;text-align:left;&quot; position=&quot;belowleft&quot;&gt;
    ''delete a workbook:&lt;br&gt;''
-   &lt;div class=&quot;tt-shadowbox inset smaller&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox inset smaller nowrap&quot;&gt;
       Are you sure you want to permanently delete&lt;br&gt;
       &lt;blockquote&gt;&lt;$tiddler tiddler=&lt;&lt;workbookname&gt;&gt;&gt;&lt;$link&gt;&lt;$text text=&lt;&lt;workbookname&gt;&gt;/&gt;&lt;/$link&gt;: &quot;&lt;$view field=&quot;caption&quot;/&gt;&quot;&lt;/$tiddler&gt;&lt;/blockquote&gt;
       including all collected data items:&lt;br&gt;
@@ -14473,8 +14565,8 @@ exports[&quot;importfile&quot;]= ImportFileWidget;
    &lt;/div&gt;
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20160603000906577" modified="20160603002921609" tags="" title="Workbook/Controls/Load">
-<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/load&quot;&gt;&gt; tooltip=&quot;load a workbook from LocalStorage&quot;&gt; load &lt;/$button&gt;
+<div created="20160603000906577" modified="20160606203652244" tags="" title="Workbook/Controls/Load">
+<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/load&quot;&gt;&gt; tooltip=&quot;load a workbook from LocalStorage&quot;&gt; {{$:/core/images/download-button}} &lt;/$button&gt;
 &lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/workbook/load&quot;&gt;&gt; type=&quot;popup&quot; class=&quot;tt-shadowbox tc-popup-keep&quot; position=&quot;belowleft&quot;&gt;
    ''load a workbook from ~LocalStorage:&lt;br&gt;''
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
@@ -14484,23 +14576,30 @@ exports[&quot;importfile&quot;]= ImportFileWidget;
    &lt;/div&gt;
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20160603000711753" modified="20160603002930449" tags="" title="Workbook/Controls/New">
-<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/new&quot;&gt;&gt; tooltip=&quot;create a new workbook&quot;&gt; new &lt;/$button&gt;
+<div created="20160603000711753" modified="20160606203355149" tags="" title="Workbook/Controls/New">
+<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/new&quot;&gt;&gt; tooltip=&quot;create a new workbook&quot;&gt; {{$:/core/images/new-button}} &lt;/$button&gt;
 &lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/workbook/new&quot;&gt;&gt; type=&quot;popup&quot; class=&quot;tt-shadowbox tc-popup-keep&quot; position=&quot;belowleft&quot;&gt;
    ''create a workbook:&lt;br&gt;''
-   &lt;$edit-text tiddler=&quot;$:/temp/workbook/name&quot;    tag=&quot;input&quot; placeholder=&quot;name&quot;        default=&quot;&quot; style=&quot;width:20em&quot; /&gt;&lt;br&gt;
-   &lt;$edit-text tiddler=&quot;$:/temp/workbook/caption&quot; tag=&quot;input&quot; placeholder=&quot;description&quot; default=&quot;&quot; style=&quot;width:20em&quot; /&gt;&lt;br&gt;
-   &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/workbook/new&quot;&gt;&gt; setTo=&quot;&quot;&gt; cancel &lt;/$button&gt;
-   &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/workbook/new&quot;&gt;&gt; setTo=&quot;&quot;&gt; &amp;emsp; ok &amp;emsp;
-   &lt;$action-setfield $tiddler={{$:/temp/workbook/name}}
-      text=&quot;&quot;&quot;&lt;$tiddler tiddler=&lt;&lt;currentTab&gt;&gt;&gt;{{||Workbook/Viewer}}&lt;/$tiddler&gt;&quot;&quot;&quot;
-      caption={{$:/temp/workbook/caption}}
-      tags=&quot;workbook&quot; /&gt;
-   &lt;/$button&gt;
+   &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+      &lt;div style=&quot;display:inline-block&quot;&gt;,,new workbook name:,,&lt;br&gt;
+         &lt;$edit-text tiddler=&quot;$:/temp/workbook/name&quot;    tag=&quot;input&quot;
+            placeholder=&quot;name&quot;        default=&quot;&quot; style=&quot;width:20em&quot; tooltip=&quot;workbook name&quot;/&gt;
+      &lt;/div&gt;&lt;br&gt;
+      &lt;div style=&quot;display:inline-block&quot;&gt;,,new workbook description:,,&lt;br&gt;
+         &lt;$edit-text tiddler=&quot;$:/temp/workbook/caption&quot; tag=&quot;input&quot;
+            placeholder=&quot;description&quot; default=&quot;&quot; style=&quot;width:20em&quot; tooltip=&quot;workbook description&quot; /&gt;
+      &lt;/div&gt;&lt;br&gt;
+      &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/workbook/new&quot;&gt;&gt; setTo=&quot;&quot;&gt; cancel &lt;/$button&gt;
+      &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/workbook/new&quot;&gt;&gt; setTo=&quot;&quot;&gt; &amp;emsp; ok &amp;emsp;
+         &lt;$action-setfield $tiddler={{$:/temp/workbook/name}}
+            text=&quot;&quot;&quot;&lt;$tiddler tiddler=&lt;&lt;currentTab&gt;&gt;&gt;{{||Workbook/Viewer}}&lt;/$tiddler&gt;&quot;&quot;&quot;
+            caption={{$:/temp/workbook/caption}} tags=&quot;workbook&quot; /&gt;
+      &lt;/$button&gt;
+   &lt;/div&gt;
 &lt;/$reveal&gt;</pre>
 </div>
-<div created="20160603000830930" modified="20160603000854920" tags="" title="Workbook/Controls/Save">
-<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/save&quot;&gt;&gt; tooltip=&quot;save workbook to LocalStorage&quot;&gt; save &lt;/$button&gt;
+<div created="20160603000830930" modified="20160606203635997" tags="" title="Workbook/Controls/Save">
+<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/save&quot;&gt;&gt; tooltip=&quot;save workbook to LocalStorage&quot;&gt; {{$:/core/images/save-button}} &lt;/$button&gt;
 &lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/workbook/save&quot;&gt;&gt; type=&quot;popup&quot; class=&quot;tt-shadowbox tc-popup-keep&quot;&gt;
    ''save workbook to ~LocalStorage:&lt;br&gt;''
    &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
@@ -14516,11 +14615,16 @@ exports[&quot;importfile&quot;]= ImportFileWidget;
    &lt;$list filter=&quot;[tag[workbook]]&quot;&gt;&lt;option&gt;&lt;&lt;currentTiddler&gt;&gt;&lt;/option&gt;&lt;/$list&gt;
 &lt;/$select&gt;</pre>
 </div>
-<div created="20160603001014185" modified="20160603001127373" tags="" title="Workbook/Controls/Share">
-<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/share&quot;&gt;&gt; tooltip=&quot;send workbook by email&quot;&gt; share &lt;/$button&gt;
-&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/workbook/share&quot;&gt;&gt; type=&quot;popup&quot; class=&quot;tt-shadowbox tc-popup-keep&quot;&gt;
+<div created="20160603001014185" modified="20160606203839633" tags="" title="Workbook/Controls/Share">
+<pre>&lt;$button popup=&lt;&lt;qualify &quot;$:/state/popup/workbook/share&quot;&gt;&gt; tooltip=&quot;share a workbook&quot;&gt; {{$:/core/images/export-button}} &lt;/$button&gt;
+&lt;$reveal state=&lt;&lt;qualify &quot;$:/state/popup/workbook/share&quot;&gt;&gt; type=&quot;popup&quot; class=&quot;tt-shadowbox tc-popup-keep&quot; position=&quot;belowleft&quot;&gt;
    ''share a workbook:&lt;br&gt;''
-   &lt;div class=&quot;tt-shadowbox inset&quot;&gt;
+   &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;
+
+* send as email
+* upload to cloud
+* export to file
+* etc.
       &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/workbook/share&quot;&gt;&gt; setTo=&quot;&quot;&gt; cancel &lt;/$button&gt;
       &lt;$button set=&lt;&lt;qualify &quot;$:/state/popup/workbook/share&quot;&gt;&gt; setTo=&quot;&quot;&gt; &amp;emsp; send &amp;emsp;
       &lt;/$button&gt;
@@ -14556,7 +14660,7 @@ exports[&quot;importfile&quot;]= ImportFileWidget;
    &lt;&lt;tabs &quot;[tag[workbook]]&quot;&gt;&gt;
 &lt;/$list&gt;</pre>
 </div>
-<div created="20160518033102309" modified="20160603002254708" title="Workbook/Viewer">
+<div created="20160518033102309" modified="20160606203000412" title="Workbook/Viewer">
 <pre>\define showLogo()
 @@font-size:6em;line-height:100%;&amp;#x1f3e1;@@
 @@display:inline-block; ''//@@font-size:3em;~CurbSide@@//''&lt;br&gt;//your real estate dashboard//@@
@@ -14578,19 +14682,23 @@ exports[&quot;importfile&quot;]= ImportFileWidget;
       &lt;td style=&quot;width:min-content&quot;&gt; Collected data: &lt;/td&gt;
       &lt;td style=&quot;width:max-content;&quot;&gt;
          &lt;$reveal text={{$:/temp/workbook/$(workbookname)$/selected}} type=&quot;nomatch&quot; value=&quot;&quot;&gt;
+         &lt;$list filter=&quot;[prefix{$:/temp/workbook/$(workbookname)$/selected}limit[1]]&quot; variable=&quot;if_exists&quot;&gt;
             &lt;div style=&quot;margin-left:1em&quot;&gt;
                &lt;$button class=&quot;tc-btn-invisible&quot;&gt; {{$:/core/images/cancel-button}}
                   @@font-size:80%;&lt;$text text={{$:/temp/workbook/$(workbookname)$/selected}}/&gt;@@
                   &lt;$action-setfield $tiddler=&quot;$:/temp/workbook/$(workbookname)$/selected&quot; text=&quot;&quot;/&gt;
                &lt;/$button&gt;
             &lt;/div&gt;
+         &lt;/$list&gt;
          &lt;/$reveal&gt;
       &lt;/td&gt;
    &lt;/tr&gt;&lt;tr valign=&quot;top&quot;&gt;
       &lt;td style=&quot;width:min-content&quot;&gt; &lt;div class=&quot;tt-shadowbox inset nowrap&quot;&gt;&lt;&lt;showList&gt;&gt;&lt;/div&gt; &lt;/td&gt;
       &lt;td style=&quot;width:max-content;&quot;&gt;
          &lt;$reveal text={{$:/temp/workbook/$(workbookname)$/selected}} type=&quot;nomatch&quot; value=&quot;&quot;&gt;
-         &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;margin-left:1em&quot;&gt;&lt;&lt;showData&gt;&gt;&lt;/div&gt;
+         &lt;$list filter=&quot;[prefix{$:/temp/workbook/$(workbookname)$/selected}limit[1]]&quot; variable=&quot;if_exists&quot;&gt;
+            &lt;div class=&quot;tt-shadowbox inset&quot; style=&quot;margin-left:1em&quot;&gt;&lt;&lt;showData&gt;&gt;&lt;/div&gt;
+         &lt;/$list&gt;
          &lt;/$reveal&gt;
       &lt;/td&gt;
    &lt;/tr&gt;&lt;/table&gt;
